@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="titlebar_height">54dp</dimen>
+    <dimen name="call_center_height">48.3dp</dimen>
+    <dimen name="DropDownSelector_minHeight">40dp</dimen>
+
+</resources>

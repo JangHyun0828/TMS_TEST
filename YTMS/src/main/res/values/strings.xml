@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">용마로지스</string>
+    <string name="customer_call_center_phone_no">080-338-8000</string>
+    <string name="delivery_call_center_phone_no">02-3290-6466</string>
+
+    <string name="confirm">확인</string>
+    <string name="yes">네</string>
+    <string name="no">아니오</string>
+    <string name="cancel">취소</string>
+    <string name="save">저장</string>
+    <string name="exit">종료</string>
+    <string name="wait_while">잠시만 기다려 주십시요.</string>
+    <string name="exit_app">프로그램을 종료하시겠습니까?</string>
+    <string name="error_network">네트워크 오류</string>
+    <string name="error_response">응답 오류</string>
+
+</resources>

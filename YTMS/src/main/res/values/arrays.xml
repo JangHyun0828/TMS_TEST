@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <integer-array name="SwipeRefreshLayout_ColorScheme">
+        <item>@color/main_theme</item>
+        <item>@color/white</item>
+        <item>@color/bg_gray</item>
+    </integer-array>
+
+</resources>

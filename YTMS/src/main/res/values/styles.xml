@@ -1,0 +1,205 @@
+<resources>
+
+    <!-- android 5.0 미만 -->
+    <style name="AppTheme"
+        parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/main_theme</item>
+        <item name="colorPrimaryDark">@color/main_theme</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+    </style>
+
+    <style name="Scrollbar">
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_thumb</item>
+        <!--<item name="android:scrollbarTrackVertical">@drawable/scrollbar_track</item>-->
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">false</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarSize">2dp</item>
+        <item name="android:scrollbarStyle">insideOverlay</item>
+    </style>
+
+    <style name="DividerLineTable">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.7dp</item>
+        <item name="android:background">#e5e5e5</item>
+    </style>
+
+    <style name="EditTextRoundMain">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">39.7dp</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textSize">16.7sp</item>
+        <item name="android:background">@drawable/selector_edit_round_main</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="EditTextRoundNormal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">33.3dp</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingStart">9dp</item>
+        <item name="android:paddingEnd">9dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:inputType">text</item>
+        <item name="android:lineSpacingExtra">-1sp</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_gray</item>
+        <item name="android:textColor">#4e4d4d</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@drawable/selector_edit_round_normal</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="EditTextTableItem">
+        <item name="android:layout_width">210dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_gray</item>
+        <item name="android:textColor">#4e4d4d</item>
+        <item name="android:textSize">14.8sp</item>
+        <item name="android:background">@drawable/selector_edit_line_gray</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="ButtonRoundLogin">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">39.7dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">16.3dp</item>
+        <item name="android:paddingEnd">16.3dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/selector_button_main_text</item>
+        <item name="android:textSize">17.7sp</item>
+        <item name="android:background">@drawable/selector_button_main</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="ButtonRoundMain">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">43dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@drawable/selector_button_round_rect_blue</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:onClick">onClick</item>
+    </style>
+
+    <style name="ButtonMainMenuFullRound">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_main_menu_text</item>
+        <item name="android:textSize">17.3sp</item>
+        <item name="android:background">@drawable/selector_button_main_menu_full_round</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+        <item name="android:onClick">onClick</item>
+        <item name="android:stateListAnimator">@null</item>
+        <!-- CAUTION stateListAnimator는 View를 최상단에 그리는 기능이 있어서 버튼 위에 공지 개수를 배치해도, 하위로 그려짐 -->
+    </style>
+
+    <style name="ButtonMainMenu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:textColor">@color/selector_button_main_menu_text</item>
+        <item name="android:textSize">17.3sp</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+        <item name="android:onClick">onClick</item>
+        <item name="android:stateListAnimator">@null</item>
+        <!-- CAUTION stateListAnimator는 View를 최상단에 그리는 기능이 있어서 버튼 위에 공지 개수를 배치해도, 하위로 그려짐 -->
+    </style>
+
+    <style name="TextViewMainMenuIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|bottom</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingBottom">17dp</item>
+        <item name="android:textColor">@color/selector_button_main_menu_text</item>
+        <item name="android:textSize">17.3sp</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="TextViewMainMenuIconSmall">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|bottom</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textColor">@color/selector_button_main_menu_text</item>
+        <item name="android:textSize">14.3sp</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="TextViewMainMenuSub">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_main_menu_text</item>
+        <item name="android:textSize">17.3sp</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="TextViewMainMenuSubSmall">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/selector_button_main_menu_text</item>
+        <item name="android:textSize">14.3sp</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="TextViewTableItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">33.4dp</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:textColor">#4e4d4d</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="TextViewTableItemStar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:text">＊</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+    </style>
+
+    <style name="TextViewGuide">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">7.3dp</item>
+        <item name="android:paddingEnd">7.3dp</item>
+        <item name="android:gravity">start|top</item>
+        <item name="android:textColor">#4e4d4d</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+        <!--<item name="android:background">@drawable/bg_guide_text</item>-->
+    </style>
+
+</resources>
