@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 27 // Oreo 8.1
+
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        applicationId "com.neognp.ytms"
+        minSdkVersion 20 // Lollipop 5.0
+        targetSdkVersion 27 // Oreo 8.1
+        versionCode 100
+        versionName "1.0.0"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+
+            // 개발시 주석 해제
+            debuggable true
+
+            // 배포시 주석 해제
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            debuggable false // 배포시 반드시 false 변경: 디버그 메시지 노출되지 않게 설정
+        }
+    }
+
+    lintOptions {
+        abortOnError false // 에러 발생해도 빌드 계속
+        checkReleaseBuilds false // 에러 로그 미표시
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res',
+                            'src/main/res/layouts',
+                            'src/main/res/layouts/popup',
+                            'src/main/res/layouts/drop_down_selector',
+                            'src/main/res/layouts/notification',
+                            'src/main/res/layouts/fcm',
+                            'src/main/res/layouts/web',
+                            'src/main/res/layouts/intro',
+                            'src/main/res/layouts/main',
+                            'src/main/res/layouts/login',
+                            'src/main/res/layouts/notice',
+                            'src/main/res/layouts/shipper/main',
+                            'src/main/res/layouts/shipper/account',
+                            'src/main/res/layouts/shipper/car_req',
+                            'src/main/res/layouts/shipper/car_alloc',
+                            'src/main/res/layouts/shipper/pallets_req',
+                            'src/main/res/layouts/carowner/main',
+                            'src/main/res/layouts/carowner/account',
+                            'src/main/res/layouts/carowner/car_alloc',
+                            'src/main/res/layouts/delivery/main',
+                            'src/main/res/layouts/delivery/car_alloc',
+                            'src/main/res/layouts/delivery/car_loc',
+                            'src/main/res/layouts/delivery/direct'
+                    ]
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // 라이브러리 프로젝트 연동 방식
+    implementation project(':Library')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:multidex:1.0.3'
+    // CAUTION com.google.android.gms 모듈별 버전: https://developers.google.com/android/guides/setup#split
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:gridlayout-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    implementation 'com.github.bumptech.glide:annotations:4.7.1'
+}
