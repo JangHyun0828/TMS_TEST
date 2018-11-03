@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- pressed -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:gravity="left">
+                <bitmap android:gravity="left"
+                    android:src="@drawable/center_m_5_move_bg_1_on" />
+            </item>
+            <item android:top="12.3dp"
+                android:left="21.3dp">
+                <bitmap android:gravity="top|left"
+                    android:src="@drawable/img_center_m_5_ask_on" />
+            </item>
+            <item android:left="69dp">
+                <bitmap android:gravity="right"
+                    android:src="@drawable/center_m_5_move_bg_2_on" />
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- normal -->
+    <item android:state_focused="false"
+        android:state_pressed="false">
+        <layer-list>
+            <item android:gravity="left">
+                <bitmap android:gravity="left"
+                    android:src="@drawable/center_m_5_move_bg_1_on" />
+            </item>
+            <item android:top="12.3dp"
+                android:left="21.3dp">
+                <bitmap android:gravity="top|left"
+                    android:src="@drawable/img_center_m_5_ask_off" />
+            </item>
+            <item android:left="69dp">
+                <bitmap android:gravity="right"
+                    android:src="@drawable/center_m_5_move_bg_2_off" />
+            </item>
+        </layer-list>
+    </item>
+
+</selector>

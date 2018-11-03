@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- pressed -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:gravity="left">
+                <bitmap android:gravity="left"
+                    android:src="@drawable/sub_4_truck_a_bg_1_on" />
+            </item>
+            <item android:top="16.7dp"
+                android:left="25.7dp">
+                <bitmap android:gravity="top|left"
+                    android:src="@drawable/img_sub_4_camera_on" />
+            </item>
+            <item android:left="74dp">
+                <bitmap android:gravity="right"
+                    android:src="@drawable/sub_4_truck_a_bg_2_on" />
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- normal -->
+    <item android:state_focused="false"
+        android:state_pressed="false">
+        <layer-list>
+            <item android:gravity="left">
+                <bitmap android:gravity="left"
+                    android:src="@drawable/sub_4_truck_a_bg_1_off" />
+            </item>
+            <item android:top="16.7dp"
+                android:left="25.7dp">
+                <bitmap android:gravity="top|left"
+                    android:src="@drawable/img_sub_4_camera_off" />
+            </item>
+            <item android:left="74dp">
+                <bitmap android:gravity="right"
+                    android:src="@drawable/sub_4_truck_a_bg_2_off" />
+            </item>
+        </layer-list>
+    </item>
+
+</selector>

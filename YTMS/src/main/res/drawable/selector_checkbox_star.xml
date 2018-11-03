@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- checked -->
+	<item
+		android:state_checked="true"
+		android:drawable="@drawable/center_m_5_sub_4_1_bookmark_star_1" />
+
+	<!-- normal -->
+	<item
+		android:state_checked="false"
+		android:drawable="@drawable/center_m_5_sub_4_1_result_star_off" />
+
+</selector>

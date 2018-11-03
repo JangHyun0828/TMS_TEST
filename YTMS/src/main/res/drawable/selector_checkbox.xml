@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<!-- checked -->
+	<item
+		android:state_checked="true"
+		android:drawable="@drawable/check_box_on" />
+
+	<!-- normal -->
+	<item
+		android:state_checked="false"
+		android:drawable="@drawable/btn_customer_check_box_1_off" />
+
+</selector>
