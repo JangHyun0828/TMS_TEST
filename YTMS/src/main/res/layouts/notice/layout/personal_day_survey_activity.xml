@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/contentScroll"
+        style="@style/Scrollbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.3dp"
+        android:clipToPadding="false"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBtn0"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline">
+
+        <TextView
+            android:id="@+id/contentTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:textSize="16sp"
+            android:textColor="#4d4c4c"
+            android:gravity="center"
+            android:text="2018년 11월 27일 샌드위치데이 휴무 조사"
+            android:background="@drawable/bg_round_stroke_gray"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/bottomBtn0"
+        style="@style/ButtonRoundMain"
+        android:layout_marginTop="8.3dp"
+        android:text="근무"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintEnd_toStartOf="@id/bottomBtn1"
+        app:layout_constraintTop_toBottomOf="@+id/contentScroll"
+        app:layout_constraintBottom_toTopOf="@id/bottomSpace" />
+
+    <Button
+        android:id="@+id/bottomBtn1"
+        style="@style/ButtonRoundMain"
+        android:layout_marginStart="7.3dp"
+        android:text="휴무"
+        app:layout_constraintStart_toEndOf="@id/bottomBtn0"
+        app:layout_constraintTop_toTopOf="@+id/bottomBtn0"
+        app:layout_constraintEnd_toStartOf="@id/bottomBtn2" />
+
+    <Button
+        android:id="@+id/bottomBtn2"
+        style="@style/ButtonRoundMain"
+        android:layout_marginStart="7.3dp"
+        android:text="미정"
+        app:layout_constraintStart_toEndOf="@id/bottomBtn1"
+        app:layout_constraintTop_toTopOf="@+id/bottomBtn0"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline" />
+
+    <Space
+        android:id="@+id/bottomSpace"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:minHeight="8.3dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/bottomBtn0"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

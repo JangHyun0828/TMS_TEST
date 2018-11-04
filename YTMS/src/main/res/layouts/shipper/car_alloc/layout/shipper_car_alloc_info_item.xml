@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="98.7dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="6dp"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/leftBar"
+        android:layout_width="4.3dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8.3dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/main_theme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/dataTxt3" />
+
+    <TextView
+        android:id="@+id/dataTxt0"
+        android:layout_width="0dp"
+        android:layout_height="23.3dp"
+        android:layout_marginTop="3.3dp"
+        android:layout_marginStart="7dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text="하차배정 : 용마로지스 안성물류센터"
+        app:layout_constraintStart_toEndOf="@id/leftBar"
+        app:layout_constraintEnd_toStartOf="@id/callBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt1"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/dataTxt1"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text="배차상태 : 배차완료"
+        app:layout_constraintStart_toStartOf="@id/dataTxt0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt0"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt2"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt2"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text="차량번호 : 경기94아6907"
+        app:layout_constraintStart_toStartOf="@id/dataTxt0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt1"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt3"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text="도착예정 : "
+        app:layout_constraintStart_toStartOf="@id/dataTxt0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt2"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt3"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16sp"
+        android:textColor="@color/main_theme"
+        android:text="PM 5:24 ~ 6:24"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle3"
+        app:layout_constraintStart_toEndOf="@id/dataTitle3"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <Button
+        android:id="@+id/callBtn"
+        android:layout_width="81dp"
+        android:layout_height="51.7dp"
+        android:paddingTop="6.7dp"
+        android:drawableTop="@drawable/img_s_1_phon_1"
+        android:drawablePadding="2.5dp"
+        android:textSize="13.3sp"
+        android:textColor="#ffffff"
+        android:text="차주연결"
+        android:gravity="top|center_horizontal"
+        android:background="@drawable/selector_button_round_rect_sky"
+        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:stateListAnimator="@null"
+        app:layout_constraintTop_toTopOf="@id/leftBar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Space
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="33.3dp"
+        app:layout_constraintTop_toBottomOf="@id/dataTxt3" />
+
+</android.support.constraint.ConstraintLayout>

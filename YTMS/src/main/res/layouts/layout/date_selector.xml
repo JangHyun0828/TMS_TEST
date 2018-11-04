@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="39.7dp"
+    android:background="#c5c8c9">
+
+    <ImageButton
+        android:id="@+id/prevDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:src="@drawable/selector_button_calendar_prev"
+        android:background="@null"
+        android:onClick="onClick"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/curDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8.3dp"
+        android:textSize="16sp"
+        android:textColor="#323332"
+        android:lineSpacingExtra="-1sp"
+        android:text="0000.00.00 (일)"
+        android:drawablePadding="2dp"
+        android:drawableEnd="@drawable/selector_button_calendar"
+        android:background="@null"
+        android:fontFamily="@font/my_nanum_square_b"
+        android:onClick="onClick"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/nextDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:src="@drawable/selector_button_calendar_next"
+        android:background="@null"
+        android:onClick="onClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

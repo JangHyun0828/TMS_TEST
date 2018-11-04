@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="23.3dp"
+    android:paddingRight="23.3dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="타이틀"
+            android:background="@color/main_theme"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+        <TextView
+            android:id="@+id/addressTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20.3dp"
+            android:layout_marginEnd="20.3dp"
+            android:minHeight="29.3dp"
+            android:gravity="start|center_vertical"
+            android:textSize="16.7sp"
+            android:textColor="#4e4d4d"
+            android:text="주소 : "
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+        <TextView
+            android:id="@+id/nameTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:minHeight="29.3dp"
+            android:gravity="start|center_vertical"
+            android:textSize="16.7sp"
+            android:textColor="#4e4d4d"
+            android:text="이름 : "
+            app:layout_constraintStart_toStartOf="@id/addressTxt"
+            app:layout_constraintEnd_toEndOf="@id/addressTxt"
+            app:layout_constraintTop_toBottomOf="@+id/addressTxt"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+        <TextView
+            android:id="@+id/phoneNoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:minHeight="29.3dp"
+            android:gravity="start|center_vertical"
+            android:textSize="16.7sp"
+            android:textColor="#4e4d4d"
+            android:text="전화번호 : "
+            app:layout_constraintStart_toStartOf="@+id/addressTxt"
+            app:layout_constraintTop_toBottomOf="@+id/nameTxt"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+        <TextView
+            android:id="@+id/phoneNoTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="29.3dp"
+            android:gravity="start|center_vertical"
+            android:textSize="16.7sp"
+            android:textColor="#4e4d4d"
+            android:text="010-0000-0000"
+            app:layout_constraintStart_toEndOf="@+id/phoneNoTitle"
+            app:layout_constraintEnd_toEndOf="@+id/addressTxt"
+            app:layout_constraintTop_toBottomOf="@+id/nameTxt"
+            app:layout_constraintBaseline_toBaselineOf="@id/phoneNoTitle"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+        <Button
+            android:id="@+id/btmBtn0"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:minWidth="82dp"
+            android:textSize="16.7sp"
+            android:text="확인"
+            android:textColor="@color/colorPrimary"
+            android:background="@null"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+            app:layout_constraintTop_toBottomOf="@id/phoneNoTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="start|top"
+    android:textSize="16sp"
+    android:textColor="#4d4c4c"
+    android:text="가이드 문구"
+    android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+    android:background="@drawable/bg_guide_text" />
+
+

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    android:clickable="true">
+
+    <include
+        android:id="@+id/dateView"
+        layout="@layout/date_selector"
+        android:layout_width="match_parent"
+        android:layout_height="39.7dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp" />
+
+    <!-- 팔레트 수-->
+
+    <View
+        android:id="@+id/palletsCntBar"
+        android:layout_width="4.3dp"
+        android:layout_height="14dp"
+        android:background="@color/main_theme"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@+id/palletsCntTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/palletsCntTitle" />
+
+    <TextView
+        android:id="@+id/palletsCntTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.3dp"
+        android:layout_marginStart="7dp"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text="팔레트 수 : "
+        app:layout_constraintStart_toEndOf="@id/palletsCntBar"
+        app:layout_constraintTop_toBottomOf="@+id/dateView"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/palletsFixedCntTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/main_theme"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@id/palletsCntTitle"
+        app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
+        app:fontFamily="@font/my_nanum_square_b" />
+
+    <TextView
+        android:id="@+id/palletsCntSuffix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text=" 팔레트"
+        app:layout_constraintStart_toEndOf="@id/palletsFixedCntTxt"
+        app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <include
+        android:id="@+id/palletsInputView"
+        layout="@layout/pallets_input_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/palletsCntTitle" />
+
+    <!-- 차량 대수 -->
+
+    <View
+        android:id="@+id/carCntBar"
+        android:layout_width="4.3dp"
+        android:layout_height="14dp"
+        android:background="@color/main_theme"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@+id/carCntTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/carCntTitle" />
+
+    <TextView
+        android:id="@+id/carCntTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45.7dp"
+        android:layout_marginStart="7dp"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text="차량 대수 : "
+        app:layout_constraintStart_toEndOf="@id/carCntBar"
+        app:layout_constraintTop_toBottomOf="@+id/palletsInputView"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/carsFixedCntTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/main_theme"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@id/carCntTitle"
+        app:layout_constraintBaseline_toBaselineOf="@+id/carCntTitle"
+        app:fontFamily="@font/my_nanum_square_b" />
+
+    <TextView
+        android:id="@+id/carCntSuffix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text=" 대"
+        app:layout_constraintStart_toEndOf="@id/carsFixedCntTxt"
+        app:layout_constraintBaseline_toBaselineOf="@+id/carCntTitle"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <include
+        android:id="@+id/carsInputView"
+        layout="@layout/cars_input_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/carCntTitle" />
+
+    <ImageView
+        android:id="@+id/carCountInputGuideArw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4.3dp"
+        android:src="@drawable/img_sub_1_5_1"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@+id/carCountInputGuideTxt" />
+
+    <TextView
+        android:id="@+id/carCountInputGuideTxt"
+        style="@style/TextViewGuide"
+        android:layout_marginTop="29.7dp"
+        android:text="@string/car_count_change_setting"
+        app:layout_constraintTop_toBottomOf="@+id/carsInputView"
+        app:layout_constraintStart_toEndOf="@id/carCountInputGuideArw"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline" />
+
+    <!-- 저장 / 요청내역 확인 -->
+
+    <Button
+        android:id="@+id/bottomBtn0"
+        style="@style/ButtonRoundMain"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="7dp"
+        android:text="저장"
+        android:background="@drawable/selector_button_round_rect_navy"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintEnd_toStartOf="@id/bottomBtn1"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/bottomBtn1"
+        style="@style/ButtonRoundMain"
+        android:text="요청내역 확인"
+        app:layout_constraintStart_toEndOf="@id/bottomBtn0"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBtn0" />
+
+</android.support.constraint.ConstraintLayout>

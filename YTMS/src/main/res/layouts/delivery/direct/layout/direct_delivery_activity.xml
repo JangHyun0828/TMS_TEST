@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/appbar" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/headerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="18.7dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <!-- appbar_scrolling_view_behavior: appbar영역을 침범하도록 설정 -->
+
+            <android.support.constraint.Guideline
+                android:id="@+id/startGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="10dp" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/endGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="10dp" />
+
+            <EditText
+                android:id="@+id/getOffDateEdit"
+                style="@style/EditTextRoundNormal"
+                android:layout_width="0dp"
+                android:layout_marginTop="6.7dp"
+                android:text="0000.00.00"
+                android:enabled="false"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/startGuideline"
+                app:layout_constraintEnd_toStartOf="@+id/customerNameEdit" />
+
+            <ImageButton
+                android:id="@+id/getOffDateBtn"
+                android:layout_width="32dp"
+                android:layout_height="0dp"
+                android:layout_margin="0.7dp"
+                android:src="@drawable/center_m_5_sub_4_1_search"
+                android:background="@drawable/selector_button_on_edit_round_normal"
+                app:layout_constraintTop_toTopOf="@+id/getOffDateEdit"
+                app:layout_constraintBottom_toBottomOf="@+id/getOffDateEdit"
+                app:layout_constraintEnd_toEndOf="@id/getOffDateEdit" />
+
+            <EditText
+                android:id="@+id/customerNameEdit"
+                style="@style/EditTextRoundNormal"
+                android:layout_width="0dp"
+                android:layout_marginStart="15.3dp"
+                android:hint="거래처명"
+                android:imeOptions="actionDone"
+                app:layout_constraintTop_toTopOf="@id/getOffDateEdit"
+                app:layout_constraintStart_toEndOf="@id/getOffDateEdit"
+                app:layout_constraintEnd_toStartOf="@id/endGuideline" />
+
+            <ImageButton
+                android:id="@+id/customerNameBtn"
+                android:layout_width="32dp"
+                android:layout_height="0dp"
+                android:layout_margin="0.7dp"
+                android:src="@drawable/center_m_5_sub_4_1_search"
+                android:background="@drawable/selector_button_on_edit_round_normal"
+                app:layout_constraintTop_toTopOf="@+id/customerNameEdit"
+                app:layout_constraintBottom_toBottomOf="@+id/customerNameEdit"
+                app:layout_constraintEnd_toEndOf="@id/customerNameEdit" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottomSlide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:clipToPadding="true"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginTop="16.7dp"-->
+            <!--android:background="#ffebebeb" />-->
+
+            <!--<ImageButton-->
+            <!--android:id="@+id/slideHandlerBtn"-->
+            <!--android:layout_width="41dp"-->
+            <!--android:layout_height="33.4dp"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:background="@drawable/bg_circle_slide_handler" />-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/slideHandlerArw"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignTop="@+id/slideHandlerBtn"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:src="@drawable/btn_slide_up" />-->
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!-- bottomsheet slide title-->
+    <com.trevor.library.widget.FontTextView
+        android:id="@+id/btmSlideTitleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/titlebar_height"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="즐겨찾기"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+</RelativeLayout>
+

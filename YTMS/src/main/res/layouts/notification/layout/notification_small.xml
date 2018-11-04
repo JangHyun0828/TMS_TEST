@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- CAUTION Notification 안의 TextView는 style="@style/TextAppearance.Compat.Notification"를 적용해야 제대로 표시됨 -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iconImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/titleTxt"
+        style="@style/TextAppearance.Compat.Notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/iconImg"
+        android:layout_marginStart="13.3dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="제목"
+        android:textColor="#323332"
+        android:textSize="15sp"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/msgTxt"
+        style="@style/TextAppearance.Compat.Notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/titleTxt"
+        android:layout_below="@+id/titleTxt"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="내용"
+        android:textColor="#323332"
+        android:textSize="15sp"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+</RelativeLayout>
