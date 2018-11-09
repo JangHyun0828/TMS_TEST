@@ -161,7 +161,6 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="7dp"
         android:text="저장"
-        android:background="@drawable/selector_button_round_rect_navy"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintEnd_toStartOf="@id/bottomBtn1"
         app:layout_constraintBottom_toBottomOf="parent" />

@@ -123,6 +123,7 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                 requestCountSave();
                 break;
             case R.id.bottomBtn1:
+                startActivity(new Intent(getActivity(), CarRequestHistoryActivity.class));
                 break;
         }
     }
@@ -363,23 +364,8 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
         }
     }
 
-    public void showActivity(Bundle item) {
-        if (item == null)
-            return;
-
-        // Intent intent = new Intent(getActivity(), Activity.class);
-        // intent.putExtra(LibKey.Item, item);
-        // startActivityForResult(intent, REQUEST_CODE_);
-    }
-
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // if (requestCode == REQUEST_CODE_) {
-        // if (resultCode == Activity.RESULT_CANCELED) {
-        //
-        // }
-        // }
     }
 
 }

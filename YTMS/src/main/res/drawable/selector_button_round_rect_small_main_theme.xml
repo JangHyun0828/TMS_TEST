@@ -7,15 +7,15 @@
     android:drawable="@null">
     <shape android:shape="rectangle">
         <solid android:color="#999999" />
-        <corners android:radius="3.3dp" />
+        <corners android:radius="10dp" />
     </shape>
 </item>
 
 <!-- pressed -->
 <item android:state_pressed="true">
     <shape android:shape="rectangle">
-        <solid android:color="#455064" />
-        <corners android:radius="3.3dp" />
+        <solid android:color="#16263f" />
+        <corners android:radius="10dp" />
     </shape>
 </item>
 
@@ -23,8 +23,8 @@
 <item android:state_focused="false"
     android:state_pressed="false">
     <shape android:shape="rectangle">
-        <solid android:color="#0096eb" />
-        <corners android:radius="3.3dp" />
+        <solid android:color="@color/main_theme" />
+        <corners android:radius="10dp" />
     </shape>
 </item>
 

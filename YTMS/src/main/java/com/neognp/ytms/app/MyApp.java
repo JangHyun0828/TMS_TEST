@@ -21,6 +21,7 @@ public class MyApp extends LibApp {
         /* 앱 최초 실행 시, 앱 설정 기본값 세팅 */
         try {
             Setting.putString(LibKey.fontPathNormal, Key.FONT_NORMAL);
+            Setting.putString(LibKey.fontPathMedium, Key.FONT_MEDIUM);
             Setting.putString(LibKey.fontPathBold, Key.FONT_BOLD);
 
             if (!Setting.contains("ip"))

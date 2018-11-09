@@ -162,13 +162,27 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
                 search();
                 break;
             case R.id.prevDateBtn:
+                setPrevDate();
                 break;
             case R.id.curDateBtn:
                 showCalendar();
                 break;
             case R.id.nextDateBtn:
+                setNextDate();
                 break;
         }
+    }
+
+    private void setPrevDate() {
+        curCal.add(Calendar.DAY_OF_YEAR, -1);
+        curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
+        search();
+    }
+
+    private void setNextDate() {
+        curCal.add(Calendar.DAY_OF_YEAR, 1);
+        curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
+        search();
     }
 
     private void showCalendar() {

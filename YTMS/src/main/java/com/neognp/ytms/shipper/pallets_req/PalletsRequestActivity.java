@@ -47,6 +47,9 @@ public class PalletsRequestActivity extends BasicActivity {
         curDateBtn = findViewById(R.id.curDateBtn);
         curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
 
+        ((TextView) findViewById(R.id.callCenterTxt)).setText("팔레트 담당자 연결");
+        ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.pallets_call_center_phone_no));
+
         init();
     }
 
@@ -89,6 +92,7 @@ public class PalletsRequestActivity extends BasicActivity {
                 requestPallets();
                 break;
             case R.id.bottomBtn1:
+                startActivity(new Intent(this, PalletsRequestHistoryActivity.class));
                 break;
             case R.id.callCenterBtn:
                 AppUtil.runCallApp(getString(R.string.delivery_call_center_phone_no), true);

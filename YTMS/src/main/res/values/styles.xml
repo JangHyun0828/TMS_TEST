@@ -18,6 +18,24 @@
         <item name="android:scrollbarStyle">insideOverlay</item>
     </style>
 
+    <style name="TabLayoutMainText"
+        parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textSize">17.3sp</item>
+    </style>
+
+    <style name="TabLayoutMain">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">43.3dp</item>
+        <item name="tabTextAppearance">@style/TabLayoutMainText</item>
+        <item name="tabBackground">@color/colorPrimary</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabTextColor">#cccccc</item>
+        <item name="tabSelectedTextColor">#ffffffff</item>
+        <item name="tabIndicatorColor">#bfd7f1</item>
+        <item name="tabIndicatorHeight">2.7dp</item>
+        <item name="fontPath">fonts/noto_sans_kr_medium_hestia.otf</item>
+    </style>
+
     <style name="DividerLineTable">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.7dp</item>
@@ -149,7 +167,7 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:paddingBottom">15dp</item>
         <item name="android:textColor">@color/selector_button_main_menu_text</item>
-        <item name="android:textSize">14.3sp</item>
+        <item name="android:textSize">13.2sp</item>
         <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
     </style>
 

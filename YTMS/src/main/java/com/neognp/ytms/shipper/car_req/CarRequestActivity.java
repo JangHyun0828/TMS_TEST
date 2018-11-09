@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
@@ -54,6 +55,9 @@ public class CarRequestActivity extends BasicActivity {
 
         //curDateBtn = (Button) findViewById(R.id.curDateBtn);
         //curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
+
+        ((TextView) findViewById(R.id.callCenterTxt)).setText("운송전략팀 연결");
+        ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.delivery_call_center_phone_no));
 
         init();
     }

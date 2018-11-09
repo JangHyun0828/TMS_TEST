@@ -23,6 +23,8 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.carowner.account.AccountEditActivity;
 import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
+import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
+import com.neognp.ytms.carowner.receipt.ReceiptDispatchCheckActivity;
 import com.neognp.ytms.gps.GpsSenderService;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
@@ -167,11 +169,11 @@ public class CarOwnerMainActivity extends BasicActivity {
                 break;
             // 인수증
             case R.id.menuBtn1:
-                //startActivity(new Intent(this, .class), options.toBundle());
+                startActivity(new Intent(this, ReceiptDispatchCheckActivity.class), options.toBundle());
                 break;
             // 정산
             case R.id.menuBtn2:
-                //startActivity(new Intent(this, .class), options.toBundle());
+                startActivity(new Intent(this, FreightChargeHistoryActivity.class), options.toBundle());
                 break;
             // 공지사항
             case R.id.menuBtn3:

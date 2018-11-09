@@ -10,6 +10,6 @@
 	<!-- normal -->
 	<item
 		android:state_checked="false"
-		android:drawable="@drawable/btn_customer_check_box_1_off" />
+		android:drawable="@drawable/check_box_off" />
 
 </selector>

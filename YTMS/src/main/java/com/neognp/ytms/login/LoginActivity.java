@@ -65,7 +65,7 @@ public class LoginActivity extends BasicActivity {
         idSaveCheck = findViewById(R.id.idSaveCheck);
         autoLoginCheck = findViewById(R.id.autoLoginCheck);
 
-        ((TextView) findViewById(R.id.callCenterTxt)).setText("운송전략팀");
+        ((TextView) findViewById(R.id.callCenterTxt)).setText("운송전략팀 연결");
         ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.delivery_call_center_phone_no));
 
         init();

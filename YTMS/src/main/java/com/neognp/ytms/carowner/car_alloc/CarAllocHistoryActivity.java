@@ -37,6 +37,9 @@ import java.util.Calendar;
 
 public class CarAllocHistoryActivity extends BasicActivity {
 
+    public static final int RESULT_INPUT_PALLETS_COUNT = 100;
+    public static final int RESULT_SAVED_RECEIPT = 200;
+
     private boolean onReq;
 
     private Calendar fromCal, toCal;
@@ -169,6 +172,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                 search();
                 break;
             case R.id.prevDateBtn:
+                setPrevDate();
                 break;
             case R.id.fromDateBtn:
                 showCalendar(fromCal);
@@ -177,8 +181,21 @@ public class CarAllocHistoryActivity extends BasicActivity {
                 showCalendar(toCal);
                 break;
             case R.id.nextDateBtn:
+                setNextDate();
                 break;
         }
+    }
+
+    private void setPrevDate() {
+        fromCal.add(Calendar.DAY_OF_YEAR, -1);
+        fromDateBtn.setText(Key.SDF_CAL_DEFAULT.format(fromCal.getTime()));
+        search();
+    }
+
+    private void setNextDate() {
+        toCal.add(Calendar.DAY_OF_YEAR, 1);
+        toDateBtn.setText(Key.SDF_CAL_DEFAULT.format(toCal.getTime()));
+        search();
     }
 
     private void showCalendar(@NonNull final Calendar cal) {
@@ -212,23 +229,23 @@ public class CarAllocHistoryActivity extends BasicActivity {
             }
 
             // 조회 종료일을 오늘 날짜 이후로 설정 금지
-            Calendar todayCal = Calendar.getInstance();
-            todayCal.set(Calendar.HOUR_OF_DAY, 0);
-            todayCal.set(Calendar.MINUTE, 0);
-            todayCal.set(Calendar.SECOND, 0);
-            todayCal.set(Calendar.MILLISECOND, 0);
-            if (toCal.after(todayCal)) {
-                showSnackbar(R.drawable.ic_insert_invitation_black_24dp, "조회 종료일은 오늘 날짜 이후로 지정할 수 없습니다.");
-                return;
-            }
+            //Calendar todayCal = Calendar.getInstance();
+            //todayCal.set(Calendar.HOUR_OF_DAY, 0);
+            //todayCal.set(Calendar.MINUTE, 0);
+            //todayCal.set(Calendar.SECOND, 0);
+            //todayCal.set(Calendar.MILLISECOND, 0);
+            //if (toCal.after(todayCal)) {
+            //    showSnackbar(R.drawable.ic_insert_invitation_black_24dp, "조회 종료일은 오늘 날짜 이후로 지정할 수 없습니다.");
+            //    return;
+            //}
 
             // 조회 기간 최대 31일로 제한
-            long daysInRange = DateUtil.daysBetween(fromCal, toCal);
-            Log.e(TAG, "+ search(): daysInRange=" + daysInRange);
-            if (daysInRange > 31) {
-                showSnackbar(R.drawable.ic_insert_invitation_black_24dp, "조회 기간은 최대 31일 이내로 설정해 주십시요.");
-                return;
-            }
+            //long daysInRange = DateUtil.daysBetween(fromCal, toCal);
+            //Log.e(TAG, "+ search(): daysInRange=" + daysInRange);
+            //if (daysInRange > 31) {
+            //    showSnackbar(R.drawable.ic_insert_invitation_black_24dp, "조회 기간은 최대 31일 이내로 설정해 주십시요.");
+            //    return;
+            //}
 
             requestList(false);
         } catch (Exception e) {
@@ -358,6 +375,9 @@ public class CarAllocHistoryActivity extends BasicActivity {
         }
 
         class ListItemView extends ListAdapter.ItemViewHolder {
+
+            private ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(), R.anim.slide_in_from_right, R.anim.fade_out);
+
             public ListItemView(View itemView) {
                 super(itemView);
             }
@@ -411,20 +431,22 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     // 팔레트 입력
                     Button palletsBtn = itemView.findViewById(R.id.palletsBtn);
                     palletsBtn.setOnClickListener(new View.OnClickListener() {
+                        @SuppressLint ("RestrictedApi")
                         public void onClick(View v) {
-                            ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(), R.anim.slide_in_from_right, R.anim.fade_out);
                             Intent intent = new Intent(CarAllocHistoryActivity.this, PalletsInputActivity.class);
                             intent.putExtras(item);
-                            startActivityForResult(intent, 0);
-                            //startActivityForResult(intent, 0, options.toBundle());
+                            startActivityForResult(intent, 0, options.toBundle());
                         }
                     });
 
                     // 인수증
                     Button takePhotoBtn = itemView.findViewById(R.id.takePhotoBtn);
                     takePhotoBtn.setOnClickListener(new View.OnClickListener() {
+                        @SuppressLint ("RestrictedApi")
                         public void onClick(View v) {
-
+                            Intent intent = new Intent(CarAllocHistoryActivity.this, ReceiptPhotoActivity.class);
+                            intent.putExtras(item);
+                            startActivityForResult(intent, 0, options.toBundle());
                         }
                     });
 
@@ -501,13 +523,21 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
         try {
             // 팔레트 입력 완료
-            if (resultCode == PalletsInputActivity.INPUT_PALLETS_COUNT) {
+            if (resultCode == RESULT_INPUT_PALLETS_COUNT) {
                 if (data == null)
                     return;
 
                 //Bundle item = data.getExtras();
                 //listAdapter.notifyItemChanged(listItems.indexOf(item));
+                search();
+            }
+            // 인수증 저장 완료
+            else if (resultCode == RESULT_SAVED_RECEIPT) {
+                if (data == null)
+                    return;
 
+                //Bundle item = data.getExtras();
+                //listAdapter.notifyItemChanged(listItems.indexOf(item));
                 search();
             }
         } catch (Exception e) {

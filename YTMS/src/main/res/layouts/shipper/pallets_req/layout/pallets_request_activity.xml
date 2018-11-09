@@ -85,7 +85,6 @@
         style="@style/ButtonRoundMain"
         android:layout_marginTop="8.3dp"
         android:text="요청"
-        android:background="@drawable/selector_button_round_rect_navy"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintEnd_toStartOf="@id/bottomBtn1"
@@ -111,18 +110,11 @@
         app:layout_constraintTop_toBottomOf="@id/bottomBtn0"
         app:layout_constraintBottom_toTopOf="@id/callCenterBtn" />
 
-    <Button
+    <include
         android:id="@+id/callCenterBtn"
-        style="@style/ButtonRoundMain"
-        android:layout_marginBottom="6.7dp"
-        android:paddingStart="95dp"
-        android:drawablePadding="10dp"
-        android:gravity="center_vertical|start"
-        android:drawableStart="@drawable/call"
-        android:text="팔레트 담당자 연결"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@id/startGuideline"
-        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        layout="@layout/bottom_center_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/call_center_height"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -19,19 +19,11 @@
         app:layout_constraintTop_toBottomOf="@+id/appbar"
         app:layout_constraintBottom_toTopOf="@+id/callCenterBtn" />
 
-    <Button
+    <include
         android:id="@+id/callCenterBtn"
-        style="@style/ButtonRoundMain"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="6.7dp"
-        android:paddingStart="95dp"
-        android:drawablePadding="10dp"
-        android:gravity="center_vertical|start"
-        android:drawableStart="@drawable/call"
-        android:text="운송전략팀 연결"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        layout="@layout/bottom_center_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/call_center_height"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

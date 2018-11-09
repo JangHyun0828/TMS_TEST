@@ -94,6 +94,7 @@ public class Key {
 
     // <File>
     public static final String FONT_NORMAL = "fonts/noto_sans_kr_regular_hestia.otf";
+    public static final String FONT_MEDIUM = "fonts/noto_sans_kr_medium_hestia.otf";
     public static final String FONT_BOLD = "fonts/noto_sans_kr_bold_hestia.otf";
 
     // <Key>
@@ -111,6 +112,9 @@ public class Key {
     public static final  SimpleDateFormat SDF_PAYLOAD = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
     public static final  SimpleDateFormat SDF_CAL_DEFAULT = new SimpleDateFormat("yyyy.MM.dd", Locale.getDefault());
     public static final  SimpleDateFormat SDF_CAL_WEEKDAY = new SimpleDateFormat("yyyy.MM.dd (E)", Locale.getDefault());
+
+    public static final float DEFAULT_ZOOM_LEVEL_SINGLE_PIN = 15.0f;
+    public static final double DEFAULT_LAT = 37.591327, DEFAULT_LON = 126.7895757; // 용마로지스(주)
 
     // <Value-Enum>
     // public static enum _value {

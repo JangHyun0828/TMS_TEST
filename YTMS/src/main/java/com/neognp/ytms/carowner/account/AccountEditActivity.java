@@ -1,21 +1,25 @@
 package com.neognp.ytms.carowner.account;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.neognp.ytms.login.LoginActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.template.BasicFragment;
 import com.trevor.library.util.AppUtil;
@@ -30,10 +34,13 @@ public class AccountEditActivity extends BasicActivity {
 
     private boolean onReq;
 
+    private String[] tabNames = {"기본정보", "차량정보", "서류첨부"};
+
     Bundle userInfo;
     ArrayList<Bundle> carTypeList;
     ArrayList<Bundle> carTonList;
 
+    private TabLayout tabLayout;
     private ViewPager tabPager;
     private BasicFragment[] tabFragments = new BasicFragment[3];
     private BasicInfoFragment mBasicInfoFragment = new BasicInfoFragment();
@@ -44,7 +51,7 @@ public class AccountEditActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_edit_activity);
 
-        setTitleBar("개인정보 수정", R.drawable.selector_button_back, 0, 0);
+        setTitleBar("개인정보 수정");
 
         tabFragments[0] = mBasicInfoFragment;
         tabFragments[1] = mCarInfoFragment;
@@ -55,13 +62,16 @@ public class AccountEditActivity extends BasicActivity {
         tabPager.setOffscreenPageLimit(3); // swipe 시 Fragment 새로 생성되지 않게 개수 고정
         tabPager.addOnPageChangeListener(mPageChangeListener);
 
-        tabPager.setCurrentItem(0);
-        ((RadioButton) findViewById(R.id.tabBtn0)).setChecked(true);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(tabPager);
 
-        // TEST
-        //tabPager.setCurrentItem(1);
+        ((TextView) findViewById(R.id.callCenterTxt)).setText("운송전략팀 연결");
+        ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.delivery_call_center_phone_no));
 
         init();
+
+        // TEST
+        //tabPager.setCurrentItem(2);
     }
 
     protected void onResume() {
@@ -90,7 +100,7 @@ public class AccountEditActivity extends BasicActivity {
         }
 
         public CharSequence getPageTitle(int position) {
-            return "";
+            return tabNames[position];
         }
     };
 
@@ -99,7 +109,6 @@ public class AccountEditActivity extends BasicActivity {
         }
 
         public void onPageSelected(int position) {
-            selectTab(position);
         }
 
         public void onPageScrollStateChanged(int state) {
@@ -114,15 +123,8 @@ public class AccountEditActivity extends BasicActivity {
             case R.id.titleLeftBtn0:
                 finish();
                 break;
-            case R.id.tabBtn0:
-                selectTab(0);
-                break;
-            case R.id.tabBtn1:
-                selectTab(1);
-                break;
-            case R.id.tabBtn2:
-                selectTab(2);
-                break;
+            case R.id.titleRightBtn1:
+                requestLoginActivity();
             case R.id.saveBtn:
                 finish();
                 break;
@@ -133,28 +135,6 @@ public class AccountEditActivity extends BasicActivity {
                 AppUtil.runCallApp(getString(R.string.delivery_call_center_phone_no), true);
                 break;
         }
-    }
-
-    private void selectTab(int position) {
-        switch (position) {
-            case 0:
-                ((RadioButton) findViewById(R.id.tabBtn0)).setChecked(true);
-                ((RadioButton) findViewById(R.id.tabBtn1)).setChecked(false);
-                ((RadioButton) findViewById(R.id.tabBtn2)).setChecked(false);
-                break;
-            case 1:
-                ((RadioButton) findViewById(R.id.tabBtn0)).setChecked(false);
-                ((RadioButton) findViewById(R.id.tabBtn1)).setChecked(true);
-                ((RadioButton) findViewById(R.id.tabBtn2)).setChecked(false);
-                break;
-            case 2:
-                ((RadioButton) findViewById(R.id.tabBtn0)).setChecked(false);
-                ((RadioButton) findViewById(R.id.tabBtn1)).setChecked(false);
-                ((RadioButton) findViewById(R.id.tabBtn2)).setChecked(true);
-                break;
-        }
-
-        tabPager.setCurrentItem(position);
     }
 
     @SuppressLint ("StaticFieldLeak")
@@ -229,13 +209,13 @@ public class AccountEditActivity extends BasicActivity {
         });
     }
 
-    public void showActivity(Bundle args) {
-        if (args == null)
-            return;
-
-        // Intent intent = new Intent(this, Activity.class);
-        // intent.putExtra(LibKey.args, args);
-        // startActivityForResult(intent, REQUEST_);
+    private void requestLoginActivity() {
+        finish();
+        Intent intent = new Intent(getContext(), LoginActivity.class);
+        // 앱 새로 실행 | 모든 Activity 삭제
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.fade_in, R.anim.fade_out);
+        startActivity(intent, options.toBundle());
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

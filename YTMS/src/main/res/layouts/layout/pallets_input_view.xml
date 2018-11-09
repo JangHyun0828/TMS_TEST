@@ -41,7 +41,7 @@
         android:textColor="#4e4d4d"
         android:lineSpacingExtra="3.3sp"
         android:background="@drawable/bg_input_rect_round_white_stroke_gray"
-        android:fontFamily="@font/my_nanum_square_b"
+        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
         android:text="0"
         app:layout_constraintTop_toTopOf="@id/minusBtn"
         app:layout_constraintStart_toEndOf="@id/minusBtn"

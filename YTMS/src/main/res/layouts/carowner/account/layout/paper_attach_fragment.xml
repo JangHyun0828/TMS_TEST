@@ -6,7 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:paddingTop="15.3dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="15.3dp"
+    android:background="@color/bg_gray">
 
     <ImageView
         android:layout_width="match_parent"
@@ -38,6 +42,7 @@
     <View
         android:id="@+id/columnDivider"
         style="@style/DividerLineTable"
+        android:layout_height="1.7dp"
         android:layout_marginStart="7dp"
         android:layout_marginEnd="7dp"
         app:layout_constraintTop_toBottomOf="@+id/column0Txt" />
@@ -66,9 +71,9 @@
             <ImageButton
                 android:id="@+id/cameraBtn0"
                 android:layout_width="210dp"
-                android:layout_height="28.3dp"
-                android:src="@drawable/img_join_membership_3_camera"
-                android:background="@drawable/selector_button_round_wide_blue"
+                android:layout_height="40dp"
+                android:src="@drawable/camera_check"
+                android:background="@drawable/selector_button_round_rect_wide_main_theme"
                 app:layout_gravity="center_vertical" />
 
             <View
@@ -84,9 +89,9 @@
             <ImageButton
                 android:id="@+id/cameraBtn1"
                 android:layout_width="210dp"
-                android:layout_height="28.3dp"
-                android:src="@drawable/img_join_membership_3_camera"
-                android:background="@drawable/selector_button_round_wide_blue"
+                android:layout_height="40dp"
+                android:src="@drawable/camera_check"
+                android:background="@drawable/selector_button_round_rect_wide_main_theme"
                 app:layout_gravity="center_vertical" />
 
             <View
@@ -102,9 +107,9 @@
             <ImageButton
                 android:id="@+id/cameraBtn2"
                 android:layout_width="210dp"
-                android:layout_height="28.3dp"
-                android:src="@drawable/img_join_membership_3_camera"
-                android:background="@drawable/selector_button_round_wide_blue"
+                android:layout_height="40dp"
+                android:src="@drawable/camera_check"
+                android:background="@drawable/selector_button_round_rect_wide_main_theme"
                 app:layout_gravity="center_vertical" />
 
             <View
@@ -120,9 +125,9 @@
             <ImageButton
                 android:id="@+id/cameraBtn3"
                 android:layout_width="210dp"
-                android:layout_height="28.3dp"
-                android:src="@drawable/img_join_membership_3_camera"
-                android:background="@drawable/selector_button_round_wide_blue"
+                android:layout_height="40dp"
+                android:src="@drawable/camera_check"
+                android:background="@drawable/selector_button_round_rect_wide_main_theme"
                 app:layout_gravity="center_vertical" />
 
             <View
@@ -138,9 +143,9 @@
             <ImageButton
                 android:id="@+id/cameraBtn4"
                 android:layout_width="210dp"
-                android:layout_height="28.3dp"
-                android:src="@drawable/img_join_membership_3_camera"
-                android:background="@drawable/selector_button_round_wide_blue"
+                android:layout_height="40dp"
+                android:src="@drawable/camera_check"
+                android:background="@drawable/selector_button_round_rect_wide_main_theme"
                 app:layout_gravity="center_vertical" />
 
             <View
@@ -156,9 +161,9 @@
             <ImageButton
                 android:id="@+id/cameraBtn5"
                 android:layout_width="210dp"
-                android:layout_height="28.3dp"
-                android:src="@drawable/img_join_membership_3_camera"
-                android:background="@drawable/selector_button_round_wide_blue"
+                android:layout_height="40dp"
+                android:src="@drawable/camera_check"
+                android:background="@drawable/selector_button_round_rect_wide_main_theme"
                 app:layout_gravity="center_vertical" />
 
             <View
@@ -174,9 +179,9 @@
             <ImageButton
                 android:id="@+id/cameraBtn6"
                 android:layout_width="210dp"
-                android:layout_height="28.3dp"
-                android:src="@drawable/img_join_membership_3_camera"
-                android:background="@drawable/selector_button_round_wide_blue"
+                android:layout_height="40dp"
+                android:src="@drawable/camera_check"
+                android:background="@drawable/selector_button_round_rect_wide_main_theme"
                 app:layout_gravity="center_vertical" />
 
             <View
@@ -192,9 +197,9 @@
             <ImageButton
                 android:id="@+id/cameraBtn7"
                 android:layout_width="210dp"
-                android:layout_height="28.3dp"
-                android:src="@drawable/img_join_membership_3_camera"
-                android:background="@drawable/selector_button_round_wide_blue"
+                android:layout_height="40dp"
+                android:src="@drawable/camera_check"
+                android:background="@drawable/selector_button_round_rect_wide_main_theme"
                 app:layout_gravity="center_vertical" />
 
         </android.support.v7.widget.GridLayout>
