@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.Binder;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -20,8 +19,15 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.Key;
+import com.neognp.ytms.app.MyApp;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -107,6 +113,8 @@ public class GpsSenderService extends Service {
 
         startForeground(1, notification);
 
+        initLocationService();
+
         startTracking();
     }
 
@@ -126,20 +134,60 @@ public class GpsSenderService extends Service {
         return true;
     }
 
-    private SimpleDateFormat payloadSdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
+    // https://stackoverflow.com/questions/46481789/android-locationservices-fusedlocationapi-deprecated
 
-    @SuppressLint ("HandlerLeak")
-    public Handler msgHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            String curDate = payloadSdf.format(new Date());
-            Log.i(TAG, "+ run(): " + curDate);
-            Toast.makeText(getApplicationContext(), "YTMS Service: " + curDate, Toast.LENGTH_SHORT).show();
-            msgHandler.sendEmptyMessageDelayed(0, 5000);
+    private FusedLocationProviderClient locationClient;
+    private LocationRequest locationRequest;
+    private LocationCallback locationCallback;
+    private Location location;
+
+    private void initLocationService() {
+        try {
+            locationClient = LocationServices.getFusedLocationProviderClient(MyApp.get());
+            locationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    Log.i(TAG, "+ onSuccess(): location=" + location);
+                    Toast.makeText(getApplicationContext(), "onSuccess(): " + location, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            locationRequest = LocationRequest.create();
+            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            locationRequest.setInterval(5000);
+            locationRequest.setSmallestDisplacement(1); // 1미터 이동시 마다 업데이트
+            locationRequest.setFastestInterval(1000);
+
+            locationCallback = new LocationCallback() {
+                @Override
+                public void onLocationResult(LocationResult locationResult) {
+                    for (Location location : locationResult.getLocations()) {
+                        Log.i(TAG, "+ onLocationResult(): location=" + location);
+                        Toast.makeText(getApplicationContext(), "onLocationResult(): " + location, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
+        } catch (SecurityException ex) {
+            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    };
+    }
 
     public void startTracking() {
         msgHandler.sendEmptyMessageDelayed(0, 5000);
+
+        //if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        //    // TODO: Consider calling
+        //    //    ActivityCompat#requestPermissions
+        //    // here to request the missing permissions, and then overriding
+        //    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+        //    //                                          int[] grantResults)
+        //    // to handle the case where the user grants the permission. See the documentation
+        //    // for ActivityCompat#requestPermissions for more details.
+        //    return;
+        //}
+        locationClient.requestLocationUpdates(locationRequest, locationCallback, null);
     }
 
     public void stopTracking() {
@@ -152,5 +200,17 @@ public class GpsSenderService extends Service {
         intent.putExtra("location", location);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
+
+    private SimpleDateFormat payloadSdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
+
+    @SuppressLint ("HandlerLeak")
+    public Handler msgHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            String curDate = payloadSdf.format(new Date());
+            Log.i(TAG, "+ run(): " + curDate);
+            Toast.makeText(getApplicationContext(), "YTMS Service: " + curDate, Toast.LENGTH_SHORT).show();
+            msgHandler.sendEmptyMessageDelayed(0, 5000);
+        }
+    };
 
 }
