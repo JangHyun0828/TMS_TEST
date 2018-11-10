@@ -110,8 +110,8 @@ public class ReceiptPhotoActivity extends BasicActivity implements YTMSFileUploa
 
             JSONObject payload = YTMSRestRequestor.buildPayload();
             payload.put("dispatchNo", args.getString("DISPATCH_NO"));
-            String receipt_yn = ((CheckBox) findViewById(R.id.noReceiptCheck)).isChecked() ? "n" : "y";
-            payload.put("file_yn", receipt_yn);
+            String fileYn = ((CheckBox) findViewById(R.id.noReceiptCheck)).isChecked() ? "n" : "y";
+            payload.put("fileYn", fileYn);
             //String filePath = reduceUploadFileSize();
             String filePath = picPath;
             // TEST

@@ -38,8 +38,6 @@ import com.trevor.library.util.Setting;
 
 import org.json.JSONObject;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class CarLocationActivity extends BasicActivity implements
         //@formatter:off
         View.OnClickListener,
@@ -88,10 +86,10 @@ public class CarLocationActivity extends BasicActivity implements
             args = getIntent().getExtras();
 
             // TEST
-            args = new Bundle();
-            args.putDouble("lat", Key.DEFAULT_LAT);
-            args.putDouble("lon", Key.DEFAULT_LON);
-            args.putString("CAR_NO", "경기99바1234");
+            //args = new Bundle();
+            //args.putDouble("lat", Key.DEFAULT_LAT);
+            //args.putDouble("lon", Key.DEFAULT_LON);
+            //args.putString("CAR_NO", "경기99바1234");
 
             if (args == null)
                 return;
@@ -140,7 +138,7 @@ public class CarLocationActivity extends BasicActivity implements
 
     @Override
     public void onCameraIdle() {
-        requestMapCenterAddress();
+        //requestMapCenterAddress();
     }
 
     @Override
@@ -161,48 +159,48 @@ public class CarLocationActivity extends BasicActivity implements
         onMarkerClick(marker);
     }
 
-    private final AtomicInteger addrReqSeq = new AtomicInteger();
-
-    @SuppressLint ("StaticFieldLeak")
-    private void requestMapCenterAddress() {
-        final int reqSeqId = addrReqSeq.incrementAndGet();
-        final double reqCenterLat = mMap.getCameraPosition().target.latitude;
-        final double reqCenterLon = mMap.getCameraPosition().target.longitude;
-
-        Log.e(TAG, "+ requestMapCenterAddress(): reqSeqId=" + reqSeqId);
-
-        new AsyncTask<Void, Void, String>() {
-            protected String doInBackground(Void... arg0) {
-                String reqAddress = "";
-                try {
-                    reqAddress = MapUtil.getAddress(reqCenterLat, reqCenterLon);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return reqAddress;
-            }
-
-            protected void onPostExecute(String reqAddress) {
-                try {
-                    updateMapCenterAddress(reqSeqId, reqCenterLat, reqCenterLon, reqAddress);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }.execute();
-    }
-
-    private synchronized void updateMapCenterAddress(int reqSeqId, double reqCenterLat, double reqCenterLon, String reqAddress) {
-        int curSeqId = addrReqSeq.get();
-        Log.e(TAG, "+ updateMapCenterAddress(): reqSeqId/curSeqId/reqAddress: " + reqSeqId + "/" + curSeqId + "/" + reqAddress);
-
-        if (reqSeqId != curSeqId)
-            return;
-
-        centerLat = reqCenterLat;
-        centerLon = reqCenterLon;
-        ((TextView) findViewById(R.id.carAddressTxt)).setText(reqAddress);
-    }
+    //private final AtomicInteger addrReqSeq = new AtomicInteger();
+    //
+    //@SuppressLint ("StaticFieldLeak")
+    //private void requestMapCenterAddress() {
+    //    final int reqSeqId = addrReqSeq.incrementAndGet();
+    //    final double reqCenterLat = mMap.getCameraPosition().target.latitude;
+    //    final double reqCenterLon = mMap.getCameraPosition().target.longitude;
+    //
+    //    Log.e(TAG, "+ requestMapCenterAddress(): reqSeqId=" + reqSeqId);
+    //
+    //    new AsyncTask<Void, Void, String>() {
+    //        protected String doInBackground(Void... arg0) {
+    //            String reqAddress = "";
+    //            try {
+    //                reqAddress = MapUtil.getAddress(reqCenterLat, reqCenterLon);
+    //            } catch (Exception e) {
+    //                e.printStackTrace();
+    //            }
+    //            return reqAddress;
+    //        }
+    //
+    //        protected void onPostExecute(String reqAddress) {
+    //            try {
+    //                updateMapCenterAddress(reqSeqId, reqCenterLat, reqCenterLon, reqAddress);
+    //            } catch (Exception e) {
+    //                e.printStackTrace();
+    //            }
+    //        }
+    //    }.execute();
+    //}
+    //
+    //private synchronized void updateMapCenterAddress(int reqSeqId, double reqCenterLat, double reqCenterLon, String reqAddress) {
+    //    int curSeqId = addrReqSeq.get();
+    //    Log.e(TAG, "+ updateMapCenterAddress(): reqSeqId/curSeqId/reqAddress: " + reqSeqId + "/" + curSeqId + "/" + reqAddress);
+    //
+    //    if (reqSeqId != curSeqId)
+    //        return;
+    //
+    //    centerLat = reqCenterLat;
+    //    centerLon = reqCenterLon;
+    //    ((TextView) findViewById(R.id.carAddressTxt)).setText(reqAddress);
+    //}
 
     public double[] getMapCenterLocation() {
         return new double[] {centerLat, centerLon};
@@ -237,38 +235,41 @@ public class CarLocationActivity extends BasicActivity implements
                     JSONObject payloadJson = null;
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
-                        //payloadJson.put("", );
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("carCd", args.getString("CAR_CD"));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_LOCATION, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
                     onReq = false;
-                    dismissLoadingDialog();
+                    //dismissLoadingDialog();
 
                     try {
-                        //Bundle resBody = response.getBundle(Key.resBody);
-                        //String result_code = resBody.getString(Key.result_code);
-                        //String result_msg = resBody.getString(Key.result_msg);
-                        //
-                        //if (result_code.equals("200")) {
-                        //   addMarker(car);
-                        //} else {
-                        //    showToast(result_msg + "(result_code:" + result_msg + ")", true);
-                        //}
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            Bundle data = resBody.getBundle("data");
+                            addMarker(data);
+                            requestMarkerAddress(data);
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
                     } catch (Exception e) {
-                        //e.printStackTrace();
-                        //showToast(e.getMessage(), false);
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
                     }
 
                     // TEST
-                    Bundle car = new Bundle();
-                    car.putDouble("lat", Key.DEFAULT_LAT);
-                    car.putDouble("lon", Key.DEFAULT_LON);
-                    car.putString("CAR_NO", "경기99바1234");
-                    addMarker(car);
+                    //Bundle car = new Bundle();
+                    //car.putDouble("LAT", Key.DEFAULT_LAT);
+                    //car.putDouble("LON", Key.DEFAULT_LON);
+                    //car.putString("CAR_NO", "경기99바1234");
+                    //addMarker(car);
                 }
             }.execute();
         } catch (Exception e) {
@@ -281,8 +282,8 @@ public class CarLocationActivity extends BasicActivity implements
             if (mMap == null || car == null)
                 return;
 
-            double loc_latitude = car.getDouble("lat");
-            double loc_longitude = car.getDouble("lon");
+            double loc_latitude = Double.parseDouble(car.getString("LAT"));
+            double loc_longitude = Double.parseDouble(car.getString("LON"));
             final LatLng loc = new LatLng(loc_latitude, loc_longitude);
 
             final String name = car.getString("CAR_NO", "");
@@ -326,12 +327,53 @@ public class CarLocationActivity extends BasicActivity implements
                     icon(BitmapDescriptorFactory.fromBitmap(bmp)).
                     anchor(0.5f, 1));
 
+            //Log.d(TAG, "+ addMarker(): marker=" + marker);
+
             // 차량 위치로 지도 중심 이동
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(loc_latitude, loc_longitude), Key.DEFAULT_ZOOM_LEVEL_SINGLE_PIN));
-
-            //Log.d(TAG, "+ addMarker(): marker=" + marker);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestMarkerAddress(Bundle car) {
+        if (onReq)
+            return;
+
+        if (car == null)
+            return;
+
+        try {
+            double lat = Double.parseDouble(car.getString("LAT"));
+            double lon = Double.parseDouble(car.getString("LON"));
+
+            new AsyncTask<Void, Void, String>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                }
+
+                protected String doInBackground(Void... arg0) {
+                    String reqAddress = "";
+                    try {
+                        reqAddress = MapUtil.getAddress(lat, lon);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return reqAddress;
+                }
+
+                protected void onPostExecute(String markerAddress) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+                    try {
+                        ((TextView) findViewById(R.id.carAddressTxt)).setText(markerAddress);
+                    } catch (Exception e) {
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
         }
     }
 

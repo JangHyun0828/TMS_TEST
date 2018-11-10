@@ -27,13 +27,40 @@
         android:paddingEnd="99dp"
         android:paddingBottom="0.6dp"
         android:textSize="14.3dp"
-        android:text="배차대수 0대"
         android:background="@drawable/selector_button_delivery"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/topUserInfoView"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/menuBtn0SubTitle0"
+        style="@style/TextViewMainMenuSubSmall"
+        android:layout_marginEnd="2.5dp"
+        android:text="배차대수"
+        app:layout_constraintEnd_toStartOf="@id/menuBtn0CntTxt0"
+        app:layout_constraintTop_toTopOf="@+id/menuBtn0"
+        app:layout_constraintBottom_toBottomOf="@id/menuBtn0" />
+
+    <TextView
+        android:id="@+id/menuBtn0CntTxt0"
+        style="@style/TextViewMainMenuSubSmall"
+        android:layout_marginEnd="1dp"
+        android:textColor="@color/main_theme"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@id/menuBtn0CntUnit0"
+        app:layout_constraintTop_toTopOf="@+id/menuBtn0"
+        app:layout_constraintBottom_toBottomOf="@id/menuBtn0"/>
+
+    <TextView
+        android:id="@+id/menuBtn0CntUnit0"
+        style="@style/TextViewMainMenuSubSmall"
+        android:layout_marginEnd="98.3dp"
+        android:text="대"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn0"
+        app:layout_constraintTop_toTopOf="@+id/menuBtn0"
+        app:layout_constraintBottom_toBottomOf="@id/menuBtn0"/>
 
     <TextView
         android:id="@+id/menuBtn0IconTxt"

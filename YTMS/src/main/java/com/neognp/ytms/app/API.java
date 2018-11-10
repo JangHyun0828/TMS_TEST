@@ -10,6 +10,7 @@ public class API {
     public static final String URL_NOTICE_NEW_COUNT = "/common/notice/count";
     public static final String URL_NOTICE = "/common/notice/list";
     public static final String URL_NOTICE_READ = "/common/notice/log";
+    public static final String URL_LOCATION = "/common/location";
 
     public static final String URL_SHIPPER_ALLOC_CNT = "/cust/dispatch/count";
     public static final String URL_SHIPPER_CAR_REQUEST_CNT = "/cust/select/car";
@@ -25,5 +26,8 @@ public class API {
     public static final String URL_CAR_ALLOC_LIST = "/car/dispatch/list";
     public static final String URL_CAR_PALLETS_INPUT = "/car/input/pallet";
     public static final String URL_CAR_RECEIPT_SAVE = "/car/send/receipt";
+
+    public static final String URL_DELIVERY_ALLOC_CNT = "/dc/dispatch/count";
+    public static final String URL_DELIVERY_ALLOC_LIST = "/dc/dispatch/list";
 
 }

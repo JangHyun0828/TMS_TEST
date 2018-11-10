@@ -229,7 +229,7 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
             if (Key.getUserInfo() == null)
                 return;
 
-            final String fromDt = Key.SDF_PAYLOAD.format(curCal.getTime());
+            final String orderDt = Key.SDF_PAYLOAD.format(curCal.getTime());
 
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
@@ -245,16 +245,17 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        payloadJson.put("fromDt", fromDt);
+                        payloadJson.put("deliveryCd", Key.getUserInfo().getString("CLIENT_CD"));
+                        payloadJson.put("orderDt", orderDt);
 
                         // TEST
-                        payloadJson.put("userCd", "CAR0001");
-                        payloadJson.put("fromDt", "20180923");
-                        payloadJson.put("toDt", fromDt);
+                        //payloadJson.put("userCd", "CAR0001");
+                        //payloadJson.put("fromDt", "20180923");
+                        //payloadJson.put("toDt", fromDt);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_CAR_ALLOC_LIST, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_ALLOC_LIST, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -280,7 +281,7 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
                         showToast(e.getMessage(), false);
                     }
 
-                    // TEST
+                    //// TEST
                     //ArrayList<Bundle> list = new ArrayList<Bundle>();
                     //for (int i = 0; i < 10; i++) {
                     //    Bundle item = new Bundle();
@@ -374,7 +375,7 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
                         public void onClick(View v) {
                             Intent intent = new Intent(DeliveryCarAllocInfoActivity.this, CarLocationActivity.class);
                             intent.putExtras((Bundle) item.clone());
-                            startActivity(new Intent(DeliveryCarAllocInfoActivity.this, CarLocationActivity.class));
+                            startActivity(intent);
                         }
                     });
 

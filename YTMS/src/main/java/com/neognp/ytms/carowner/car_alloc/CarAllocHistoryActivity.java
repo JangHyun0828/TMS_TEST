@@ -309,15 +309,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         e.printStackTrace();
                         showToast(e.getMessage(), false);
                     }
-
-                    // TEST
-                    //ArrayList<Bundle> list = new ArrayList<Bundle>();
-                    //for (int i = 0; i < 10; i++) {
-                    //    Bundle item = new Bundle();
-                    //    item.putInt("order_type", i % 2);
-                    //    list.add(item);
-                    //}
-                    //addListItems(list);
                 }
             }.execute();
         } catch (Exception e) {
@@ -424,7 +415,11 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
                     dataTxt5.setText(content);
                     dataTxt5.setOnClickListener(new View.OnClickListener() {
+                        @SuppressLint ("RestrictedApi")
                         public void onClick(View v) {
+                            Intent intent = new Intent(CarAllocHistoryActivity.this, ForkLiftCheckActivity.class);
+                            intent.putExtras((Bundle) item.clone());
+                            startActivityForResult(intent, 0, options.toBundle());
                         }
                     });
 

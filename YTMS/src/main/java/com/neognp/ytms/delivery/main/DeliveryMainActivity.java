@@ -159,10 +159,11 @@ public class DeliveryMainActivity extends BasicActivity {
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("deliveryCd", Key.getUserInfo().getString("CLIENT_CD"));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_CAR_ALLOC_CNT, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_ALLOC_CNT, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -175,9 +176,19 @@ public class DeliveryMainActivity extends BasicActivity {
 
                         if (result_code.equals("200")) {
                             Bundle data = resBody.getBundle(Key.data);
-                            ((TextView) findViewById(R.id.menuBtn1CntTxt0)).setText(data.getString("TOTAL_CNT", ""));
-                            ((TextView) findViewById(R.id.menuBtn1CntTxt1)).setText(data.getString("PROGRESS_CNT", ""));
-                            ((TextView) findViewById(R.id.menuBtn1CntTxt2)).setText(data.getString("FINISH_CNT", ""));
+
+                            // 배차대수
+                            ((TextView) findViewById(R.id.menuBtn0CntTxt0)).setText(data.getString("TRANS_CNT", ""));
+
+                            // 상태
+                            ((TextView) findViewById(R.id.menuBtn1CntTxt0)).setText(data.getString("READY_CNT", ""));
+                            ((TextView) findViewById(R.id.menuBtn1CntTxt1)).setText(data.getString("MOVE_CNT", ""));
+                            ((TextView) findViewById(R.id.menuBtn1CntTxt2)).setText(data.getString("ARRIVE_CNT", ""));
+
+                            // 반품
+                            ((TextView) findViewById(R.id.menuBtn2CntTxt0)).setText(data.getString("TOTAL_CNT", ""));
+                            ((TextView) findViewById(R.id.menuBtn2CntTxt1)).setText(data.getString("PROGRESS_CNT", ""));
+                            ((TextView) findViewById(R.id.menuBtn2CntTxt2)).setText(data.getString("FINISH_CNT", ""));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

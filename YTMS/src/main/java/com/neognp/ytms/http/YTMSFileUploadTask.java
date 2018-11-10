@@ -243,7 +243,7 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
             String value = params.getString(name);
 
             os.write((delimiter + boundary + "\r\n").getBytes());
-            os.write("Content-Type: text/plain\r\n".getBytes());
+            os.write("Content-Type: application/json\r\n".getBytes());
             os.write(("Content-Disposition: form-data; name=\"" + name + "\"\r\n").getBytes());
             os.write(("\r\n" + value + "\r\n").getBytes());
             os.flush();

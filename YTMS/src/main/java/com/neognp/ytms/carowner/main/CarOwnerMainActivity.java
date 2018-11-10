@@ -12,6 +12,8 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Settings;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
@@ -301,13 +303,24 @@ public class CarOwnerMainActivity extends BasicActivity {
         }
     }
 
-    public void showActivity(Bundle args) {
-        if (args == null)
-            return;
+    public void showGpsSnackbar() {
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "", Snackbar.LENGTH_SHORT);
+        Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
+        layout.setPadding(0, 0, 0, 0);
 
-        // Intent intent = new Intent(this, Activity.class);
-        // intent.putExtra(LibKey.args, args);
-        // startActivityForResult(intent, REQUEST_);
+        TextView snackbarV = (TextView) View.inflate(this, R.layout.notice_snackbar, null);
+        snackbarV.setCompoundDrawablesWithIntrinsicBounds(R.drawable.sharp_gps_off_black_36, 0, 0, 0);
+        snackbarV.setText(R.string.enable_gps);
+        snackbarV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+            }
+        });
+        layout.addView(snackbarV, 0);
+
+        snackbar.show();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
