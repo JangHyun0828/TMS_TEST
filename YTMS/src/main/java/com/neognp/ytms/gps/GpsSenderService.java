@@ -113,7 +113,7 @@ public class GpsSenderService extends Service {
 
         startForeground(1, notification);
 
-        initLocationService();
+        //initLocationService();
 
         startTracking();
     }
@@ -187,7 +187,7 @@ public class GpsSenderService extends Service {
         //    // for ActivityCompat#requestPermissions for more details.
         //    return;
         //}
-        locationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+        //locationClient.requestLocationUpdates(locationRequest, locationCallback, null);
     }
 
     public void stopTracking() {
