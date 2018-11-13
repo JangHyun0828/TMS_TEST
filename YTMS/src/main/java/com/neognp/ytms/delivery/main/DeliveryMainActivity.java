@@ -42,7 +42,7 @@ public class DeliveryMainActivity extends BasicActivity {
         workActionFilter.addAction(Key.ACTION_LOCATION_UPDATED);
         LocalBroadcastManager.getInstance(this).registerReceiver(gpsActionReceiver, workActionFilter);
 
-        setTitleBar(R.string.app_name, R.drawable.selector_button_back, 0, R.drawable.selector_button_setting);
+        setTitleBar(R.string.app_name, R.drawable.selector_button_back, 0, 0);
 
         if (Key.getUserInfo() != null)
             ((TextView) findViewById(R.id.userNameTxt)).setText(Key.getUserInfo().getString("USER_NM", ""));
@@ -123,13 +123,15 @@ public class DeliveryMainActivity extends BasicActivity {
             // 반품
             case R.id.menuBtn2:
                 //startActivity(new Intent(this, .class), options.toBundle());
+                // 접수
+            case R.id.menuBtn3:
                 break;
             // 직송조회
-            case R.id.menuBtn3:
+            case R.id.menuBtn4:
                 startActivity(new Intent(this, DirectDeliveryActivity.class), options.toBundle());
                 break;
             // 공지사항
-            case R.id.menuBtn4:
+            case R.id.menuBtn5:
                 startActivity(new Intent(this, NoticeListActivity.class), options.toBundle());
                 break;
             case R.id.bottomCenterInfoView:

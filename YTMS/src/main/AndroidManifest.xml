@@ -30,9 +30,9 @@
         android:theme="@style/AppTheme">
 
         <!--to support larger/other screen sizes like for Galaxy s8+ or s9+ -->
-        <!--<meta-data-->
-        <!--android:name="android.max_aspect"-->
-        <!--android:value="2.1" />-->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

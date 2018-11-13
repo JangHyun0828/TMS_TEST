@@ -44,7 +44,7 @@ public class ShipperMainActivity extends BasicActivity {
         workActionFilter.addAction(Key.ACTION_LOCATION_UPDATED);
         LocalBroadcastManager.getInstance(this).registerReceiver(gpsActionReceiver, workActionFilter);
 
-        setTitleBar(R.string.app_name, R.drawable.selector_button_back, 0, R.drawable.selector_button_setting);
+        setTitleBar(R.string.app_name, R.drawable.selector_button_back, 0, 0);
 
         if (Key.getUserInfo() != null)
             ((TextView) findViewById(R.id.userNameTxt)).setText(Key.getUserInfo().getString("USER_NM", ""));

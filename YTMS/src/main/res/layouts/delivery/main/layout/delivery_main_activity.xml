@@ -27,7 +27,7 @@
         android:paddingEnd="99dp"
         android:paddingBottom="0.6dp"
         android:textSize="14.3dp"
-        android:background="@drawable/selector_button_delivery"
+        android:background="@drawable/selector_button_main_menu_delivery"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/topUserInfoView"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn1"
@@ -51,7 +51,7 @@
         android:text="0"
         app:layout_constraintEnd_toStartOf="@id/menuBtn0CntUnit0"
         app:layout_constraintTop_toTopOf="@+id/menuBtn0"
-        app:layout_constraintBottom_toBottomOf="@id/menuBtn0"/>
+        app:layout_constraintBottom_toBottomOf="@id/menuBtn0" />
 
     <TextView
         android:id="@+id/menuBtn0CntUnit0"
@@ -60,7 +60,7 @@
         android:text="대"
         app:layout_constraintEnd_toEndOf="@id/menuBtn0"
         app:layout_constraintTop_toTopOf="@+id/menuBtn0"
-        app:layout_constraintBottom_toBottomOf="@id/menuBtn0"/>
+        app:layout_constraintBottom_toBottomOf="@id/menuBtn0" />
 
     <TextView
         android:id="@+id/menuBtn0IconTxt"
@@ -74,7 +74,7 @@
         android:id="@+id/menuBtn1"
         style="@style/ButtonMainMenu"
         android:layout_marginTop="4.7dp"
-        android:background="@drawable/selector_button_status"
+        android:background="@drawable/selector_button_main_menu_status"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn0"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn2"
@@ -123,17 +123,17 @@
         android:id="@+id/menuBtn1CntTxt0"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="@color/main_theme"
+        android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
-        app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle0" />
+        app:layout_constraintEnd_toStartOf="@id/menuBtn1CntUnit0" />
 
     <TextView
         android:id="@+id/menuBtn1CntUnit0"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt0"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn1SubTitle0"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt0" />
 
     <TextView
@@ -148,17 +148,17 @@
         android:id="@+id/menuBtn1CntTxt1"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="@color/main_theme"
+        android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle1"
-        app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle1" />
+        app:layout_constraintEnd_toStartOf="@id/menuBtn1CntUnit1" />
 
     <TextView
         android:id="@+id/menuBtn1CntUnit1"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt1"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn1SubTitle1"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt1" />
 
     <TextView
@@ -173,24 +173,24 @@
         android:id="@+id/menuBtn1CntTxt2"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="@color/main_theme"
+        android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
-        app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle2" />
+        app:layout_constraintEnd_toStartOf="@id/menuBtn1CntUnit2" />
 
     <TextView
         android:id="@+id/menuBtn1CntUnit2"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt2"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn1SubTitle2"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt2" />
 
     <Button
         android:id="@+id/menuBtn2"
         style="@style/ButtonMainMenu"
         android:layout_marginTop="4.7dp"
-        android:background="@drawable/selector_button_take_back"
+        android:background="@drawable/selector_button_main_menu_take_back"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn3"
@@ -239,17 +239,17 @@
         android:id="@+id/menuBtn2CntTxt0"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="@color/main_theme"
+        android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle0"
-        app:layout_constraintStart_toStartOf="@id/menuBtn2SubTitle0" />
+        app:layout_constraintEnd_toStartOf="@id/menuBtn2CntUnit0" />
 
     <TextView
         android:id="@+id/menuBtn2CntUnit0"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintStart_toEndOf="@id/menuBtn2CntTxt0"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn2SubTitle0"
         app:layout_constraintTop_toTopOf="@+id/menuBtn2CntTxt0" />
 
     <TextView
@@ -264,17 +264,17 @@
         android:id="@+id/menuBtn2CntTxt1"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="@color/main_theme"
+        android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle1"
-        app:layout_constraintStart_toStartOf="@id/menuBtn2SubTitle1" />
+        app:layout_constraintEnd_toStartOf="@id/menuBtn2CntUnit1" />
 
     <TextView
         android:id="@+id/menuBtn2CntUnit1"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintStart_toEndOf="@id/menuBtn2CntTxt1"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn2SubTitle1"
         app:layout_constraintTop_toTopOf="@+id/menuBtn2CntTxt1" />
 
     <TextView
@@ -289,17 +289,17 @@
         android:id="@+id/menuBtn2CntTxt2"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="@color/main_theme"
+        android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle0"
-        app:layout_constraintStart_toStartOf="@id/menuBtn2SubTitle2" />
+        app:layout_constraintEnd_toStartOf="@id/menuBtn2CntUnit2" />
 
     <TextView
         android:id="@+id/menuBtn2CntUnit2"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintStart_toEndOf="@id/menuBtn2CntTxt2"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn2SubTitle2"
         app:layout_constraintTop_toTopOf="@+id/menuBtn2CntTxt2" />
 
     <Button
@@ -309,8 +309,8 @@
         android:paddingEnd="111.7dp"
         android:paddingBottom="0.6dp"
         android:textSize="14.3dp"
-        android:text="직송조회"
-        android:background="@drawable/selector_button_direct_delivery_query"
+        android:text="팔레트 접수"
+        android:background="@drawable/selector_button_main_menu_pallets_small"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2"
         app:layout_constraintBottom_toTopOf="@id/menuBtn4"
@@ -320,35 +320,54 @@
     <TextView
         android:id="@+id/menuBtn3IconTxt"
         style="@style/TextViewMainMenuIconSmall"
-        android:layout_marginStart="9.5dp"
-        android:paddingBottom="12dp"
-        android:text="직송조회"
+        android:layout_marginStart="24.3dp"
+        android:paddingBottom="11.5dp"
+        android:text="접수"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn3"
         app:layout_constraintStart_toStartOf="@id/menuBtn3" />
 
     <Button
         android:id="@+id/menuBtn4"
-        style="@style/ButtonMainMenu"
-        android:layout_marginTop="4.7dp"
-        android:layout_marginBottom="5.3dp"
-        android:paddingEnd="110.3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.3dp"
+        android:layout_marginBottom="5.4dp"
+        android:gravity="center_vertical|start"
+        android:drawablePadding="3.7dp"
+        android:drawableStart="@drawable/selector_icon_main_menu_direct_delivery_query"
+        android:paddingStart="42dp"
+        android:textColor="#4e4d4d"
         android:textSize="14.3dp"
-        android:text="공지사항"
-        android:background="@drawable/selector_button_notice_small"
+        android:text="직송조회"
+        android:background="@drawable/selector_button_main_menu_small"
+        android:stateListAnimator="@null"
+        android:onClick="onClick"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn3"
         app:layout_constraintBottom_toTopOf="@+id/bottomCenterInfoView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/menuBtn0"
+        app:layout_constraintEnd_toStartOf="@id/menuBtn5" />
 
-    <TextView
-        android:id="@+id/menuBtn4IconTxt"
-        style="@style/TextViewMainMenuIconSmall"
-        android:layout_marginStart="10dp"
-        android:paddingBottom="11.5dp"
+    <Button
+        android:id="@+id/menuBtn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|start"
+        android:drawablePadding="5dp"
+        android:drawableStart="@drawable/selector_icon_main_menu_notice"
+        android:paddingStart="39.3dp"
+        android:textColor="#4e4d4d"
+        android:textSize="14.3dp"
         android:text="공지사항"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn4"
-        app:layout_constraintStart_toStartOf="@id/menuBtn4" />
+        android:background="@drawable/selector_button_main_menu_small"
+        android:stateListAnimator="@null"
+        android:onClick="onClick"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@+id/menuBtn4"
+        app:layout_constraintStart_toEndOf="@id/menuBtn4"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn0" />
 
     <TextView
         android:id="@+id/noticeBadgeCntTxt"
@@ -366,8 +385,8 @@
         android:text="0"
         android:fontFamily="@font/my_nanum_square_eb"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn4"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn4" />
+        app:layout_constraintBottom_toBottomOf="@+id/menuBtn5"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn5" />
 
     <include
         android:id="@+id/bottomCenterInfoView"

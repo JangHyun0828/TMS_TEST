@@ -5,25 +5,39 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.neognp.ytms.notice.NoticeListActivity;
+import com.neognp.ytms.notice.PersonalDaySurveyActivity;
 import com.trevor.library.template.BasicActivity;
 
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class ForkLiftAlarmActivity extends BasicActivity {
 
     private boolean onReq;
     private Bundle args;
 
-    // private TextView
-    // private EditText
-    // private View
+    private ArrayList<Bundle> listItems = new ArrayList<Bundle>();
+    private ListAdapter listAdapter;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private RecyclerView list;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +45,19 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
         setTitleBar("하차 준비 알림", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
-        //= findViewById(R.id.);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            public void onRefresh() {
+                requestProcessStatus();
+            }
+        });
+
+        list = (RecyclerView) findViewById(R.id.list);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        list.setLayoutManager(layoutManager);
+        listAdapter = new ListAdapter();
+        list.setAdapter(listAdapter);
 
         init();
     }
@@ -46,9 +72,9 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
     private void init() {
         try {
-            args = getIntent().getExtras();
-            if (args == null)
-                return;
+            //args = getIntent().getExtras();
+            //if (args == null)
+            //    return;
 
             requestProcessStatus();
         } catch (Exception e) {
@@ -79,8 +105,8 @@ public class ForkLiftAlarmActivity extends BasicActivity {
             return;
 
         try {
-            if (args == null)
-                return;
+            //if (args == null)
+            //    return;
 
             if (Key.getUserInfo() == null)
                 return;
@@ -88,7 +114,7 @@ public class ForkLiftAlarmActivity extends BasicActivity {
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
                     onReq = true;
-                    showLoadingDialog(null, false);
+                    swipeRefreshLayout.setRefreshing(true);
                 }
 
                 protected Bundle doInBackground(Void... arg0) {
@@ -104,22 +130,31 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
                 protected void onPostExecute(Bundle response) {
                     onReq = false;
-                    dismissLoadingDialog();
+                    swipeRefreshLayout.setRefreshing(false);
 
-                    try {
-                        Bundle resBody = response.getBundle(Key.resBody);
-                        String result_code = resBody.getString(Key.result_code);
-                        String result_msg = resBody.getString(Key.result_msg);
+                    //try {
+                    //    Bundle resBody = response.getBundle(Key.resBody);
+                    //    String result_code = resBody.getString(Key.result_code);
+                    //    String result_msg = resBody.getString(Key.result_msg);
+                    //
+                    //    if (result_code.equals("200")) {
+                    //        setProcessStatus(resBody.getBundle(Key.data));
+                    //    } else {
+                    //        showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                    //    }
+                    //} catch (Exception e) {
+                    //    e.printStackTrace();
+                    //    showToast(e.getMessage(), false);
+                    //}
 
-                        if (result_code.equals("200")) {
-                            setProcessStatus(resBody.getBundle(Key.data));
-                        } else {
-                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        showToast(e.getMessage(), false);
+                    // TEST
+                    ArrayList<Bundle> list = new ArrayList<Bundle>();
+                    for (int i = 0; i < 30; i++) {
+                        Bundle item = new Bundle();
+                        item.putString("CAR_STATUS", "" + i);
+                        list.add(item);
                     }
+                    addListItems(list);
                 }
             }.execute();
         } catch (Exception e) {
@@ -127,12 +162,70 @@ public class ForkLiftAlarmActivity extends BasicActivity {
         }
     }
 
-    private synchronized void setProcessStatus(Bundle data) {
+    synchronized void addListItems(ArrayList<Bundle> items) {
+        if (items == null)
+            return;
+
         try {
-            
+            listItems.clear();
+            listItems.addAll(items);
+            listAdapter.notifyDataSetChanged();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        static final int TYPE_LIST_ITEM = 0;
+
+        public int getItemViewType(int position) {
+            return listItems.get(position).getInt("viewType", TYPE_LIST_ITEM);
+        }
+
+        public int getItemCount() {
+            return listItems.size();
+        }
+
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            RecyclerView.ViewHolder holder = null;
+
+            if (viewType == TYPE_LIST_ITEM) {
+                View v = View.inflate(getContext(), R.layout.fork_alarm_list_item, null);
+                v.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
+                holder = new ListItemView(v);
+            }
+
+            return holder;
+        }
+
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+            ((ItemViewHolder) holder).onBindViewData(listItems.get(position));
+        }
+
+        abstract class ItemViewHolder extends RecyclerView.ViewHolder {
+            public ItemViewHolder(View itemView) {
+                super(itemView);
+            }
+
+            public abstract void onBindViewData(final Bundle item);
+        }
+
+        class ListItemView extends ListAdapter.ItemViewHolder {
+            public ListItemView(View itemView) {
+                super(itemView);
+            }
+
+            public void onBindViewData(Bundle item) {
+                try {
+                    //((TextView) itemView.findViewById(R.id.dataTxt0)).setText(item.getString("CAR_NO", ""));
+                    //((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("CAR_STATUS"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

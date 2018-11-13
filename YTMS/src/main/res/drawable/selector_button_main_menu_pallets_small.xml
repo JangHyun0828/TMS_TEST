@@ -9,10 +9,10 @@
                 <bitmap android:gravity="left"
                     android:src="@drawable/center_m_5_move_bg_1_on" />
             </item>
-            <item android:top="9.3dp"
-                android:left="20dp">
+            <item android:top="31dp"
+                android:left="14.3dp">
                 <bitmap android:gravity="top|left"
-                    android:src="@drawable/img_sub_4_notice_on" />
+                    android:src="@drawable/img_customer_m_4_pallet_off" />
             </item>
             <item android:left="69dp">
                 <bitmap android:gravity="right"
@@ -29,10 +29,10 @@
                 <bitmap android:gravity="left"
                     android:src="@drawable/center_m_5_move_bg_1_on" />
             </item>
-            <item android:top="9.3dp"
-                android:left="20dp">
+            <item android:top="31dp"
+                android:left="14.3dp">
                 <bitmap android:gravity="top|left"
-                    android:src="@drawable/img_sub_4_notice_off" />
+                    android:src="@drawable/img_customer_m_4_pallet_on" />
             </item>
             <item android:left="69dp">
                 <bitmap android:gravity="right"

@@ -4,12 +4,11 @@
 
     <!-- pressed -->
     <item android:state_pressed="true"
-        android:drawable="@drawable/btn_master_on">
-    </item>
+        android:drawable="@drawable/bg_center_m_5_ask_on" />
 
     <!-- normal -->
     <item android:state_focused="false"
         android:state_pressed="false"
-        android:drawable="@drawable/btn_master_off" />
+        android:drawable="@drawable/bg_center_m_5_ask_off" />
 
-</selector>  
+</selector>

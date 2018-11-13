@@ -9,7 +9,7 @@
     android:paddingEnd="30dp"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
-    android:drawableStart="@drawable/sharp_bluetooth_disabled_black_36"
+    android:drawableStart="@drawable/sharp_gps_off_black_36"
     android:drawablePadding="13.7dp"
     android:gravity="start|center_vertical"
     android:textSize="14.8sp"

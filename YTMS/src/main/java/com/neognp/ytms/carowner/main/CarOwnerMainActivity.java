@@ -72,7 +72,7 @@ public class CarOwnerMainActivity extends BasicActivity {
         /** 홈 화면>모든 앱 종료시 Service 종료 **/
         bindService(serviceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
-        setTitleBar(R.string.app_name, R.drawable.selector_button_back, 0, R.drawable.selector_button_setting);
+        setTitleBar(R.string.app_name, R.drawable.selector_button_back, 0, 0);
 
         if (Key.getUserInfo() != null)
             ((TextView) findViewById(R.id.userNameTxt)).setText(Key.getUserInfo().getString("USER_NM", ""));
