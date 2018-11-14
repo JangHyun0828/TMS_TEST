@@ -5,7 +5,7 @@
     <color name="colorPrimary">@color/main_theme</color>
     <color name="colorPrimaryDark">@color/main_theme</color>
     <color name="colorAccent">@color/main_theme</color>
-    <color name="windowBackground">@color/main_theme</color>
+    <color name="windowBackground">@color/bg_white</color>
     <color name="main_theme">#ff253e66</color>
     <color name="bg_gray">#ffe5e5e5</color>
     <color name="bg_white">#ffffffff</color>

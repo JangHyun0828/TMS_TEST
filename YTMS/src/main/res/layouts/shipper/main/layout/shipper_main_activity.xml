@@ -93,18 +93,17 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt0"
         style="@style/TextViewMainMenuSub"
-        android:layout_marginStart="2.5dp"
         android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
-        app:layout_constraintEnd_toStartOf="@id/menuBtn1CntUnit0" />
+        app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle0" />
 
     <TextView
         android:id="@+id/menuBtn1CntUnit0"
         style="@style/TextViewMainMenuSub"
-        android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn1SubTitle0"
+        android:layout_marginStart="1dp"
+        app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt0"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt0" />
 
     <TextView
@@ -118,18 +117,17 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt1"
         style="@style/TextViewMainMenuSub"
-        android:layout_marginStart="2.5dp"
         android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle1"
-        app:layout_constraintEnd_toStartOf="@id/menuBtn1CntUnit1" />
+        app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle1" />
 
     <TextView
         android:id="@+id/menuBtn1CntUnit1"
         style="@style/TextViewMainMenuSub"
-        android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn1SubTitle1"
+        android:layout_marginStart="1dp"
+        app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt1"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt1" />
 
     <TextView
@@ -143,18 +141,17 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt2"
         style="@style/TextViewMainMenuSub"
-        android:layout_marginStart="2.5dp"
         android:textColor="#0096eb"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
-        app:layout_constraintEnd_toStartOf="@id/menuBtn1CntUnit2" />
+        app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle2" />
 
     <TextView
         android:id="@+id/menuBtn1CntUnit2"
         style="@style/TextViewMainMenuSub"
-        android:layout_marginStart="1dp"
         android:text="대"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn1SubTitle2"
+        android:layout_marginStart="1dp"
+        app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt2"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt2" />
 
     <TextView

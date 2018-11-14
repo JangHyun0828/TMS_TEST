@@ -5,11 +5,11 @@
 	<!-- checked -->
 	<item
 		android:state_checked="true"
-		android:drawable="@drawable/center_m_5_sub_4_1_bookmark_star_1" />
+		android:drawable="@drawable/check_box_off" />
 
 	<!-- normal -->
 	<item
 		android:state_checked="false"
-		android:drawable="@drawable/center_m_5_sub_4_1_result_star_off" />
+		android:drawable="@drawable/check_box_off" />
 
 </selector>
