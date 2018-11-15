@@ -27,8 +27,6 @@ import java.util.ArrayList;
 
 public class DirectDeliveryFavoriteFragment extends BasicFragment implements View.OnClickListener {
 
-    private boolean onReq;
-
     private ArrayList<Bundle> listItems = new ArrayList<Bundle>();
     private ListAdapter listAdapter;
 
@@ -158,7 +156,12 @@ public class DirectDeliveryFavoriteFragment extends BasicFragment implements Vie
                     itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            Intent intent = new Intent(getContext(), DirectCarAllocInfoActivity.class);
+                            Bundle args = new Bundle();
+                            args.putParcelableArrayList("centerItems", listItems);
+                            args.putInt("centerIdx", listItems.indexOf(item));
+                            intent.putExtra(Key.args, args);
+                            startActivity(intent);
                         }
                     });
                 } catch (Exception e) {

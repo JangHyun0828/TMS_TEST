@@ -17,7 +17,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="8.3dp"
         android:layout_marginBottom="2dp"
-        android:background="@color/main_theme"
+        android:background="#bfd7f1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/dataTxt3" />
@@ -91,7 +91,7 @@
         android:gravity="start|center_vertical"
         android:includeFontPadding="false"
         android:textSize="16sp"
-        android:textColor="@color/main_theme"
+        android:textColor="#3668a5"
         android:text="PM 5:24 ~ 6:24"
         app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle3"
         app:layout_constraintStart_toEndOf="@id/dataTitle3"

@@ -13,10 +13,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Display;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -93,6 +95,15 @@ public class DirectDeliveryActivity extends BasicActivity {
         curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
 
         centerNameEdit = findViewById(R.id.centerNameEdit);
+        // 키패드 '완료' 버튼 클릭 시, ' 로그인' 버튼 자동 클릭
+        centerNameEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    findViewById(R.id.searchBtn).performClick();
+                }
+                return false;
+            }
+        });
 
         bottomSlide = (ViewGroup) findViewById(R.id.bottomSlide);
         mBottomSheetBehavior = BottomSheetBehavior.from(bottomSlide);

@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="30dp">
+    android:minHeight="30dp"
+    android:background="@drawable/selector_list_item">
 
     <TextView
         android:id="@+id/centerNameTxt"

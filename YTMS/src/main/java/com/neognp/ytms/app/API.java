@@ -32,5 +32,6 @@ public class API {
     public static final String URL_DELIVERY_DIRECT_LIST = "/dc/center/list";
     public static final String URL_DELIVERY_DIRECT_FAVORITE_LIST = "/dc/favorite/list";
     public static final String URL_DELIVERY_DIRECT_SET_FAVORITE = "/dc/update/favorite";
+    public static final String URL_DELIVERY_DIRECT_ALLOC_LIST = "/dc/dispatch/center";
 
 }

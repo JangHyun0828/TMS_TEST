@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toTopOf="@id/bottomCenterInfoView">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list"
@@ -35,5 +35,12 @@
             android:paddingEnd="4dp" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include
+        android:id="@+id/bottomCenterInfoView"
+        layout="@layout/bottom_center_info"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

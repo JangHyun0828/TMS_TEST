@@ -17,7 +17,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="8.3dp"
         android:layout_marginBottom="2dp"
-        android:background="@color/main_theme"
+        android:background="#bfd7f1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/dataTxt5" />

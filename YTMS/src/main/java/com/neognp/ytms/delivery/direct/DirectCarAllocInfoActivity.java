@@ -1,4 +1,4 @@
-package com.neognp.ytms.delivery.car_alloc;
+package com.neognp.ytms.delivery.direct;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -23,21 +23,25 @@ import android.widget.TextView;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
-import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
 import com.neognp.ytms.delivery.car_loc.CarLocationActivity;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.popup.LocationInfoDialog;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.TextUtil;
+import com.trevor.library.widget.DropDownSelector;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class DeliveryCarAllocInfoActivity extends BasicActivity {
+public class DirectCarAllocInfoActivity extends BasicActivity {
 
     private boolean onReq;
+
+    private ArrayList<Bundle> centerItems;
+    private Bundle selCenterItem;
 
     private Calendar curCal;
 
@@ -47,13 +51,14 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
     private ListAdapter listAdapter;
 
     private Button curDateBtn;
+    private DropDownSelector centerSelector;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView list;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delivery_car_alloc_info_activity);
+        setContentView(R.layout.direct_car_alloc_info_activity);
 
         curCal = Calendar.getInstance();
         curCal.set(Calendar.HOUR_OF_DAY, 0);
@@ -65,6 +70,8 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
 
         curDateBtn = (Button) findViewById(R.id.curDateBtn);
         curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
+
+        centerSelector = findViewById(R.id.centerSelector);
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
@@ -148,7 +155,47 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
 
     private void init() {
         try {
+            Bundle args = getIntent().getBundleExtra(Key.args);
+            if (args == null)
+                return;
+
+            centerItems = args.getParcelableArrayList("centerItems"); // 직송 즐겨찾기 전체 리스트
+            selCenterItem = args.getBundle("selCenterItem"); // 선택된 직송 즐겨찾기
+
+            // TEST
+            //args = new Bundle();
+            //args.putString("DELIVERY_CD", "080811151");
+            //args.putString("CENTER_CD", "080811151");
+            //args.putString("CENTER_NM", "청주DC");
+
+            initCenterSelector(args.getInt("centerIdx"));
+
             search();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initCenterSelector(int index) {
+        try {
+            if (centerItems == null)
+                return;
+
+            selCenterItem = centerItems.get(index);
+
+            String[] entries = new String[centerItems.size()];
+            for (int i = 0; i < entries.length; i++) {
+                entries[i] = centerItems.get(i).getString("CENTER_NM");
+            }
+            centerSelector.setEntries(entries, null, index);
+
+            centerSelector.setDropDownSelectorListener(new DropDownSelector.DropDownSelectorListener() {
+                @Override
+                public void onItemSelected(DropDownSelector selector, int index) {
+                    selCenterItem = centerItems.get(index);
+                    search();
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -236,7 +283,10 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
             if (Key.getUserInfo() == null)
                 return;
 
-            final String orderDt = Key.SDF_PAYLOAD.format(curCal.getTime());
+            if (selCenterItem == null)
+                return;
+
+            //final String orderDt = Key.SDF_PAYLOAD.format(curCal.getTime());
 
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
@@ -252,17 +302,12 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        payloadJson.put("deliveryCd", Key.getUserInfo().getString("CLIENT_CD"));
-                        payloadJson.put("orderDt", orderDt);
-
-                        // TEST
-                        //payloadJson.put("userCd", "CAR0001");
-                        //payloadJson.put("fromDt", "20180923");
-                        //payloadJson.put("toDt", fromDt);
+                        payloadJson.put("centerCd", selCenterItem.getString("CENTER_CD"));
+                        //payloadJson.put("orderDt", orderDt);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_ALLOC_LIST, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_DIRECT_ALLOC_LIST, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -287,22 +332,13 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
                         e.printStackTrace();
                         showToast(e.getMessage(), false);
                     }
-
-                    //// TEST
-                    //ArrayList<Bundle> list = new ArrayList<Bundle>();
-                    //for (int i = 0; i < 10; i++) {
-                    //    Bundle item = new Bundle();
-                    //    item.putString("FROM_CENTER_NM", "안성물류센터");
-                    //    item.putString("CAR_NO", "안성물류센터");
-                    //    list.add(item);
-                    //}
-                    //addListItems(list);
                 }
             }.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     private synchronized void addListItems(ArrayList<Bundle> items, boolean reqNextPage) {
         if (items == null)
@@ -338,7 +374,7 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
             RecyclerView.ViewHolder holder = null;
 
             if (viewType == TYPE_LIST_ITEM) {
-                View v = View.inflate(getContext(), R.layout.delivery_car_alloc_info_item, null);
+                View v = View.inflate(getContext(), R.layout.direct_car_alloc_info_item, null);
                 v.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
                 holder = new ListItemView(v);
             }
@@ -358,47 +394,69 @@ public class DeliveryCarAllocInfoActivity extends BasicActivity {
             public abstract void onBindViewData(final Bundle item);
         }
 
-        class ListItemView extends DeliveryCarAllocInfoActivity.ListAdapter.ItemViewHolder {
+        class ListItemView extends DirectCarAllocInfoActivity.ListAdapter.ItemViewHolder {
             public ListItemView(View itemView) {
                 super(itemView);
             }
 
             public void onBindViewData(Bundle item) {
                 try {
+                    // 하차일
+                    ((TextView) itemView.findViewById(R.id.dataTxt0)).setText("하차일 : " + Key.SDF_CAL_DEFAULT.format(Key.SDF_PAYLOAD.parse(item.getString("ORDER_DT", ""))));
+
+                    // 화주명
+                    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText("화주명 : " + item.getString("", ""));
+
                     SpannableString content = null;
 
                     // 상차지
-                    TextView dataTxt0 = ((TextView) itemView.findViewById(R.id.dataTxt0));
-                    dataTxt0.setText("상차지 : " + item.getString("CENTER_NM", ""));
-                    //String FROM_CENTER_NM = "상차지 : " + item.getString("CENTER_NM", "");
-                    //SpannableString content = new SpannableString(FROM_CENTER_NM);
+                    TextView dataTxt2 = ((TextView) itemView.findViewById(R.id.dataTxt2));
+                    dataTxt2.setText("상차지 : " + item.getString("FROM_CENTER_NM", ""));
+                    //String FROM_CENTER_NM = "상차지 : " + item.getString("FROM_CENTER_NM", "");
+                    //content = new SpannableString(FROM_CENTER_NM);
                     //content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
-                    //dataTxt0.setText(content);
-                    //dataTxt0.setOnClickListener(new View.OnClickListener() {
+                    //dataTxt2.setText(content);
+                    //dataTxt2.setOnClickListener(new View.OnClickListener() {
                     //    public void onClick(View v) {
-                    //        LocationInfoDialog.show(DeliveryCarAllocInfoActivity.this, "상차지", item.getString("FROM_CENTER_ADDR", ""), item.getString("FROM_CENTER_EMP", ""), item.getString("FROM_CENTER_TEL", ""));
+                    //        LocationInfoDialog.show(DirectCarAllocInfoActivity.this, "상차지", item.getString("FROM_CENTER_ADDR", ""), item.getString("FROM_CENTER_EMP", ""), item.getString("FROM_CENTER_TEL", ""));
                     //    }
                     //});
 
+                    // 하차지
+                    TextView dataTxt3 = ((TextView) itemView.findViewById(R.id.dataTxt3));
+                    dataTxt3.setText(item.getString("TO_CENTER_NM", ""));
+                    //String TO_CENTER_NM = "하차지 : " + item.getString("TO_CENTER_NM", "");
+                    //content = new SpannableString(TO_CENTER_NM);
+                    //content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+                    //dataTxt3.setText(content);
+                    //dataTxt3.setOnClickListener(new View.OnClickListener() {
+                    //    public void onClick(View v) {
+                    //        LocationInfoDialog.show(DirectCarAllocInfoActivity.this, "하차지", item.getString("TO_CENTER_ADDR", ""), item.getString("TO_CENTER_EMP", ""), item.getString("TO_CENTER_TEL", ""));
+                    //    }
+                    //});
+
+                    // 차량상태
+                    ((TextView) itemView.findViewById(R.id.dataTxt4)).setText("차량상태 : " + item.getString("STATUS", ""));
+
                     // 차량번호
-                    TextView dataTxt1 = ((TextView) itemView.findViewById(R.id.dataTxt1));
+                    TextView dataTxt5 = ((TextView) itemView.findViewById(R.id.dataTxt5));
                     String CAR_NO = "차량번호 : " + item.getString("CAR_NO", "");
                     content = new SpannableString(CAR_NO);
                     content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
-                    dataTxt1.setText(content);
-                    dataTxt1.setOnClickListener(new View.OnClickListener() {
+                    dataTxt5.setText(content);
+                    dataTxt5.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
-                            Intent intent = new Intent(DeliveryCarAllocInfoActivity.this, CarLocationActivity.class);
+                            Intent intent = new Intent(DirectCarAllocInfoActivity.this, CarLocationActivity.class);
                             intent.putExtras((Bundle) item.clone());
                             startActivity(intent);
                         }
                     });
 
-                    // 차량상태
-                    ((TextView) itemView.findViewById(R.id.dataTxt2)).setText("차량상태 : " + item.getString("STATUS", ""));
+                    // 출발시간
+                    ((TextView) itemView.findViewById(R.id.dataTxt6)).setText("출발시간 : " + item.getString("START_DATE", ""));
 
                     // 도착예정
-                    ((TextView) itemView.findViewById(R.id.dataTxt3)).setText(item.getString("EST_DATE", ""));
+                    ((TextView) itemView.findViewById(R.id.dataTxt7)).setText(item.getString("EST_DATE", ""));
 
                     // 차주연결
                     Button rightBtn0 = itemView.findViewById(R.id.palletsBtn);
