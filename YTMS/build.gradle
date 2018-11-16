@@ -62,7 +62,8 @@ android {
                             'src/main/res/layouts/delivery/main',
                             'src/main/res/layouts/delivery/car_alloc',
                             'src/main/res/layouts/delivery/car_loc',
-                            'src/main/res/layouts/delivery/direct'
+                            'src/main/res/layouts/delivery/direct',
+                            'src/main/res/layouts/delivery/pallets'
                     ]
         }
     }
@@ -74,6 +75,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // 라이브러리 프로젝트 연동 방식
+//    implementation project(':Library')
     implementation(name: 'Library-debug', ext: 'aar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:multidex:1.0.3'
