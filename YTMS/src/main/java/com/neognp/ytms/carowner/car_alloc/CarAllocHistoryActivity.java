@@ -75,7 +75,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
         toDateBtn = (Button) findViewById(R.id.toDateBtn);
         toDateBtn.setText(Key.SDF_CAL_DEFAULT.format(toCal.getTime()));
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
@@ -83,7 +83,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
             }
         });
 
-        list = (RecyclerView) findViewById(R.id.list);
+        list = findViewById(R.id.list);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         list.setLayoutManager(layoutManager);
         listAdapter = new ListAdapter();

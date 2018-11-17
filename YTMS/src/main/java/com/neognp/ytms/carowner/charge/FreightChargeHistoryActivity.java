@@ -74,7 +74,7 @@ public class FreightChargeHistoryActivity extends BasicActivity {
         sumTxt = findViewById(R.id.sumTxt);
         ((TextView) findViewById(R.id.sumUnitTxt)).setText("원");
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
@@ -82,7 +82,7 @@ public class FreightChargeHistoryActivity extends BasicActivity {
             }
         });
 
-        list = (RecyclerView) findViewById(R.id.list);
+        list = findViewById(R.id.list);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         list.setLayoutManager(layoutManager);
         listAdapter = new ListAdapter();

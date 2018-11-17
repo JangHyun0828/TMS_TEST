@@ -21,7 +21,7 @@
         android:text="0000.00.00"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/my_nanum_square_r" />
 
     <TextView
         android:id="@+id/dataTxt1"
@@ -37,7 +37,7 @@
         android:text="동서식품(주) 부평"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt0"
         app:layout_constraintStart_toStartOf="@id/dataTxt0"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTitle2"
@@ -51,7 +51,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/dataTxt1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt2"
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toTopOf="@+id/dataTxt3"
         app:layout_constraintStart_toEndOf="@id/dataTitle2"
         app:layout_constraintEnd_toStartOf="@id/cameraBtn"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTitle3"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dataTxt2"
         app:layout_constraintStart_toStartOf="@id/dataTitle2"
         app:layout_constraintEnd_toEndOf="@id/dataTitle2"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt3"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dataTxt2"
         app:layout_constraintStart_toEndOf="@id/dataTitle2"
         app:layout_constraintEnd_toStartOf="@id/cameraBtn"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <ImageButton
         android:id="@+id/cameraBtn"

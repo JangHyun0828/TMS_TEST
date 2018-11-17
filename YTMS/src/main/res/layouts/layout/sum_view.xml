@@ -16,7 +16,7 @@
         android:textSize="16sp"
         android:textColor="#4e4d4d"
         android:text="미발송"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintEnd_toStartOf="@id/sumTxt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -28,7 +28,7 @@
         android:textSize="16sp"
         android:textColor="#3668a5"
         android:text="0"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintEnd_toStartOf="@id/sumUnitTxt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -39,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="11.3dp"
         android:textSize="16sp"
-        android:textColor="#4e4d4d"
+        android:textColor="#3668a5"
         android:text="건"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

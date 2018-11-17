@@ -52,7 +52,7 @@ public class DirectDeliveryFavoriteFragment extends BasicFragment implements Vie
 
         contentView = inflater.inflate(R.layout.direct_delivery_favorite_fragment, container, false);
 
-        list = (RecyclerView) contentView.findViewById(R.id.list);
+        list = contentView.findViewById(R.id.list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         list.setLayoutManager(layoutManager);
 

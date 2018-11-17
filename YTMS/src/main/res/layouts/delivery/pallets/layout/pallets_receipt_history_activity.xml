@@ -41,10 +41,11 @@
         android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/main_theme"
-        android:text="요청일자"
+        android:text="연번"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintEnd_toStartOf="@id/columnTxt1"
+        app:layout_constraintWidth_percent="0.1"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
@@ -54,11 +55,12 @@
         android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/main_theme"
-        android:text="요청"
+        android:text="화주명"
         app:layout_constraintTop_toTopOf="@+id/columnTxt0"
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt0"
         app:layout_constraintEnd_toStartOf="@id/columnTxt2"
+        app:layout_constraintWidth_percent="0.4"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
@@ -68,25 +70,28 @@
         android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/main_theme"
-        android:text="상태"
+        android:text="요청일"
         app:layout_constraintTop_toTopOf="@+id/columnTxt0"
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt1"
         app:layout_constraintEnd_toStartOf="@id/columnTxt3"
+        app:layout_constraintWidth_percent="0.25"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/columnTxt3"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
         android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/main_theme"
-        android:text="수량"
+        android:text="처리"
         app:layout_constraintTop_toTopOf="@+id/columnTxt0"
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt2"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintWidth_percent="0.25"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <View

@@ -119,7 +119,7 @@ public class DirectDeliveryActivity extends BasicActivity {
             }
         });
 
-        searchResultList = (RecyclerView) findViewById(R.id.searchResultList);
+        searchResultList = findViewById(R.id.searchResultList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         searchResultList.setLayoutManager(layoutManager);
         listAdapter = new ListAdapter();

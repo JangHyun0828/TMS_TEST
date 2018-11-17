@@ -18,6 +18,7 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.delivery.car_alloc.DeliveryCarAllocInfoActivity;
 import com.neognp.ytms.delivery.direct.DirectDeliveryActivity;
+import com.neognp.ytms.delivery.pallets.PalletsReceiptHistoryActivity;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.notice.NoticeListActivity;
 import com.trevor.library.template.BasicActivity;
@@ -125,6 +126,7 @@ public class DeliveryMainActivity extends BasicActivity {
                 //startActivity(new Intent(this, .class), options.toBundle());
                 // 접수
             case R.id.menuBtn3:
+                startActivity(new Intent(this, PalletsReceiptHistoryActivity.class), options.toBundle());
                 break;
             // 직송조회
             case R.id.menuBtn4:

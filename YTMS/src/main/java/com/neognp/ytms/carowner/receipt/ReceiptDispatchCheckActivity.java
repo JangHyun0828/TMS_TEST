@@ -74,7 +74,7 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
         sumTxt = findViewById(R.id.sumTxt);
         ((TextView) findViewById(R.id.sumUnitTxt)).setText("건");
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
@@ -82,7 +82,7 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
             }
         });
 
-        list = (RecyclerView) findViewById(R.id.list);
+        list = findViewById(R.id.list);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         list.setLayoutManager(layoutManager);
         listAdapter = new ListAdapter();
@@ -282,21 +282,21 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
                     else
                         swipeRefreshLayout.setRefreshing(false);
 
-                    try {
-                        Bundle resBody = response.getBundle(Key.resBody);
-                        String result_code = resBody.getString(Key.result_code);
-                        String result_msg = resBody.getString(Key.result_msg);
-
-                        if (result_code.equals("200")) {
-                            //ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
-                            //addListItems(data);
-                        } else {
-                            //showToast(result_msg + "(result_code:" + result_msg + ")", true);
-                        }
-                    } catch (Exception e) {
-                        //e.printStackTrace();
-                        //showToast(e.getMessage(), false);
-                    }
+                    //try {
+                    //    Bundle resBody = response.getBundle(Key.resBody);
+                    //    String result_code = resBody.getString(Key.result_code);
+                    //    String result_msg = resBody.getString(Key.result_msg);
+                    //
+                    //    if (result_code.equals("200")) {
+                    //        ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
+                    //        addListItems(data);
+                    //    } else {
+                    //        showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                    //    }
+                    //} catch (Exception e) {
+                    //    e.printStackTrace();
+                    //    showToast(e.getMessage(), false);
+                    //}
 
                     // TEST
                     ArrayList<Bundle> data = new ArrayList<Bundle>();

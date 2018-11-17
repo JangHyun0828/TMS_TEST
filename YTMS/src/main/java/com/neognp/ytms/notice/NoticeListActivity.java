@@ -45,7 +45,7 @@ public class NoticeListActivity extends BasicActivity {
 
         setTitleBar("공지사항", R.drawable.selector_button_back, 0, 0);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
@@ -53,7 +53,7 @@ public class NoticeListActivity extends BasicActivity {
             }
         });
 
-        list = (RecyclerView) findViewById(R.id.list);
+        list = findViewById(R.id.list);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         list.setLayoutManager(layoutManager);
         listAdapter = new ListAdapter();
