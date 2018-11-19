@@ -38,6 +38,7 @@
         android:id="@+id/columnTxt0"
         android:layout_width="0dp"
         android:layout_height="34.3dp"
+        android:paddingStart="11dp"
         android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/main_theme"
@@ -45,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dateView"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintEnd_toStartOf="@id/columnTxt1"
-        app:layout_constraintWidth_percent="0.1"
+        app:layout_constraintHorizontal_weight="20"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
@@ -60,7 +61,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt0"
         app:layout_constraintEnd_toStartOf="@id/columnTxt2"
-        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintHorizontal_weight="30"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
@@ -75,14 +76,13 @@
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt1"
         app:layout_constraintEnd_toStartOf="@id/columnTxt3"
-        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintHorizontal_weight="25"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/columnTxt3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="10dp"
         android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/main_theme"
@@ -91,7 +91,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt2"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
-        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintHorizontal_weight="25"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <View
@@ -107,10 +107,11 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingTop="35.6dp"
+        android:layout_marginTop="39.7dp"
+        android:layout_marginBottom="8.3dp"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
-        app:layout_constraintBottom_toTopOf="@+id/btmDivider"
-        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBtn0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <android.support.v7.widget.RecyclerView
@@ -118,45 +119,26 @@
             style="@style/Scrollbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:paddingEnd="4dp" />
+            android:clipToPadding="false" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <View
-        android:id="@+id/btmDivider"
-        android:layout_width="0dp"
-        android:layout_height="1.3dp"
-        android:background="@color/main_theme"
+    <Button
+        android:id="@+id/bottomBtn0"
+        style="@style/ButtonRoundMain"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8.3dp"
+        android:text="삭제"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintEnd_toStartOf="@id/bottomBtn1"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/bottomBtn1"
+        style="@style/ButtonRoundMain"
+        android:text="발송 내역"
+        app:layout_constraintStart_toEndOf="@id/bottomBtn0"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
-        app:layout_constraintBottom_toTopOf="@+id/totalTitle" />
-
-    <TextView
-        android:id="@+id/totalTitle"
-        android:layout_width="0dp"
-        android:layout_height="34.3dp"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:textColor="@color/main_theme"
-        android:text="합계"
-        app:layout_constraintStart_toStartOf="@id/columnTxt0"
-        app:layout_constraintEnd_toEndOf="@id/columnTxt0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:fontFamily="@font/nanum_square_r" />
-
-    <TextView
-        android:id="@+id/totalTxt"
-        android:layout_width="0dp"
-        android:layout_height="34.3dp"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:textColor="@color/main_theme"
-        android:text="0"
-        app:layout_constraintTop_toTopOf="@+id/totalTitle"
-        app:layout_constraintBottom_toBottomOf="@+id/totalTitle"
-        app:layout_constraintStart_toStartOf="@id/columnTxt3"
-        app:layout_constraintEnd_toEndOf="@id/columnTxt3"
-        app:fontFamily="@font/nanum_square_r" />
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBtn0" />
 
 </android.support.constraint.ConstraintLayout>

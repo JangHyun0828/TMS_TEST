@@ -31,9 +31,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
-public class PalletsReceiptHistoryActivity extends BasicActivity {
+public class PalletsDispatchHistoryActivity extends BasicActivity {
 
     private boolean onReq;
 
@@ -51,7 +50,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pallets_receipt_history_activity);
+        setContentView(R.layout.pallets_dispatch_history_activity);
 
         toCal = Calendar.getInstance();
         toCal.set(Calendar.HOUR_OF_DAY, 0);
@@ -63,7 +62,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
         fromCal.setTimeInMillis(toCal.getTimeInMillis());
         fromCal.add(Calendar.DAY_OF_MONTH, -31); // TEST
 
-        setTitleBar("팔레트 요청 접수내역", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
+        setTitleBar("팔레트 발송내역", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
         fromDateBtn = (Button) findViewById(R.id.fromDateBtn);
         fromDateBtn.setText(Key.SDF_CAL_DEFAULT.format(fromCal.getTime()));
@@ -179,15 +178,6 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
             case R.id.nextDateBtn:
                 setNextDate();
                 break;
-            // 삭제
-            case R.id.bottomBtn0:
-                break;
-            // 발송내역
-            case R.id.bottomBtn1: {
-                Intent intent = new Intent(this, PalletsDispatchHistoryActivity.class);
-                startActivity(intent);
-            }
-            break;
         }
     }
 
@@ -245,66 +235,6 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestPalletsDispatch(Bundle item, int palletCnt) {
-        if (onReq)
-            return;
-
-        try {
-            if (Key.getUserInfo() == null)
-                return;
-
-            if (item == null)
-                return;
-
-            final String requestDt = Key.SDF_PAYLOAD.format(new Date().getTime());
-
-            new AsyncTask<Void, Void, Bundle>() {
-                protected void onPreExecute() {
-                    onReq = true;
-                    showLoadingDialog(null, false);
-                }
-
-                protected Bundle doInBackground(Void... arg0) {
-                    JSONObject payloadJson = null;
-                    try {
-                        payloadJson = YTMSRestRequestor.buildPayload();
-                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        payloadJson.put("custCd", item.getString("CUST_CD"));
-                        payloadJson.put("requestDt", requestDt);
-                        payloadJson.put("palletCnt", palletCnt);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_PALLETS_DISPATCH, false, payloadJson, true, false);
-                }
-
-                protected void onPostExecute(Bundle response) {
-                    onReq = false;
-                    dismissLoadingDialog();
-
-                    try {
-                        Bundle resBody = response.getBundle(Key.resBody);
-                        String result_code = resBody.getString(Key.result_code);
-                        String result_msg = resBody.getString(Key.result_msg);
-
-                        if (result_code.equals("200")) {
-                            item.putString("STATUS", "Y");
-                            listAdapter.notifyItemChanged(listItems.indexOf(item));
-                        } else {
-                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        showToast(e.getMessage(), false);
-                    }
-                }
-            }.execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressLint ("StaticFieldLeak")
     private synchronized void requestList(final boolean reqNextPage) {
         if (onReq)
             return;
@@ -330,12 +260,13 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        //payloadJson.put("custCd", Key.getUserInfo().getString("CLIENT_CD"));
                         payloadJson.put("fromDt", fromDt);
                         payloadJson.put("toDt", toDt);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_PALLETS_RECEIPT_HISTORY, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_PALLETS_DISPATCH_HISTORY, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -353,6 +284,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                         if (result_code.equals("200")) {
                             ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
                             addListItems(data, reqNextPage);
+                            ((TextView) findViewById(R.id.totalTxt)).setText(resBody.getInt("tot_cnt", 0) + "건");
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
@@ -401,7 +333,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
             RecyclerView.ViewHolder holder = null;
 
             if (viewType == TYPE_LIST_ITEM) {
-                View v = View.inflate(getContext(), R.layout.pallets_receipt_history_item, null);
+                View v = View.inflate(getContext(), R.layout.pallets_dispatch_history_item, null);
                 v.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
                 holder = new ListItemView(v);
             }
@@ -421,7 +353,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
             public abstract void onBindViewData(final Bundle item);
         }
 
-        class ListItemView extends PalletsReceiptHistoryActivity.ListAdapter.ItemViewHolder {
+        class ListItemView extends PalletsDispatchHistoryActivity.ListAdapter.ItemViewHolder {
             public ListItemView(View itemView) {
                 super(itemView);
             }
@@ -431,8 +363,6 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                     // 연번
                     ((TextView) itemView.findViewById(R.id.dataTxt0)).setText(item.getString("NO"));
 
-                    ImageView checkImg = itemView.findViewById(R.id.checkImg);
-
                     // 화주명
                     ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("CUST_NM"));
 
@@ -440,66 +370,14 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                     String REQUEST_DT = Key.SDF_CAL_DEFAULT.format(Key.SDF_PAYLOAD.parse(item.getString("REQUEST_DT", "")));
                     ((TextView) itemView.findViewById(R.id.dataTxt2)).setText(REQUEST_DT);
 
-                    // 처리
-                    TextView dataTxt3 = itemView.findViewById(R.id.dataTxt3);
-                    TextView dataBtn3 = itemView.findViewById(R.id.dataBtn3);
-
-                    String STATUS = item.getString("STATUS", "N");
-                    if (STATUS.equalsIgnoreCase("Y")) {
-                        checkImg.setVisibility(View.INVISIBLE);
-
-                        dataTxt3.setVisibility(View.VISIBLE);
-                        dataBtn3.setVisibility(View.INVISIBLE);
-                    } else {
-                        checkImg.setVisibility(View.VISIBLE);
-                        if (item.getBoolean("checked"))
-                            checkImg.setImageResource(R.drawable.date_check_box_on);
-                        else
-                            checkImg.setImageResource(R.drawable.date_check_box_off);
-
-                        dataTxt3.setVisibility(View.INVISIBLE);
-                        dataBtn3.setVisibility(View.VISIBLE);
-                    }
-
-                    dataBtn3.setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            showPalletsCountEditDialog(item);
-                        }
-                    });
-
-                    itemView.setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if (STATUS.equalsIgnoreCase("N")) {
-                                item.putBoolean("checked", !item.getBoolean("checked"));
-                                //listAdapter.notifyItemChanged(listItems.indexOf(item));
-                                listAdapter.notifyDataSetChanged();
-                            }
-                        }
-                    });
+                    // 수량
+                    ((TextView) itemView.findViewById(R.id.dataTxt2)).setText(item.getString("PALLET_CNT"));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
 
-    }
-
-    private void showPalletsCountEditDialog(final Bundle item) {
-        if (item == null)
-            return;
-
-        CountEditDialog.show(this, "팔레트 수량 입력", 4, new CountEditDialog.DialogListener() {
-            public void onCancel() {
-            }
-
-            public void onConfirm(String count) {
-                try {
-                    requestPalletsDispatch(item, Integer.parseInt(count));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

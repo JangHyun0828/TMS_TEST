@@ -6,20 +6,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="30.7dp">
+    android:minHeight="36.7dp">
 
     <TextView
         android:id="@+id/dateTxt"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="36dp"
         android:paddingStart="19dp"
-        android:drawableStart="@drawable/check_box_off"
-        android:drawablePadding="20.3dp"
+        android:drawableStart="@drawable/date_check_box_off"
+        android:drawablePadding="16dp"
         android:gravity="center_vertical|start"
         android:textSize="16sp"
         android:textColor="#4d4c4c"
         android:text="0000.00.00 (일)"
-        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        android:fontFamily="@font/my_nanum_square_r"
         android:background="@drawable/selector_list_item" />
 
     <View

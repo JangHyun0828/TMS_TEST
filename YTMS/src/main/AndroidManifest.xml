@@ -284,6 +284,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".delivery.pallets.PalletsDispatchHistoryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

@@ -311,10 +311,10 @@ public class PersonalDaySurveyActivity extends BasicActivity {
                 try {
                     TextView dateTxt = itemView.findViewById(R.id.dateTxt);
                     if (item.getBoolean("checked"))
-                        dateTxt.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_box_on_dark, 0, 0, 0);
+                        dateTxt.setCompoundDrawablesWithIntrinsicBounds(R.drawable.date_check_box_on, 0, 0, 0);
                     else
-                        dateTxt.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_box_off, 0, 0, 0);
-                    
+                        dateTxt.setCompoundDrawablesWithIntrinsicBounds(R.drawable.date_check_box_off, 0, 0, 0);
+
                     itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
