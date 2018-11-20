@@ -27,6 +27,8 @@ public class API {
     public static final String URL_CAR_ALLOC_LIST = "/car/dispatch/list";
     public static final String URL_CAR_PALLETS_INPUT = "/car/input/pallet";
     public static final String URL_CAR_RECEIPT_SAVE = "/car/send/receipt";
+    public static final String URL_CAR_RECEIPT_DISPATCH_HISTORY = "/car/receipt/list";
+    public static final String URL_CAR_FREIGHT_CHARGE_HISTORY= "/car/payment/list";
 
     public static final String URL_DELIVERY_ALLOC_CNT = "/dc/dispatch/count";
     public static final String URL_DELIVERY_ALLOC_LIST = "/dc/dispatch/list";

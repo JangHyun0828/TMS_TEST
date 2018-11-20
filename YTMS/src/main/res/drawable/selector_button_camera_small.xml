@@ -4,11 +4,11 @@
 
     <!-- pressed -->
     <item android:state_pressed="true"
-        android:drawable="@drawable/delete_o_on" />
+        android:drawable="@drawable/camera_s_on" />
 
     <!-- normal -->
     <item android:state_focused="false"
         android:state_pressed="false"
-        android:drawable="@drawable/delete_o_off" />
+        android:drawable="@drawable/camera_s_off" />
 
 </selector>

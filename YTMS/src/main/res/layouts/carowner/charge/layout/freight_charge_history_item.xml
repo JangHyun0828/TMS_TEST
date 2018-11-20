@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/dataTxt1"
-        android:layout_width="130dp"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
         android:minHeight="38dp"
         android:paddingBottom="11.3dp"
@@ -34,23 +34,23 @@
         android:lineSpacingExtra="3sp"
         android:textSize="13.3sp"
         android:textColor="#4d4c4c"
-        android:text="동서식품(주) 부평"
+        android:text="고객사명"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt0"
         app:layout_constraintStart_toStartOf="@id/dataTxt0"
+        app:layout_constraintEnd_toStartOf="@id/dataTitle2"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTitle2"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginEnd="45dp"
         android:gravity="center"
         android:textSize="13.3sp"
         android:textColor="#4d4c4c"
         android:text="상차지:"
         app:layout_constraintBaseline_toBaselineOf="@+id/dataTxt1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dataTxt1"
+        app:layout_constraintEnd_toStartOf="@id/dataTxt2"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
@@ -62,7 +62,7 @@
         android:lineSpacingExtra="3sp"
         android:textSize="13.3sp"
         android:textColor="#3668a5"
-        android:text="부평제조2팀"
+        android:text="상차지명"
         app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle2"
         app:layout_constraintBottom_toTopOf="@+id/dataTxt3"
         app:layout_constraintStart_toEndOf="@id/dataTitle2"
@@ -92,7 +92,7 @@
         android:lineSpacingExtra="3sp"
         android:textSize="13.3sp"
         android:textColor="#253e66"
-        android:text="창원"
+        android:text="하차지명"
         app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle3"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt2"
         app:layout_constraintStart_toEndOf="@id/dataTitle2"
@@ -104,14 +104,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16.7dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="17dp"
         android:minHeight="19dp"
         android:gravity="start|center_vertical"
         android:includeFontPadding="false"
         android:textSize="13.3sp"
         android:textColor="#253e66"
-        android:text="000,000\"
+        android:text="000,000"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dataTxt2"
         app:layout_constraintEnd_toEndOf="parent"
         app:fontFamily="@font/my_nanum_square_r" />
 

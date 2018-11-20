@@ -24,6 +24,7 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.trevor.library.template.BasicActivity;
+import com.trevor.library.util.TextUtil;
 
 import org.json.JSONObject;
 
@@ -35,8 +36,6 @@ public class FreightChargeHistoryActivity extends BasicActivity {
     private boolean onReq;
 
     private Calendar fromCal, toCal;
-
-    private boolean isListPullUp;
 
     private ArrayList<Bundle> listItems = new ArrayList<Bundle>();
     private ListAdapter listAdapter;
@@ -62,7 +61,7 @@ public class FreightChargeHistoryActivity extends BasicActivity {
         fromCal.setTimeInMillis(toCal.getTimeInMillis());
         fromCal.add(Calendar.DAY_OF_MONTH, -31); // TEST
 
-        setTitleBar("운임내역 확인", 0, 0, R.drawable.selector_button_close);
+        setTitleBar("운임내역 확인", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
         fromDateBtn = (Button) findViewById(R.id.fromDateBtn);
         fromDateBtn.setText(Key.SDF_CAL_DEFAULT.format(fromCal.getTime()));
@@ -74,7 +73,7 @@ public class FreightChargeHistoryActivity extends BasicActivity {
         sumTxt = findViewById(R.id.sumTxt);
         ((TextView) findViewById(R.id.sumUnitTxt)).setText("원");
 
-        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
@@ -87,58 +86,6 @@ public class FreightChargeHistoryActivity extends BasicActivity {
         list.setLayoutManager(layoutManager);
         listAdapter = new ListAdapter();
         list.setAdapter(listAdapter);
-
-        list.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-
-                // CAUTION 아이템 높이가 RecycleView 높이보다 큰 경우, 아래 메서드 사용시 index가 모두 -1 로 반환되므로 사용 금지
-                //int firstItemIdx = layoutManager.findFirstCompletelyVisibleItemPosition();
-                //int lastItemIdx = layoutManager.findLastCompletelyVisibleItemPosition();
-                int firstItemIdx = layoutManager.findFirstVisibleItemPosition();
-                int lastItemIdx = layoutManager.findLastVisibleItemPosition();
-
-                Log.e(TAG, "+ onScrollStateChanged(): newState=" + newState + " / isListPullUp=" + isListPullUp + " / firstItemIdx=" + firstItemIdx + " / lastItemIdx=" + lastItemIdx);
-
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    if (!isListPullUp && firstItemIdx == 0) {
-                        Log.i(TAG, "+ onScrollStateChanged(): request refresh !");
-                    } else if (isListPullUp && lastItemIdx == listAdapter.getItemCount() - 1) {
-                        Log.i(TAG, "+ onScrollStateChanged(): request next list !");
-                        requestList(true);
-                    }
-                }
-
-                if (newState == RecyclerView.SCROLL_STATE_SETTLING) {
-                    int scrollY = recyclerView.computeVerticalScrollOffset();
-                    Log.e(TAG, "+ onScrollStateChanged(): scrollY=" + scrollY);
-                }
-            }
-
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-            }
-        });
-
-        list.setOnTouchListener(new View.OnTouchListener() {
-            float prevY;
-
-            public boolean onTouch(View v, MotionEvent event) {
-                //Log.i(TAG, "+ MotionEvent: " + event);
-                if (event.getAction() == MotionEvent.ACTION_MOVE) {
-                    // pull down
-                    if (prevY < event.getY()) {
-                        isListPullUp = false;
-                    }
-                    // pull up
-                    else if (prevY > event.getY()) {
-                        isListPullUp = true;
-                    }
-                    prevY = event.getY();
-                }
-                return false;
-            }
-        });
 
         ((TextView) findViewById(R.id.callCenterTxt)).setText("운임정산 담당자 연결");
         ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.freight_charge_call_center_phone_no));
@@ -168,9 +115,10 @@ public class FreightChargeHistoryActivity extends BasicActivity {
 
         switch (v.getId()) {
             case R.id.titleLeftBtn0:
+                finish();
                 break;
             case R.id.titleRightBtn1:
-                finish();
+                search();
                 break;
             case R.id.prevDateBtn:
                 setPrevDate();
@@ -234,14 +182,14 @@ public class FreightChargeHistoryActivity extends BasicActivity {
             //    return;
             //}
 
-            requestList(false);
+            requestList();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestList(final boolean reqNextPage) {
+    private synchronized void requestList() {
         if (onReq)
             return;
 
@@ -255,10 +203,7 @@ public class FreightChargeHistoryActivity extends BasicActivity {
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
                     onReq = true;
-                    if (reqNextPage)
-                        showLoadingDialog(null, false);
-                    else
-                        swipeRefreshLayout.setRefreshing(true);
+                    swipeRefreshLayout.setRefreshing(true);
                 }
 
                 protected Bundle doInBackground(Void... arg0) {
@@ -266,21 +211,17 @@ public class FreightChargeHistoryActivity extends BasicActivity {
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        payloadJson.put("custCd", Key.getUserInfo().getString("CLIENT_CD"));
                         payloadJson.put("fromDt", fromDt);
                         payloadJson.put("toDt", toDt);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_SHIPPER_PALLETS_REQUEST_HISTORY, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_CAR_FREIGHT_CHARGE_HISTORY, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
                     onReq = false;
-                    if (reqNextPage)
-                        dismissLoadingDialog();
-                    else
-                        swipeRefreshLayout.setRefreshing(false);
+                    swipeRefreshLayout.setRefreshing(false);
 
                     try {
                         Bundle resBody = response.getBundle(Key.resBody);
@@ -288,23 +229,17 @@ public class FreightChargeHistoryActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-                            //ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
-                            //addListItems(data);
+                            ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
+                            addListItems(data);
+
+                            sumTxt.setText(TextUtil.formatCurrency(resBody.getInt("tot_amt")));
                         } else {
-                            //showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
                     } catch (Exception e) {
-                        //e.printStackTrace();
-                        //showToast(e.getMessage(), false);
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
                     }
-
-                    // TEST
-                    ArrayList<Bundle> data = new ArrayList<Bundle>();
-                    for (int i = 0; i < 10; i++) {
-                        Bundle item = new Bundle();
-                        data.add(item);
-                    }
-                    addListItems(data);
                 }
             }.execute();
         } catch (Exception e) {
@@ -368,24 +303,21 @@ public class FreightChargeHistoryActivity extends BasicActivity {
 
             public void onBindViewData(Bundle item) {
                 try {
-                    //// 요청일자
-                    //String REQUEST_DT = Key.SDF_CAL_DEFAULT.format(Key.SDF_PAYLOAD.parse(item.getString("REQUEST_DT", "")));
-                    //((TextView) itemView.findViewById(R.id.dataTxt0)).setText(REQUEST_DT);
-                    //
-                    //String STATUS = item.getString("STATUS", "");
-                    //String PALLET_CNT = item.getString("PALLET_CNT", "");
-                    //
-                    //// 요청
-                    //if (STATUS.isEmpty())
-                    //    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(null);
-                    //else
-                    //    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText("요청");
-                    //
-                    //// 상태
-                    //((TextView) itemView.findViewById(R.id.dataTxt2)).setText(item.getString("STATUS", ""));
-                    //
-                    //// 수량
-                    //((TextView) itemView.findViewById(R.id.dataTxt3)).setText(PALLET_CNT);
+                    // 배차일자
+                    String DISPATCH_DT = Key.SDF_CAL_DEFAULT.format(Key.SDF_PAYLOAD.parse(item.getString("DISPATCH_DT", "")));
+                    ((TextView) itemView.findViewById(R.id.dataTxt0)).setText(DISPATCH_DT);
+
+                    // 고객사명
+                    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("CUST_NM", ""));
+
+                    // 상차지
+                    ((TextView) itemView.findViewById(R.id.dataTxt2)).setText(item.getString("FROM_CENTER_NM", ""));
+
+                    // 하차지
+                    ((TextView) itemView.findViewById(R.id.dataTxt3)).setText(item.getString("TO_CENTER_NM", ""));
+
+                    // 운임
+                    ((TextView) itemView.findViewById(R.id.dataTxt4)).setText(TextUtil.formatCurrency(item.getString("BUY_AMT", "0")));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
