@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
@@ -17,7 +16,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.neognp.ytms.R;
@@ -27,14 +29,12 @@ import com.neognp.ytms.carowner.account.AccountEditActivity;
 import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
 import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
 import com.neognp.ytms.carowner.receipt.ReceiptDispatchCheckActivity;
-import com.neognp.ytms.gps.GpsSenderService;
+import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSRestRequestor;
-import com.neognp.ytms.login.LoginActivity;
 import com.neognp.ytms.notice.NoticeListActivity;
-import com.trevor.library.app.LibKey;
-import com.trevor.library.http.RestRequestor;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.MapUtil;
 
 import org.json.JSONObject;
 
@@ -45,10 +45,12 @@ public class CarOwnerMainActivity extends BasicActivity {
 
     private boolean onNewIntent;
 
+    private ImageView locationImg;
+
     private TextView carAllocBadgeCntTxt;
     private TextView noticeBadgeCntTxt;
 
-    private GpsSenderService mGpsSenderService;
+    private GpsTrackingService mGpsTrackingService;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +58,9 @@ public class CarOwnerMainActivity extends BasicActivity {
 
         IntentFilter workActionFilter = new IntentFilter();
         workActionFilter.addAction(Key.ACTION_LOCATION_UPDATED);
-        LocalBroadcastManager.getInstance(this).registerReceiver(gpsActionReceiver, workActionFilter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(gpsUpdateReceiver, workActionFilter);
 
-        Intent serviceIntent = new Intent(this, GpsSenderService.class);
+        Intent serviceIntent = new Intent(this, GpsTrackingService.class);
 
         /** 홈 화면>모든 앱 종료시 Service 유지 **/
         //if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
@@ -76,6 +78,8 @@ public class CarOwnerMainActivity extends BasicActivity {
 
         if (Key.getUserInfo() != null)
             ((TextView) findViewById(R.id.userNameTxt)).setText(Key.getUserInfo().getString("USER_NM", ""));
+
+        locationImg = findViewById(R.id.locationImg);
 
         carAllocBadgeCntTxt = findViewById(R.id.carAllocBadgeCntTxt);
         noticeBadgeCntTxt = findViewById(R.id.noticeBadgeCntTxt);
@@ -97,41 +101,53 @@ public class CarOwnerMainActivity extends BasicActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(gpsActionReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(gpsUpdateReceiver);
 
-        //Intent serviceIntent = new Intent(this, GpsSenderService.class);
+        //Intent serviceIntent = new Intent(this, GpsTrackingService.class);
         //stopService(serviceIntent);
 
         unbindService(mServiceConnection);
-        mGpsSenderService = null;
+        mGpsTrackingService = null;
     }
 
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
         String TAG = ServiceConnection.class.getSimpleName();
 
         public void onServiceConnected(ComponentName componentName, IBinder service) {
-            mGpsSenderService = ((GpsSenderService.LocalBinder) service).getService();
+            mGpsTrackingService = ((GpsTrackingService.LocalBinder) service).getService();
 
-            if (!mGpsSenderService.initialize()) {
-                Log.e(TAG, "+ onServiceConnected: failed");
-                finish();
-            } else {
-                Log.e(TAG, "+ onServiceConnected(): succeed");
-            }
+            //if (!mGpsTrackingService.initialize()) {
+            //    Log.e(TAG, "+ onServiceConnected: failed");
+            //    finish();
+            //} else {
+            //    Log.e(TAG, "+ onServiceConnected(): succeed");
+            //}
+
+            Log.e(TAG, "+ onServiceConnected(): succeed");
         }
 
         public void onServiceDisconnected(ComponentName componentName) {
             Log.e(TAG, "+ onServiceDisconnected(): ");
-            mGpsSenderService = null;
+            mGpsTrackingService = null;
         }
     };
 
-    private final BroadcastReceiver gpsActionReceiver = new BroadcastReceiver() {
-        String TAG = "gpsActionReceiver";
+    private final BroadcastReceiver gpsUpdateReceiver = new BroadcastReceiver() {
+        String TAG = "gpsUpdateReceiver";
 
         public void onReceive(Context context, Intent intent) {
             try {
+                if (intent == null)
+                    return;
 
+                Bundle args = intent.getBundleExtra("args");
+
+                ((TextView) findViewById(R.id.addressTxt0)).setText(args.getString("userAddress0"));
+                ((TextView) findViewById(R.id.addressTxt1)).setText(args.getString("userAddress1"));
+
+                Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                anim.setDuration(500);
+                locationImg.startAnimation(anim);
             } catch (Exception e) {
                 e.printStackTrace();
             }

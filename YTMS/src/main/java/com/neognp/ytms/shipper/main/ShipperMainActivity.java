@@ -50,8 +50,8 @@ public class ShipperMainActivity extends BasicActivity {
             ((TextView) findViewById(R.id.userNameTxt)).setText(Key.getUserInfo().getString("USER_NM", ""));
 
         findViewById(R.id.locationImg).setVisibility(View.GONE);
-        findViewById(R.id.userLocAddrTxt0).setVisibility(View.GONE);
-        findViewById(R.id.userLocAddrTxt1).setVisibility(View.GONE);
+        findViewById(R.id.addressTxt0).setVisibility(View.GONE);
+        findViewById(R.id.addressTxt1).setVisibility(View.GONE);
 
         noticeBadgeCntTxt = findViewById(R.id.noticeBadgeCntTxt);
 

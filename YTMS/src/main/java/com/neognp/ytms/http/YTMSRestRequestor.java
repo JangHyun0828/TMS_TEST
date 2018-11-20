@@ -44,7 +44,11 @@ public class YTMSRestRequestor {
 
         try {
             payloadJson = new JSONObject();
-            payloadJson.put("uuid", DeviceUtil.getUuid());
+            String uuid = DeviceUtil.getUuid();
+            // TEST
+            if (uuid.endsWith("810d"))
+                uuid = "ffffffff-0000-0000-0000-0000aaaaaaaa";
+            payloadJson.put("uuid", uuid);
             payloadJson.put("phone_no", DeviceUtil.getPhoneNumber());
             payloadJson.put("manufacturer", Build.MANUFACTURER);
             payloadJson.put("network_operator", DeviceUtil.getOperatorName());

@@ -256,8 +256,6 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
             if (item == null)
                 return;
 
-            final String requestDt = Key.SDF_PAYLOAD.format(new Date().getTime());
-
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
                     onReq = true;
@@ -270,7 +268,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
                         payloadJson.put("custCd", item.getString("CUST_CD"));
-                        payloadJson.put("requestDt", requestDt);
+                        payloadJson.put("requestDt", item.getString("REQUEST_DT"));
                         payloadJson.put("palletCnt", palletCnt);
                     } catch (Exception e) {
                         e.printStackTrace();

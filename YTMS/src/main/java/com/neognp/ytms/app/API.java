@@ -7,6 +7,7 @@ public class API {
 
     public static final String URL_ = "";
     public static final String URL_LOGIN = "/common/login";
+    public static final String URL_GPS_SEND= "/common/gps";
     public static final String URL_NOTICE_NEW_COUNT = "/common/notice/count";
     public static final String URL_NOTICE = "/common/notice/list";
     public static final String URL_NOTICE_READ = "/common/notice/log";

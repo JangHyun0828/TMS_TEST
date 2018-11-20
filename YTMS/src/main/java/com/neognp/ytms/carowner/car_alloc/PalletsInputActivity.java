@@ -116,6 +116,7 @@ public class PalletsInputActivity extends BasicActivity {
                     JSONObject payloadJson = null;
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("orderNo", args.getString("ORDER_NO"));
                         payloadJson.put("dispatchNo", args.getString("DISPATCH_NO"));
                         payloadJson.put("palletCnt", palletCnt);
                     } catch (Exception e) {

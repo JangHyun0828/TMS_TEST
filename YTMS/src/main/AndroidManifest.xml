@@ -39,7 +39,7 @@
             android:value="@string/google_maps_key" />
 
         <service
-            android:name=".gps.GpsSenderService"
+            android:name=".gps.GpsTrackingService"
             android:enabled="true" />
 
         <activity

@@ -31,36 +31,43 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="6.3dp"
         android:src="@drawable/icon_position"
-        app:layout_constraintEnd_toStartOf="@+id/userLocAddrTxt1"
+        app:layout_constraintEnd_toStartOf="@id/addressBarrier"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <TextView
-        android:id="@+id/userLocAddrTxt0"
+    <android.support.constraint.Barrier
+        android:id="@+id/addressBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:constraint_referenced_ids="addressTxt0,addressTxt1"
+        app:barrierDirection="start" />
+
+    <TextView
+        android:id="@+id/addressTxt0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:includeFontPadding="false"
+        android:text="현재 위치"
         android:textSize="17.3sp"
         android:textColor="#323332"
-        android:text="서울 구로구"
         android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/userLocAddrTxt1"
-        app:layout_constraintStart_toStartOf="@id/userLocAddrTxt1" />
+        app:layout_constraintBottom_toTopOf="@+id/addressTxt1"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/userLocAddrTxt1"
+        android:id="@+id/addressTxt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25.3dp"
+        android:layout_marginEnd="10dp"
         android:includeFontPadding="false"
         android:textSize="13.3sp"
         android:textColor="#323332"
-        android:text="구로동 187-10"
         android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintTop_toBottomOf="@+id/addressTxt0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userLocAddrTxt0"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
