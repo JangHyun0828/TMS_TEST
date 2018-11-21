@@ -18,7 +18,7 @@
         style="@style/Scrollbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="11.7dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:clipToPadding="false"
@@ -45,6 +45,7 @@
                 style="@style/TextViewTableItem"
                 android:gravity="center_vertical|start"
                 android:text="아이디"
+                app:fontFamily="@font/my_nanum_square_r"
                 app:layout_gravity="fill" />
 
             <TextView
@@ -53,15 +54,20 @@
                 android:text="비밀번호"
                 app:layout_gravity="fill" />
 
-            <TextView
-                android:id="@+id/pwdTxt"
+            <Button
+                android:id="@+id/pwdBtn"
                 style="@style/TextViewTableItem"
                 android:gravity="center_vertical|start"
-                android:drawableEnd="@drawable/icon_lock"
+                android:drawableStart="@drawable/icon_lock"
                 android:drawablePadding="4.7dp"
                 android:text="비밀번호 변경"
+                android:textSize="13.3sp"
                 android:textColor="@color/main_theme"
-                app:layout_gravity="start" />
+                app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+                app:layout_gravity="start"
+                android:onClick="onClick"
+                android:background="@null"
+                android:stateListAnimator="@null"/>
 
             <TextView
                 style="@style/TextViewTableItem"
@@ -108,7 +114,7 @@
         app:layout_constraintStart_toStartOf="@+id/infoScroll"
         app:layout_constraintEnd_toEndOf="@+id/infoScroll"
         app:layout_constraintTop_toBottomOf="@+id/infoScroll"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <Button
         android:id="@+id/logoutBtn"

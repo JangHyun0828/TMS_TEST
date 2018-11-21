@@ -138,11 +138,12 @@ public class ForkLiftAlarmActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-                            ((TextView) findViewById(R.id.areaTxt)).setText(resBody.getString("AREA_NM", " "));
-                            ((TextView) findViewById(R.id.orderTxt)).setText(resBody.getString("READY_NO", " ") + "번");
+                            Bundle data = resBody.getBundle(Key.data);
+                            ((TextView) findViewById(R.id.areaTxt)).setText(data.getString("AREA_NM", " "));
+                            ((TextView) findViewById(R.id.orderTxt)).setText(data.getString("READY_NO", " ") + "번");
 
-                            ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
-                            addListItems(data);
+                            ArrayList<Bundle> ready_list = resBody.getParcelableArrayList("ready_list");
+                            addListItems(ready_list);
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }

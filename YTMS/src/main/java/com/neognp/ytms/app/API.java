@@ -13,6 +13,7 @@ public class API {
     public static final String URL_NOTICE_READ = "/common/notice/log";
     public static final String URL_LOCATION = "/common/location";
 
+    public static final String URL_SHIPPER_PWD_CHANGE = "/cust/update/pwd";
     public static final String URL_SHIPPER_ALLOC_CNT = "/cust/dispatch/count";
     public static final String URL_SHIPPER_CAR_REQUEST_CNT = "/cust/select/car";
     public static final String URL_SHIPPER_CAR_REQUEST_CNT_SAVE = "/cust/request/car";
@@ -40,6 +41,7 @@ public class API {
     public static final String URL_DELIVERY_DIRECT_SET_FAVORITE = "/dc/update/favorite";
     public static final String URL_DELIVERY_DIRECT_ALLOC_LIST = "/dc/dispatch/center";
     public static final String URL_DELIVERY_PALLETS_RECEIPT_HISTORY ="/dc/list/request";
+    public static final String URL_DELIVERY_PALLETS_RECEIPT_DELETE="/dc/delete/request";
     public static final String URL_DELIVERY_PALLETS_DISPATCH ="/dc/send/pallet";
     public static final String URL_DELIVERY_PALLETS_DISPATCH_HISTORY="/dc/list/send";
 

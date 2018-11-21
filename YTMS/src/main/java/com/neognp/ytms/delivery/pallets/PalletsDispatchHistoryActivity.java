@@ -260,7 +260,6 @@ public class PalletsDispatchHistoryActivity extends BasicActivity {
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        //payloadJson.put("custCd", Key.getUserInfo().getString("CLIENT_CD"));
                         payloadJson.put("fromDt", fromDt);
                         payloadJson.put("toDt", toDt);
                     } catch (Exception e) {

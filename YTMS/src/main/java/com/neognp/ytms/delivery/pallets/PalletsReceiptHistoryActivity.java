@@ -31,7 +31,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class PalletsReceiptHistoryActivity extends BasicActivity {
 
@@ -181,6 +180,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                 break;
             // 삭제
             case R.id.bottomBtn0:
+                requestPalletsReceiptDelete();
                 break;
             // 발송내역
             case R.id.bottomBtn1: {
@@ -245,7 +245,70 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestPalletsDispatch(Bundle item, int palletCnt) {
+    private synchronized void requestPalletsReceiptDelete() {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            String selSeq = "";
+            for (Bundle item : listItems) {
+                if (item.getBoolean("checked"))
+                    selSeq += item.getString("SEQ", "") + ",";
+            }
+            selSeq = selSeq.substring(0, selSeq.length() - 1);
+            if (selSeq.isEmpty())
+                return;
+
+            final String seq = selSeq;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    showLoadingDialog(null, false);
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("seq", seq);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_PALLETS_RECEIPT_DELETE, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            search();
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestPalletsReceiptDispatch(Bundle item, int palletCnt) {
         if (onReq)
             return;
 
@@ -267,8 +330,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        payloadJson.put("custCd", item.getString("CUST_CD"));
-                        payloadJson.put("requestDt", item.getString("REQUEST_DT"));
+                        payloadJson.put("seq", item.getString("SEQ"));
                         payloadJson.put("palletCnt", palletCnt);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -492,7 +554,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
 
             public void onConfirm(String count) {
                 try {
-                    requestPalletsDispatch(item, Integer.parseInt(count));
+                    requestPalletsReceiptDispatch(item, Integer.parseInt(count));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

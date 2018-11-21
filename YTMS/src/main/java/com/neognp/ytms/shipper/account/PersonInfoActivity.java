@@ -2,6 +2,7 @@ package com.neognp.ytms.shipper.account;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -10,6 +11,7 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.neognp.ytms.R;
@@ -17,6 +19,8 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
+import com.neognp.ytms.popup.CountEditDialog;
+import com.neognp.ytms.popup.PwdEditDialog;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
 import com.trevor.library.util.TextUtil;
@@ -31,20 +35,10 @@ public class PersonInfoActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.person_info_activity);
 
-        setTitleBar("개인정보", R.drawable.selector_button_back, 0, R.drawable.selector_button_setting);
+        setTitleBar("개인정보", R.drawable.selector_button_back, 0, 0);
 
         if (Key.getUserInfo() != null) {
             ((TextView) findViewById(R.id.idTxt)).setText(TextUtil.formatPhoneNumber(Key.getUserInfo().getString("USER_ID")));
-
-            TextView pwdTxt = ((TextView) findViewById(R.id.pwdTxt));
-            //pwdTxt.setText(Key.getUserInfo().getString("USER_PW_HIDDEN"));
-            SpannableString content = new SpannableString(pwdTxt.getText());
-            content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
-            pwdTxt.setText(content);
-            pwdTxt.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                }
-            });
 
             ((TextView) findViewById(R.id.nameTxt)).setText(Key.getUserInfo().getString("EMP_NM", "") + " 님");
 
@@ -81,6 +75,9 @@ public class PersonInfoActivity extends BasicActivity {
             case R.id.titleLeftBtn0:
                 finish();
                 break;
+            case R.id.pwdBtn:
+                showPwdChangeDialog();
+                break;
             case R.id.logoutBtn:
                 requestLoginActivity();
                 break;
@@ -88,6 +85,17 @@ public class PersonInfoActivity extends BasicActivity {
                 AppUtil.runCallApp(getString(R.string.delivery_call_center_phone_no), true);
                 break;
         }
+    }
+
+    private void showPwdChangeDialog() {
+        PwdEditDialog.show(this, new PwdEditDialog.DialogListener() {
+            public void onCancel() {
+            }
+
+            public void onConfirm(final String userPw) {
+                requestPwdChange(userPw);
+            }
+        });
     }
 
     private void requestLoginActivity() {
@@ -100,22 +108,16 @@ public class PersonInfoActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void request() {
+    private synchronized void requestPwdChange(String userPw) {
         if (onReq)
             return;
-
-        //if(args == null)
-        //    return;
 
         try {
             if (Key.getUserInfo() == null)
                 return;
 
-            //final String  = ((TextView) findViewById(R.id.)).getText().toString().trim();
-            //if (.isEmpty()) {
-            //    showToast("입력하세요.", true);
-            //    return;
-            //}
+            if (userPw == null || userPw.isEmpty())
+                return;
 
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
@@ -127,11 +129,12 @@ public class PersonInfoActivity extends BasicActivity {
                     JSONObject payloadJson = null;
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
-                        //payloadJson.put("", );
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("userPw", userPw);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_SHIPPER_PWD_CHANGE, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -144,7 +147,7 @@ public class PersonInfoActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-
+                            showToast("비밀번호가 변경됐습니다.", true);
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
@@ -157,15 +160,6 @@ public class PersonInfoActivity extends BasicActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void showActivity(Bundle args) {
-        if (args == null)
-            return;
-
-        // Intent intent = new Intent(this, Activity.class);
-        // intent.putExtra(LibKey.args, args);
-        // startActivityForResult(intent, REQUEST_);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
