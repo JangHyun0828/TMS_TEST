@@ -45,7 +45,7 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
         setTitleBar("하차 준비 알림", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
-        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
@@ -72,9 +72,9 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
     private void init() {
         try {
-            //args = getIntent().getExtras();
-            //if (args == null)
-            //    return;
+            args = getIntent().getExtras();
+            if (args == null)
+                return;
 
             requestProcessStatus();
         } catch (Exception e) {
@@ -105,8 +105,8 @@ public class ForkLiftAlarmActivity extends BasicActivity {
             return;
 
         try {
-            //if (args == null)
-            //    return;
+            if (args == null)
+                return;
 
             if (Key.getUserInfo() == null)
                 return;
@@ -121,40 +121,44 @@ public class ForkLiftAlarmActivity extends BasicActivity {
                     JSONObject payloadJson = null;
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
-                        //payloadJson.put("", );
+                        payloadJson.put("carCd", args.getString("CAR_CD"));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_CAR_FORK_LIFT_ORDER, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
                     onReq = false;
                     swipeRefreshLayout.setRefreshing(false);
 
-                    //try {
-                    //    Bundle resBody = response.getBundle(Key.resBody);
-                    //    String result_code = resBody.getString(Key.result_code);
-                    //    String result_msg = resBody.getString(Key.result_msg);
-                    //
-                    //    if (result_code.equals("200")) {
-                    //        setProcessStatus(resBody.getBundle(Key.data));
-                    //    } else {
-                    //        showToast(result_msg + "(result_code:" + result_msg + ")", true);
-                    //    }
-                    //} catch (Exception e) {
-                    //    e.printStackTrace();
-                    //    showToast(e.getMessage(), false);
-                    //}
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
 
-                    // TEST
-                    ArrayList<Bundle> list = new ArrayList<Bundle>();
-                    for (int i = 0; i < 30; i++) {
-                        Bundle item = new Bundle();
-                        item.putString("CAR_STATUS", "" + i);
-                        list.add(item);
+                        if (result_code.equals("200")) {
+                            ((TextView) findViewById(R.id.areaTxt)).setText(resBody.getString("AREA_NM", " "));
+                            ((TextView) findViewById(R.id.orderTxt)).setText(resBody.getString("READY_NO", " ") + "번");
+
+                            ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
+                            addListItems(data);
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
                     }
-                    addListItems(list);
+
+                    //// TEST
+                    //ArrayList<Bundle> list = new ArrayList<Bundle>();
+                    //for (int i = 0; i < 30; i++) {
+                    //    Bundle item = new Bundle();
+                    //    item.putString("CAR_STATUS", "" + i);
+                    //    list.add(item);
+                    //}
+                    //addListItems(list);
                 }
             }.execute();
         } catch (Exception e) {
@@ -218,8 +222,8 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
             public void onBindViewData(Bundle item) {
                 try {
-                    //((TextView) itemView.findViewById(R.id.dataTxt0)).setText(item.getString("CAR_NO", ""));
-                    //((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("CAR_STATUS"));
+                    ((TextView) itemView.findViewById(R.id.dataTxt0)).setText(item.getString("CAR_NO", ""));
+                    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("READY_NO", ""));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

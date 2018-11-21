@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toStartOf="@id/palletsBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/dataTxt1"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="@id/dataTxt0"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt0"
         app:layout_constraintBottom_toTopOf="@+id/dataTxt2"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt2"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="@id/dataTxt0"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt1"
         app:layout_constraintBottom_toTopOf="@+id/dataTxt3"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt3"
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="@id/dataTxt0"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt2"
         app:layout_constraintBottom_toTopOf="@+id/dataTitle4"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTitle4"
@@ -100,7 +100,7 @@
         android:text="비고 : "
         app:layout_constraintStart_toStartOf="@id/dataTxt0"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt3"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt4"
@@ -114,7 +114,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle4"
         app:layout_constraintStart_toEndOf="@id/dataTitle4"
         app:layout_constraintEnd_toEndOf="@id/dataTxt0"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt5"
@@ -130,10 +130,10 @@
         android:text="하차순서 확인"
         app:layout_constraintStart_toStartOf="@id/dataTxt0"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt4"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <Button
-        android:id="@+id/takePhotoBtn"
+        android:id="@+id/cameraBtn"
         android:layout_width="81dp"
         android:layout_height="51.7dp"
         android:paddingTop="5dp"
@@ -143,7 +143,7 @@
         android:textColor="#ffffff"
         android:text="인수증 촬영"
         android:background="@drawable/selector_button_round_rect_navy"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:stateListAnimator="@null"
         app:layout_constraintTop_toTopOf="@id/leftBar"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -157,8 +157,8 @@
         android:textColor="#ffffff"
         android:text="팔레트\n입력"
         android:gravity="center"
-        android:background="@drawable/selector_button_round_rect_sky"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:background="@drawable/selector_button_round_rect_blue"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/leftBar" />
@@ -173,12 +173,12 @@
         android:textColor="#ffffff"
         android:text="상차완료\n운임받기"
         android:gravity="center"
-        android:background="@drawable/selector_button_round_rect_sky"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:background="@drawable/selector_button_round_rect_navy"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:stateListAnimator="@null"
         app:layout_goneMarginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/takePhotoBtn" />
+        app:layout_constraintTop_toBottomOf="@id/cameraBtn" />
 
     <Space
         android:id="@+id/divider"

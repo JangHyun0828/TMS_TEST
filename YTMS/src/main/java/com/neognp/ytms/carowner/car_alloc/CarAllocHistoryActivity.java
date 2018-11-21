@@ -28,7 +28,6 @@ import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.popup.LocationInfoDialog;
 import com.trevor.library.template.BasicActivity;
-import com.trevor.library.util.DateUtil;
 
 import org.json.JSONObject;
 
@@ -75,7 +74,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
         toDateBtn = (Button) findViewById(R.id.toDateBtn);
         toDateBtn.setText(Key.SDF_CAL_DEFAULT.format(toCal.getTime()));
 
-        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
@@ -106,7 +105,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         Log.i(TAG, "+ onScrollStateChanged(): request refresh !");
                     } else if (isListPullUp && lastItemIdx == listAdapter.getItemCount() - 1) {
                         Log.i(TAG, "+ onScrollStateChanged(): request next list !");
-                        requestList(true);
+                        //requestList(true);
                     }
                 }
 
@@ -254,6 +253,63 @@ public class CarAllocHistoryActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestFreightCharge(Bundle item) {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            if (item == null)
+                return;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    showLoadingDialog(null, false);
+
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("orderNo", item.getString("ORDER_NO"));
+                        payloadJson.put("dispatchNo", item.getString("DISPATCH_NO"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_CAR_FREIGHT_CHARGE_REQUEST, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            search();
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
     private synchronized void requestList(final boolean reqNextPage) {
         if (onReq)
             return;
@@ -301,7 +357,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
                         if (result_code.equals("200")) {
                             ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
-                            addListItems(data);
+                            addListItems(data, reqNextPage);
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
@@ -316,14 +372,19 @@ public class CarAllocHistoryActivity extends BasicActivity {
         }
     }
 
-    synchronized void addListItems(ArrayList<Bundle> items) {
+    synchronized void addListItems(ArrayList<Bundle> items, boolean reqNextPage) {
         if (items == null)
             return;
 
         try {
-            listItems.clear();
-            listItems.addAll(items);
-            listAdapter.notifyDataSetChanged();
+            if (!reqNextPage) {
+                listItems.clear();
+                listItems.addAll(items);
+                listAdapter.notifyDataSetChanged();
+            } else {
+                listItems.addAll(items);
+                listAdapter.notifyItemRangeInserted(items.size(), items.size());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -435,8 +496,8 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     });
 
                     // 인수증
-                    Button takePhotoBtn = itemView.findViewById(R.id.takePhotoBtn);
-                    takePhotoBtn.setOnClickListener(new View.OnClickListener() {
+                    Button cameraBtn = itemView.findViewById(R.id.cameraBtn);
+                    cameraBtn.setOnClickListener(new View.OnClickListener() {
                         @SuppressLint ("RestrictedApi")
                         public void onClick(View v) {
                             Intent intent = new Intent(CarAllocHistoryActivity.this, ReceiptPhotoActivity.class);
@@ -449,20 +510,26 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     Button chargeBtn = itemView.findViewById(R.id.chargeBtn);
                     chargeBtn.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
-
+                            requestFreightCharge(item);
                         }
                     });
 
+                    String RECEIPT_YN = item.getString("RECEIPT_YN", "");
                     String STATUS = item.getString("STATUS", "");
 
                     // 집하
                     if (item.getString("ORDER_TYPE").equals("100")) {
-                        takePhotoBtn.setVisibility(View.GONE); // 인수증 촬영
+                        cameraBtn.setVisibility(View.GONE);
                         // P : 팔레트입력 / 인수증전송 완료
                         if (STATUS.equalsIgnoreCase("P")) {
-                            palletsBtn.setVisibility(View.GONE); // 팔레트 입력
-                            chargeBtn.setVisibility(View.VISIBLE); // 상차완료 운임받기
+                            palletsBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.VISIBLE);
                             chargeBtn.setEnabled(true);
+                        }
+                        // Y : 배송완료(상차완료)
+                        else if (STATUS.equalsIgnoreCase("Y")) {
+                            palletsBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.GONE);
                         } else {
                             palletsBtn.setVisibility(View.VISIBLE);
                             chargeBtn.setVisibility(View.GONE);
@@ -471,36 +538,52 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     }
                     // 일반
                     else if (item.getString("ORDER_TYPE").equals("200")) {
-                        palletsBtn.setVisibility(View.GONE); // 팔레트 입력
-                        takePhotoBtn.setVisibility(View.VISIBLE); // 인수증 촬영
-                        chargeBtn.setVisibility(View.VISIBLE); // 상차완료 운임받기
+                        palletsBtn.setVisibility(View.GONE);
+                        cameraBtn.setVisibility(View.VISIBLE);
+                        chargeBtn.setVisibility(View.VISIBLE);
                         // P : 팔레트입력 / 인수증전송 완료
                         if (STATUS.equalsIgnoreCase("P")) {
                             chargeBtn.setEnabled(true);
+                        }
+                        // Y : 배송완료(상차완료)
+                        else if (STATUS.equalsIgnoreCase("Y")) {
+                            palletsBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.GONE);
                         } else {
                             chargeBtn.setEnabled(false);
                         }
                     }
                     // 간선
                     else if (item.getString("ORDER_TYPE").equals("300")) {
-                        palletsBtn.setVisibility(View.GONE); // 팔레트 입력
-                        takePhotoBtn.setVisibility(View.VISIBLE); // 인수증 촬영
-                        chargeBtn.setVisibility(View.VISIBLE); // 상차완료 운임받기
+                        palletsBtn.setVisibility(View.GONE);
+                        cameraBtn.setVisibility(View.VISIBLE);
+                        chargeBtn.setVisibility(View.VISIBLE);
                         // P : 팔레트입력 / 인수증전송 완료
                         if (STATUS.equalsIgnoreCase("P")) {
                             chargeBtn.setEnabled(true);
+                        }
+                        // Y : 배송완료(상차완료)
+                        else if (STATUS.equalsIgnoreCase("Y")) {
+                            palletsBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.GONE);
                         } else {
                             chargeBtn.setEnabled(false);
                         }
                     }
                     // 직송
                     else if (item.getString("ORDER_TYPE").equals("400")) {
-                        palletsBtn.setVisibility(View.GONE); // 팔레트 입력
-                        takePhotoBtn.setVisibility(View.VISIBLE); // 인수증 촬영
-                        chargeBtn.setVisibility(View.VISIBLE); // 상차완료 운임받기
+                        palletsBtn.setVisibility(View.GONE);
+                        cameraBtn.setVisibility(View.VISIBLE);
+                        chargeBtn.setVisibility(View.VISIBLE);
                         // P : 팔레트입력 / 인수증전송 완료
                         if (STATUS.equalsIgnoreCase("P")) {
                             chargeBtn.setEnabled(true);
+                        }
+                        // Y : 배송완료(상차완료)
+                        else if (STATUS.equalsIgnoreCase("Y")) {
+                            chargeBtn.setVisibility(View.GONE);
                         } else {
                             chargeBtn.setEnabled(false);
                         }

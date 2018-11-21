@@ -62,7 +62,7 @@
                 android:textSize="16sp"
                 android:textColor="#4e4d4d"
                 android:text="하차구역 : "
-                app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+                app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
                 app:layout_constraintTop_toTopOf="@id/contentBg"
                 app:layout_constraintStart_toStartOf="@id/contentBg"
                 app:layout_constraintEnd_toStartOf="@id/areaTxt" />
@@ -77,9 +77,9 @@
                 android:includeFontPadding="false"
                 android:textSize="16sp"
                 android:textColor="#0096eb"
-                android:text="지게차 하차 A구역 "
+                android:text="- 구역 "
                 app:layout_constraintTop_toTopOf="@+id/areaTitleTxt"
-                app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+                app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
                 app:layout_constraintStart_toEndOf="@id/areaTitleTxt"
                 app:layout_constraintEnd_toEndOf="@id/contentBg" />
 
@@ -104,7 +104,7 @@
                 android:textSize="16sp"
                 android:textColor="#4e4d4d"
                 android:text="대기순번 : "
-                app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+                app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
                 app:layout_constraintTop_toBottomOf="@id/areaDivider"
                 app:layout_constraintStart_toStartOf="@id/areaTitleTxt"
                 app:layout_constraintEnd_toStartOf="@id/orderTxt" />
@@ -119,9 +119,9 @@
                 android:includeFontPadding="false"
                 android:textSize="16sp"
                 android:textColor="#0096eb"
-                android:text="3번"
+                android:text="-번"
                 app:layout_constraintTop_toTopOf="@+id/orderTitleTxt"
-                app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+                app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
                 app:layout_constraintStart_toEndOf="@id/orderTitleTxt"
                 app:layout_constraintEnd_toEndOf="@id/contentBg" />
 
@@ -146,7 +146,7 @@
                 android:textSize="16sp"
                 android:textColor="#4e4d4d"
                 android:text="진행상황"
-                app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+                app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
                 app:layout_constraintTop_toBottomOf="@id/orderDivider"
                 app:layout_constraintStart_toStartOf="@id/areaTitleTxt" />
 

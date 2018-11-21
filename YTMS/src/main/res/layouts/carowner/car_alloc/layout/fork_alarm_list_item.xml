@@ -16,10 +16,10 @@
         android:paddingBottom="7dp"
         android:paddingStart="24dp"
         android:includeFontPadding="false"
-        android:text="경기 93아 1307"
+        android:text="경기 00가 0000"
         android:textSize="16sp"
         android:textColor="#4e4d4d"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -31,7 +31,7 @@
         android:text=" : "
         android:textSize="16sp"
         android:textColor="#4e4d4d"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintTop_toTopOf="@+id/dataTxt0"
         app:layout_constraintBottom_toBottomOf="@+id/dataTxt0"
         app:layout_constraintStart_toEndOf="@id/dataTxt0" />
@@ -46,7 +46,7 @@
         android:text="대기 중"
         android:textSize="16sp"
         android:textColor="#4e4d4d"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintStart_toEndOf="@id/dataDivider"
         app:layout_constraintTop_toTopOf="@+id/dataTxt0" />
 

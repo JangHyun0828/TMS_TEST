@@ -1,6 +1,7 @@
 package com.neognp.ytms.carowner.car_alloc;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -67,40 +68,28 @@ public class ForkLiftCheckActivity extends BasicActivity {
                 finish();
                 break;
             case R.id.bottomBtn0:
-                startForkLiftAlarmActivity(true);
+                requestForkLiftCheck("Y");
                 break;
             case R.id.bottomBtn1:
-                startForkLiftAlarmActivity(false);
+                requestForkLiftCheck("N");
                 break;
         }
     }
 
-    private void startForkLiftAlarmActivity(boolean isPositive) {
-        if (args == null)
-            return;
-
-        Intent intent = new Intent(this, ForkLiftAlarmActivity.class);
-        intent.putExtras(args);
-        startActivity(intent);
-    }
-
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void request() {
+    private synchronized void requestForkLiftCheck(String checkYn) {
         if (onReq)
             return;
-
-        //if(args == null)
-        //    return;
 
         try {
             if (Key.getUserInfo() == null)
                 return;
 
-            //final String  = ((TextView) findViewById(R.id.)).getText().toString().trim();
-            //if (.isEmpty()) {
-            //    showToast("입력하세요.", true);
-            //    return;
-            //}
+            if (args == null)
+                return;
+
+            if (checkYn == null)
+                return;
 
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
@@ -112,11 +101,13 @@ public class ForkLiftCheckActivity extends BasicActivity {
                     JSONObject payloadJson = null;
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
-                        //payloadJson.put("", );
+                        payloadJson.put("carCd", args.getString("CAR_CD"));
+                        payloadJson.put("dispatchNo", args.getString("DISPATCH_NO"));
+                        payloadJson.put("checkYn", checkYn);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_CAR_FORK_LIFT_CHECK, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -129,7 +120,7 @@ public class ForkLiftCheckActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-
+                            startForkLiftAlarmActivity();
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
@@ -144,13 +135,14 @@ public class ForkLiftCheckActivity extends BasicActivity {
         }
     }
 
-    public void showActivity(Bundle args) {
+    private void startForkLiftAlarmActivity() {
         if (args == null)
             return;
 
-        // Intent intent = new Intent(this, Activity.class);
-        // intent.putExtra(LibKey.args, args);
-        // startActivityForResult(intent, REQUEST_);
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(), R.anim.slide_in_from_right, R.anim.fade_out);
+        Intent intent = new Intent(this, ForkLiftAlarmActivity.class);
+        intent.putExtras((Bundle) args.clone());
+        startActivity(intent, options.toBundle());
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
