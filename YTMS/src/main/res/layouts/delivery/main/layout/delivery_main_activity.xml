@@ -28,7 +28,7 @@
         android:paddingBottom="0.6dp"
         android:textSize="14.3dp"
         android:background="@drawable/selector_button_main_menu_delivery"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/topUserInfoView"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn1"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
     <TextView
         android:id="@+id/menuBtn0SubTitle0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginEnd="2.5dp"
+        android:layout_marginEnd="4dp"
         android:text="배차대수"
         app:layout_constraintEnd_toStartOf="@id/menuBtn0CntTxt0"
         app:layout_constraintTop_toTopOf="@+id/menuBtn0"
@@ -47,7 +47,7 @@
         android:id="@+id/menuBtn0CntTxt0"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginEnd="1dp"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintEnd_toStartOf="@id/menuBtn0CntUnit0"
         app:layout_constraintTop_toTopOf="@+id/menuBtn0"
@@ -56,7 +56,7 @@
     <TextView
         android:id="@+id/menuBtn0CntUnit0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginEnd="98.3dp"
+        android:layout_marginEnd="98dp"
         android:text="대"
         app:layout_constraintEnd_toEndOf="@id/menuBtn0"
         app:layout_constraintTop_toTopOf="@+id/menuBtn0"
@@ -66,16 +66,16 @@
         android:id="@+id/menuBtn0IconTxt"
         style="@style/TextViewMainMenuIconSmall"
         android:layout_marginStart="24dp"
-        android:text="수송"
+        android:textColor="#999999"
+        android:text="배차"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn0"
         app:layout_constraintStart_toStartOf="@id/menuBtn0" />
 
     <Button
         android:id="@+id/menuBtn1"
         style="@style/ButtonMainMenu"
-        android:layout_marginTop="4.7dp"
         android:background="@drawable/selector_button_main_menu_status"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn0"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn2"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,8 +84,8 @@
     <TextView
         android:id="@+id/menuBtn1IconTxt"
         style="@style/TextViewMainMenuIconSmall"
-        android:layout_marginStart="24dp"
-        android:paddingBottom="11dp"
+        android:layout_marginStart="23.3dp"
+        android:paddingBottom="14dp"
         android:text="상태"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn1"
         app:layout_constraintStart_toStartOf="@id/menuBtn1" />
@@ -113,8 +113,8 @@
     <TextView
         android:id="@+id/menuBtn1SubTitle0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="22.7dp"
         android:text="출발\n대기"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1"
         app:layout_constraintEnd_toStartOf="@id/menuBtn1Divider0" />
@@ -123,7 +123,7 @@
         android:id="@+id/menuBtn1CntTxt0"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
         app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle0" />
@@ -139,7 +139,7 @@
     <TextView
         android:id="@+id/menuBtn1SubTitle1"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="16.7dp"
+        android:layout_marginStart="22.7dp"
         android:text="차량\n이동"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1SubTitle0"
         app:layout_constraintStart_toEndOf="@id/menuBtn1Divider0" />
@@ -148,7 +148,7 @@
         android:id="@+id/menuBtn1CntTxt1"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle1"
         app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle1" />
@@ -164,7 +164,7 @@
     <TextView
         android:id="@+id/menuBtn1SubTitle2"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="16.7dp"
+        android:layout_marginStart="22.7dp"
         android:text="도착\n완료"
         app:layout_constraintTop_toTopOf="@+id/menuBtn1SubTitle0"
         app:layout_constraintStart_toEndOf="@id/menuBtn1Divider1" />
@@ -173,7 +173,7 @@
         android:id="@+id/menuBtn1CntTxt2"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
         app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle2" />
@@ -189,9 +189,8 @@
     <Button
         android:id="@+id/menuBtn2"
         style="@style/ButtonMainMenu"
-        android:layout_marginTop="4.7dp"
         android:background="@drawable/selector_button_main_menu_take_back"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn3"
         app:layout_constraintStart_toStartOf="parent"
@@ -200,8 +199,8 @@
     <TextView
         android:id="@+id/menuBtn2IconTxt"
         style="@style/TextViewMainMenuIconSmall"
-        android:layout_marginStart="24.3dp"
-        android:paddingBottom="11dp"
+        android:layout_marginStart="24dp"
+        android:textColor="#999999"
         android:text="반품"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn2"
         app:layout_constraintStart_toStartOf="@id/menuBtn2" />
@@ -229,8 +228,8 @@
     <TextView
         android:id="@+id/menuBtn2SubTitle0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="22.7dp"
         android:text="집하\n요청"
         app:layout_constraintTop_toTopOf="@+id/menuBtn2"
         app:layout_constraintEnd_toStartOf="@id/menuBtn2Divider0" />
@@ -239,7 +238,7 @@
         android:id="@+id/menuBtn2CntTxt0"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle0"
         app:layout_constraintStart_toStartOf="@id/menuBtn2SubTitle0" />
@@ -255,7 +254,7 @@
     <TextView
         android:id="@+id/menuBtn2SubTitle1"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="16.7dp"
+        android:layout_marginStart="22.7dp"
         android:text="배차\n접수"
         app:layout_constraintTop_toTopOf="@+id/menuBtn2SubTitle0"
         app:layout_constraintStart_toEndOf="@id/menuBtn2Divider0" />
@@ -264,7 +263,7 @@
         android:id="@+id/menuBtn2CntTxt1"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle1"
         app:layout_constraintStart_toStartOf="@id/menuBtn2SubTitle1" />
@@ -280,7 +279,7 @@
     <TextView
         android:id="@+id/menuBtn2SubTitle2"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="16.7dp"
+        android:layout_marginStart="22.7dp"
         android:text="배차\n완료"
         app:layout_constraintTop_toTopOf="@+id/menuBtn2SubTitle0"
         app:layout_constraintStart_toEndOf="@id/menuBtn2Divider1" />
@@ -289,7 +288,7 @@
         android:id="@+id/menuBtn2CntTxt2"
         style="@style/TextViewMainMenuSubSmall"
         android:layout_marginStart="2.5dp"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle0"
         app:layout_constraintStart_toStartOf="@id/menuBtn2SubTitle2" />
@@ -305,13 +304,12 @@
     <Button
         android:id="@+id/menuBtn3"
         style="@style/ButtonMainMenu"
-        android:layout_marginTop="4.7dp"
-        android:paddingEnd="111.7dp"
+        android:paddingEnd="111dp"
         android:paddingBottom="0.6dp"
-        android:textSize="14.3dp"
+        android:textSize="13.2dp"
         android:text="팔레트 접수"
         android:background="@drawable/selector_button_main_menu_pallets_small"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2"
         app:layout_constraintBottom_toTopOf="@id/menuBtn4"
         app:layout_constraintStart_toStartOf="parent"
@@ -320,8 +318,7 @@
     <TextView
         android:id="@+id/menuBtn3IconTxt"
         style="@style/TextViewMainMenuIconSmall"
-        android:layout_marginStart="24.3dp"
-        android:paddingBottom="11.5dp"
+        android:layout_marginStart="23.7dp"
         android:text="접수"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn3"
         app:layout_constraintStart_toStartOf="@id/menuBtn3" />
@@ -330,20 +327,18 @@
         android:id="@+id/menuBtn4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8.3dp"
-        android:layout_marginBottom="5.4dp"
         android:gravity="center_vertical|start"
-        android:drawablePadding="3.7dp"
+        android:drawablePadding="8.3dp"
         android:drawableStart="@drawable/selector_icon_main_menu_direct_delivery_query"
-        android:paddingStart="42dp"
+        android:paddingStart="44.7dp"
         android:textColor="#4e4d4d"
-        android:textSize="14.3dp"
+        android:textSize="13.2dp"
         android:text="직송조회"
         android:background="@drawable/selector_button_main_menu_small"
         android:stateListAnimator="@null"
         android:onClick="onClick"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn3"
         app:layout_constraintBottom_toTopOf="@+id/bottomCenterInfoView"
         app:layout_constraintStart_toStartOf="@id/menuBtn0"
@@ -353,18 +348,19 @@
         android:id="@+id/menuBtn5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:gravity="center_vertical|start"
-        android:drawablePadding="5dp"
+        android:drawablePadding="8.3dp"
         android:drawableStart="@drawable/selector_icon_main_menu_notice"
-        android:paddingStart="39.3dp"
+        android:paddingStart="44.7dp"
         android:textColor="#4e4d4d"
-        android:textSize="14.3dp"
+        android:textSize="13.2dp"
         android:text="공지사항"
         android:background="@drawable/selector_button_main_menu_small"
         android:stateListAnimator="@null"
         android:onClick="onClick"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toTopOf="@+id/menuBtn4"
         app:layout_constraintStart_toEndOf="@id/menuBtn4"
         app:layout_constraintEnd_toEndOf="@id/menuBtn0" />

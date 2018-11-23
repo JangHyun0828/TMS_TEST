@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -23,7 +22,6 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.trevor.library.template.BasicActivity;
-import com.trevor.library.util.AppUtil;
 
 import org.json.JSONObject;
 
@@ -56,11 +54,11 @@ public class PersonalDaySurveyActivity extends BasicActivity {
         curCal.set(Calendar.SECOND, 0);
         curCal.set(Calendar.MILLISECOND, 0);
 
-        setTitleBar("휴무일 조사", 0, 0, R.drawable.selector_button_close);
+        setTitleBar("휴무일 조사", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
         dateBtn = findViewById(R.id.dateBtn);
 
-        ((TextView) findViewById(R.id.sumTitle)).setText("선택일수");
+        ((TextView) findViewById(R.id.sumTitle)).setText("휴무일수");
         sumTxt = findViewById(R.id.sumTxt);
         ((TextView) findViewById(R.id.sumUnitTxt)).setText("일");
 
@@ -105,17 +103,22 @@ public class PersonalDaySurveyActivity extends BasicActivity {
         mgr.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
 
         switch (v.getId()) {
-            case R.id.titleRightBtn1:
+            case R.id.titleLeftBtn0:
                 finish();
+                break;
+            case R.id.titleRightBtn1:
+                requestList();
                 break;
             case R.id.dateBtn:
                 showCalendar();
                 break;
             // 삭제
             case R.id.bottomBtn0:
+                requestPersonalDayDelete();
                 break;
-            // 저장
+            // 닫기
             case R.id.bottomBtn1:
+                finish();
                 break;
             //case R.id.callCenterBtn:
             //    AppUtil.runCallApp(getString(R.string.customer_call_center_phone_no), true);
@@ -132,11 +135,131 @@ public class PersonalDaySurveyActivity extends BasicActivity {
                 curCal.set(Calendar.MONTH, monthOfYear);
                 curCal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                requestSavePersonalDay(Key.SDF_PAYLOAD.format(curCal.getTime()));
+                requestPersonalDayAdd(Key.SDF_PAYLOAD.format(curCal.getTime()));
             }
         }, curCal.get(Calendar.YEAR), curCal.get(Calendar.MONTH), curCal.get(Calendar.DAY_OF_MONTH));
 
         datePickerDialog.show();
+    }
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestPersonalDayAdd(String selectDt) {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            if (selectDt == null)
+                return;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    showLoadingDialog(null, false);
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("clientCd", Key.getUserInfo().getString("CLIENT_CD"));
+                        payloadJson.put("selectDt", selectDt);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_PERSONAL_DAY_ADD, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            requestList();
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestPersonalDayDelete() {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            String dates = "";
+            for (Bundle item : listItems) {
+                if (item.getBoolean("checked"))
+                    dates += item.getString("SELECT_DT", "") + ",";
+            }
+            dates = dates.substring(0, dates.length() - 1);
+            if (dates.isEmpty())
+                return;
+
+            final String selectDt = dates;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    showLoadingDialog(null, false);
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("clientCd", Key.getUserInfo().getString("CLIENT_CD"));
+                        payloadJson.put("selectDt", selectDt);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_PERSONAL_DAY_DELETE, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            requestList();
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @SuppressLint ("StaticFieldLeak")
@@ -158,40 +281,35 @@ public class PersonalDaySurveyActivity extends BasicActivity {
                     JSONObject payloadJson = null;
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
-                        //payloadJson.put("", );
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("clientCd", Key.getUserInfo().getString("CLIENT_CD"));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_PERSONAL_DAY_LIST, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
                     onReq = false;
                     swipeRefreshLayout.setRefreshing(false);
 
-                    //try {
-                    //    Bundle resBody = response.getBundle(Key.resBody);
-                    //    String result_code = resBody.getString(Key.result_code);
-                    //    String result_msg = resBody.getString(Key.result_msg);
-                    //
-                    //    if (result_code.equals("200")) {
-                    //        ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
-                    //        addListItems(data);
-                    //    } else {
-                    //        showToast(result_msg + "(result_code:" + result_msg + ")", true);
-                    //    }
-                    //} catch (Exception e) {
-                    //    e.printStackTrace();
-                    //    showToast(e.getMessage(), false);
-                    //}
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
 
-                    // TEST
-                    ArrayList<Bundle> data = new ArrayList<Bundle>();
-                    for (int i = 0; i < 10; i++) {
-                        Bundle item = new Bundle();
-                        data.add(item);
+                        if (result_code.equals("200")) {
+                            sumTxt.setText("" + resBody.getInt("list_cnt"));
+
+                            ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
+                            addListItems(data);
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
                     }
-                    addListItems(data);
                 }
             }.execute();
         } catch (Exception e) {
@@ -207,60 +325,6 @@ public class PersonalDaySurveyActivity extends BasicActivity {
             listItems.clear();
             listItems.addAll(items);
             listAdapter.notifyDataSetChanged();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestSavePersonalDay(String date) {
-        if (onReq)
-            return;
-
-        try {
-            if (Key.getUserInfo() == null)
-                return;
-
-            if (date == null)
-                return;
-
-            new AsyncTask<Void, Void, Bundle>() {
-                protected void onPreExecute() {
-                    onReq = true;
-                    showLoadingDialog(null, false);
-                }
-
-                protected Bundle doInBackground(Void... arg0) {
-                    JSONObject payloadJson = null;
-                    try {
-                        payloadJson = YTMSRestRequestor.buildPayload();
-                        //payloadJson.put("", );
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return YTMSRestRequestor.requestPost(API.URL_, false, payloadJson, true, false);
-                }
-
-                protected void onPostExecute(Bundle response) {
-                    onReq = false;
-                    dismissLoadingDialog();
-
-                    try {
-                        Bundle resBody = response.getBundle(Key.resBody);
-                        String result_code = resBody.getString(Key.result_code);
-                        String result_msg = resBody.getString(Key.result_msg);
-
-                        if (result_code.equals("200")) {
-
-                        } else {
-                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        showToast(e.getMessage(), false);
-                    }
-                }
-            }.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -310,6 +374,9 @@ public class PersonalDaySurveyActivity extends BasicActivity {
             public void onBindViewData(Bundle item) {
                 try {
                     TextView dateTxt = itemView.findViewById(R.id.dateTxt);
+                    String SELECT_DT = Key.SDF_CAL_WEEKDAY.format(Key.SDF_PAYLOAD.parse(item.getString("SELECT_DT", "")));
+                    dateTxt.setText(SELECT_DT);
+
                     if (item.getBoolean("checked"))
                         dateTxt.setCompoundDrawablesWithIntrinsicBounds(R.drawable.date_check_box_on, 0, 0, 0);
                     else

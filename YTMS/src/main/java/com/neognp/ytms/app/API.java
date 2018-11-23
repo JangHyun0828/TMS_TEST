@@ -7,10 +7,13 @@ public class API {
 
     public static final String URL_ = "";
     public static final String URL_LOGIN = "/common/login";
-    public static final String URL_GPS_SEND= "/common/gps";
+    public static final String URL_GPS_SEND = "/common/gps";
     public static final String URL_NOTICE_NEW_COUNT = "/common/notice/count";
     public static final String URL_NOTICE = "/common/notice/list";
     public static final String URL_NOTICE_READ = "/common/notice/log";
+    public static final String URL_PERSONAL_DAY_LIST = "/common/select/holiday";
+    public static final String URL_PERSONAL_DAY_ADD = "/common/insert/holiday";
+    public static final String URL_PERSONAL_DAY_DELETE = "/common/delete/holiday";
     public static final String URL_LOCATION = "/common/location";
 
     public static final String URL_SHIPPER_PWD_CHANGE = "/cust/update/pwd";
@@ -30,9 +33,9 @@ public class API {
     public static final String URL_CAR_RECEIPT_SAVE = "/car/send/receipt";
     public static final String URL_CAR_FREIGHT_CHARGE_REQUEST = "/car/finish/delivery";
     public static final String URL_CAR_FORK_LIFT_CHECK = "/car/request/arrive";
-    public static final String URL_CAR_FORK_LIFT_ORDER= "/car/select/arrive";
+    public static final String URL_CAR_FORK_LIFT_ORDER = "/car/select/arrive";
     public static final String URL_CAR_RECEIPT_DISPATCH_HISTORY = "/car/receipt/list";
-    public static final String URL_CAR_FREIGHT_CHARGE_HISTORY= "/car/payment/list";
+    public static final String URL_CAR_FREIGHT_CHARGE_HISTORY = "/car/payment/list";
 
     public static final String URL_DELIVERY_ALLOC_CNT = "/dc/dispatch/count";
     public static final String URL_DELIVERY_ALLOC_LIST = "/dc/dispatch/list";
@@ -40,9 +43,9 @@ public class API {
     public static final String URL_DELIVERY_DIRECT_FAVORITE_LIST = "/dc/favorite/list";
     public static final String URL_DELIVERY_DIRECT_SET_FAVORITE = "/dc/update/favorite";
     public static final String URL_DELIVERY_DIRECT_ALLOC_LIST = "/dc/dispatch/center";
-    public static final String URL_DELIVERY_PALLETS_RECEIPT_HISTORY ="/dc/list/request";
-    public static final String URL_DELIVERY_PALLETS_RECEIPT_DELETE="/dc/delete/request";
-    public static final String URL_DELIVERY_PALLETS_DISPATCH ="/dc/send/pallet";
-    public static final String URL_DELIVERY_PALLETS_DISPATCH_HISTORY="/dc/list/send";
+    public static final String URL_DELIVERY_PALLETS_RECEIPT_HISTORY = "/dc/list/request";
+    public static final String URL_DELIVERY_PALLETS_RECEIPT_DELETE = "/dc/delete/request";
+    public static final String URL_DELIVERY_PALLETS_DISPATCH = "/dc/send/pallet";
+    public static final String URL_DELIVERY_PALLETS_DISPATCH_HISTORY = "/dc/list/send";
 
 }

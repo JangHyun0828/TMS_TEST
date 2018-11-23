@@ -50,6 +50,7 @@ public class LoginActivity extends BasicActivity {
         setContentView(R.layout.login_activity);
 
         idEdit = findViewById(R.id.idEdit);
+        idEdit.setText(DeviceUtil.getPhoneNumber());
 
         pwdEdit = findViewById(R.id.pwdEdit);
         // 키패드 '완료' 버튼 클릭 시, ' 로그인' 버튼 자동 클릭
@@ -120,6 +121,8 @@ public class LoginActivity extends BasicActivity {
                     pwdEdit.setText("1");
                 }
             });
+        } else {
+            findViewById(R.id.testAccountGroup).setVisibility(View.GONE);
         }
     }
 

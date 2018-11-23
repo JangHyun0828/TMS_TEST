@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.neognp.ytms">
 
+    <!--<uses-feature android:name="android.hardware.camera2.full" />-->
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -15,6 +16,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -183,7 +185,7 @@
         </activity>
 
         <activity
-            android:name=".carowner.car_alloc.ReceiptPhotoActivity"
+            android:name=".carowner.car_alloc.ReceiptPhotoLowVersionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -288,6 +290,16 @@
             android:name=".delivery.pallets.PalletsDispatchHistoryActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- TEST -->
+
+        <activity
+            android:name="com.example.android.camera2basic.CameraActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

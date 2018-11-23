@@ -90,7 +90,7 @@
     <Button
         android:id="@+id/bottomBtn1"
         style="@style/ButtonRoundMain"
-        android:text="저장"
+        android:text="닫기"
         app:layout_constraintStart_toEndOf="@id/bottomBtn0"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintBottom_toBottomOf="@+id/bottomBtn0" />

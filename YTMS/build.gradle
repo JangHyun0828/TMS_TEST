@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.neognp.ytms"
-        minSdkVersion 20 // Lollipop 5.0
+        minSdkVersion 21 // Lollipop 5.0
         targetSdkVersion 27 // Oreo 8.1
         versionCode 100
         versionName "1.0.0"
@@ -76,8 +76,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // 라이브러리 프로젝트 연동 방식
-//    implementation project(':Library')
-    implementation(name: 'Library-debug', ext: 'aar')
+    implementation project(':Library')
+//    implementation(name: 'Library-debug', ext: 'aar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:multidex:1.0.3'
     // CAUTION com.google.android.gms 모듈별 버전: https://developers.google.com/android/guides/setup#split
@@ -91,4 +91,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     implementation 'com.github.bumptech.glide:annotations:4.8.0'
+    // image crop> https://github.com/ArthurHub/Android-Image-Cropper
+//    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
 }

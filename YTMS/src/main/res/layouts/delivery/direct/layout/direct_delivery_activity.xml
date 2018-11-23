@@ -58,7 +58,7 @@
                 style="@style/EditTextRoundNormal"
                 android:layout_width="0dp"
                 android:layout_marginStart="15.3dp"
-                android:hint="거래처명"
+                android:hint="거래처명 예)김포"
                 android:imeOptions="actionDone"
                 app:layout_constraintTop_toTopOf="@id/curDateBtn"
                 app:layout_constraintStart_toEndOf="@id/curDateBtn"

@@ -49,7 +49,7 @@
         android:layout_marginEnd="10dp"
         android:includeFontPadding="false"
         android:text="현재 위치"
-        android:textSize="17.3sp"
+        android:textSize="16sp"
         android:textColor="#323332"
         android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintVertical_chainStyle="packed"
@@ -61,13 +61,12 @@
         android:id="@+id/addressTxt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
         android:includeFontPadding="false"
         android:textSize="13.3sp"
         android:textColor="#323332"
         android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintTop_toBottomOf="@+id/addressTxt0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/addressTxt0" />
 
 </android.support.constraint.ConstraintLayout>

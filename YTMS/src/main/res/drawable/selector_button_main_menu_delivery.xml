@@ -7,16 +7,16 @@
         <layer-list>
             <item android:gravity="left">
                 <bitmap android:gravity="left"
-                    android:src="@drawable/center_m_5_move_bg_1_on" />
+                    android:src="@drawable/bg_center_m_5_left_on" />
             </item>
-            <item android:top="11dp"
-                android:left="14dp">
+            <item android:top="19.7dp"
+                android:left="22.7dp">
                 <bitmap android:gravity="top|left"
-                    android:src="@drawable/img_sub_4_truck_a_on" />
+                    android:src="@drawable/menu_car_disable" />
             </item>
-            <item android:left="69dp">
+            <item android:left="67.3dp">
                 <bitmap android:gravity="right"
-                    android:src="@drawable/center_m_5_move_bg_2_on" />
+                    android:src="@drawable/bg_center_m_5_right" />
             </item>
         </layer-list>
     </item>
@@ -27,16 +27,16 @@
         <layer-list>
             <item android:gravity="left">
                 <bitmap android:gravity="left"
-                    android:src="@drawable/center_m_5_move_bg_1_on" />
+                    android:src="@drawable/bg_center_m_5_left_on" />
             </item>
-            <item android:top="11dp"
-                android:left="14dp">
+            <item android:top="19.7dp"
+                android:left="22.7dp">
                 <bitmap android:gravity="top|left"
-                    android:src="@drawable/img_sub_4_truck_a_off" />
+                    android:src="@drawable/menu_car_disable" />
             </item>
-            <item android:left="69dp">
+            <item android:left="67.3dp">
                 <bitmap android:gravity="right"
-                    android:src="@drawable/center_m_5_move_bg_2_off" />
+                    android:src="@drawable/bg_center_m_5_right" />
             </item>
         </layer-list>
     </item>

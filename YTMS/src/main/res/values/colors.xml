@@ -13,4 +13,8 @@
     <color name="listItemSelected">#99253e66</color>
     <color name="white">#ffffffff</color>
 
+    <!-- TEST -->
+
+    <color name="control_background">#cc4285f4</color>
+
 </resources>
