@@ -62,7 +62,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
     private FrameLayout cameraContainer;
     private CameraPreview mCameraPreview;
 
-    private ImageView photoImg;
+    private ImageView previewImg;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +81,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
         cameraContainer = findViewById(R.id.cameraContainer);
         cameraContainer.addView(mCameraPreview, 0);
 
-        photoImg = findViewById(R.id.photoImg);
+        previewImg = findViewById(R.id.previewImg);
 
         setCameraMode(true);
 
@@ -106,9 +106,9 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             args = getIntent().getExtras();
 
             // TEST
-            args = new Bundle();
-            args.putString("ORDER_NO", "2018101235545");
-            args.putString("DISPATCH_NO", "2018101235545");
+            //args = new Bundle();
+            //args.putString("ORDER_NO", "2018101235545");
+            //args.putString("DISPATCH_NO", "2018101235545");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -149,7 +149,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
     private void setCameraMode(boolean cameraMode) {
         if (cameraMode) {
             cameraContainer.setVisibility(View.VISIBLE);
-            photoImg.setVisibility(View.INVISIBLE);
+            previewImg.setVisibility(View.INVISIBLE);
             findViewById(R.id.takePhotoBtn).setVisibility(View.VISIBLE);
             findViewById(R.id.showCameraBtn).setVisibility(View.INVISIBLE);
 
@@ -159,7 +159,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             isCameraMode = true;
         } else {
             cameraContainer.setVisibility(View.INVISIBLE);
-            photoImg.setVisibility(View.VISIBLE);
+            previewImg.setVisibility(View.VISIBLE);
             findViewById(R.id.takePhotoBtn).setVisibility(View.INVISIBLE);
             findViewById(R.id.showCameraBtn).setVisibility(View.VISIBLE);
 
@@ -350,24 +350,22 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
         public void onPictureTaken(byte[] data, Camera camera) {
             setCameraMode(false);
 
-            File dir = getCacheDir();
-            // TEST
-            if (MyApp.onDebug)
-                dir = Key.getDebugStorage();
-
-            final File uploadFile = new File(dir + File.separator + "YTMS_RECEIPT.jpg");
-            if (uploadFile == null) {
-                Log.i(TAG, "Error creating uploadFile, check storage permissions: ");
-                return;
-            }
-
             try {
-                Log.i(TAG, "+ onPictureTaken(): data=" + TextUtil.formatFileSize(data.length));
+                //File dir = getCacheDir();
+                // TEST
+                File dir = Key.getDebugStorage();
 
-                FileOutputStream picFos = new FileOutputStream(uploadFile);
-                picFos.write(data);
-                picFos.close();
-                Log.i(TAG, "+ onPictureTaken(): taken picFile=" + TextUtil.formatFileSize(uploadFile.length()));
+                uploadFile = new File(dir + File.separator + "YTMS_RECEIPT.jpg");
+                if (uploadFile == null) {
+                    Log.e(TAG, "+ onPictureTaken(): Error creating uploadFile, check storage permissions: ");
+                    return;
+                }
+                Log.e(TAG, "+ onPictureTaken(): taken pic data=" + TextUtil.formatFileSize(data.length));
+
+                FileOutputStream uploadFos = new FileOutputStream(uploadFile);
+                uploadFos.write(data);
+                //uploadFos.close(); // 파일 축소 후 닫기
+                Log.e(TAG, "+ onPictureTaken(): taken pic size=" + TextUtil.formatFileSize(uploadFile.length()));
 
                 int takenPicDegree = 0;
 
@@ -381,12 +379,12 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
                     takenPicDegree = 90;
 
                 // 촬영 사진 Bitmap
-                Bitmap picBmp = BitmapFactory.decodeFile(uploadFile.getPath());
+                Bitmap takenBmp = BitmapFactory.decodeFile(uploadFile.getPath());
 
                 // 사진 합성 Bitmap
-                Bitmap mergeBmp = Bitmap.createBitmap(mCameraPreview.getWidth(), mCameraPreview.getHeight(), picBmp.getConfig());
-                Log.e(TAG, "+ onPictureTaken(): mergeBmp size=" + mergeBmp.getWidth() + "x" + mergeBmp.getHeight());
-                Canvas mergeCanvas = new Canvas(mergeBmp);
+                Bitmap previewBmp = Bitmap.createBitmap(mCameraPreview.getWidth(), mCameraPreview.getHeight(), takenBmp.getConfig());
+                Log.e(TAG, "+ onPictureTaken(): previewBmp size=" + previewBmp.getWidth() + "x" + previewBmp.getHeight());
+                Canvas previewCanvas = new Canvas(previewBmp);
 
                 Camera.CameraInfo info = new Camera.CameraInfo();
                 Camera.getCameraInfo(curCameraId, info);
@@ -396,14 +394,14 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
                     // G5
                     if (takenPicDegree == 0) {
                         Rect picRect = new Rect(0, 0, mCameraPreview.getWidth(), mCameraPreview.getHeight());
-                        mergeCanvas.drawBitmap(picBmp, null, picRect, null); // Rect 미지정시 mCameraPreview 화면에 꽉 차지 않고, 촬영 사진 원본 크기로 draw 됨
+                        previewCanvas.drawBitmap(takenBmp, null, picRect, null); // Rect 미지정시 mCameraPreview 화면에 꽉 차지 않고, 촬영 사진 원본 크기로 draw 됨
                     }
                     //삼성, G pro
                     else {
                         Matrix picMatrix = new Matrix();
-                        picMatrix.setRotate(takenPicDegree, (float) picBmp.getWidth() / 2, (float) picBmp.getHeight() / 2);
-                        picBmp = Bitmap.createBitmap(picBmp, 0, 0, picBmp.getWidth(), picBmp.getHeight(), picMatrix, true);
-                        mergeCanvas.drawBitmap(picBmp, new Matrix(), null);
+                        picMatrix.setRotate(takenPicDegree, (float) takenBmp.getWidth() / 2, (float) takenBmp.getHeight() / 2);
+                        takenBmp = Bitmap.createBitmap(takenBmp, 0, 0, takenBmp.getWidth(), takenBmp.getHeight(), picMatrix, true);
+                        previewCanvas.drawBitmap(takenBmp, new Matrix(), null);
                     }
                 }
                 /** 전면 카메라로 촬영된 사진 회전 처리 및 사진 붙이기 **/
@@ -417,44 +415,39 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
 
                     picMatrix.postConcat(matrixMirrorY);
                     picMatrix.preRotate(takenPicDegree + 180);
-                    picBmp = Bitmap.createBitmap(picBmp, 0, 0, picBmp.getWidth(), picBmp.getHeight(), picMatrix, true);
+                    takenBmp = Bitmap.createBitmap(takenBmp, 0, 0, takenBmp.getWidth(), takenBmp.getHeight(), picMatrix, true);
 
                     Rect picRect = new Rect(0, 0, mCameraPreview.getWidth(), mCameraPreview.getHeight());
-                    mergeCanvas.drawBitmap(picBmp, null, picRect, null); // Rect 미지정시 mCameraPreview 화면에 꽉 차지 않고, 촬영 사진 원본 크기로 draw 됨
+                    previewCanvas.drawBitmap(takenBmp, null, picRect, null); // Rect 미지정시 mCameraPreview 화면에 꽉 차지 않고, 촬영 사진 원본 크기로 draw 됨
                 }
 
-                // 합성 사진을 결과 창에 붙이기
-                photoImg.setImageBitmap(mergeBmp);
+                // preview 사진을 결과 창에 붙이기
+                previewImg.setImageBitmap(previewBmp);
 
-                ///* 파일로 저장 & 파일 업로드 */
-                //
-                //String photoPath = uploadFile.getPath();
-                //FileOutputStream uploadFos = new FileOutputStream(uploadFile);
-                //
-                //// 업로드 사진을 1024x1024 사이즈로 제한
-                //BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-                //bmOptions.inJustDecodeBounds = true;
-                //BitmapFactory.decodeFile(photoPath, bmOptions);
-                //int photoW = bmOptions.outWidth;
-                //int photoH = bmOptions.outHeight;
-                //
-                //bmOptions.inJustDecodeBounds = false;
-                //int targetW = 1024;
-                //int targetH = 1024;
-                //int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
-                //bmOptions.inSampleSize = scaleFactor;
-                ////if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
-                ////    bmOptions.inPurgeable = true;
-                //
-                //Bitmap uploadBmp = BitmapFactory.decodeFile(photoPath, bmOptions);
-                //// CAUTION 100으로 지정 시, 용량이 더 커지므로 100 미만 적용 / 생성된 파일은 폰 디렉토리 APP로 확인 가능.
-                //uploadBmp.compress(Bitmap.CompressFormat.JPEG, 80, uploadFos);
-                //uploadFos.close();
-                //Log.e(TAG, "+ onPictureTaken(): final picFile=" + TextUtil.formatFileSize(uploadFile.length()));
-                //
-                //notifyNewFile(uploadFile.getPath());
-                //
-                //requestReceiptSave(uploadFile.getPath());
+                /* 파일로 저장 & 파일 업로드 */
+
+                BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+                bmOptions.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(uploadFile.getPath(), bmOptions);
+                int photoW = bmOptions.outWidth;
+                int photoH = bmOptions.outHeight;
+
+                // 업로드 사진을 1024x768 사이즈로 제한
+                int targetW = 1024;
+                int targetH = 768;
+                int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
+                bmOptions.inJustDecodeBounds = false;
+                bmOptions.inSampleSize = scaleFactor;
+                //if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+                //    bmOptions.inPurgeable = true;
+
+                Bitmap uploadBmp = BitmapFactory.decodeFile(uploadFile.getPath(), bmOptions);
+                // CAUTION 100으로 지정 시, 용량이 더 커지므로 100 미만 적용 / 생성된 파일은 폰 디렉토리 APP로 확인 가능.
+                uploadBmp.compress(Bitmap.CompressFormat.JPEG, 80, uploadFos);
+                uploadFos.close();
+                Log.e(TAG, "+ onPictureTaken(): upload pic size=" + TextUtil.formatFileSize(uploadFile.length()));
+
+                notifyNewFile(uploadFile.getPath());
             } catch (Exception e) {
                 Log.e(TAG, "Error accessing file: " + e.getMessage());
             }
@@ -534,12 +527,12 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
 
             uploadFile = new File(dir + File.separator + "YTMS_RECEIPT.jpg");
             if (uploadFile == null) {
-                Log.i(TAG, "Error creating uploadFile, check storage permissions: ");
+                Log.i(TAG, "+ setPreviewPhoto(): Error creating uploadFile, check storage permissions: ");
                 return;
             }
 
-            int targetW = photoImg.getWidth();
-            int targetH = photoImg.getHeight();
+            int targetW = previewImg.getWidth();
+            int targetH = previewImg.getHeight();
 
             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
             bmOptions.inJustDecodeBounds = true;
@@ -565,7 +558,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             Bitmap rotatedBmp = PhotoRotationUtil.rotatePhoto(photoPath, bmp);
 
             // 미리보기 창에 선택된 사진 붙이기
-            photoImg.setImageBitmap(rotatedBmp);
+            previewImg.setImageBitmap(rotatedBmp);
 
             setCameraMode(false);
 
@@ -573,13 +566,12 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
 
             FileOutputStream uploadFos = new FileOutputStream(uploadFile);
 
-            // 업로드 사진을 1024x1024 사이즈로 제한
+            // 업로드 사진을 1024x768 사이즈로 제한
             targetW = 1024;
-            targetH = 1024;
+            targetH = 768;
             scaleFactor = Math.min(photoW / targetW, photoH / targetH);
             bmOptions.inJustDecodeBounds = false;
             bmOptions.inSampleSize = scaleFactor;
-            bmOptions.inSampleSize = 0;
             //if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
             //    bmOptions.inPurgeable = true;
 
@@ -698,7 +690,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
                 Intent data = new Intent();
                 data.putExtras(args);
                 setResult(CarAllocHistoryActivity.RESULT_SAVED_RECEIPT, data);
-                //finish();
+                showToast("사진이 저장됐습니다.", true);
             } else {
                 showToast(result_msg + "(result_code:" + result_msg + ")", true);
             }
@@ -725,7 +717,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
 
                     Uri selectedFileUri = data.getData();
                     String photoPath = ImageFilePath.getPath(this, selectedFileUri);
-                    // TODO "raw:/ 로 시작하는 디렉토리 인식 못함 ex) "raw:/storage/emulated/0/Download/Test_Pic/pic3.jpg"
+                    // CAUTION "raw:/ 로 시작하는 디렉토리 인식 못함 ex) "raw:/storage/emulated/0/Download/Test_Pic/pic3.jpg"
                     Log.e(TAG, "+ onActivityResult(): photoPath: " + photoPath);
                     setPreviewPhoto(photoPath);
                 } else {

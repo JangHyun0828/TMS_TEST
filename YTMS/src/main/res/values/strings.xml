@@ -1,6 +1,7 @@
 <resources>
 
     <string name="app_name">용마로지스</string>
+    <!--<string name="app_name">용마로지스(교육용)</string>-->
     <string name="copyright">Copyright YONGMALOGIS. All rights reserved.</string>
     <string name="customer_call_center_phone_no">080-338-8000</string>
     <string name="delivery_call_center_phone_no">02-3290-6466</string>
