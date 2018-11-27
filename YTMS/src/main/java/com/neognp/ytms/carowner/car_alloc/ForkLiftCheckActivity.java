@@ -5,15 +5,28 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.TextView;
 
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
+import com.neognp.ytms.app.MyApp;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.trevor.library.app.LibApp;
+import com.trevor.library.app.LibKey;
 import com.trevor.library.template.BasicActivity;
+import com.trevor.library.util.DeviceUtil;
+import com.trevor.library.util.Setting;
+import com.trevor.library.web.MyWebChromeClient;
+import com.trevor.library.web.MyWebViewClient;
 
 import org.json.JSONObject;
 
@@ -22,9 +35,7 @@ public class ForkLiftCheckActivity extends BasicActivity {
     private boolean onReq;
     private Bundle args;
 
-    // private TextView
-    // private EditText
-    // private View
+    private WebView contentWeb;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +43,19 @@ public class ForkLiftCheckActivity extends BasicActivity {
 
         setTitleBar("지게차 하차 여부 체크", 0, 0, R.drawable.selector_button_close);
 
-        //= findViewById(R.id.);
-
+        contentWeb = (WebView) findViewById(R.id.contentWeb);
+        contentWeb.setWebViewClient(new MyWebViewClient(this)); // 앱에서 url 직접 처리
+        contentWeb.setWebChromeClient(new MyWebChromeClient(this));
+        //contentWeb.clearCache(true); // cache 사용 금지
+        contentWeb.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); // cache 사용
+        contentWeb.getSettings().setSupportZoom(true);
+        contentWeb.getSettings().setBuiltInZoomControls(true);
+        contentWeb.getSettings().setDisplayZoomControls(false);
+        contentWeb.getSettings().setUseWideViewPort(true);
+        contentWeb.getSettings().setLoadWithOverviewMode(true);
+        contentWeb.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+        contentWeb.setScrollbarFadingEnabled(false);
+        contentWeb.getSettings().setSupportMultipleWindows(true);
         init();
     }
 
@@ -48,13 +70,46 @@ public class ForkLiftCheckActivity extends BasicActivity {
     private void init() {
         try {
             args = getIntent().getExtras();
-            if (args == null)
-                return;
 
+            //String url = "file:///android_asset/html/fork_lift_check.html";
+            String url = "http://" + Setting.getString("ip") + ":" + Setting.getInt("port") + "/" + API.URL_WEB_FORK_LIFT_CHECK;
 
+            String postData = "";
+            // TEST
+            String uuid = DeviceUtil.getUuid();
+            if (uuid.endsWith("810d"))
+                uuid = "ffffffff-0000-0000-0000-0000aaaaaaaa";
+            postData += "uuid=" + uuid;
+            postData += "&" + "phone_no=" + DeviceUtil.getPhoneNumber();
+            postData += "&" + "manufacturer=" + Build.MANUFACTURER;
+            postData += "&" + "network_operator=" + DeviceUtil.getOperatorName();
+            postData += "&" + "model=" + Build.MODEL;
+            postData += "&" + "os_type=Android";
+            postData += "&" + "os_version=" + Build.VERSION.RELEASE;
+            postData += "&" + "app_version=" + DeviceUtil.getAppVersionName();
+            contentWeb.postUrl(url, postData.getBytes());
+
+            if (MyApp.onDebug)
+                Log.i(TAG, "+ init():\n" + url + "?" + postData);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    if (contentWeb.canGoBack()) {
+                        contentWeb.goBack();
+                    } else {
+                        finish();
+                    }
+                    return true;
+            }
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
     public void onClick(View v) {

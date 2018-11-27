@@ -2,6 +2,7 @@ package com.neognp.ytms.carowner.account;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,17 +13,20 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
+import com.neognp.ytms.http.YTMSFileUploadTask;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
+import com.neognp.ytms.popup.CountEditDialog;
+import com.neognp.ytms.popup.PwdInputDialog;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.template.BasicFragment;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.Setting;
 
 import org.json.JSONObject;
 
@@ -30,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class AccountEditActivity extends BasicActivity {
+public class AccountEditActivity extends BasicActivity implements YTMSFileUploadTask.FileUploadTaskListener {
 
     private boolean onReq;
 
@@ -126,7 +130,7 @@ public class AccountEditActivity extends BasicActivity {
             case R.id.titleRightBtn1:
                 requestLoginActivity();
             case R.id.saveBtn:
-                finish();
+               requestAccountInfoSave();
                 break;
             case R.id.closeBtn:
                 finish();
@@ -135,6 +139,17 @@ public class AccountEditActivity extends BasicActivity {
                 AppUtil.runCallApp(getString(R.string.delivery_call_center_phone_no), true);
                 break;
         }
+    }
+
+    private void requestLoginActivity() {
+        Setting.putBoolean("autoLogin", false);
+
+        finish();
+        Intent intent = new Intent(getContext(), LoginActivity.class);
+        // 앱 새로 실행 | 모든 Activity 삭제
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.fade_in, R.anim.fade_out);
+        startActivity(intent, options.toBundle());
     }
 
     @SuppressLint ("StaticFieldLeak")
@@ -160,7 +175,7 @@ public class AccountEditActivity extends BasicActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_CAR_USER_INFO, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_CAR_ACCOUNT_INFO, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -209,14 +224,69 @@ public class AccountEditActivity extends BasicActivity {
         });
     }
 
-    private void requestLoginActivity() {
-        finish();
-        Intent intent = new Intent(getContext(), LoginActivity.class);
-        // 앱 새로 실행 | 모든 Activity 삭제
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.fade_in, R.anim.fade_out);
-        startActivity(intent, options.toBundle());
+    private YTMSFileUploadTask mFileUploadTask;
+
+    private synchronized void requestAccountInfoSave() {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            JSONObject payloadJson = YTMSRestRequestor.buildPayload();
+            payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+
+            // uploadFile.getPath();
+            final String[] fileParamName = new String[] {};
+            final String[] filePathList = new String[] {};
+            // TEST
+            //if (DeviceUtil.getUuid().endsWith("810d"))
+            //    filePath= "storage/emulated/0/Download/white_tiger.jpg";
+
+            mFileUploadTask = new YTMSFileUploadTask(null, API.URL_CAR_ACCOUNT_INFO_SAVE, false, payloadJson, fileParamName, filePathList, this, true);
+            mFileUploadTask.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    @Override
+    public void onStartUpload() {
+        onReq = true;
+        showLoadingDialog(getString(R.string.uploading), false);
+    }
+
+    @Override
+    public void onProgressUpload(float progress) {
+    }
+
+    @Override
+    public void onFinishUpload(Bundle response) {
+        onReq = false;
+        dismissLoadingDialog();
+
+        try {
+            Bundle resBody = response.getBundle(Key.resBody);
+            String result_code = resBody.getString(Key.result_code);
+            String result_msg = resBody.getString(Key.result_msg);
+
+            if (result_code.equals("200")) {
+                showToast("개인 정보가 저장됐습니다.", true);
+            } else {
+                showToast(result_msg + "(result_code:" + result_msg + ")", true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            showToast(e.getMessage(), false);
+        }
+    }
+
+    @Override
+    public void onCancelUpload() {
+        //finish();
+    }
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

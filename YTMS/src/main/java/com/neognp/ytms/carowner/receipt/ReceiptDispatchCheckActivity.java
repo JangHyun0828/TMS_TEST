@@ -1,6 +1,7 @@
 package com.neognp.ytms.carowner.receipt;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +24,9 @@ import android.widget.TextView;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
+import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
+import com.neognp.ytms.carowner.car_alloc.PalletsInputActivity;
+import com.neognp.ytms.carowner.car_alloc.ReceiptPhotoLowVersionActivity;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.TextUtil;
@@ -298,6 +302,9 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
         }
 
         class ListItemView extends ReceiptDispatchCheckActivity.ListAdapter.ItemViewHolder {
+
+            private ActivityOptions options = ActivityOptions.makeCustomAnimation(getContext(), R.anim.slide_in_from_right, R.anim.fade_out);
+
             public ListItemView(View itemView) {
                 super(itemView);
             }
@@ -324,9 +331,11 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
                         cameraBtn.setVisibility(View.VISIBLE);
                         cameraBtn.setBackgroundResource(R.drawable.selector_button_camera_small);
                         cameraBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
+                            @SuppressLint ("RestrictedApi")
                             public void onClick(View v) {
-                                // TODO 인수증 촬영 화면 이동
+                                Intent intent = new Intent(getContext(), ReceiptPhotoLowVersionActivity.class);
+                                intent.putExtras(item);
+                                startActivityForResult(intent, 0, options.toBundle());
                             }
                         });
                     }
@@ -335,12 +344,15 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
                         cameraBtn.setVisibility(View.VISIBLE);
                         cameraBtn.setBackgroundResource(R.drawable.selector_button_camera_small_check);
                         cameraBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
+                            @SuppressLint ("RestrictedApi")
                             public void onClick(View v) {
                                 String FILE_PATH = item.getString("FILE_PATH");
-                                if (FILE_PATH != null && !FILE_PATH.isEmpty()) {
-                                    // TODO 서버에 저장된 인수증 사진 뷰어 이동
-                                }
+                                //if (FILE_PATH != null && !FILE_PATH.isEmpty()) {
+                                //    // TODO 서버에 저장된 인수증 사진 뷰어 이동
+                                //}
+                                Intent intent = new Intent(getContext(), ReceiptPhotoLowVersionActivity.class);
+                                intent.putExtras(item);
+                                startActivityForResult(intent, 0, options.toBundle());
                             }
                         });
                     }
@@ -359,6 +371,16 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        // 인수증 저장 완료
+        if (resultCode == ReceiptPhotoLowVersionActivity.RESULT_SAVED_RECEIPT) {
+            if (data == null)
+                return;
+
+            //Bundle item = data.getExtras();
+            //listAdapter.notifyItemChanged(listItems.indexOf(item));
+            search();
+        }
     }
 
 }

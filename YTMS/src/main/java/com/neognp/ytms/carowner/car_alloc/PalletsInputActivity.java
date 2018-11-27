@@ -19,6 +19,8 @@ import org.json.JSONObject;
 
 public class PalletsInputActivity extends BasicActivity {
 
+    public static final int RESULT_INPUT_PALLETS_COUNT = 100;
+
     private boolean onReq;
     private Bundle args;
 
@@ -138,7 +140,7 @@ public class PalletsInputActivity extends BasicActivity {
                             Intent data = new Intent();
                             args.putString("PALLET_CNT", palletCnt);
                             data.putExtras(args);
-                            setResult(CarAllocHistoryActivity.RESULT_INPUT_PALLETS_COUNT, data);
+                            setResult(RESULT_INPUT_PALLETS_COUNT, data);
                             finish();
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);

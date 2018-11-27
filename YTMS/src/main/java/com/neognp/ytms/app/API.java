@@ -16,6 +16,8 @@ public class API {
     public static final String URL_PERSONAL_DAY_DELETE = "/common/delete/holiday";
     public static final String URL_LOCATION = "/common/location";
 
+    public static final String URL_WEB_FORK_LIFT_CHECK = "/view/fork_lift_check.html";
+
     public static final String URL_SHIPPER_PWD_CHANGE = "/cust/update/pwd";
     public static final String URL_SHIPPER_ALLOC_CNT = "/cust/dispatch/count";
     public static final String URL_SHIPPER_CAR_REQUEST_CNT = "/cust/select/car";
@@ -26,7 +28,8 @@ public class API {
     public static final String URL_SHIPPER_PALLETS_REQUEST = "/cust/request/pallet";
     public static final String URL_SHIPPER_PALLETS_REQUEST_HISTORY = "/cust/list/pallet";
 
-    public static final String URL_CAR_USER_INFO = "/car/select/info";
+    public static final String URL_CAR_ACCOUNT_INFO = "/car/select/info";
+    public static final String URL_CAR_ACCOUNT_INFO_SAVE = "/car/update/info";
     public static final String URL_CAR_ALLOC_CNT = "/car/dispatch/count";
     public static final String URL_CAR_ALLOC_LIST = "/car/dispatch/list";
     public static final String URL_CAR_PALLETS_INPUT = "/car/input/pallet";

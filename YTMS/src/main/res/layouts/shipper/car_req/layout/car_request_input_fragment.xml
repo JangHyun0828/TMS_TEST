@@ -35,7 +35,7 @@
         android:id="@+id/palletsCntBar"
         android:layout_width="4.3dp"
         android:layout_height="14dp"
-        android:background="@color/main_theme"
+        android:background="#bfd7f1"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintTop_toTopOf="@+id/palletsCntTitle"
         app:layout_constraintBottom_toBottomOf="@+id/palletsCntTitle" />
@@ -51,18 +51,18 @@
         android:text="팔레트 수 : "
         app:layout_constraintStart_toEndOf="@id/palletsCntBar"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/palletsFixedCntTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@color/main_theme"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintStart_toEndOf="@id/palletsCntTitle"
         app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/palletsCntSuffix"
@@ -73,7 +73,7 @@
         android:text=" 팔레트"
         app:layout_constraintStart_toEndOf="@id/palletsFixedCntTxt"
         app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <include
         android:id="@+id/palletsInputView"
@@ -88,7 +88,7 @@
         android:id="@+id/carCntBar"
         android:layout_width="4.3dp"
         android:layout_height="14dp"
-        android:background="@color/main_theme"
+        android:background="#bfd7f1"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintTop_toTopOf="@+id/carCntTitle"
         app:layout_constraintBottom_toBottomOf="@+id/carCntTitle" />
@@ -104,18 +104,18 @@
         android:text="차량 대수 : "
         app:layout_constraintStart_toEndOf="@id/carCntBar"
         app:layout_constraintTop_toBottomOf="@+id/palletsInputView"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/carsFixedCntTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@color/main_theme"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintStart_toEndOf="@id/carCntTitle"
         app:layout_constraintBaseline_toBaselineOf="@+id/carCntTitle"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/carCntSuffix"
@@ -126,7 +126,7 @@
         android:text=" 대"
         app:layout_constraintStart_toEndOf="@id/carsFixedCntTxt"
         app:layout_constraintBaseline_toBaselineOf="@+id/carCntTitle"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <include
         android:id="@+id/carsInputView"
@@ -139,14 +139,15 @@
         android:id="@+id/carCountInputGuideArw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4.3dp"
-        android:src="@drawable/img_sub_1_5_1"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/img_play"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintTop_toTopOf="@+id/carCountInputGuideTxt" />
 
     <TextView
         android:id="@+id/carCountInputGuideTxt"
         style="@style/TextViewGuide"
+        android:layout_marginStart="7.3dp"
         android:layout_marginTop="29.7dp"
         android:text="@string/car_count_change_setting"
         app:layout_constraintTop_toBottomOf="@+id/carsInputView"

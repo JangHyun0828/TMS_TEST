@@ -379,10 +379,10 @@
         android:textColor="@color/white"
         android:background="@drawable/bg_badge"
         android:text="0"
-        android:fontFamily="@font/my_nanum_square_eb"
-        android:visibility="invisible"
+        android:fontFamily="@font/my_nanum_square_r"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn5"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn5" />
+        app:layout_constraintEnd_toEndOf="@id/menuBtn5"
+        android:visibility="invisible"/>
 
     <include
         android:id="@+id/bottomCenterInfoView"

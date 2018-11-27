@@ -41,7 +41,7 @@
                 android:paddingStart="3dp"
                 android:paddingEnd="3dp"
                 android:hint="새 비밀번호 입력"
-                android:letterSpacing="0.4"
+                android:letterSpacing="0.2"
                 android:inputType="textPassword"
                 android:maxLines="1" />
 
@@ -65,7 +65,7 @@
                 android:paddingStart="3dp"
                 android:paddingEnd="3dp"
                 android:hint="새비밀번호 재입력"
-                android:letterSpacing="0.4"
+                android:letterSpacing="0.2"
                 android:inputType="textPassword"
                 android:imeOptions="actionDone"
                 android:maxLines="1" />

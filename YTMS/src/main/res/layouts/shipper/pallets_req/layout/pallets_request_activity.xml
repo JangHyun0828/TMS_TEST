@@ -62,7 +62,7 @@
                 android:text="요청여부: "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/contentTxt"
-                app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+                app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
             <TextView
                 android:id="@+id/contentTxt"
@@ -74,7 +74,7 @@
                 android:textColor="@color/main_theme"
                 app:layout_constraintStart_toEndOf="@id/contentTitle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+                app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
         </android.support.constraint.ConstraintLayout>
 

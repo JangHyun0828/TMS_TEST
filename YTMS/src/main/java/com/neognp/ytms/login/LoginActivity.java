@@ -6,9 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -23,15 +21,14 @@ import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.app.MyApp;
-import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
 import com.neognp.ytms.carowner.main.CarOwnerMainActivity;
 import com.neognp.ytms.delivery.main.DeliveryMainActivity;
 import com.neognp.ytms.http.YTMSRestRequestor;
-import com.neognp.ytms.popup.LocationInfoDialog;
 import com.neognp.ytms.shipper.main.ShipperMainActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
 import com.trevor.library.util.DeviceUtil;
+import com.trevor.library.util.Setting;
 import com.trevor.library.util.TextUtil;
 
 import org.json.JSONObject;
@@ -39,8 +36,6 @@ import org.json.JSONObject;
 public class LoginActivity extends BasicActivity {
 
     private boolean onReq;
-
-    private String targetClassName;
 
     private EditText idEdit, pwdEdit;
     private CheckBox idSaveCheck, autoLoginCheck;
@@ -50,7 +45,6 @@ public class LoginActivity extends BasicActivity {
         setContentView(R.layout.login_activity);
 
         idEdit = findViewById(R.id.idEdit);
-        idEdit.setText(DeviceUtil.getPhoneNumber());
 
         pwdEdit = findViewById(R.id.pwdEdit);
         // 키패드 '완료' 버튼 클릭 시, ' 로그인' 버튼 자동 클릭
@@ -69,7 +63,10 @@ public class LoginActivity extends BasicActivity {
         ((TextView) findViewById(R.id.callCenterTxt)).setText("운송전략팀 연결");
         ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.delivery_call_center_phone_no));
 
-        init();
+        idEdit.setText(TextUtil.formatPhoneNumber(DeviceUtil.getPhoneNumber()));
+
+        // TEST
+        //idEdit.setText(TextUtil.formatPhoneNumber("01012345678"));
 
         if (MyApp.onTest) {
             findViewById(R.id.testAccountGroup).setVisibility(View.VISIBLE);
@@ -81,7 +78,7 @@ public class LoginActivity extends BasicActivity {
             testAccountTxt0.setText(content);
             testAccountTxt0.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    idEdit.setText("01011111111");
+                    idEdit.setText(TextUtil.formatPhoneNumber("01011111111"));
                     pwdEdit.setText("1");
                 }
             });
@@ -93,7 +90,7 @@ public class LoginActivity extends BasicActivity {
             testAccountTxt1.setText(content);
             testAccountTxt1.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    idEdit.setText("01012345678");
+                    idEdit.setText(TextUtil.formatPhoneNumber("01012345678"));
                     pwdEdit.setText("1");
                 }
             });
@@ -105,7 +102,7 @@ public class LoginActivity extends BasicActivity {
             testAccountTxt2.setText(content);
             testAccountTxt2.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    idEdit.setText("01099999999");
+                    idEdit.setText(TextUtil.formatPhoneNumber("01099999999"));
                     pwdEdit.setText("1");
                 }
             });
@@ -117,7 +114,7 @@ public class LoginActivity extends BasicActivity {
             testAccountTxt3.setText(content);
             testAccountTxt3.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    idEdit.setText("01088888888");
+                    idEdit.setText(TextUtil.formatPhoneNumber("01088888888"));
                     pwdEdit.setText("1");
                 }
             });
@@ -132,32 +129,6 @@ public class LoginActivity extends BasicActivity {
 
     protected void onPause() {
         super.onPause();
-    }
-
-    private void init() {
-        try {
-            //targetClassName = getIntent().getStringExtra(Key.className);
-            //Log.i(TAG, "+ init(): targetClassName=" + targetClassName);
-            //
-            //if (targetClassName.equals(ShipperMainActivity.class.getSimpleName())) {
-            //    idEdit.setEnabled(true);
-            //    idSaveCheck.setVisibility(View.VISIBLE);
-            //    autoLoginCheck.setVisibility(View.VISIBLE);
-            //} else if (targetClassName.equals(CarOwnerMainActivity.class.getSimpleName())) {
-            //    idEdit.setEnabled(true);
-            //    // TODO 푸시 수신>로그인 바로 이동>permission 얻기 전 DeviceUtil.getUuid() 호출시 SecurityException 발생
-            //    idEdit.setText(TextUtil.formatPhoneNumber(DeviceUtil.getPhoneNumber()));
-            //    idEdit.setEnabled(false);
-            //    idSaveCheck.setVisibility(View.INVISIBLE);
-            //    autoLoginCheck.setVisibility(View.INVISIBLE);
-            //}else if (targetClassName.equals(DeliveryMainActivity.class.getSimpleName())) {
-            //    idEdit.setEnabled(true);
-            //    idSaveCheck.setVisibility(View.VISIBLE);
-            //    autoLoginCheck.setVisibility(View.VISIBLE);
-            //}
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void onClick(View v) {
@@ -180,7 +151,7 @@ public class LoginActivity extends BasicActivity {
             return;
 
         try {
-            final String userId = ((TextView) findViewById(R.id.idEdit)).getText().toString().trim();
+            final String userId = ((TextView) findViewById(R.id.idEdit)).getText().toString().replaceAll("-", "").trim();
             if (userId.isEmpty()) {
                 showToast("ID를 입력하세요.", true);
                 return;
@@ -227,17 +198,27 @@ public class LoginActivity extends BasicActivity {
                         if (result_code.equals("200")) {
                             JSONObject resJson = new JSONObject(response.getString(Key.resStr));
                             JSONObject data = resJson.optJSONObject(Key.data);
+
+                            String app_version = resBody.getString("app_version", "");
+                            String local_version = DeviceUtil.getAppVersionName();
+                            Log.e(TAG, "+ onPostExecute(): app_version/local_version=" + app_version + "/" + local_version);
+                            if (app_version.isEmpty() || !app_version.equals(local_version)) {
+                                showToast("최신 버전 앱을 새로 설치 후 실행해 주십시요.", true);
+                                return;
+                            }
+
                             if (data != null) {
                                 // 비밀번호 길이 파악을 위해 별표로 변경 저장
-                                StringBuilder builder = new StringBuilder(data.optString("USER_PW", ""));
-                                builder.replace(0, builder.length(), "*");
-                                data.put("USER_PW_HIDDEN", builder.toString());
+                                //StringBuilder builder = new StringBuilder(data.optString("USER_PW", ""));
+                                //builder.replace(0, builder.length(), "*");
+                                //data.put("USER_PW_HIDDEN", builder.toString());
 
                                 data.remove("USER_PW"); // 비밀번호 삭제
-
                                 Key.saveUserInfo(data);
 
-                                showCategoryMainActivity(data.getString("AUTH_CD"));
+                                Setting.putBoolean("autoLogin", autoLoginCheck.isChecked());
+
+                                showMainActivity();
                             }
                         } else {
                             //showToast(result_msg + "(result_code:" + result_code + ")", true);
@@ -254,9 +235,11 @@ public class LoginActivity extends BasicActivity {
         }
     }
 
-    public void showCategoryMainActivity(String AUTH_CD) {
-        if (AUTH_CD == null)
+    public void showMainActivity() {
+        String AUTH_CD = Key.getUserInfo().getString("AUTH_CD");
+        if (AUTH_CD == null) {
             return;
+        }
 
         ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.slide_in_from_right, R.anim.fade_out);
         Intent intent = null;
@@ -275,7 +258,6 @@ public class LoginActivity extends BasicActivity {
         // 앱 새로 실행 | 모든 Activity 삭제
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent, options.toBundle());
-
         finish();
     }
 

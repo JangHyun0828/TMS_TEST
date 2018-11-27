@@ -34,6 +34,7 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
     private boolean useSSL;
     private JSONObject payloadJson;
     private String fileParamName;
+    private String[] fileParamNameList;
     private String filePath;
     private String[] filePathList;
     private FileUploadTaskListener listener;
@@ -63,6 +64,17 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
         this.useSSL = useSSL;
         this.payloadJson = payloadJson;
         this.fileParamName = fileParamName;
+        this.filePathList = filePathList;
+        this.listener = listener;
+        this.showDebug = showDebug;
+    }
+
+    public YTMSFileUploadTask(String domain, String urlStr, boolean useSSL, JSONObject payloadJson, String[] fileParamNameList, String[] filePathList, FileUploadTaskListener listener, boolean showDebug) {
+        this.domain = domain;
+        this.urlStr = urlStr;
+        this.useSSL = useSSL;
+        this.payloadJson = payloadJson;
+        this.fileParamNameList = fileParamNameList;
         this.filePathList = filePathList;
         this.listener = listener;
         this.showDebug = showDebug;

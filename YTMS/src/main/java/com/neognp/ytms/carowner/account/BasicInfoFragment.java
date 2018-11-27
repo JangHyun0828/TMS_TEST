@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.Key;
 import com.trevor.library.template.BasicFragment;
+import com.trevor.library.util.DeviceUtil;
+import com.trevor.library.util.TextUtil;
 
 public class BasicInfoFragment extends BasicFragment implements View.OnClickListener {
 
@@ -52,7 +54,7 @@ public class BasicInfoFragment extends BasicFragment implements View.OnClickList
                 return;
 
             ((TextView) contentView.findViewById(R.id.car_noEdit)).setText(host.userInfo.getString("CAR_NO"));
-            ((TextView) contentView.findViewById(R.id.mobile_no_edit)).setText(host.userInfo.getString("MOBILE_NO"));
+            ((TextView) contentView.findViewById(R.id.mobile_no_edit)).setText(TextUtil.formatPhoneNumber(host.userInfo.getString("MOBILE_NO")));
             ((TextView) contentView.findViewById(R.id.user_nmEdit)).setText(Key.getUserInfo().getString("USER_NM"));
         } catch (Exception e) {
             e.printStackTrace();

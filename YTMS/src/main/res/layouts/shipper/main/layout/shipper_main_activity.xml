@@ -161,13 +161,14 @@
         android:minWidth="23dp"
         android:minHeight="23dp"
         android:gravity="center"
-        android:textSize="14.8sp"
+        android:textSize="12sp"
         android:textColor="@color/white"
         android:background="@drawable/bg_badge"
         android:text="N"
-        android:fontFamily="@font/my_noto_sans_kr_bold_hestia"
+        android:fontFamily="@font/my_nanum_square_r"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn1"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn1" />
+        app:layout_constraintEnd_toEndOf="@id/menuBtn1"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/menuBtn2"
@@ -218,11 +219,11 @@
         android:minWidth="23dp"
         android:minHeight="23dp"
         android:gravity="center"
-        android:textSize="14.8sp"
+        android:textSize="12sp"
         android:textColor="@color/white"
         android:background="@drawable/bg_badge"
         android:text="0"
-        android:fontFamily="@font/my_nanum_square_eb"
+        android:fontFamily="@font/my_nanum_square_r"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn3"
         app:layout_constraintEnd_toEndOf="@id/menuBtn3"
         android:visibility="invisible"/>

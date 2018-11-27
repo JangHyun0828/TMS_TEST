@@ -43,7 +43,7 @@ public class DeliveryMainActivity extends BasicActivity {
         workActionFilter.addAction(Key.ACTION_LOCATION_UPDATED);
         LocalBroadcastManager.getInstance(this).registerReceiver(gpsActionReceiver, workActionFilter);
 
-        setTitleBar(R.string.app_name, R.drawable.selector_button_back, 0, 0);
+        setTitleBar(R.string.app_name, 0, 0, 0);
 
         if (Key.getUserInfo() != null)
             ((TextView) findViewById(R.id.userNameTxt)).setText(Key.getUserInfo().getString("USER_NM", ""));
@@ -106,7 +106,6 @@ public class DeliveryMainActivity extends BasicActivity {
 
         switch (v.getId()) {
             case R.id.titleLeftBtn0:
-                finish();
                 break;
             case R.id.titleRightBtn1:
                 break;

@@ -36,9 +36,6 @@ import java.util.Calendar;
 
 public class CarAllocHistoryActivity extends BasicActivity {
 
-    public static final int RESULT_INPUT_PALLETS_COUNT = 100;
-    public static final int RESULT_SAVED_RECEIPT = 200;
-
     private boolean onReq;
 
     private Calendar fromCal, toCal;
@@ -601,7 +598,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
         try {
             // 팔레트 입력 완료
-            if (resultCode == RESULT_INPUT_PALLETS_COUNT) {
+            if (resultCode == PalletsInputActivity.RESULT_INPUT_PALLETS_COUNT) {
                 if (data == null)
                     return;
 
@@ -610,7 +607,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                 search();
             }
             // 인수증 저장 완료
-            else if (resultCode == RESULT_SAVED_RECEIPT) {
+            else if (resultCode == ReceiptPhotoLowVersionActivity.RESULT_SAVED_RECEIPT) {
                 if (data == null)
                     return;
 

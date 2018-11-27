@@ -38,7 +38,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
         android:hint="아이디"
-        android:letterSpacing="0.4"
+        android:letterSpacing="0.2"
         android:enabled="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
         android:layout_width="0dp"
         android:layout_marginTop="16.7dp"
         android:hint="비밀번호"
-        android:letterSpacing="0.4"
+        android:letterSpacing="0.2"
         android:inputType="textPassword"
         android:imeOptions="actionDone"
         app:layout_constraintStart_toStartOf="@+id/idEdit"
@@ -101,7 +101,6 @@
         android:button="@drawable/selector_checkbox"
         app:layout_constraintTop_toTopOf="@+id/idSaveCheck"
         app:layout_constraintEnd_toEndOf="@id/loginBtn"
-        app:layout_constraintTop_toBottomOf="@+id/testAccountTxt0"
         app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
 
     <android.support.constraint.Group
@@ -121,14 +120,14 @@
         android:text="계정 DB 초기화"
         android:button="@drawable/selector_checkbox"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/testAccountTxt0"
+        app:layout_constraintTop_toTopOf="@id/testAccountTxt0"
+        app:layout_constraintBottom_toBottomOf="@+id/testAccountTxt3"
         app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
 
     <TextView
         android:id="@+id/testAccountTxt0"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:gravity="end|center_vertical"
         android:text="화주1 : 01011111111 / 1"

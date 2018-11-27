@@ -230,6 +230,7 @@ public class GpsTrackingService extends Service {
 
     private boolean onReq;
     private final AtomicInteger addrReqSeq = new AtomicInteger();
+    private long prevSendTime;
 
     @SuppressLint ("StaticFieldLeak")
     private synchronized void requestGpsSend(Location userLocation) {
@@ -275,6 +276,11 @@ public class GpsTrackingService extends Service {
                                 checkYn = "Y";
                         }
 
+                        long sendIntervalTime = System.currentTimeMillis() - prevSendTime;
+                        // 최초 전송 여부 && 목표지점 반경 여부 && 이전 전송시간과의 간격이 1분 미만인 경우
+                        if (prevSendTime != 0 && !checkYn.equals("Y") && sendIntervalTime < 1 * 60 * 1000)
+                            return false;
+
                         JSONObject payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("lat", userLat);
                         payloadJson.put("lon", userLon);
@@ -286,6 +292,7 @@ public class GpsTrackingService extends Service {
                         if (result_code.equals("200")) {
                             targetAddress = resBody.getBundle("data");
                             targetAddress.putFloat("targetDistance", targetDistance);
+                            prevSendTime = System.currentTimeMillis();
                         } else {
                         }
 

@@ -50,7 +50,8 @@ import java.util.List;
 
 public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTMSFileUploadTask.FileUploadTaskListener {
 
-    public static final int REQ_PICK_IMAGE = 100;
+    public static final int RESULT_SAVED_RECEIPT = 200;
+    public static final int REQ_PICK_IMAGE = 400;
 
     private boolean onReq;
     private Bundle args;
@@ -63,6 +64,8 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
     private CameraPreview mCameraPreview;
 
     private ImageView previewImg;
+
+    private File uploadFile;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -274,10 +277,15 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             Camera.Parameters params = mCamera.getParameters();
 
             List<String> focusModes = params.getSupportedFocusModes();
-            if (focusModes.contains(Camera.Parameters.FOCUS_MODE_AUTO)) {
-                // Autofocus mode is supported
-                params.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
-            }
+
+            // 계속 초점 잡기
+            if (focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO))
+                params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+
+            //if (focusModes.contains(Camera.Parameters.FOCUS_MODE_AUTO)) {
+            //    // Autofocus mode is supported
+            //    params.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
+            //}
             //else if (focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE)) {
             //    params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
             //}
@@ -378,10 +386,10 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
                 if (orientation == ExifInterface.ORIENTATION_ROTATE_90)
                     takenPicDegree = 90;
 
-                // 촬영 사진 Bitmap
+                // 촬영 사진 원본 bitmap
                 Bitmap takenBmp = BitmapFactory.decodeFile(uploadFile.getPath());
 
-                // 사진 합성 Bitmap
+                // preview Bitmap
                 Bitmap previewBmp = Bitmap.createBitmap(mCameraPreview.getWidth(), mCameraPreview.getHeight(), takenBmp.getConfig());
                 Log.e(TAG, "+ onPictureTaken(): previewBmp size=" + previewBmp.getWidth() + "x" + previewBmp.getHeight());
                 Canvas previewCanvas = new Canvas(previewBmp);
@@ -424,7 +432,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
                 // preview 사진을 결과 창에 붙이기
                 previewImg.setImageBitmap(previewBmp);
 
-                /* 파일로 저장 & 파일 업로드 */
+                /* 파일로 저장  */
 
                 BitmapFactory.Options bmOptions = new BitmapFactory.Options();
                 bmOptions.inJustDecodeBounds = true;
@@ -514,8 +522,6 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
         }
     }
 
-    private File uploadFile;
-
     private void setPreviewPhoto(final String photoPath) {
         try {
             if (photoPath == null || photoPath.isEmpty())
@@ -562,7 +568,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
 
             setCameraMode(false);
 
-            /* 파일로 저장 & 파일 업로드 */
+            /* 파일로 저장 */
 
             FileOutputStream uploadFos = new FileOutputStream(uploadFile);
 
@@ -640,18 +646,20 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             if (Key.getUserInfo() == null)
                 return;
 
-            JSONObject payload = YTMSRestRequestor.buildPayload();
-            payload.put("orderNo", args.getString("ORDER_NO"));
-            payload.put("dispatchNo", args.getString("DISPATCH_NO"));
+            JSONObject payloadJson = YTMSRestRequestor.buildPayload();
+            payloadJson.put("orderNo", args.getString("ORDER_NO"));
+            payloadJson.put("dispatchNo", args.getString("DISPATCH_NO"));
             String fileYn = ((CheckBox) findViewById(R.id.noReceiptCheck)).isChecked() ? "n" : "y";
-            payload.put("fileYn", fileYn);
+            payloadJson.put("fileYn", fileYn);
             String _filePath = null;
             if (fileYn.equalsIgnoreCase("Y")) {
-                if (uploadFile == null)
+                if (uploadFile == null) {
+                    showToast("인수증을 촬영해 주십시요. 인수증이 없는 경우, 인수증 없음을 체크해 저장해 주십시요.", false);
                     return;
-                else
+                } else {
                     _filePath = uploadFile.getPath();
-                // -filePath = reduceUploadFileSize();
+                    // -filePath = reduceUploadFileSize();
+                }
             }
             final String filePath = _filePath;
 
@@ -659,7 +667,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             //if (DeviceUtil.getUuid().endsWith("810d"))
             //    filePath= "storage/emulated/0/Download/white_tiger.jpg";
 
-            mFileUploadTask = new YTMSFileUploadTask(null, API.URL_CAR_RECEIPT_SAVE, false, payload, "file", filePath, this, true);
+            mFileUploadTask = new YTMSFileUploadTask(null, API.URL_CAR_RECEIPT_SAVE, false, payloadJson, "file", filePath, this, true);
             mFileUploadTask.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -689,8 +697,8 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             if (result_code.equals("200")) {
                 Intent data = new Intent();
                 data.putExtras(args);
-                setResult(CarAllocHistoryActivity.RESULT_SAVED_RECEIPT, data);
-                showToast("사진이 저장됐습니다.", true);
+                setResult(RESULT_SAVED_RECEIPT, data);
+                showToast("인수증이 저장됐습니다.", true);
             } else {
                 showToast(result_msg + "(result_code:" + result_msg + ")", true);
             }

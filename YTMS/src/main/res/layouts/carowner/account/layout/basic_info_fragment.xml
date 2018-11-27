@@ -102,7 +102,7 @@
             <EditText
                 android:id="@+id/user_pwEdit"
                 style="@style/EditTextTableItem"
-                android:letterSpacing="0.4"
+                android:hint="숫자나 문자 모두 가능"
                 android:inputType="textPassword" />
 
         </LinearLayout>
@@ -125,7 +125,6 @@
             <EditText
                 android:id="@+id/user_pw_confirmEdit"
                 style="@style/EditTextTableItem"
-                android:letterSpacing="0.4"
                 android:inputType="textPassword"
                 android:imeOptions="actionDone" />
 

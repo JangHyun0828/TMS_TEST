@@ -13,9 +13,14 @@ import android.support.v4.app.ActivityCompat;
 import android.view.KeyEvent;
 
 import com.neognp.ytms.R;
+import com.neognp.ytms.app.Key;
+import com.neognp.ytms.carowner.main.CarOwnerMainActivity;
+import com.neognp.ytms.delivery.main.DeliveryMainActivity;
 import com.neognp.ytms.login.LoginActivity;
+import com.neognp.ytms.shipper.main.ShipperMainActivity;
 import com.trevor.library.popup.ConfirmCancelDialog;
 import com.trevor.library.template.BasicActivity;
+import com.trevor.library.util.Setting;
 
 public class IntroActivity extends BasicActivity {
 
@@ -35,11 +40,17 @@ public class IntroActivity extends BasicActivity {
         if (delay) {
             new Handler().postDelayed(new Runnable() {
                 public void run() {
-                    showLoginActivity();
+                    if (!Setting.getBoolean("autoLogin"))
+                        showLoginActivity();
+                    else
+                        showMainActivity();
                 }
             }, DELAY_MILLIS);
         } else {
-            showLoginActivity();
+            if (!Setting.getBoolean("autoLogin"))
+                showLoginActivity();
+            else
+                showMainActivity();
         }
     }
 
@@ -59,6 +70,38 @@ public class IntroActivity extends BasicActivity {
         // 앱 새로 실행 | 모든 Activity 삭제
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent, options.toBundle());
+    }
+
+    public void showMainActivity() {
+        if (Key.getUserInfo() == null) {
+            showLoginActivity();
+            return;
+        }
+
+        String AUTH_CD = Key.getUserInfo().getString("AUTH_CD");
+        if (AUTH_CD == null) {
+            showLoginActivity();
+            return;
+        }
+
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.slide_in_from_right, R.anim.fade_out);
+        Intent intent = null;
+        if (AUTH_CD.equals("CST")) {
+            intent = new Intent(getContext(), ShipperMainActivity.class);
+        } else if (AUTH_CD.equals("CAR")) {
+            intent = new Intent(getContext(), CarOwnerMainActivity.class);
+        } else if (AUTH_CD.equals("DC")) {
+            intent = new Intent(getContext(), DeliveryMainActivity.class);
+        } else if (AUTH_CD.equals("TPL")) {
+            //intent = new Intent(getContext(), .class);
+            showToast("준비중...", true);
+            return;
+        }
+
+        // 앱 새로 실행 | 모든 Activity 삭제
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent, options.toBundle());
+        finish();
     }
 
     private void finishApp() {
