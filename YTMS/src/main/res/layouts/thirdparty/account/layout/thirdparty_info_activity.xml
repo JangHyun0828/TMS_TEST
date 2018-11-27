@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/infoScroll"
+        style="@style/Scrollbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:clipToPadding="false"
+        android:background="@drawable/bg_round_white"
+        app:layout_constraintTop_toBottomOf="@+id/appbar"
+        app:layout_constraintBottom_toTopOf="@+id/guideTxt">
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:paddingBottom="5.4dp"
+            app:columnCount="2">
+
+            <TextView
+                style="@style/TextViewTableItem"
+                android:minWidth="111.7dp"
+                android:text="소속센터" />
+
+            <TextView
+                android:id="@+id/centerText"
+                style="@style/TextViewTableItem"
+                android:gravity="center_vertical|start"
+                android:text="물류센터"
+                android:textColor="#3668a5"
+                android:drawableEnd="@drawable/selector_button_find"
+                android:drawablePadding="7dp"/>
+
+            <TextView
+                style="@style/TextViewTableItem"
+                android:minWidth="111.7dp"
+                android:text="사원번호"/>
+
+            <TextView
+                android:id="@+id/empNumText"
+                style="@style/TextViewTableItem"
+                android:gravity="center_vertical|start"
+                android:text="Y1234567"/>
+
+            <TextView
+                style="@style/TextViewTableItem"
+                android:minWidth="111.7dp"
+                android:text="전화번호" />
+
+            <TextView
+                android:id="@+id/phoneNoText"
+                style="@style/TextViewTableItem"
+                android:gravity="center_vertical|start"
+                android:text="010-0000-0000"/>
+
+            <TextView
+                style="@style/TextViewTableItem"
+                android:minWidth="111.7dp"
+                android:text="아이디"/>
+
+            <TextView
+                android:id="@+id/idTxt"
+                style="@style/TextViewTableItem"
+                android:gravity="center_vertical|start"
+                android:text="아이디" />
+
+            <TextView
+                style="@style/TextViewTableItem"
+                android:minWidth="111.7dp"
+                android:text="비밀번호" />
+
+            <TextView
+                android:id="@+id/pwdTxt"
+                style="@style/TextViewTableItem"
+                android:gravity="center_vertical|start"
+                android:text="비밀번호" />
+
+            <TextView
+                style="@style/TextViewTableItem"
+                android:minWidth="111.7dp"
+                android:text="성명" />
+
+            <TextView
+                android:id="@+id/nameTxt"
+                style="@style/TextViewTableItem"
+                android:gravity="center_vertical|start"
+                android:text="김물류" />
+
+        </android.support.v7.widget.GridLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/logoutBtn"
+        style="@style/ButtonRoundMain"
+        android:layout_marginBottom="8.3dp"
+        android:text="로그아웃"
+        app:layout_constraintStart_toStartOf="@+id/infoScroll"
+        app:layout_constraintEnd_toEndOf="@+id/infoScroll"
+        app:layout_constraintBottom_toTopOf="@id/callCenterBtn" />
+
+    <include
+        android:id="@+id/callCenterBtn"
+        layout="@layout/bottom_center_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/call_center_height"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

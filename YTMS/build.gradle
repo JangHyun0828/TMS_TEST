@@ -64,7 +64,11 @@ android {
                             'src/main/res/layouts/delivery/car_alloc',
                             'src/main/res/layouts/delivery/car_loc',
                             'src/main/res/layouts/delivery/direct',
-                            'src/main/res/layouts/delivery/pallets'
+                            'src/main/res/layouts/delivery/pallets',
+                            'src/main/res/layouts/thirdparty/main',
+                            'src/main/res/layouts/thirdparty/account',
+                            'src/main/res/layouts/thirdparty/car_req',
+                            'src/main/res/layouts/thirdparty/car_alloc'
                     ]
         }
     }

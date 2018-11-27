@@ -50,4 +50,12 @@ public class API {
     public static final String URL_DELIVERY_PALLETS_DISPATCH = "/dc/send/pallet";
     public static final String URL_DELIVERY_PALLETS_DISPATCH_HISTORY = "/dc/list/send";
 
+    public static final String URL_THIRDPARTY_USER_INFO = "/tpl/select/info";
+    public static final String URL_THIRDPARTY_USER_INFO_TPL = "/tpl/select/tpl";
+    public static final String URL_THIRDPARTY_USER_INFO_SAVE = "/tpl/update/tpl";
+    public static final String URL_THIRDPARTY_ALLOC_CNT = "/tpl/dispatch/count";
+    public static final String URL_THIRDPARTY_ALLOC_LIST = "/tpl/dispatch/list";
+    public static final String URL_THIRDPARTY_CAR_REQUEST = "/tpl/select/car";
+    public static final String URL_THIRDPARTY_CAR_REQUEST_SAVE = "/tpl/request/car";
+    public static final String URL_THIRDPARTY_CAR_REQUEST_HISTORY = "/tpl/list/car";
 }
