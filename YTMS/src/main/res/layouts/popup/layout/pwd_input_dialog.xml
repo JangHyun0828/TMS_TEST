@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="23.3dp"
+    android:paddingRight="23.3dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/pwdEditLayout"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="17dp"
+            android:paddingTop="48dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btmBtn1">
+
+            <com.trevor.library.widget.NoCursorMenuEditText
+                android:id="@+id/pwdEdit"
+                style="@style/EditTextTableItem"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical|start"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
+                android:letterSpacing="0.2"
+                android:hint="비밀번호 입력"
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
+                android:maxLines="1" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btmBtn0"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:minWidth="82dp"
+            android:textSize="14.8sp"
+            android:text="취소"
+            android:textColor="@color/colorPrimary"
+            android:background="@null"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@id/btmBtn1"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <Button
+            android:id="@+id/btmBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:minWidth="82dp"
+            android:textSize="14.8sp"
+            android:text="확인"
+            android:textColor="@color/colorPrimary"
+            android:background="@null"
+            app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
