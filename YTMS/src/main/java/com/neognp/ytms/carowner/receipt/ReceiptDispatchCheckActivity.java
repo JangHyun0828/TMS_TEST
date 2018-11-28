@@ -12,7 +12,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -24,9 +23,7 @@ import android.widget.TextView;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
-import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
-import com.neognp.ytms.carowner.car_alloc.PalletsInputActivity;
-import com.neognp.ytms.carowner.car_alloc.ReceiptPhotoLowVersionActivity;
+import com.neognp.ytms.carowner.car_alloc.ReceiptCameraActivity;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.TextUtil;
@@ -333,7 +330,7 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
                         cameraBtn.setOnClickListener(new View.OnClickListener() {
                             @SuppressLint ("RestrictedApi")
                             public void onClick(View v) {
-                                Intent intent = new Intent(getContext(), ReceiptPhotoLowVersionActivity.class);
+                                Intent intent = new Intent(getContext(), ReceiptCameraActivity.class);
                                 intent.putExtras(item);
                                 startActivityForResult(intent, 0, options.toBundle());
                             }
@@ -350,7 +347,7 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
                                 //if (FILE_PATH != null && !FILE_PATH.isEmpty()) {
                                 //    // TODO 서버에 저장된 인수증 사진 뷰어 이동
                                 //}
-                                Intent intent = new Intent(getContext(), ReceiptPhotoLowVersionActivity.class);
+                                Intent intent = new Intent(getContext(), ReceiptCameraActivity.class);
                                 intent.putExtras(item);
                                 startActivityForResult(intent, 0, options.toBundle());
                             }
@@ -373,7 +370,7 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         // 인수증 저장 완료
-        if (resultCode == ReceiptPhotoLowVersionActivity.RESULT_SAVED_RECEIPT) {
+        if (resultCode == ReceiptCameraActivity.RESULT_SAVED_RECEIPT) {
             if (data == null)
                 return;
 

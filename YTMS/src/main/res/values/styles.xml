@@ -90,7 +90,7 @@
         <item name="android:textColor">#4e4d4d</item>
         <item name="android:textSize">14.8sp</item>
         <item name="android:background">@drawable/selector_edit_line_gray</item>
-        <item name="fontFamily">@font/my_noto_sans_kr_medium_hestia</item>
+        <item name="fontFamily">@font/my_noto_sans_kr_regular_hestia</item>
     </style>
 
     <style name="ButtonRoundLogin">

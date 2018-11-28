@@ -3,7 +3,6 @@ package com.neognp.ytms.carowner.account;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +61,7 @@ public class CarInfoFragment extends BasicFragment implements View.OnClickListen
     }
 
     private void initSelector() throws Exception {
-        if (host.userInfo == null)
+        if (host.accountInfo == null)
             return;
 
         // 차종
@@ -71,11 +70,11 @@ public class CarInfoFragment extends BasicFragment implements View.OnClickListen
             for (int i = 0; i < entries.length; i++) {
                 entries[i] = host.carTypeList.get(i).getString("NAME");
             }
-            car_typeSelector.setEntries(entries, null, getItemIndexOfCode(host.carTypeList, host.userInfo.getString("CAR_TYPE")));
+            car_typeSelector.setEntries(entries, null, getItemIndexOfCode(host.carTypeList, host.accountInfo.getString("CAR_TYPE")));
         }
 
         // 차량구분
-        car_gbEdit.setText((host.userInfo.getString("CAR_GB")));
+        car_gbEdit.setText((host.accountInfo.getString("CAR_GB")));
         car_gbEdit.setSelection(car_gbEdit.getText().length());
 
         // 톤수
@@ -84,11 +83,11 @@ public class CarInfoFragment extends BasicFragment implements View.OnClickListen
             for (int i = 0; i < entries.length; i++) {
                 entries[i] = host.carTonList.get(i).getString("NAME");
             }
-            car_tonSelector.setEntries(entries, null, getItemIndexOfCode(host.carTonList, host.userInfo.getString("CAR_TON")));
+            car_tonSelector.setEntries(entries, null, getItemIndexOfCode(host.carTonList, host.accountInfo.getString("CAR_TON")));
         }
 
         // 적재함길이
-        load_typeEdit.setText((host.userInfo.getString("LOAD_TYPE")));
+        load_typeEdit.setText((host.accountInfo.getString("LOAD_TYPE")));
         load_typeEdit.setSelection(load_typeEdit.getText().length());
     }
 
@@ -102,6 +101,44 @@ public class CarInfoFragment extends BasicFragment implements View.OnClickListen
         }
 
         return -1;
+    }
+
+    String getCarType() {
+        if (host.carTypeList == null)
+            return null;
+
+        String value = null;
+
+        try {
+            value = host.carTypeList.get(car_typeSelector.getSelectedIndex()).getString("CODE");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return value;
+    }
+
+    String getCarGb() {
+        return car_gbEdit.getText().toString().trim();
+    }
+
+    String getCarTon() {
+        if (host.carTonList == null)
+            return null;
+
+        String value = null;
+
+        try {
+            value = host.carTonList.get(car_tonSelector.getSelectedIndex()).getString("CODE");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return value;
+    }
+
+    String getLoadType() {
+        return load_typeEdit.getText().toString().trim();
     }
 
     public void onClick(View v) {

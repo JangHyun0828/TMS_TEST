@@ -43,8 +43,8 @@ public class YTMSTemplateFragment extends BasicFragment implements View.OnClickL
     //    if (contentView == null) {
     //        contentView = inflater.inflate(R.layout.ytms_template_fragment, container, false);
     //
-    //        //=(EditText) contentView.findViewById(R.id.);
-    //        //=(TextView) contentView.findViewById(R.id.);
+    //        //=contentView.findViewById(R.id.);
+    //        //=contentView.findViewById(R.id.);
     //
     //        init();
     //    }

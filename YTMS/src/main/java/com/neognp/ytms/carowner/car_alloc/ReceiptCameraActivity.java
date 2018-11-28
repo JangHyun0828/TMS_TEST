@@ -10,12 +10,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -25,7 +27,16 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
@@ -37,6 +48,7 @@ import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.ImageFilePath;
 import com.trevor.library.util.ImageResizeUtil;
 import com.trevor.library.util.PhotoRotationUtil;
+import com.trevor.library.util.Setting;
 import com.trevor.library.util.TextUtil;
 
 import org.json.JSONObject;
@@ -48,7 +60,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTMSFileUploadTask.FileUploadTaskListener {
+public class ReceiptCameraActivity extends BasicActivity implements YTMSFileUploadTask.FileUploadTaskListener {
 
     public static final int RESULT_SAVED_RECEIPT = 200;
     public static final int REQ_PICK_IMAGE = 400;
@@ -64,12 +76,13 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
     private CameraPreview mCameraPreview;
 
     private ImageView previewImg;
+    private ProgressBar imgProgress;
 
     private File uploadFile;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.receipt_photo_low_version_activity);
+        setContentView(R.layout.receipt_camera_activity);
 
         // Create an instance of Camera
         mCamera = getCameraInstance();
@@ -85,8 +98,9 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
         cameraContainer.addView(mCameraPreview, 0);
 
         previewImg = findViewById(R.id.previewImg);
+        imgProgress = findViewById(R.id.imgProgress);
 
-        setCameraMode(true);
+        setCameraMode(false);
 
         init();
     }
@@ -113,6 +127,46 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             //args.putString("ORDER_NO", "2018101235545");
             //args.putString("DISPATCH_NO", "2018101235545");
 
+            String savedFileUrl = args.getString("FILE_PATH");
+            if (savedFileUrl != null)
+                savedFileUrl = "http://" + Setting.getString("ip") + ":" + Setting.getInt("port") + savedFileUrl;
+
+            Log.i(TAG, "+ init(): download url: " + savedFileUrl);
+
+            if (savedFileUrl != null) {
+                setCameraMode(false);
+
+                ((TextView) findViewById(R.id.guideTxt)).setText("등록된 사진");
+
+                Glide.
+                        with(getContext()).
+                        load(savedFileUrl).
+                        apply(new RequestOptions().
+                                diskCacheStrategy(DiskCacheStrategy.NONE). // disk cache off
+                                skipMemoryCache(true) //memory cache off
+                        ).
+                        listener(new RequestListener<Drawable>() {
+                            //@Override
+                            //public boolean onResourceReady(R resource, Object model, Target<R> target, DataSource dataSource, boolean isFirstResource) {
+                            //    return true;
+                            //}
+
+                            @Override
+                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                imgProgress.setVisibility(View.GONE);
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                imgProgress.setVisibility(View.GONE);
+                                return false;
+                            }
+                        }).
+                        into(previewImg);
+            } else {
+                setCameraMode(true);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,6 +205,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
 
     private void setCameraMode(boolean cameraMode) {
         if (cameraMode) {
+            ((TextView) findViewById(R.id.guideTxt)).setText("초점이 맞춰지도록 놓아주세요");
             cameraContainer.setVisibility(View.VISIBLE);
             previewImg.setVisibility(View.INVISIBLE);
             findViewById(R.id.takePhotoBtn).setVisibility(View.VISIBLE);
@@ -161,6 +216,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
 
             isCameraMode = true;
         } else {
+            ((TextView) findViewById(R.id.guideTxt)).setText("초점이 맞춰지도록 놓아주세요");
             cameraContainer.setVisibility(View.INVISIBLE);
             previewImg.setVisibility(View.VISIBLE);
             findViewById(R.id.takePhotoBtn).setVisibility(View.INVISIBLE);
@@ -453,7 +509,8 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
                 // CAUTION 100으로 지정 시, 용량이 더 커지므로 100 미만 적용 / 생성된 파일은 폰 디렉토리 APP로 확인 가능.
                 uploadBmp.compress(Bitmap.CompressFormat.JPEG, 80, uploadFos);
                 uploadFos.close();
-                Log.e(TAG, "+ onPictureTaken(): upload pic size=" + TextUtil.formatFileSize(uploadFile.length()));
+
+                Log.e(TAG, "+ onPictureTaken(): uploadFile=" + uploadFile.getPath() + " / " + TextUtil.formatFileSize(uploadFile.length()));
 
                 notifyNewFile(uploadFile.getPath());
             } catch (Exception e) {
@@ -585,7 +642,8 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
             // CAUTION 100으로 지정 시, 용량이 더 커지므로 100 미만 적용 / 생성된 파일은 폰 디렉토리 APP로 확인 가능.
             uploadBmp.compress(Bitmap.CompressFormat.JPEG, 80, uploadFos);
             uploadFos.close();
-            Log.e(TAG, "+ setPreviewPhoto(): uploadFile=" + TextUtil.formatFileSize(uploadFile.length()));
+
+            Log.e(TAG, "+ setPreviewPhoto(): uploadFile=" + uploadFile.getPath() + " / " + TextUtil.formatFileSize(uploadFile.length()));
 
             notifyNewFile(uploadFile.getPath());
         } catch (Exception e) {
@@ -665,7 +723,7 @@ public class ReceiptPhotoLowVersionActivity extends BasicActivity implements YTM
 
             // TEST
             //if (DeviceUtil.getUuid().endsWith("810d"))
-            //    filePath= "storage/emulated/0/Download/white_tiger.jpg";
+            //    filePath= "/storage/emulated/0/Download/white_tiger.jpg";
 
             mFileUploadTask = new YTMSFileUploadTask(null, API.URL_CAR_RECEIPT_SAVE, false, payloadJson, "file", filePath, this, true);
             mFileUploadTask.execute();

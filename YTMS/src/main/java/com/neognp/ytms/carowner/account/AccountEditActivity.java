@@ -2,7 +2,6 @@ package com.neognp.ytms.carowner.account;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -21,8 +20,6 @@ import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSFileUploadTask;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
-import com.neognp.ytms.popup.CountEditDialog;
-import com.neognp.ytms.popup.PwdInputDialog;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.template.BasicFragment;
 import com.trevor.library.util.AppUtil;
@@ -33,6 +30,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 
 public class AccountEditActivity extends BasicActivity implements YTMSFileUploadTask.FileUploadTaskListener {
 
@@ -40,7 +38,7 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
 
     private String[] tabNames = {"기본정보", "차량정보", "서류첨부"};
 
-    Bundle userInfo;
+    Bundle accountInfo;
     ArrayList<Bundle> carTypeList;
     ArrayList<Bundle> carTonList;
 
@@ -130,7 +128,7 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
             case R.id.titleRightBtn1:
                 requestLoginActivity();
             case R.id.saveBtn:
-               requestAccountInfoSave();
+                requestAccountInfoSave();
                 break;
             case R.id.closeBtn:
                 finish();
@@ -188,7 +186,7 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-                            userInfo = resBody.getBundle(Key.data);
+                            accountInfo = resBody.getBundle(Key.data);
                             carTypeList = resBody.getParcelableArrayList("typeList");
                             carTonList = resBody.getParcelableArrayList("tonList");
                             sortCarTonList();
@@ -224,6 +222,7 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
         });
     }
 
+    private HashMap<String, String> fileParams = new HashMap<String, String>();
     private YTMSFileUploadTask mFileUploadTask;
 
     private synchronized void requestAccountInfoSave() {
@@ -237,14 +236,45 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
             JSONObject payloadJson = YTMSRestRequestor.buildPayload();
             payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
 
-            // uploadFile.getPath();
-            final String[] fileParamName = new String[] {};
-            final String[] filePathList = new String[] {};
-            // TEST
-            //if (DeviceUtil.getUuid().endsWith("810d"))
-            //    filePath= "storage/emulated/0/Download/white_tiger.jpg";
+            // 기본정보
+            if (mBasicInfoFragment.isValidUserPwEdit())
+                payloadJson.put("userPw", mBasicInfoFragment.getUserPw());
+            else
+                return;
+            payloadJson.put("privacyYn", mBasicInfoFragment.getPrivacyYn());
+            payloadJson.put("locationYn", mBasicInfoFragment.getLocationYn());
 
-            mFileUploadTask = new YTMSFileUploadTask(null, API.URL_CAR_ACCOUNT_INFO_SAVE, false, payloadJson, fileParamName, filePathList, this, true);
+            // 차량정보
+            payloadJson.put("carType", mCarInfoFragment.getCarType());
+            payloadJson.put("carGb", mCarInfoFragment.getCarGb());
+            payloadJson.put("carTon", mCarInfoFragment.getCarTon());
+            payloadJson.put("loadType", mCarInfoFragment.getLoadType());
+
+            // TEST
+            //{
+            //    payloadJson.put("businessYn", "Y");
+            //    fileParams.put("businessFile", "/storage/emulated/0/Download/Test_Pic/pic1.jpg");
+            //
+            //    payloadJson.put("carYn", "Y");
+            //    fileParams.put("carFile", "/storage/emulated/0/Download/Test_Pic/pic2.jpg");
+            //
+            //    payloadJson.put("bankbookYn", "Y");
+            //    fileParams.put("bankbookFile", "/storage/emulated/0/Download/Test_Pic/pic3.jpg");
+            //
+            //    payloadJson.put("driverYn", "Y");
+            //    fileParams.put("driverFile", "/storage/emulated/0/Download/Test_Pic/pic4.jpg");
+            //
+            //    payloadJson.put("itemYn", "Y");
+            //    fileParams.put("itemFile", "/storage/emulated/0/Download/Test_Pic/pic5.jpg");
+            //
+            //    payloadJson.put("careerYn", "Y");
+            //    fileParams.put("careerFile", "/storage/emulated/0/Download/Test_Pic/pic6.jpg");
+            //
+            //    payloadJson.put("taxYn", "Y");
+            //    fileParams.put("taxFile", "/storage/emulated/0/Download/Test_Pic/pic7.jpg");
+            //}
+
+            mFileUploadTask = new YTMSFileUploadTask(null, API.URL_CAR_ACCOUNT_INFO_SAVE, false, payloadJson, fileParams, this, true);
             mFileUploadTask.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -254,7 +284,7 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
     @Override
     public void onStartUpload() {
         onReq = true;
-        showLoadingDialog(getString(R.string.uploading), false);
+        showLoadingDialog("저장 중...", false);
     }
 
     @Override
@@ -273,6 +303,7 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
 
             if (result_code.equals("200")) {
                 showToast("개인 정보가 저장됐습니다.", true);
+                requestAccountInfo();
             } else {
                 showToast(result_msg + "(result_code:" + result_msg + ")", true);
             }
@@ -287,9 +318,20 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
         //finish();
     }
 
-
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            if (resultCode == AccountPaperCameraActivity.RESULT_SAVED_PAPER) {
+                if (data == null)
+                    return;
+
+                Bundle item = data.getExtras();
+                fileParams.put(item.getString("fileParamName"), item.getString("filePath"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

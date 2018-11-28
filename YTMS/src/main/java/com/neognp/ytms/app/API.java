@@ -15,7 +15,6 @@ public class API {
     public static final String URL_PERSONAL_DAY_ADD = "/common/insert/holiday";
     public static final String URL_PERSONAL_DAY_DELETE = "/common/delete/holiday";
     public static final String URL_LOCATION = "/common/location";
-
     public static final String URL_WEB_FORK_LIFT_CHECK = "/view/fork_lift_check.html";
 
     public static final String URL_SHIPPER_PWD_CHANGE = "/cust/update/pwd";

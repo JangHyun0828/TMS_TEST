@@ -11,8 +11,10 @@
     <TextView
         android:id="@+id/userNameTxt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13.3dp"
+        android:layout_height="0dp"
+        android:paddingStart="13.3dp"
+        android:paddingEnd="13.3dp"
+        android:gravity="center_vertical"
         android:text="용마로지스"
         android:textSize="16sp"
         android:textColor="#323332"

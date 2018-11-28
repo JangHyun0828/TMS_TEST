@@ -100,7 +100,7 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:id="@+id/user_pwEdit"
+                android:id="@+id/userPwEdit"
                 style="@style/EditTextTableItem"
                 android:hint="숫자나 문자 모두 가능"
                 android:inputType="textPassword" />
@@ -123,7 +123,7 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:id="@+id/user_pw_confirmEdit"
+                android:id="@+id/userPwConfirmEdit"
                 style="@style/EditTextTableItem"
                 android:inputType="textPassword"
                 android:imeOptions="actionDone" />

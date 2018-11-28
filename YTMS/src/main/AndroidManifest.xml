@@ -167,6 +167,15 @@
         </activity>
 
         <activity
+            android:name=".carowner.account.AccountPaperCameraActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".carowner.car_alloc.CarAllocHistoryActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
@@ -185,7 +194,7 @@
         </activity>
 
         <activity
-            android:name=".carowner.car_alloc.ReceiptPhotoLowVersionActivity"
+            android:name=".carowner.car_alloc.ReceiptCameraActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
             <intent-filter>

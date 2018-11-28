@@ -497,7 +497,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     cameraBtn.setOnClickListener(new View.OnClickListener() {
                         @SuppressLint ("RestrictedApi")
                         public void onClick(View v) {
-                            Intent intent = new Intent(CarAllocHistoryActivity.this, ReceiptPhotoLowVersionActivity.class);
+                            Intent intent = new Intent(CarAllocHistoryActivity.this, ReceiptCameraActivity.class);
                             intent.putExtras(item);
                             startActivityForResult(intent, 0, options.toBundle());
                         }
@@ -607,7 +607,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                 search();
             }
             // 인수증 저장 완료
-            else if (resultCode == ReceiptPhotoLowVersionActivity.RESULT_SAVED_RECEIPT) {
+            else if (resultCode == ReceiptCameraActivity.RESULT_SAVED_RECEIPT) {
                 if (data == null)
                     return;
 

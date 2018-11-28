@@ -23,7 +23,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 
 public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
 
@@ -34,9 +37,8 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
     private boolean useSSL;
     private JSONObject payloadJson;
     private String fileParamName;
-    private String[] fileParamNameList;
     private String filePath;
-    private String[] filePathList;
+    private HashMap<String, String> fileParams;
     private FileUploadTaskListener listener;
     private boolean showDebug;
 
@@ -58,24 +60,12 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
         this.showDebug = showDebug;
     }
 
-    public YTMSFileUploadTask(String domain, String urlStr, boolean useSSL, JSONObject payloadJson, String fileParamName, String[] filePathList, FileUploadTaskListener listener, boolean showDebug) {
+    public YTMSFileUploadTask(String domain, String urlStr, boolean useSSL, JSONObject payloadJson, HashMap<String, String> fileParams, FileUploadTaskListener listener, boolean showDebug) {
         this.domain = domain;
         this.urlStr = urlStr;
         this.useSSL = useSSL;
         this.payloadJson = payloadJson;
-        this.fileParamName = fileParamName;
-        this.filePathList = filePathList;
-        this.listener = listener;
-        this.showDebug = showDebug;
-    }
-
-    public YTMSFileUploadTask(String domain, String urlStr, boolean useSSL, JSONObject payloadJson, String[] fileParamNameList, String[] filePathList, FileUploadTaskListener listener, boolean showDebug) {
-        this.domain = domain;
-        this.urlStr = urlStr;
-        this.useSSL = useSSL;
-        this.payloadJson = payloadJson;
-        this.fileParamNameList = fileParamNameList;
-        this.filePathList = filePathList;
+        this.fileParams = fileParams;
         this.listener = listener;
         this.showDebug = showDebug;
     }
@@ -135,13 +125,17 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
                 sendParameters(payloadJson);
             }
 
-            // 파일 전송
-            if (filePath != null)
+            // 1개 파일 전송
+            if (filePath != null) {
                 sendFile(fileParamName, filePath);
-            else if (filePathList != null) {
-                for (String path : filePathList) {
-                    if (path != null)
-                        sendFile(fileParamName, path);
+            }
+            // 1개 이상 파일 전송
+            else if (fileParams != null) {
+                Set<String> keys = fileParams.keySet();
+                for (String fileParamName : keys) {
+                    String filePath = fileParams.get(fileParamName);
+                    if (filePath != null)
+                        sendFile(fileParamName, filePath);
                 }
             }
 
@@ -262,46 +256,51 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
         }
     }
 
-    public void sendFile(String fileParamName, String filePath) throws Exception {
-        String fileName = filePath.substring(filePath.lastIndexOf('/') + 1);
+    public void sendFile(String fileParamName, String filePath) {
+        try {
+            String fileName = filePath.substring(filePath.lastIndexOf('/') + 1);
 
-        // 파일 파라미터 전송
-        os.write((delimiter + boundary + "\r\n").getBytes());
-        os.write(("Content-Disposition: form-data; name=\"" + fileParamName + "\"; fileName=\"" + fileName + "\"\r\n").getBytes());
-        os.write(("Content-Type: application/octet-stream\r\n").getBytes());
-        os.write(("Content-Transfer-Encoding: binary\r\n").getBytes());
-        os.write("\r\n".getBytes());
+            // 파일 파라미터 전송
+            os.write((delimiter + boundary + "\r\n").getBytes());
+            os.write(("Content-Disposition: form-data; name=\"" + fileParamName + "\"; fileName=\"" + fileName + "\"\r\n").getBytes());
+            os.write(("Content-Type: application/octet-stream\r\n").getBytes());
+            os.write(("Content-Transfer-Encoding: binary\r\n").getBytes());
+            os.write("\r\n".getBytes());
 
-        // 파일 로딩
-        FileInputStream fin = new FileInputStream(filePath);
-        int uploadFileSize = fin.available();
-        Log.e(TAG, "+ " + fileName + " uploadFileSize: " + uploadFileSize + "(" + TextUtil.formatFileSize(uploadFileSize) + ")");
+            // 파일 로딩
+            FileInputStream fin = new FileInputStream(filePath);
+            int uploadFileSize = fin.available();
+            Log.e(TAG, "+ uploading file: " + fileName + " / " + uploadFileSize + "(" + TextUtil.formatFileSize(uploadFileSize) + ")");
 
-        int maxBufferSize = 1024;
-        int bufferSize = Math.min(uploadFileSize, maxBufferSize);
-        byte[] buffer = new byte[bufferSize];
-        int byteRead = fin.read(buffer, 0, bufferSize);
-        int totalSend = 0;
+            int maxBufferSize = 1024;
+            int bufferSize = Math.min(uploadFileSize, maxBufferSize);
+            byte[] buffer = new byte[bufferSize];
+            int byteRead = fin.read(buffer, 0, bufferSize);
+            int totalSend = 0;
 
-        // 파일 전송
-        while (byteRead > 0) {
-            os.write(buffer);
-            totalSend += byteRead;
+            // 파일 전송
+            while (byteRead > 0) {
+                os.write(buffer);
+                totalSend += byteRead;
 
-            if (listener != null) {
-                int progress = (int) ((double) totalSend / uploadFileSize * 100);
-                //Log.e(TAG, "+ totalSend/fileSize: " + totalSend + "/" + fileSize);
-                //Log.e(TAG, "+ progress: " + progress);
-                listener.onProgressUpload(progress);
+                if (listener != null) {
+                    int progress = (int) ((double) totalSend / uploadFileSize * 100);
+                    //Log.e(TAG, "+ totalSend/fileSize: " + totalSend + "/" + fileSize);
+                    //Log.e(TAG, "+ progress: " + progress);
+                    listener.onProgressUpload(progress);
+                }
+
+                bufferSize = Math.min(fin.available(), maxBufferSize);
+                byteRead = fin.read(buffer, 0, bufferSize);
             }
 
-            bufferSize = Math.min(fin.available(), maxBufferSize);
-            byteRead = fin.read(buffer, 0, bufferSize);
-        }
+            os.write("\r\n".getBytes());
+            os.flush();
+            fin.close();
 
-        os.write("\r\n".getBytes());
-        os.flush();
-        fin.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public interface FileUploadTaskListener {
