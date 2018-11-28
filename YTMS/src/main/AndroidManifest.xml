@@ -340,6 +340,15 @@
         </activity>
 
         <activity
+            android:name=".thirdparty.car_req.ThirdPartySearchListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".thirdparty.car_req.ThirdPartyCarRequestHistoryActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="36.7dp">
+
+    <TextView
+        android:id="@+id/searchTxt"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:paddingStart="19dp"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical|start"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text="ABCD"
+        android:fontFamily="@font/my_nanum_square_r"
+        android:background="@drawable/selector_list_item" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#e5e5e5"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+
+

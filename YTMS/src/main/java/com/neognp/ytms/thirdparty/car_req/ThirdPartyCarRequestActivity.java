@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
@@ -28,6 +29,7 @@ import com.trevor.library.util.AppUtil;
 import com.trevor.library.util.TextUtil;
 
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -48,6 +50,8 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView list;
 
+    JSONArray dataList;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thirdparty_car_request_activity);
@@ -57,6 +61,8 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
         curCal.set(Calendar.MINUTE, 0);
         curCal.set(Calendar.SECOND, 0);
         curCal.set(Calendar.MILLISECOND, 0);
+
+        dataList = new JSONArray();
 
         setTitleBar("차량 요청", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
@@ -153,7 +159,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                 //
                 break;
             case R.id.saveBtn:
-                //
+                requestSave();
                 break;
             case R.id.callCenterBtn:
                 AppUtil.runCallApp(getString(R.string.delivery_call_center_phone_no), true);
@@ -208,6 +214,74 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestSave() {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            final String fromDt = Key.SDF_PAYLOAD.format(curCal.getTime());
+
+            for(int i=0; i < dataList.length(); i++)
+            {
+                JSONObject obj = dataList.getJSONObject(i);
+                String custCd = obj.getString("CUST_CD");
+                String toCenterCd = obj.getString("TO_CENTER_CD");
+                String palletCnt = obj.getString("PALLET_CNT");
+                if(custCd.isEmpty() || toCenterCd.isEmpty() || palletCnt.isEmpty())
+                {
+                    return;
+                }
+            }
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    showLoadingDialog(null, false);
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("requestDt", fromDt);
+                        payloadJson.put("dataList", dataList);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_THIRDPARTY_CAR_REQUEST_SAVE, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            requestList(true);
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
     private synchronized void requestList(final boolean reqNextPage) {
         if (onReq)
             return;
@@ -237,7 +311,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_THIRDPARTY_CAR_REQUEST, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_THIRDPARTY_CAR_REQUEST, false, payloadJson, true, true);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -253,6 +327,10 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
+
+                            JSONObject resJson = new JSONObject(response.getString(Key.resStr));
+                            dataList = resJson.optJSONArray(Key.data);
+
                             ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
                             addListItems(data);
                         } else {
@@ -325,13 +403,20 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
 
             public void onBindViewData(Bundle item) {
                 try {
+                    int idx = getAdapterPosition();
+                    JSONObject obj = dataList.getJSONObject(idx);
+
                     // 화주사
                     TextView custTxt = (TextView) itemView.findViewById(R.id.custTxt);
                     custTxt.setText("화주사 : " + item.getString("CUST_NM"));
                     custTxt.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            // TODO 화주사 조회 팝업
+                            Intent i = new Intent(ThirdPartyCarRequestActivity.this, ThirdPartySearchListActivity.class);
+                            i.putExtra("searchGb", "CST");
+                            i.putExtra("searchIdx", idx);
+                            i.putExtra("searchKey", Key.getUserInfo().getString("CLIENT_CD"));
+                            startActivityForResult(i, 100);
                         }
                     });
 
@@ -341,7 +426,18 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                     centerTxt.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            // TODO 하차지 조회 팝업
+                            String custCd = item.getString("CUST_CD");
+                            if(custCd.isEmpty())
+                            {
+                                Toast.makeText(ThirdPartyCarRequestActivity.this, "화주사가 선택되지 않았습니다.", Toast.LENGTH_LONG).show();
+                                return;
+                            }
+
+                            Intent i = new Intent(ThirdPartyCarRequestActivity.this, ThirdPartySearchListActivity.class);
+                            i.putExtra("searchGb", "CNT");
+                            i.putExtra("searchIdx", idx);
+                            i.putExtra("searchKey", item.getString("CUST_CD"));
+                            startActivityForResult(i, 200);
                         }
                     });
 
@@ -361,7 +457,14 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                             if (itemsCnt - 1 >= 0) {
                                 itemsCnt--;
                                 itemsCntTxt.setText("" + itemsCnt);
-
+                                try
+                                {
+                                    obj.put("PALLET_CNT", itemsCnt);
+                                }
+                                catch(Exception e)
+                                {
+                                    e.printStackTrace();
+                                }
                             }
                         }
                     });
@@ -373,6 +476,14 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                             int itemsCnt = Integer.parseInt(((TextView) itemView.findViewById(R.id.itemsCntTxt)).getText().toString());
                             itemsCnt++;
                             itemsCntTxt.setText("" + itemsCnt);
+                            try
+                            {
+                                obj.put("PALLET_CNT", itemsCnt);
+                            }
+                            catch(Exception e)
+                            {
+                                e.printStackTrace();
+                            }
                         }
                     });
 
@@ -386,6 +497,37 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK)
+        {
+            int idx = data.getIntExtra("searchIdx", -1);
+            String searchCd = data.getStringExtra("searchCd");
+            String searchNm = data.getStringExtra("searchNm");
+            if(idx >= 0)
+            {
+                try {
+
+                    JSONObject obj = dataList.getJSONObject(idx);
+
+                    if (requestCode == 100) {
+                        TextView custTxt = list.getChildAt(idx).findViewById(R.id.custTxt);
+                        custTxt.setText("화주사 : " + searchNm);
+                        obj.put("CUST_CD", searchCd);
+                        obj.put("CUST_NM", searchNm);
+                    }
+                    if (requestCode == 200) {
+                        TextView centerTxt = list.getChildAt(idx).findViewById(R.id.centerTxt);
+                        centerTxt.setText("하차지 : " + searchNm);
+                        obj.put("TO_CENTER_CD", searchCd);
+                        obj.put("TO_CENTER_NM", searchNm);
+                    }
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 }

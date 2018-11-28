@@ -58,4 +58,6 @@ public class API {
     public static final String URL_THIRDPARTY_CAR_REQUEST = "/tpl/select/car";
     public static final String URL_THIRDPARTY_CAR_REQUEST_SAVE = "/tpl/request/car";
     public static final String URL_THIRDPARTY_CAR_REQUEST_HISTORY = "/tpl/list/car";
+    public static final String URL_THIRDPARTY_CAR_REQUEST_CUST = "/tpl/cust/list";
+    public static final String URL_THIRDPARTY_CAR_REQUEST_CENTER = "/tpl/center/list";
 }
