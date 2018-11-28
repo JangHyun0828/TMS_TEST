@@ -17,7 +17,7 @@ import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
-import com.neognp.ytms.shipper.account.PersonInfoActivity;
+import com.neognp.ytms.shipper.account.ShipperAccountActivity;
 import com.neognp.ytms.shipper.car_alloc.ShipperCarAllocInfoActivity;
 import com.neognp.ytms.shipper.car_req.CarRequestActivity;
 import com.neognp.ytms.shipper.pallets_req.PalletsRequestActivity;
@@ -111,7 +111,7 @@ public class ShipperMainActivity extends BasicActivity {
             case R.id.titleRightBtn1:
                 break;
             case R.id.userNameTxt:
-                startActivity(new Intent(this, PersonInfoActivity.class), options.toBundle());
+                startActivity(new Intent(this, ShipperAccountActivity.class), options.toBundle());
                 break;
             // 접수: 차량요청
             case R.id.menuBtn0:

@@ -94,7 +94,7 @@
         </activity>
 
         <activity
-            android:name=".shipper.account.PersonInfoActivity"
+            android:name=".shipper.account.ShipperAccountActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -157,7 +157,7 @@
         </activity>
 
         <activity
-            android:name=".carowner.account.AccountEditActivity"
+            android:name=".carowner.account.CarOwnerAccountActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">

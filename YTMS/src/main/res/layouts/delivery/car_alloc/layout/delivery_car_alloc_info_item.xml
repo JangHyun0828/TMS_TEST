@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toStartOf="@id/palletsBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/dataTxt1"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
@@ -55,7 +55,7 @@
         app:layout_constraintStart_toStartOf="@id/dataTxt0"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt0"
         app:layout_constraintBottom_toTopOf="@+id/dataTxt2"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt2"
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="@id/dataTxt0"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt1"
         app:layout_constraintBottom_toTopOf="@+id/dataTxt3"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTitle3"
@@ -84,7 +84,7 @@
         android:text="도착예정 : "
         app:layout_constraintStart_toStartOf="@id/dataTxt0"
         app:layout_constraintTop_toBottomOf="@+id/dataTxt2"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt3"
@@ -97,7 +97,7 @@
         android:text="도착정보 업데이트 전"
         app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle3"
         app:layout_constraintStart_toEndOf="@id/dataTitle3"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <Button
         android:id="@+id/palletsBtn"
@@ -110,8 +110,8 @@
         android:textColor="#ffffff"
         android:text="차주연결"
         android:gravity="top|center_horizontal"
-        android:background="@drawable/selector_button_round_rect_sky"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:background="@drawable/selector_button_round_rect_blue"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:stateListAnimator="@null"
         app:layout_constraintTop_toTopOf="@id/leftBar"
         app:layout_constraintEnd_toEndOf="parent" />

@@ -18,7 +18,7 @@
         android:textColor="#4e4d4d"
         android:textSize="14.8sp"
         android:text="mainTitle"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"/>
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"/>
 
     <TextView
         android:id="@+id/subTitleTxt"
@@ -30,7 +30,7 @@
         android:textColor="#4e4d4d"
         android:textSize="14.8sp"
         android:text="subTitle"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"/>
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"/>
 
     <TextView
         android:id="@+id/hintTxt"
@@ -42,7 +42,7 @@
         android:textColor="#ffc9caca"
         android:textSize="14.8sp"
         android:text="hint"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:visibility="invisible" />
 
     <ImageView

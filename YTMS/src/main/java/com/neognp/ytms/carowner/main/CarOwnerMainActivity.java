@@ -25,7 +25,7 @@ import android.widget.TextView;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
-import com.neognp.ytms.carowner.account.AccountEditActivity;
+import com.neognp.ytms.carowner.account.CarOwnerAccountActivity;
 import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
 import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
 import com.neognp.ytms.carowner.receipt.ReceiptDispatchCheckActivity;
@@ -34,7 +34,6 @@ import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.notice.NoticeListActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
-import com.trevor.library.util.MapUtil;
 
 import org.json.JSONObject;
 
@@ -178,7 +177,7 @@ public class CarOwnerMainActivity extends BasicActivity {
             case R.id.titleRightBtn1:
                 break;
             case R.id.userNameTxt:
-                startActivity(new Intent(this, AccountEditActivity.class), options.toBundle());
+                startActivity(new Intent(this, CarOwnerAccountActivity.class), options.toBundle());
                 break;
             // 배차
             case R.id.menuBtn0:

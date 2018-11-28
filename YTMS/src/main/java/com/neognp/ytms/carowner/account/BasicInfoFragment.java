@@ -24,14 +24,14 @@ public class BasicInfoFragment extends BasicFragment implements View.OnClickList
     private EditText userPwEdit, userPwConfirmEdit;
     private CheckBox privacyCheck, locationCheck;
 
-    private AccountEditActivity host;
+    private CarOwnerAccountActivity host;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        host = (AccountEditActivity) getActivity();
+        host = (CarOwnerAccountActivity) getActivity();
 
         contentView = inflater.inflate(R.layout.basic_info_fragment, container, false);
 
@@ -48,7 +48,7 @@ public class BasicInfoFragment extends BasicFragment implements View.OnClickList
         super.onActivityCreated(savedInstanceState);
 
         // CAUTION Fragment 초기화 후 데이타 요청
-        ((AccountEditActivity) getActivity()).requestAccountInfo();
+        ((CarOwnerAccountActivity) getActivity()).requestAccountInfo();
     }
 
     public void onDestroyView() {

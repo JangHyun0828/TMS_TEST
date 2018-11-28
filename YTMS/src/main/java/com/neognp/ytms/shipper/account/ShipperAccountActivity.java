@@ -2,16 +2,12 @@ package com.neognp.ytms.shipper.account;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.neognp.ytms.R;
@@ -19,7 +15,6 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
-import com.neognp.ytms.popup.CountEditDialog;
 import com.neognp.ytms.popup.PwdEditDialog;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
@@ -27,13 +22,13 @@ import com.trevor.library.util.TextUtil;
 
 import org.json.JSONObject;
 
-public class PersonInfoActivity extends BasicActivity {
+public class ShipperAccountActivity extends BasicActivity {
 
     private boolean onReq;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.person_info_activity);
+        setContentView(R.layout.shipper_account_activity);
 
         setTitleBar("개인정보", R.drawable.selector_button_back, 0, 0);
 

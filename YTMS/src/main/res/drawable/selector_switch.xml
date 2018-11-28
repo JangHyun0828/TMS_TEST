@@ -5,11 +5,11 @@
 	<!-- checked -->
 	<item
 		android:state_checked="true"
-		android:drawable="@drawable/join_membership_1_check_on" />
+		android:drawable="@drawable/btn_slide_on" />
 
 	<!-- normal -->
 	<item
 		android:state_checked="false"
-		android:drawable="@drawable/join_membership_1_check_off" />
+		android:drawable="@drawable/btn_slide_off" />
 
 </selector>

@@ -69,19 +69,17 @@
 
             <TextView
                 android:id="@+id/areaTxt"
-                android:layout_width="0dp"
+                android:layout_width="238dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="7.3dp"
                 android:paddingTop="7.7dp"
                 android:paddingBottom="7dp"
                 android:includeFontPadding="false"
                 android:textSize="16sp"
-                android:textColor="#0096eb"
+                android:textColor="#3668a5"
                 android:text="- 구역 "
-                app:layout_constraintTop_toTopOf="@+id/areaTitleTxt"
                 app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
-                app:layout_constraintStart_toEndOf="@id/areaTitleTxt"
-                app:layout_constraintEnd_toEndOf="@id/contentBg" />
+                tools:layout_editor_absoluteY="10dp"
+                tools:layout_editor_absoluteX="94dp" />
 
             <View
                 android:id="@+id/areaDivider"
@@ -118,7 +116,7 @@
                 android:paddingBottom="7dp"
                 android:includeFontPadding="false"
                 android:textSize="16sp"
-                android:textColor="#0096eb"
+                android:textColor="#3668a5"
                 android:text="-번"
                 app:layout_constraintTop_toTopOf="@+id/orderTitleTxt"
                 app:fontFamily="@font/my_noto_sans_kr_regular_hestia"

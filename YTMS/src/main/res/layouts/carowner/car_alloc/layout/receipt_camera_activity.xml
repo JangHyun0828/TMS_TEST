@@ -86,7 +86,7 @@
         android:textColor="#4e4d4d"
         android:text="인수증 없음"
         android:button="@null"
-        android:drawableEnd="@drawable/selector_switch"
+        android:drawableEnd="@drawable/selector_checkbox_black"
         android:drawablePadding="5.3dp"
         app:layout_constraintBottom_toTopOf="@id/takePhotoBtn"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"

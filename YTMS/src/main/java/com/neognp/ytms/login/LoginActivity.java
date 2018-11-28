@@ -60,8 +60,8 @@ public class LoginActivity extends BasicActivity {
         idSaveCheck = findViewById(R.id.idSaveCheck);
         autoLoginCheck = findViewById(R.id.autoLoginCheck);
 
-        ((TextView) findViewById(R.id.callCenterTxt)).setText("운송전략팀 연결");
-        ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.delivery_call_center_phone_no));
+        ((TextView) findViewById(R.id.callCenterTxt)).setText("고객센터");
+        ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.customer_call_center_phone_no));
 
         idEdit.setText(TextUtil.formatPhoneNumber(DeviceUtil.getPhoneNumber()));
 
@@ -140,7 +140,7 @@ public class LoginActivity extends BasicActivity {
                 requestLogin();
                 break;
             case R.id.bottomCenterInfoView:
-                AppUtil.runCallApp(getString(R.string.delivery_call_center_phone_no), true);
+                AppUtil.runCallApp(getString(R.string.customer_call_center_phone_no), true);
                 break;
         }
     }

@@ -46,7 +46,7 @@
     <TextView
         android:id="@+id/menuBtn0CntTxt0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="4dp"
         android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintEnd_toStartOf="@id/menuBtn0CntUnit0"
@@ -122,7 +122,6 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="2.5dp"
         android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
@@ -131,10 +130,10 @@
     <TextView
         android:id="@+id/menuBtn1CntUnit0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         android:text="대"
         app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt0"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt0" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn1CntTxt0" />
 
     <TextView
         android:id="@+id/menuBtn1SubTitle1"
@@ -147,7 +146,6 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt1"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="2.5dp"
         android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle1"
@@ -156,10 +154,10 @@
     <TextView
         android:id="@+id/menuBtn1CntUnit1"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         android:text="대"
         app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt1"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn1CntTxt1" />
 
     <TextView
         android:id="@+id/menuBtn1SubTitle2"
@@ -172,7 +170,6 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt2"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="2.5dp"
         android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
@@ -181,10 +178,10 @@
     <TextView
         android:id="@+id/menuBtn1CntUnit2"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         android:text="대"
         app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt2"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt2" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn1CntTxt2" />
 
     <Button
         android:id="@+id/menuBtn2"
@@ -237,7 +234,6 @@
     <TextView
         android:id="@+id/menuBtn2CntTxt0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="2.5dp"
         android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle0"
@@ -246,10 +242,10 @@
     <TextView
         android:id="@+id/menuBtn2CntUnit0"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         android:text="대"
         app:layout_constraintStart_toEndOf="@id/menuBtn2CntTxt0"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn2CntTxt0" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn2CntTxt0" />
 
     <TextView
         android:id="@+id/menuBtn2SubTitle1"
@@ -262,7 +258,6 @@
     <TextView
         android:id="@+id/menuBtn2CntTxt1"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="2.5dp"
         android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle1"
@@ -271,10 +266,10 @@
     <TextView
         android:id="@+id/menuBtn2CntUnit1"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         android:text="대"
         app:layout_constraintStart_toEndOf="@id/menuBtn2CntTxt1"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn2CntTxt1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn2CntTxt1" />
 
     <TextView
         android:id="@+id/menuBtn2SubTitle2"
@@ -287,7 +282,6 @@
     <TextView
         android:id="@+id/menuBtn2CntTxt2"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="2.5dp"
         android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2SubTitle0"
@@ -296,10 +290,10 @@
     <TextView
         android:id="@+id/menuBtn2CntUnit2"
         style="@style/TextViewMainMenuSubSmall"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         android:text="대"
         app:layout_constraintStart_toEndOf="@id/menuBtn2CntTxt2"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn2CntTxt2" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn2CntTxt2" />
 
     <Button
         android:id="@+id/menuBtn3"

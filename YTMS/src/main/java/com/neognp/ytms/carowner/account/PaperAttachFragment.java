@@ -11,7 +11,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 
 import com.neognp.ytms.R;
-import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.trevor.library.template.BasicFragment;
 import com.trevor.library.util.Setting;
@@ -25,14 +24,14 @@ public class PaperAttachFragment extends BasicFragment implements View.OnClickLi
 
     private ImageButton cameraBtn0, cameraBtn1, cameraBtn2, cameraBtn3, cameraBtn4, cameraBtn5, cameraBtn6, cameraBtn7;
 
-    private AccountEditActivity host;
+    private CarOwnerAccountActivity host;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        host = (AccountEditActivity) getActivity();
+        host = (CarOwnerAccountActivity) getActivity();
 
         contentView = inflater.inflate(R.layout.paper_attach_fragment, container, false);
 
@@ -72,57 +71,73 @@ public class PaperAttachFragment extends BasicFragment implements View.OnClickLi
             // 사업자등록증
             if (host.accountInfo.getString("L_BUSINESS_YN", "N").equalsIgnoreCase("Y")) {
                 cameraBtn0.setImageResource(R.drawable.camera_check);
+                cameraBtn0.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
-                cameraBtn0.setImageResource(R.drawable.img_camera_up);
+                cameraBtn0.setImageResource(R.drawable.camera_plus);
+                cameraBtn1.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             }
 
             //  차량등록증
             if (host.accountInfo.getString("L_CAR_YN", "N").equalsIgnoreCase("Y")) {
                 cameraBtn1.setImageResource(R.drawable.camera_check);
+                cameraBtn1.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
-                cameraBtn1.setImageResource(R.drawable.img_camera_up);
+                cameraBtn1.setImageResource(R.drawable.camera_plus);
+                cameraBtn1.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             }
 
             //  통장사본
             if (host.accountInfo.getString("L_BANKBOOK_YN", "N").equalsIgnoreCase("Y")) {
                 cameraBtn2.setImageResource(R.drawable.camera_check);
+                cameraBtn2.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
-                cameraBtn2.setImageResource(R.drawable.img_camera_up);
+                cameraBtn2.setImageResource(R.drawable.camera_plus);
+                cameraBtn2.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
             }
 
             //  운전면허증
             if (host.accountInfo.getString("L_DRIVER_YN", "N").equalsIgnoreCase("Y")) {
                 cameraBtn3.setImageResource(R.drawable.camera_check);
+                cameraBtn3.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
-                cameraBtn3.setImageResource(R.drawable.img_camera_up);
+                cameraBtn3.setImageResource(R.drawable.camera_plus);
+                cameraBtn3.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
             }
 
             //  적재물보험증
             if (host.accountInfo.getString("L_ITEM_YN", "N").equalsIgnoreCase("Y")) {
                 cameraBtn4.setImageResource(R.drawable.camera_check);
+                cameraBtn4.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
-                cameraBtn4.setImageResource(R.drawable.img_camera_up);
+                cameraBtn4.setImageResource(R.drawable.camera_plus);
+                cameraBtn4.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
             }
 
             //  운전경력증명서
             if (host.accountInfo.getString("L_CAREER_YN", "N").equalsIgnoreCase("Y")) {
                 cameraBtn5.setImageResource(R.drawable.camera_check);
+                cameraBtn5.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
-                cameraBtn5.setImageResource(R.drawable.img_camera_up);
+                cameraBtn5.setImageResource(R.drawable.camera_plus);
+                cameraBtn5.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
             }
 
             //  화물운송증명서
             if (host.accountInfo.getString("L_TRANS_YN", "N").equalsIgnoreCase("Y")) {
                 cameraBtn6.setImageResource(R.drawable.camera_check);
+                cameraBtn6.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
-                cameraBtn6.setImageResource(R.drawable.img_camera_up);
+                cameraBtn6.setImageResource(R.drawable.camera_plus);
+                cameraBtn6.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
             }
 
             // 지방세납부현황
             if (host.accountInfo.getString("L_TAX_YN", "N").equalsIgnoreCase("Y")) {
                 cameraBtn7.setImageResource(R.drawable.camera_check);
+                cameraBtn7.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
-                cameraBtn7.setImageResource(R.drawable.img_camera_up);
+                cameraBtn7.setImageResource(R.drawable.camera_plus);
+                cameraBtn7.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
             }
         } catch (Exception e) {
             e.printStackTrace();

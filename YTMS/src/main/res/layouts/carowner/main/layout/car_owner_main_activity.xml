@@ -79,9 +79,9 @@
         android:id="@+id/menuBtn0CntUnit0"
         style="@style/TextViewMainMenuSub"
         android:text="건"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@id/menuBtn0CntTxt0"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn0CntTxt0" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn0CntTxt0" />
 
     <TextView
         android:id="@+id/menuBtn0SubTitle1"
@@ -94,7 +94,7 @@
     <TextView
         android:id="@+id/menuBtn0CntTxt1"
         style="@style/TextViewMainMenuSub"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn0SubTitle1"
         app:layout_constraintStart_toStartOf="@id/menuBtn0SubTitle1" />
@@ -103,9 +103,9 @@
         android:id="@+id/menuBtn0CntUnit1"
         style="@style/TextViewMainMenuSub"
         android:text="건"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@id/menuBtn0CntTxt1"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn0CntTxt1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn0CntTxt1"/>
 
     <TextView
         android:id="@+id/menuBtn0SubTitle2"
@@ -118,7 +118,7 @@
     <TextView
         android:id="@+id/menuBtn0CntTxt2"
         style="@style/TextViewMainMenuSub"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn0SubTitle0"
         app:layout_constraintStart_toStartOf="@id/menuBtn0SubTitle2" />
@@ -127,9 +127,9 @@
         android:id="@+id/menuBtn0CntUnit2"
         style="@style/TextViewMainMenuSub"
         android:text="건"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@id/menuBtn0CntTxt2"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn0CntTxt2" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn0CntTxt2" />
 
     <TextView
         android:id="@+id/carAllocBadgeCntTxt"

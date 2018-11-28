@@ -84,7 +84,7 @@
         android:textSize="16.7sp"
         android:textColor="@color/white"
         android:text="아이디 저장"
-        android:button="@drawable/selector_checkbox"
+        android:button="@drawable/selector_checkbox_white"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn"
         app:layout_constraintStart_toStartOf="@id/loginBtn"
         app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
@@ -98,7 +98,7 @@
         android:textSize="16.7sp"
         android:textColor="@color/white"
         android:text="자동로그인"
-        android:button="@drawable/selector_checkbox"
+        android:button="@drawable/selector_checkbox_white"
         app:layout_constraintTop_toTopOf="@+id/idSaveCheck"
         app:layout_constraintEnd_toEndOf="@id/loginBtn"
         app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
@@ -118,7 +118,7 @@
         android:textSize="15sp"
         android:textColor="@color/white"
         android:text="계정 DB 초기화"
-        android:button="@drawable/selector_checkbox"
+        android:button="@drawable/selector_checkbox_white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/testAccountTxt0"
         app:layout_constraintBottom_toBottomOf="@+id/testAccountTxt3"

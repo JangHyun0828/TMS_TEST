@@ -5,11 +5,11 @@
 	<!-- checked -->
 	<item
 		android:state_checked="true"
-		android:drawable="@drawable/check_box_on_dark" />
+		android:drawable="@drawable/date_check_box_on" />
 
 	<!-- normal -->
 	<item
 		android:state_checked="false"
-		android:drawable="@drawable/check_box_off" />
+		android:drawable="@drawable/date_check_box_off" />
 
 </selector>

@@ -22,14 +22,14 @@ public class CarInfoFragment extends BasicFragment implements View.OnClickListen
     private DropDownSelector car_typeSelector, car_tonSelector;
     private EditText car_gbEdit, load_typeEdit;
 
-    private AccountEditActivity host;
+    private CarOwnerAccountActivity host;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        host = (AccountEditActivity) getActivity();
+        host = (CarOwnerAccountActivity) getActivity();
 
         contentView = inflater.inflate(R.layout.car_info_fragment, container, false);
 

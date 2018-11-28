@@ -29,7 +29,7 @@
         android:textColor="#ffffff"
         android:text="N"
         android:background="@drawable/bg_badge"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/titleTxt"
@@ -44,7 +44,7 @@
         android:includeFontPadding="false"
         android:textSize="16sp"
         android:textColor="#4d4c4c"
-        android:text="2018년 11월 27일 샌드위치데이 휴무 조사"
+        android:text="공지 제목"
         app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
 
     <ImageView
@@ -73,7 +73,7 @@
         android:includeFontPadding="false"
         android:textSize="15sp"
         android:textColor="#4d4c4c"
-        android:text="2018년 11월 27일 근무 여부에 대해 확인해 주시면 감사하겠습니다."
+        android:text="공지내용\n공지내용"
         android:background="@drawable/selector_list_item"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 

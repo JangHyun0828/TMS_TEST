@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_gray">
+    android:background="@color/bg_white">
 
     <include
         android:id="@+id/appbar"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dateView"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintEnd_toStartOf="@id/columnTxt1"
-        app:fontFamily="@font/noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/columnTxt1"
@@ -59,7 +59,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt0"
         app:layout_constraintEnd_toStartOf="@id/columnTxt2"
-        app:fontFamily="@font/noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/columnTxt2"
@@ -73,7 +73,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt1"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
-        app:fontFamily="@font/noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <View
         android:id="@+id/topDivider"

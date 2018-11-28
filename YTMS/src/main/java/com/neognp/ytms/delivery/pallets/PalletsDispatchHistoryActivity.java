@@ -365,12 +365,12 @@ public class PalletsDispatchHistoryActivity extends BasicActivity {
                     // 화주명
                     ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("CUST_NM"));
 
-                    // 요청일자
+                    // 발송일
                     String REQUEST_DT = Key.SDF_CAL_DEFAULT.format(Key.SDF_PAYLOAD.parse(item.getString("REQUEST_DT", "")));
                     ((TextView) itemView.findViewById(R.id.dataTxt2)).setText(REQUEST_DT);
 
                     // 수량
-                    ((TextView) itemView.findViewById(R.id.dataTxt2)).setText(item.getString("PALLET_CNT"));
+                    ((TextView) itemView.findViewById(R.id.dataTxt3)).setText(item.getString("PALLET_CNT"));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

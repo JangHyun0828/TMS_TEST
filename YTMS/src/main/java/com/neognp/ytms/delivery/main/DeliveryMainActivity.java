@@ -110,7 +110,7 @@ public class DeliveryMainActivity extends BasicActivity {
             case R.id.titleRightBtn1:
                 break;
             case R.id.userNameTxt:
-                //startActivity(new Intent(this, AccountEditActivity.class), options.toBundle());
+                //startActivity(new Intent(this, CarOwnerAccountActivity.class), options.toBundle());
                 break;
             // 수송
             case R.id.menuBtn0:

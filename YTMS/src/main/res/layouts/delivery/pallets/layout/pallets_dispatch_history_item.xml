@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="13.3sp"
-        android:textColor="#4d4c4c"
+        android:textColor="#253e66"
         android:text="00"
         app:layout_constraintTop_toTopOf="@id/dataTxt1"
         app:layout_constraintStart_toEndOf="@id/dataTxt2"

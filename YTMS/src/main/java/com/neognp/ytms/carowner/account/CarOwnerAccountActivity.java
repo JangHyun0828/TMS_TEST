@@ -32,7 +32,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 
-public class AccountEditActivity extends BasicActivity implements YTMSFileUploadTask.FileUploadTaskListener {
+public class CarOwnerAccountActivity extends BasicActivity implements YTMSFileUploadTask.FileUploadTaskListener {
 
     private boolean onReq;
 
@@ -51,7 +51,7 @@ public class AccountEditActivity extends BasicActivity implements YTMSFileUpload
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_edit_activity);
+        setContentView(R.layout.car_owner_account_activity);
 
         setTitleBar("개인정보 수정");
 

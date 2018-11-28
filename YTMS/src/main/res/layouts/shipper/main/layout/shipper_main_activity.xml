@@ -91,7 +91,7 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt0"
         style="@style/TextViewMainMenuSub"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
         app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle0" />
@@ -100,9 +100,9 @@
         android:id="@+id/menuBtn1CntUnit0"
         style="@style/TextViewMainMenuSub"
         android:text="건"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt0"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt0" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn1CntTxt0" />
 
     <TextView
         android:id="@+id/menuBtn1SubTitle1"
@@ -115,7 +115,7 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt1"
         style="@style/TextViewMainMenuSub"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle1"
         app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle1" />
@@ -124,9 +124,9 @@
         android:id="@+id/menuBtn1CntUnit1"
         style="@style/TextViewMainMenuSub"
         android:text="건"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt1"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt1" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn1CntTxt1" />
 
     <TextView
         android:id="@+id/menuBtn1SubTitle2"
@@ -139,7 +139,7 @@
     <TextView
         android:id="@+id/menuBtn1CntTxt2"
         style="@style/TextViewMainMenuSub"
-        android:textColor="#0096eb"
+        android:textColor="#3668a5"
         android:text="0"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1SubTitle0"
         app:layout_constraintStart_toStartOf="@id/menuBtn1SubTitle2" />
@@ -148,9 +148,9 @@
         android:id="@+id/menuBtn1CntUnit2"
         style="@style/TextViewMainMenuSub"
         android:text="건"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@id/menuBtn1CntTxt2"
-        app:layout_constraintTop_toTopOf="@+id/menuBtn1CntTxt2" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn1CntTxt2" />
 
     <TextView
         android:id="@+id/carAllocBadgeCntTxt"
