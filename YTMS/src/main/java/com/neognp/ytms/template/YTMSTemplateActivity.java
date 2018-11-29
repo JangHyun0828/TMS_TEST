@@ -29,7 +29,7 @@ public class YTMSTemplateActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.ytms_template_activity);
 
-        setTitleBar("", R.drawable.selector_button_back, 0, R.drawable.selector_button_setting);
+        setTitleBar("", R.drawable.selector_button_back, 0, 0);
 
         //= findViewById(R.id.);
 

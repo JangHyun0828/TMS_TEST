@@ -128,12 +128,10 @@ public class ReceiptCameraActivity extends BasicActivity implements YTMSFileUplo
             //args.putString("DISPATCH_NO", "2018101235545");
 
             String savedFileUrl = args.getString("FILE_PATH");
-            if (savedFileUrl != null)
+
+            if (savedFileUrl != null && !savedFileUrl.isEmpty()) {
                 savedFileUrl = "http://" + Setting.getString("ip") + ":" + Setting.getInt("port") + savedFileUrl;
 
-            Log.i(TAG, "+ init(): download url: " + savedFileUrl);
-
-            if (savedFileUrl != null) {
                 setCameraMode(false);
 
                 ((TextView) findViewById(R.id.guideTxt)).setText("등록된 사진");
@@ -167,6 +165,8 @@ public class ReceiptCameraActivity extends BasicActivity implements YTMSFileUplo
             } else {
                 setCameraMode(true);
             }
+
+            Log.i(TAG, "+ init(): download url: " + savedFileUrl);
         } catch (Exception e) {
             e.printStackTrace();
         }
