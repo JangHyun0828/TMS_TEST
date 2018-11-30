@@ -101,11 +101,14 @@
 
     <ImageButton
         android:id="@+id/cameraBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11.7dp"
-        android:layout_marginEnd="17dp"
-        android:background="@drawable/selector_button_camera_small_check"
+        android:layout_width="79.7dp"
+        android:layout_height="31.3dp"
+        android:paddingStart="9.3dp"
+        android:paddingBottom="4.7dp"
+        android:src="@drawable/img_camera_up"
+        android:background="@drawable/selector_button_round_rect_wide_main_theme"
+        android:layout_marginBottom="12.7dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
