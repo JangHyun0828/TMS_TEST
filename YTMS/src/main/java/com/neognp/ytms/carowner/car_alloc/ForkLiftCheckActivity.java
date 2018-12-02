@@ -71,11 +71,11 @@ public class ForkLiftCheckActivity extends BasicActivity {
         try {
             args = getIntent().getExtras();
 
-            //String url = "file:///android_asset/html/fork_lift_check.html";
             String url = "http://" + Setting.getString("ip") + ":" + Setting.getInt("port") + "/" + API.URL_WEB_FORK_LIFT_CHECK;
+            // TEST
+            //String url = "file:///android_asset/html/fork_lift_check.html";
 
             String postData = "";
-            // TEST
             String uuid = DeviceUtil.getUuid();
             if (uuid.endsWith("810d"))
                 uuid = "ffffffff-0000-0000-0000-0000aaaaaaaa";
