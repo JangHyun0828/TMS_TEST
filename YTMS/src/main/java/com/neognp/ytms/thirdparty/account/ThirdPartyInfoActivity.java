@@ -30,7 +30,7 @@ public class ThirdPartyInfoActivity extends BasicActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thirdparty_info_activity);
-        setTitleBar("개인정보", R.drawable.selector_button_back, 0, R.drawable.selector_button_setting);
+        setTitleBar("개인정보", R.drawable.selector_button_back, 0, 0);
 
         ((TextView) findViewById(R.id.callCenterTxt)).setText("운송전략팀 연결");
         ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.delivery_call_center_phone_no));

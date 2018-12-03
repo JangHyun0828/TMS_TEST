@@ -139,9 +139,18 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
                         if (result_code.equals("200")) {
                             Bundle data = resBody.getBundle(Key.data);
-                            ((TextView) findViewById(R.id.areaTxt)).setText(data.getString("AREA_NM", " "));
-                            ((TextView) findViewById(R.id.orderTxt)).setText(data.getString("READY_NO", " ") + "번");
 
+                            // 하차구역
+                            ((TextView) findViewById(R.id.areaTxt)).setText(data.getString("AREA_NM", " "));
+
+                            // 대기순번
+                            String READY_NO = data.getString("READY_NO", "");
+                            if (READY_NO.equals("0"))
+                                ((TextView) findViewById(R.id.orderTxt)).setText("대기 순번: 입차해 주세요");
+                            else
+                                ((TextView) findViewById(R.id.orderTxt)).setText("대기 순번: " + READY_NO + "번");
+
+                            // 진행상황
                             ArrayList<Bundle> ready_list = resBody.getParcelableArrayList("ready_list");
                             addListItems(ready_list);
                         } else {
@@ -151,15 +160,6 @@ public class ForkLiftAlarmActivity extends BasicActivity {
                         e.printStackTrace();
                         showToast(e.getMessage(), false);
                     }
-
-                    //// TEST
-                    //ArrayList<Bundle> list = new ArrayList<Bundle>();
-                    //for (int i = 0; i < 30; i++) {
-                    //    Bundle item = new Bundle();
-                    //    item.putString("CAR_STATUS", "" + i);
-                    //    list.add(item);
-                    //}
-                    //addListItems(list);
                 }
             }.execute();
         } catch (Exception e) {
@@ -223,8 +223,7 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
             public void onBindViewData(Bundle item) {
                 try {
-                    ((TextView) itemView.findViewById(R.id.dataTxt0)).setText(item.getString("CAR_NO", ""));
-                    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("READY_NO", ""));
+                    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("CAR_NO", ""));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
