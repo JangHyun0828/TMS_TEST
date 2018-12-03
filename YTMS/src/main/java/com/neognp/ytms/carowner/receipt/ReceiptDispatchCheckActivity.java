@@ -326,7 +326,8 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
                     // 미완료: 인수증 촬영 필요
                     if (RECEIPT_YN.equalsIgnoreCase("N")) {
                         cameraBtn.setVisibility(View.VISIBLE);
-                        cameraBtn.setBackgroundResource(R.drawable.selector_button_camera_small);
+                        cameraBtn.setImageResource(R.drawable.camera_plus);
+                        cameraBtn.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
                         cameraBtn.setOnClickListener(new View.OnClickListener() {
                             @SuppressLint ("RestrictedApi")
                             public void onClick(View v) {
@@ -339,14 +340,11 @@ public class ReceiptDispatchCheckActivity extends BasicActivity {
                     // 완료: 인수증 촬영 완료
                     else if (RECEIPT_YN.equalsIgnoreCase("Y")) {
                         cameraBtn.setVisibility(View.VISIBLE);
-                        cameraBtn.setBackgroundResource(R.drawable.selector_button_camera_small_check);
+                        cameraBtn.setImageResource(R.drawable.camera_check);
+                        cameraBtn.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
                         cameraBtn.setOnClickListener(new View.OnClickListener() {
                             @SuppressLint ("RestrictedApi")
                             public void onClick(View v) {
-                                String FILE_PATH = item.getString("FILE_PATH");
-                                //if (FILE_PATH != null && !FILE_PATH.isEmpty()) {
-                                //    // TODO 서버에 저장된 인수증 사진 뷰어 이동
-                                //}
                                 Intent intent = new Intent(getContext(), ReceiptCameraActivity.class);
                                 intent.putExtras(item);
                                 startActivityForResult(intent, 0, options.toBundle());

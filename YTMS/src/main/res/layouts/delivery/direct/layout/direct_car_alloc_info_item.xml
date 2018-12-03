@@ -183,7 +183,7 @@
         android:textColor="#ffffff"
         android:text="차주연결"
         android:gravity="top|center_horizontal"
-        android:background="@drawable/selector_button_round_rect_sky"
+        android:background="@drawable/selector_button_round_rect_blue"
         android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
         android:stateListAnimator="@null"
         app:layout_constraintTop_toTopOf="@id/leftBar"

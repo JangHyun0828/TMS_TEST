@@ -17,9 +17,6 @@ import com.trevor.library.util.Setting;
 
 public class PaperAttachFragment extends BasicFragment implements View.OnClickListener {
 
-    private boolean onReq;
-    private Bundle args;
-
     private View contentView;
 
     private ImageButton cameraBtn0, cameraBtn1, cameraBtn2, cameraBtn3, cameraBtn4, cameraBtn5, cameraBtn6, cameraBtn7;
@@ -74,7 +71,7 @@ public class PaperAttachFragment extends BasicFragment implements View.OnClickLi
                 cameraBtn0.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
                 cameraBtn0.setImageResource(R.drawable.camera_plus);
-                cameraBtn1.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
+                cameraBtn0.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
             }
 
             //  차량등록증
@@ -83,7 +80,7 @@ public class PaperAttachFragment extends BasicFragment implements View.OnClickLi
                 cameraBtn1.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
             } else {
                 cameraBtn1.setImageResource(R.drawable.camera_plus);
-                cameraBtn1.setBackgroundResource(R.drawable.selector_button_round_rect_wide_gray);
+                cameraBtn1.setBackgroundResource(R.drawable.selector_button_round_rect_wide_main_theme);
             }
 
             //  통장사본

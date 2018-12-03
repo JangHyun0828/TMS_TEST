@@ -105,8 +105,8 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
                 urlStr = "http://" + urlStr;
 
             if (MyApp.onDebug && showDebug) {
-                Log.i(TAG, "+ url:\n" + urlStr);
-                Log.i(TAG, "+ payload:\n" + payloadJson);
+                Log.e(TAG, "+ url:\n" + urlStr);
+                Log.e(TAG, "+ payload:\n" + payloadJson);
             }
 
             url = new URL(urlStr);

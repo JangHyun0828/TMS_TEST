@@ -67,7 +67,7 @@
         style="@style/TextViewMainMenuIconSmall"
         android:layout_marginStart="24dp"
         android:textColor="#999999"
-        android:text="배차"
+        android:text="수송"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn0"
         app:layout_constraintStart_toStartOf="@id/menuBtn0" />
 

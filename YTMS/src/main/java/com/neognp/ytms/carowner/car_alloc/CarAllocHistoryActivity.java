@@ -220,7 +220,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
         try {
             // 시작일을 종료일 이후 날짜로 설정 금지
             if (fromCal.after(toCal)) {
-                showSnackbar(R.drawable.ic_insert_invitation_black_24dp, "조회 시작일을 종료일 이전 날짜로 지정해 주십시요.");
+                showSnackbar(R.drawable.img_calendar_1_on, "조회 시작일을 종료일 이전 날짜로 지정해 주십시요.");
                 return;
             }
 

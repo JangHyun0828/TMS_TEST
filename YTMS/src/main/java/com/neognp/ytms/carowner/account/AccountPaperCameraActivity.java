@@ -124,9 +124,8 @@ public class AccountPaperCameraActivity extends BasicActivity {
             setTitleBar(args.getString(Key.title, "") + " 촬영");
 
             String savedFileUrl = args.getString("savedFileUrl");
-            Log.i(TAG, "+ init(): download url: " + savedFileUrl);
 
-            if (savedFileUrl != null) {
+            if (savedFileUrl != null && !savedFileUrl.isEmpty()) {
                 setCameraMode(false);
 
                 ((TextView) findViewById(R.id.guideTxt)).setText("등록된 사진");
@@ -160,6 +159,8 @@ public class AccountPaperCameraActivity extends BasicActivity {
             } else {
                 setCameraMode(true);
             }
+
+            Log.i(TAG, "+ init(): download url: " + savedFileUrl);
         } catch (Exception e) {
             e.printStackTrace();
         }
