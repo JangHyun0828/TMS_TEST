@@ -25,6 +25,7 @@ import com.neognp.ytms.carowner.main.CarOwnerMainActivity;
 import com.neognp.ytms.delivery.main.DeliveryMainActivity;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.shipper.main.ShipperMainActivity;
+import com.neognp.ytms.thirdparty.main.ThirdPartyMainActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
 import com.trevor.library.util.DeviceUtil;
@@ -250,9 +251,7 @@ public class LoginActivity extends BasicActivity {
         } else if (AUTH_CD.equals("DC")) {
             intent = new Intent(getContext(), DeliveryMainActivity.class);
         } else if (AUTH_CD.equals("TPL")) {
-            //intent = new Intent(getContext(), .class);
-            showToast("준비중...", true);
-            return;
+            intent = new Intent(getContext(), ThirdPartyMainActivity.class);
         }
 
         // 앱 새로 실행 | 모든 Activity 삭제
