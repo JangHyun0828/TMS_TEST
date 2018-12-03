@@ -38,15 +38,30 @@
         app:layout_constraintStart_toEndOf="@id/minusBtn"
         app:layout_constraintEnd_toStartOf="@id/plusBtn" />
 
+    <TextView
+        android:id="@+id/remarkTxt"
+        android:layout_width="match_parent"
+        android:layout_height="24.3dp"
+        android:layout_marginStart="20dp"
+        android:gravity="left"
+        android:textSize="16.7sp"
+        android:textColor="#4e4d4d"
+        android:lineSpacingExtra="3.3sp"
+        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:text="요청사항 : 05:30납품, 수작업 필요"
+        app:layout_constraintTop_toBottomOf="@+id/centerTxt"
+        app:layout_constraintStart_toEndOf="@id/minusBtn"
+        app:layout_constraintEnd_toStartOf="@id/plusBtn" />
+
     <ImageView
         android:id="@+id/itemImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9.7dp"
+        android:layout_marginTop="14.7dp"
         android:src="@drawable/img_pallet"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@+id/centerTxt"
-        app:layout_constraintStart_toStartOf="@id/centerTxt"
+        app:layout_constraintTop_toBottomOf="@+id/remarkTxt"
+        app:layout_constraintStart_toStartOf="@id/remarkTxt"
         app:layout_constraintEnd_toStartOf="@id/minusBtn"/>
 
     <ImageButton
@@ -54,10 +69,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26.3dp"
+        android:layout_marginTop="5dp"
         android:src="@drawable/minus"
         android:background="@null"
         android:onClick="onClick"
-        app:layout_constraintTop_toBottomOf="@+id/centerTxt"
+        app:layout_constraintTop_toBottomOf="@+id/remarkTxt"
         app:layout_constraintStart_toEndOf="@id/itemImg"
         app:layout_constraintEnd_toStartOf="@id/itemsCntTxt" />
 
@@ -88,21 +104,6 @@
         android:onClick="onClick"
         app:layout_constraintTop_toTopOf="@id/minusBtn"
         app:layout_constraintStart_toEndOf="@id/itemsCntTxt"
-        app:layout_constraintEnd_toEndOf="@id/remarkTxt" />
-
-    <TextView
-        android:id="@+id/remarkTxt"
-        android:layout_width="match_parent"
-        android:layout_height="24.3dp"
-        android:layout_marginStart="20dp"
-        android:gravity="left"
-        android:textSize="16.7sp"
-        android:textColor="#4e4d4d"
-        android:lineSpacingExtra="3.3sp"
-        android:fontFamily="@font/my_noto_sans_kr_medium_hestia"
-        android:text="비고 : 05:30납품, 수작업 필요"
-        app:layout_constraintTop_toBottomOf="@+id/minusBtn"
-        app:layout_constraintStart_toEndOf="@id/minusBtn"
-        app:layout_constraintEnd_toStartOf="@id/plusBtn" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

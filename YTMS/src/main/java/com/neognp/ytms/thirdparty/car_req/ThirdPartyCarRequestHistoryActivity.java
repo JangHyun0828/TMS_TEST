@@ -100,7 +100,7 @@ public class ThirdPartyCarRequestHistoryActivity extends BasicActivity {
                         Log.i(TAG, "+ onScrollStateChanged(): request refresh !");
                     } else if (isListPullUp && lastItemIdx == listAdapter.getItemCount() - 1) {
                         Log.i(TAG, "+ onScrollStateChanged(): request next list !");
-                        requestList(true);
+                        //requestList(false);
                     }
                 }
 

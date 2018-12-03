@@ -11,6 +11,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -25,6 +26,7 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.trevor.library.template.BasicActivity;
+import com.neognp.ytms.popup.RemarkInputDialog;
 import com.trevor.library.util.AppUtil;
 import com.trevor.library.util.TextUtil;
 
@@ -98,7 +100,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                         Log.i(TAG, "+ onScrollStateChanged(): request refresh !");
                     } else if (isListPullUp && lastItemIdx == listAdapter.getItemCount() - 1) {
                         Log.i(TAG, "+ onScrollStateChanged(): request next list !");
-                        requestList(true);
+                        //requestList(false);
                     }
                 }
 
@@ -110,6 +112,26 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
 
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+
+        list.setOnTouchListener(new View.OnTouchListener() {
+            float prevY;
+
+            public boolean onTouch(View v, MotionEvent event) {
+                //Log.i(TAG, "+ MotionEvent: " + event);
+                if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                    // pull down
+                    if (prevY < event.getY()) {
+                        isListPullUp = false;
+                    }
+                    // pull up
+                    else if (prevY > event.getY()) {
+                        isListPullUp = true;
+                    }
+                    prevY = event.getY();
+                }
+                return false;
             }
         });
 
@@ -156,7 +178,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                 setNextDate();
                 break;
             case R.id.newBtn:
-                //
+                insertData();
                 break;
             case R.id.saveBtn:
                 requestSave();
@@ -207,8 +229,42 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
             //    return;
             //}
 
-            requestList(true);
+            requestList(false);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void insertData() {
+        try {
+            int idx = dataList.length();
+            JSONObject jObj = new JSONObject();
+            jObj.put("SEQ", "");
+            jObj.put("REQUEST_DT", "");
+            jObj.put("CUST_CD", "");
+            jObj.put("CUST_NM", "선택");
+            jObj.put("TO_CENTER_CD", "");
+            jObj.put("TO_CENTER_NM", "선택");
+            jObj.put("PALLET_CNT", "0");
+            jObj.put("REMARK", "");
+            dataList.put(idx, jObj);
+
+            Bundle bObj = new Bundle();
+            bObj.putString("SEQ", "");
+            bObj.putString("REQUEST_DT", "");
+            bObj.putString("CUST_CD", "");
+            bObj.putString("CUST_NM", "선택");
+            bObj.putString("TO_CENTER_CD", "");
+            bObj.putString("TO_CENTER_NM", "선택");
+            bObj.putString("PALLET_CNT", "0");
+            bObj.putString("REMARK", "");
+
+            listItems.add(bObj);
+            listAdapter.notifyDataSetChanged();
+        }
+        catch(Exception e)
+        {
             e.printStackTrace();
         }
     }
@@ -232,6 +288,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                 String palletCnt = obj.getString("PALLET_CNT");
                 if(custCd.isEmpty() || toCenterCd.isEmpty() || palletCnt.isEmpty())
                 {
+                    showToast("화주사 또는 하차지 입력이 완료되지 않았습니다.", true);
                     return;
                 }
             }
@@ -265,7 +322,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-                            requestList(true);
+                            requestList(false);
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
@@ -429,7 +486,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                             String custCd = item.getString("CUST_CD");
                             if(custCd.isEmpty())
                             {
-                                Toast.makeText(ThirdPartyCarRequestActivity.this, "화주사가 선택되지 않았습니다.", Toast.LENGTH_LONG).show();
+                                showToast("화주사가 선택되지 않았습니다.", true);
                                 return;
                             }
 
@@ -447,8 +504,30 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
 
                     // 비고
                     TextView remarkTxt = (TextView) itemView.findViewById(R.id.remarkTxt);
-                    remarkTxt.setText(item.getString("REMARK", ""));
+                    remarkTxt.setText("요청사항 : " + item.getString("REMARK", ""));
 
+                    remarkTxt.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            RemarkInputDialog.show(ThirdPartyCarRequestActivity.this, new RemarkInputDialog.DialogListener() {
+                                public void onCancel() {
+                                }
+
+                                public void onConfirm(final String remark) {
+                                    remarkTxt.setText("요청사항 : " + remark);
+                                    try
+                                    {
+                                        obj.put("REMARK", remark);
+                                        listItems.get(idx).putString("REMARK", remark);
+                                    }
+                                    catch(Exception e)
+                                    {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                        }
+                    });
                     ImageButton minusBtn = (ImageButton) itemView.findViewById(R.id.minusBtn);
                     minusBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -460,6 +539,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                                 try
                                 {
                                     obj.put("PALLET_CNT", itemsCnt);
+                                    listItems.get(idx).putInt("PALLET_CNT", itemsCnt);
                                 }
                                 catch(Exception e)
                                 {
@@ -479,6 +559,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                             try
                             {
                                 obj.put("PALLET_CNT", itemsCnt);
+                                listItems.get(idx).putInt("PALLET_CNT", itemsCnt);
                             }
                             catch(Exception e)
                             {
@@ -514,12 +595,16 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                         custTxt.setText("화주사 : " + searchNm);
                         obj.put("CUST_CD", searchCd);
                         obj.put("CUST_NM", searchNm);
+                        listItems.get(idx).putString("CUST_CD", searchCd);
+                        listItems.get(idx).putString("CUST_NM", searchNm);
                     }
                     if (requestCode == 200) {
                         TextView centerTxt = list.getChildAt(idx).findViewById(R.id.centerTxt);
                         centerTxt.setText("하차지 : " + searchNm);
                         obj.put("TO_CENTER_CD", searchCd);
                         obj.put("TO_CENTER_NM", searchNm);
+                        listItems.get(idx).putString("TO_CENTER_CD", searchCd);
+                        listItems.get(idx).putString("TO_CENTER_NM", searchNm);
                     }
                 }
                 catch(Exception e)

@@ -44,10 +44,13 @@ public class ThirdPartySearchListActivity extends BasicActivity {
         Intent i = getIntent();
         searchGb = i.getStringExtra("searchGb");
         searchIdx = i.getIntExtra("searchIdx", -1);
-        Log.d(TAG, "##### PARAM IDX : " + searchIdx);
         searchKey = i.getStringExtra("searchKey");
-
-        setTitleBar("화주사 선택", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
+        String titleTxt = "하차지 선택";
+        if("CST".equals(searchGb))
+        {
+            titleTxt = "화주사 선택";
+        }
+        setTitleBar(titleTxt, R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
