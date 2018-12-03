@@ -251,6 +251,22 @@ public class CarOwnerAccountActivity extends BasicActivity implements YTMSFileUp
             payloadJson.put("carTon", mCarInfoFragment.getCarTon());
             payloadJson.put("loadType", mCarInfoFragment.getLoadType());
 
+            // 파일 전송 여부
+            if (fileParams.containsKey("businessFile"))
+                payloadJson.put("businessYn", "Y");
+            if (fileParams.containsKey("carFile"))
+                payloadJson.put("carYn", "Y");
+            if (fileParams.containsKey("bankbookFile"))
+                payloadJson.put("bankbookYn", "Y");
+            if (fileParams.containsKey("driverFile"))
+                payloadJson.put("driverYn", "Y");
+            if (fileParams.containsKey("itemFile"))
+                payloadJson.put("itemYn", "Y");
+            if (fileParams.containsKey("careerFile"))
+                payloadJson.put("careerYn", "Y");
+            if (fileParams.containsKey("taxFile"))
+                payloadJson.put("taxYn", "Y");
+
             // TEST
             //{
             //    payloadJson.put("businessYn", "Y");
