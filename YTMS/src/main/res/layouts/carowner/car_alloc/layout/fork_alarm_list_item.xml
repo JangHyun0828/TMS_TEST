@@ -9,41 +9,9 @@
     android:minHeight="28dp">
 
     <TextView
-        android:id="@+id/standbyTxt"
-        android:layout_width="34.7dp"
-        android:layout_height="17.3dp"
-        android:minHeight="17.3dp"
-        android:includeFontPadding="false"
-        android:gravity="center"
-        android:text="대기"
-        android:textSize="11.7sp"
-        android:textColor="#ffffff"
-        android:background="@drawable/bg_fork_alarm_standby_text"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/liftUpTxt"
-        android:layout_width="34.7dp"
-        android:layout_height="17.3dp"
-        android:minHeight="17.3dp"
-        android:includeFontPadding="false"
-        android:gravity="center"
-        android:text="상차"
-        android:textSize="11.7sp"
-        android:textColor="#ffffff"
-        android:background="@drawable/bg_fork_alarm_lift_up_text"
-        android:visibility="invisible"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/liftDownTxt"
         android:layout_width="34.7dp"
         android:layout_height="17.3dp"
-        android:minHeight="17.3dp"
         android:includeFontPadding="false"
         android:gravity="center"
         android:text="하차"
@@ -52,21 +20,36 @@
         android:background="@drawable/bg_fork_alarm_lift_down_text"
         android:visibility="invisible"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dataTxt0"
+        app:layout_constraintBottom_toBottomOf="@+id/dataTxt0" />
 
     <TextView
-        android:id="@+id/dataTxt1"
+        android:id="@+id/standbyTxt"
+        android:layout_width="34.7dp"
+        android:layout_height="17.3dp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:text="대기"
+        android:textSize="11.7sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/bg_fork_alarm_standby_text"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dataTxt0"
+        app:layout_constraintBottom_toBottomOf="@+id/dataTxt0" />
+
+    <TextView
+        android:id="@+id/dataTxt0"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
         android:includeFontPadding="false"
         android:text="서울 00아 0000"
         android:textSize="13.3sp"
         android:textColor="#4e4d4d"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
-        app:layout_constraintStart_toEndOf="@id/standbyTxt"
-        app:layout_constraintTop_toTopOf="@+id/standbyTxt"
-        app:layout_constraintBottom_toBottomOf="@+id/standbyTxt" />
+        app:layout_constraintStart_toEndOf="@id/standbyTxt" />
 
 </android.support.constraint.ConstraintLayout>

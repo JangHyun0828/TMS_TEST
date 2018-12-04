@@ -85,6 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="9.7dp"
+                android:gravity="center_vertical"
                 android:includeFontPadding="false"
                 android:textSize="13.3sp"
                 android:textColor="#4e4d4d"

@@ -50,7 +50,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/dataTxt1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:fontFamily="@font/my_nanum_square_r" />
+        app:fontFamily="@font/my_nanum_square_r"
+        android:visibility="gone"/>
 
     <View
         android:id="@+id/divider"

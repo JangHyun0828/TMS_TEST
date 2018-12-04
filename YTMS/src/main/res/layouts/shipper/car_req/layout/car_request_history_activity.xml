@@ -73,7 +73,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/columnTxt0"
         app:layout_constraintStart_toEndOf="@id/columnTxt1"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        android:visibility="gone"/>
 
     <View
         android:id="@+id/topDivider"

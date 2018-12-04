@@ -82,7 +82,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/palletsCntTitle" />
 
-    <!-- 차량 대수 -->
+    <!-- 차량 대수(임시로 감춤) -->
+
+    <android.support.constraint.Group
+        android:id="@+id/carEditGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="carCntBar, carCntTitle, carsFixedCntTxt, carCntSuffix, carsInputView, carCountInputGuideArw, carCountInputGuideTxt" />
 
     <View
         android:id="@+id/carCntBar"

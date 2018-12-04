@@ -223,7 +223,17 @@ public class ForkLiftAlarmActivity extends BasicActivity {
 
             public void onBindViewData(Bundle item) {
                 try {
-                    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("CAR_NO", ""));
+                    // 대기순번
+                    String READY_NO = item.getString("READY_NO", "");
+                    if (READY_NO.equals("0")) {
+                        itemView.findViewById(R.id.liftDownTxt).setVisibility(View.VISIBLE);
+                        itemView.findViewById(R.id.standbyTxt).setVisibility(View.INVISIBLE);
+                    } else {
+                        itemView.findViewById(R.id.liftDownTxt).setVisibility(View.INVISIBLE);
+                        itemView.findViewById(R.id.standbyTxt).setVisibility(View.VISIBLE);
+                    }
+
+                    ((TextView) itemView.findViewById(R.id.dataTxt0)).setText(item.getString("CAR_NO", ""));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
