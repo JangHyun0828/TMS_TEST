@@ -8,9 +8,14 @@
     android:layout_height="match_parent"
     android:background="@color/bg_white">
 
+    <!--<include-->
+        <!--android:id="@+id/appbar"-->
+        <!--layout="@layout/appbar"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
     <include
         android:id="@+id/appbar"
-        layout="@layout/appbar"
+        layout="@layout/appbar_account"
         app:layout_constraintTop_toTopOf="parent" />
 
     <include

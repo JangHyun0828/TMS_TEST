@@ -20,7 +20,9 @@ import com.neognp.ytms.delivery.car_alloc.DeliveryCarAllocInfoActivity;
 import com.neognp.ytms.delivery.direct.DirectDeliveryActivity;
 import com.neognp.ytms.delivery.pallets.PalletsReceiptHistoryActivity;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.neognp.ytms.login.LoginActivity;
 import com.neognp.ytms.notice.NoticeListActivity;
+import com.neognp.ytms.thirdparty.account.ThirdPartyAccountActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
 
@@ -39,11 +41,8 @@ public class DeliveryMainActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.delivery_main_activity);
 
-        IntentFilter workActionFilter = new IntentFilter();
-        workActionFilter.addAction(Key.ACTION_LOCATION_UPDATED);
-        LocalBroadcastManager.getInstance(this).registerReceiver(gpsActionReceiver, workActionFilter);
-
-        setTitleBar(R.string.app_name, 0, 0, 0);
+        setTitleBar(R.string.app_name);
+        findViewById(R.id.titleLeftBtn0).setVisibility(View.INVISIBLE);
 
         if (Key.getUserInfo() != null)
             ((TextView) findViewById(R.id.userNameTxt)).setText(Key.getUserInfo().getString("USER_NM", ""));
@@ -70,21 +69,7 @@ public class DeliveryMainActivity extends BasicActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(gpsActionReceiver);
     }
-
-    private final BroadcastReceiver gpsActionReceiver = new BroadcastReceiver() {
-        String TAG = "gpsActionReceiver";
-
-        public void onReceive(Context context, Intent intent) {
-            try {
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    };
 
     private void init() {
         try {
@@ -108,13 +93,12 @@ public class DeliveryMainActivity extends BasicActivity {
             case R.id.titleLeftBtn0:
                 break;
             case R.id.titleRightBtn1:
+                requestLoginActivity();
                 break;
             case R.id.userNameTxt:
-                //startActivity(new Intent(this, CarOwnerAccountActivity.class), options.toBundle());
                 break;
             // 수송
             case R.id.menuBtn0:
-                //startActivity(new Intent(this, .class), options.toBundle());
                 break;
             // 상태
             case R.id.menuBtn1:
@@ -122,7 +106,6 @@ public class DeliveryMainActivity extends BasicActivity {
                 break;
             // 반품
             case R.id.menuBtn2:
-                //startActivity(new Intent(this, .class), options.toBundle());
                 break;
                 // 접수
             case R.id.menuBtn3:
@@ -140,6 +123,15 @@ public class DeliveryMainActivity extends BasicActivity {
                 AppUtil.runCallApp(getString(R.string.customer_call_center_phone_no), true);
                 break;
         }
+    }
+
+    private void requestLoginActivity() {
+        finish();
+        Intent intent = new Intent(getContext(), LoginActivity.class);
+        // 앱 새로 실행 | 모든 Activity 삭제
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.fade_in, R.anim.fade_out);
+        startActivity(intent, options.toBundle());
     }
 
     private boolean onReqCarAllocCnt;

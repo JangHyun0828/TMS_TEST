@@ -18,7 +18,7 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.notice.NoticeListActivity;
-import com.neognp.ytms.thirdparty.account.ThirdPartyInfoActivity;
+import com.neognp.ytms.thirdparty.account.ThirdPartyAccountActivity;
 import com.trevor.library.template.BasicActivity;
 import com.neognp.ytms.thirdparty.car_alloc.ThirdPartyCarAllocInfoActivity;
 import com.neognp.ytms.thirdparty.car_req.ThirdPartyCarRequestActivity;
@@ -40,11 +40,7 @@ public class ThirdPartyMainActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thirdparty_main_activity);
 
-        IntentFilter workActionFilter = new IntentFilter();
-        workActionFilter.addAction(Key.ACTION_LOCATION_UPDATED);
-        LocalBroadcastManager.getInstance(this).registerReceiver(gpsActionReceiver, workActionFilter);
-
-        setTitleBar(R.string.app_name, R.drawable.selector_button_back, 0, 0);
+        setTitleBar(R.string.app_name, 0, 0, 0);
 
         if (Key.getUserInfo() != null)
             ((TextView) findViewById(R.id.userNameTxt)).setText(Key.getUserInfo().getString("USER_NM", ""));
@@ -71,21 +67,7 @@ public class ThirdPartyMainActivity extends BasicActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(gpsActionReceiver);
     }
-
-    private final BroadcastReceiver gpsActionReceiver = new BroadcastReceiver() {
-        String TAG = "gpsActionReceiver";
-
-        public void onReceive(Context context, Intent intent) {
-            try {
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    };
 
     private void init() {
         try {
@@ -107,12 +89,11 @@ public class ThirdPartyMainActivity extends BasicActivity {
 
         switch (v.getId()) {
             case R.id.titleLeftBtn0:
-                finish();
                 break;
             case R.id.titleRightBtn1:
                 break;
             case R.id.userNameTxt:
-                startActivity(new Intent(this, ThirdPartyInfoActivity.class), options.toBundle());
+                startActivity(new Intent(this, ThirdPartyAccountActivity.class), options.toBundle());
                 break;
             // 차량요청
             case R.id.menuBtn0:
@@ -245,15 +226,6 @@ public class ThirdPartyMainActivity extends BasicActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void showActivity(Bundle args) {
-        if (args == null)
-            return;
-
-        // Intent intent = new Intent(this, Activity.class);
-        // intent.putExtra(LibKey.args, args);
-        // startActivityForResult(intent, REQUEST_);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

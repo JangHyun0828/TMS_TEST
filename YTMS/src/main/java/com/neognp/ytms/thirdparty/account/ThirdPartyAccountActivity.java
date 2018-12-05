@@ -19,18 +19,18 @@ import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
-import com.trevor.library.util.TextUtil;
 
 import org.json.JSONObject;
 
-public class ThirdPartyInfoActivity extends BasicActivity {
+public class ThirdPartyAccountActivity extends BasicActivity {
 
     private boolean onReq;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.thirdparty_info_activity);
-        setTitleBar("개인정보", R.drawable.selector_button_back, 0, 0);
+
+        setContentView(R.layout.thirdparty_account_activity);
+        setTitleBar("개인정보");
 
         ((TextView) findViewById(R.id.callCenterTxt)).setText("운송전략팀 연결");
         ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.delivery_call_center_phone_no));
@@ -38,35 +38,31 @@ public class ThirdPartyInfoActivity extends BasicActivity {
         init();
     }
 
-    protected void onResume() { super.onResume(); }
+    protected void onResume() {
+        super.onResume();
+    }
 
     protected void onPause() {
         super.onPause();
     }
 
-    private void init()
-    {
-        try
-        {
+    private void init() {
+        try {
             requestAccountInfo();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mgr.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
 
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.titleLeftBtn0:
                 finish();
                 break;
-            case R.id.logoutBtn:
+            case R.id.titleRightBtn1:
                 requestLoginActivity();
                 break;
             case R.id.callCenterBtn:
@@ -75,8 +71,7 @@ public class ThirdPartyInfoActivity extends BasicActivity {
         }
     }
 
-    private void requestLoginActivity()
-    {
+    private void requestLoginActivity() {
         finish();
         Intent intent = new Intent(getContext(), LoginActivity.class);
         // 앱 새로 실행 | 모든 Activity 삭제
@@ -86,8 +81,7 @@ public class ThirdPartyInfoActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestAccountInfo()
-    {
+    private synchronized void requestAccountInfo() {
         if (onReq)
             return;
 
@@ -135,7 +129,7 @@ public class ThirdPartyInfoActivity extends BasicActivity {
 
                             centerText.setOnClickListener(new View.OnClickListener() {
                                 public void onClick(View v) {
-                                    startActivityForResult(new Intent(ThirdPartyInfoActivity.this, ThirdPartyTplListActivity.class), 123);
+                                    startActivityForResult(new Intent(ThirdPartyAccountActivity.this, ThirdPartyTplListActivity.class), 123);
                                 }
                             });
                         } else {
@@ -152,22 +146,12 @@ public class ThirdPartyInfoActivity extends BasicActivity {
         }
     }
 
-    public void showActivity(Bundle args)
-    {
-        if (args == null)
-            return;
-
-        // Intent intent = new Intent(this, Activity.class);
-        // intent.putExtra(LibKey.args, args);
-        // startActivityForResult(intent, REQUEST_);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 123)
-        {
+
+        if (requestCode == 123) {
             requestAccountInfo();
         }
     }
+
 }

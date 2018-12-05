@@ -133,6 +133,8 @@ public class DirectDeliveryActivity extends BasicActivity {
 
         contentView.getViewTreeObserver().addOnGlobalLayoutListener(contentLayoutListener);
 
+        init();
+
         if (MyApp.onTest) {
             centerNameEdit.setText("김포");
             centerNameEdit.setSelection(centerNameEdit.getText().length());
@@ -150,6 +152,7 @@ public class DirectDeliveryActivity extends BasicActivity {
 
     private void init() {
         try {
+            requestFavoriteList(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -233,13 +236,13 @@ public class DirectDeliveryActivity extends BasicActivity {
                 finish();
                 break;
             case R.id.titleRightBtn1:
-                requestSearchList(true);
+                requestSearchList(true, false);
                 break;
             case R.id.curDateBtn:
                 showCalendar();
                 break;
             case R.id.searchBtn:
-                requestSearchList(true);
+                requestSearchList(true, false);
                 break;
             case R.id.bottomCenterInfoView:
                 AppUtil.runCallApp(getString(R.string.delivery_call_center_phone_no), true);
@@ -260,6 +263,145 @@ public class DirectDeliveryActivity extends BasicActivity {
         }, curCal.get(Calendar.YEAR), curCal.get(Calendar.MONTH), curCal.get(Calendar.DAY_OF_MONTH));
 
         datePickerDialog.show();
+    }
+
+    @SuppressLint ("StaticFieldLeak")
+    synchronized void requestFavoriteList(boolean showProgress) {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    if (showProgress)
+                        showLoadingDialog(null, true);
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("deliveryCd", Key.getUserInfo().getString("CLIENT_CD"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_DIRECT_FAVORITE_LIST, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
+                            favoriteFragment.addFavoriteListItems(data);
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestSearchList(boolean showProgress, boolean reqFavoriteList) {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            final String dispatchDt = Key.SDF_PAYLOAD.format(curCal.getTime());
+
+            final String centerNm = centerNameEdit.getText().toString().trim();
+            if (centerNm.isEmpty()) {
+                showToast("거래처명을 입력해 주십시요.", true);
+                return;
+            }
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    if (showProgress)
+                        showLoadingDialog(null, true);
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("deliveryCd", Key.getUserInfo().getString("CLIENT_CD"));
+                        payloadJson.put("dispatchDt", dispatchDt);
+                        payloadJson.put("centerNm", centerNm);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_DIRECT_LIST, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    if (showProgress)
+                        dismissLoadingDialog();
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
+                            addSearchListItems(data);
+
+                            if (reqFavoriteList)
+                                requestFavoriteList(false);
+                        } else {
+                            dismissLoadingDialog();
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        dismissLoadingDialog();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    synchronized void addSearchListItems(ArrayList<Bundle> items) {
+        if (items == null)
+            return;
+
+        try {
+            listItems.clear();
+            listItems.addAll(items);
+            listAdapter.notifyDataSetChanged();
+
+            ((TextView) findViewById(R.id.column0Txt)).setText("조회결과 " + items.size() + "건");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @SuppressLint ("StaticFieldLeak")
@@ -299,6 +441,7 @@ public class DirectDeliveryActivity extends BasicActivity {
 
                 protected void onPostExecute(Bundle response) {
                     onReq = false;
+                    //dismissLoadingDialog();
 
                     try {
                         Bundle resBody = response.getBundle(Key.resBody);
@@ -306,144 +449,18 @@ public class DirectDeliveryActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-                            requestSearchList(false);
+                            requestSearchList(false, true);
                         } else {
                             dismissLoadingDialog();
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
                     } catch (Exception e) {
+                        e.printStackTrace();
                         dismissLoadingDialog();
-                        e.printStackTrace();
                         showToast(e.getMessage(), false);
                     }
                 }
             }.execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestSearchList(boolean showProgress) {
-        if (onReq)
-            return;
-
-        try {
-            if (Key.getUserInfo() == null)
-                return;
-
-            final String dispatchDt = Key.SDF_PAYLOAD.format(curCal.getTime());
-
-            final String centerNm = centerNameEdit.getText().toString().trim();
-            if (centerNm.isEmpty()) {
-                showToast("거래처명을 입력해 주십시요.", true);
-                return;
-            }
-
-            new AsyncTask<Void, Void, Bundle>() {
-                Bundle response = null;
-                ArrayList<Bundle> searchData = null;
-                ArrayList<Bundle> favoriteData = null;
-
-                protected void onPreExecute() {
-                    onReq = true;
-                    if (showProgress)
-                        showLoadingDialog(null, true);
-                }
-
-                protected Bundle doInBackground(Void... arg0) {
-                    JSONObject payloadJson = null;
-                    try {
-                        // 직송하차지 조회
-                        payloadJson = YTMSRestRequestor.buildPayload();
-                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        payloadJson.put("deliveryCd", Key.getUserInfo().getString("CLIENT_CD"));
-                        payloadJson.put("dispatchDt", dispatchDt);
-                        payloadJson.put("centerNm", centerNm);
-                        response = YTMSRestRequestor.requestPost(API.URL_DELIVERY_DIRECT_LIST, false, payloadJson, true, false);
-                        Bundle resBody = response.getBundle(Key.resBody);
-                        String result_code = resBody.getString(Key.result_code);
-                        if (result_code.equals("200")) {
-                            searchData = resBody.getParcelableArrayList("data");
-                        } else {
-                            return response;
-                        }
-
-                        // 직송즐겨찾기 조회
-                        payloadJson = YTMSRestRequestor.buildPayload();
-                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        payloadJson.put("deliveryCd", Key.getUserInfo().getString("CLIENT_CD"));
-                        response = YTMSRestRequestor.requestPost(API.URL_DELIVERY_DIRECT_FAVORITE_LIST, false, payloadJson, true, false);
-                        resBody = response.getBundle(Key.resBody);
-                        result_code = resBody.getString(Key.result_code);
-                        if (result_code.equals("200")) {
-                            favoriteData = resBody.getParcelableArrayList("data");
-                        } else {
-                            return response;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    return response;
-                }
-
-                protected void onPostExecute(Bundle response) {
-                    onReq = false;
-                    dismissLoadingDialog();
-
-                    try {
-                        Bundle resBody = response.getBundle(Key.resBody);
-                        String result_code = resBody.getString(Key.result_code);
-                        String result_msg = resBody.getString(Key.result_msg);
-
-                        if (result_code.equals("200")) {
-                            addSearchListItems(searchData);
-                            favoriteFragment.addFavoriteListItems(favoriteData);
-                        } else {
-                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        showToast(e.getMessage(), false);
-                    }
-
-                    //// TEST
-                    //{
-                    //    searchData = new ArrayList<Bundle>();
-                    //    for (int i = 0; i < 20; i++) {
-                    //        Bundle item = new Bundle();
-                    //        item.putString("CENTER_NM", "CENTER_NM");
-                    //        item.putString("FAVORITE_YN", "Y");
-                    //        searchData.add(item);
-                    //    }
-                    //    addSearchListItems(searchData);
-                    //
-                    //    favoriteData = new ArrayList<Bundle>();
-                    //    for (int i = 0; i < 20; i++) {
-                    //        Bundle item = new Bundle();
-                    //        item.putString("CENTER_NM", "CENTER_NM");
-                    //        favoriteData.add(item);
-                    //    }
-                    //    favoriteFragment.addFavoriteListItems(favoriteData);
-                    //}
-                }
-            }.execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    synchronized void addSearchListItems(ArrayList<Bundle> items) {
-        if (items == null)
-            return;
-
-        try {
-            listItems.clear();
-            listItems.addAll(items);
-            listAdapter.notifyDataSetChanged();
-
-            ((TextView) findViewById(R.id.column0Txt)).setText("조회결과 " + items.size() + "건");
         } catch (Exception e) {
             e.printStackTrace();
         }

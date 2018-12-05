@@ -312,11 +312,13 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                 return;
             }
 
-            String carCnt = carsNewCntTxt.getText().toString();
-            if (carCnt.equals("0")) {
-                showToast("차량 대수를 1대 이상 입력해 주십시요.", true);
-                return;
-            }
+            //String carCnt = carsNewCntTxt.getText().toString();
+            //if (carCnt.equals("0")) {
+            //    showToast("차량 대수를 1대 이상 입력해 주십시요.", true);
+            //    return;
+            //}
+            // 임시
+            String carCnt = "1";
 
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {

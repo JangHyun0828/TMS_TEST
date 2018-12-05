@@ -30,7 +30,7 @@ public class ShipperAccountActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shipper_account_activity);
 
-        setTitleBar("개인정보", R.drawable.selector_button_back, 0, 0);
+        setTitleBar("개인정보");
 
         if (Key.getUserInfo() != null) {
             ((TextView) findViewById(R.id.idTxt)).setText(TextUtil.formatPhoneNumber(Key.getUserInfo().getString("USER_ID")));
@@ -73,7 +73,7 @@ public class ShipperAccountActivity extends BasicActivity {
             case R.id.pwdBtn:
                 showPwdChangeDialog();
                 break;
-            case R.id.logoutBtn:
+            case R.id.titleRightBtn1:
                 requestLoginActivity();
                 break;
             case R.id.callCenterBtn:

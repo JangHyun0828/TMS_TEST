@@ -313,7 +313,7 @@
         </activity>
 
         <activity
-            android:name=".thirdparty.account.ThirdPartyInfoActivity"
+            android:name=".thirdparty.account.ThirdPartyAccountActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
             <intent-filter>

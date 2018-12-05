@@ -10,8 +10,7 @@
 
     <include
         android:id="@+id/appbar"
-        layout="@layout/appbar"
-        app:layout_constraintTop_toTopOf="parent" />
+        layout="@layout/appbar_account" />
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/infoScroll"
@@ -115,15 +114,6 @@
         app:layout_constraintEnd_toEndOf="@+id/infoScroll"
         app:layout_constraintTop_toBottomOf="@+id/infoScroll"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
-
-    <Button
-        android:id="@+id/logoutBtn"
-        style="@style/ButtonRoundMain"
-        android:layout_marginBottom="8.3dp"
-        android:text="로그아웃"
-        app:layout_constraintStart_toStartOf="@+id/infoScroll"
-        app:layout_constraintEnd_toEndOf="@+id/infoScroll"
-        app:layout_constraintBottom_toTopOf="@id/callCenterBtn" />
 
     <include
         android:id="@+id/callCenterBtn"
