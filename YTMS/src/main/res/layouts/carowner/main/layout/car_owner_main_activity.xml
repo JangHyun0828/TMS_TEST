@@ -20,23 +20,29 @@
         android:layout_height="53dp"
         app:layout_constraintTop_toBottomOf="@+id/appbar" />
 
-    <Button
+    <FrameLayout
         android:id="@+id/menuBtn0"
-        style="@style/ButtonMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/selector_button_alloc_car"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:stateListAnimator="@null"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/topUserInfoView"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/menuBtn0IconTxt"
-        style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="35.3dp"
-        android:text="배차"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn0"
-        app:layout_constraintStart_toStartOf="@id/menuBtn0" />
+        <TextView style="@style/ButtonMainMenu" />
+
+        <TextView
+            style="@style/TextViewMainMenuIcon"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="35.3dp"
+            android:text="배차" />
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/menuBtn0Divider0"
@@ -149,46 +155,63 @@
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn0"
         app:layout_constraintEnd_toEndOf="@id/menuBtn0" />
 
-    <Button
+    <FrameLayout
         android:id="@+id/menuBtn1"
-        style="@style/ButtonMainMenu"
-        android:gravity="center_vertical|end"
-        android:paddingEnd="64dp"
-        android:text="인수증 이미지 발송확인"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/selector_button_main_menu_receipt"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:stateListAnimator="@null"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn0"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/menuBtn1IconTxt"
-        style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="30dp"
-        android:text="인수증"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn1"
-        app:layout_constraintStart_toStartOf="@id/menuBtn1" />
+        <TextView
+            style="@style/ButtonMainMenu"
+            android:layout_gravity="center_vertical|end"
+            android:paddingEnd="64dp"
+            android:text="인수증 이미지 발송확인" />
 
-    <Button
+        <TextView
+            android:id="@+id/menuBtn1IconTxt"
+            style="@style/TextViewMainMenuIcon"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="30dp"
+            android:text="인수증" />
+
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/menuBtn2"
-        style="@style/ButtonMainMenu"
-        android:paddingEnd="90dp"
-        android:text="운임내역 확인"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:stateListAnimator="@null"
         android:background="@drawable/selector_button_main_menu_calculate"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/menuBtn2IconTxt"
-        style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="35dp"
-        android:text="정산"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn2"
-        app:layout_constraintStart_toStartOf="@id/menuBtn2" />
+        <TextView
+            style="@style/ButtonMainMenu"
+            android:layout_gravity="center_vertical|end"
+            android:paddingEnd="90dp"
+            android:text="운임내역 확인" />
+
+        <TextView
+            android:id="@+id/menuBtn2IconTxt"
+            style="@style/TextViewMainMenuIcon"
+            android:layout_marginStart="35dp"
+            android:layout_gravity="start|bottom"
+            android:text="정산" />
+
+    </FrameLayout>
 
     <Button
         android:id="@+id/menuBtn3"

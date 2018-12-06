@@ -20,36 +20,60 @@
         android:layout_height="53dp"
         app:layout_constraintTop_toBottomOf="@+id/appbar" />
 
-    <Button
+    <FrameLayout
         android:id="@+id/menuBtn0"
-        style="@style/ButtonMainMenu"
-        android:gravity="center_vertical|end"
-        android:paddingEnd="104dp"
-        android:text="차량요청"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:stateListAnimator="@null"
         android:background="@drawable/selector_button_main_menu_car_request"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/topUserInfoView"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/menuBtn0IconTxt"
-        style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="35.3dp"
-        android:text="접수"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn0"
-        app:layout_constraintStart_toStartOf="@id/menuBtn0" />
+        <TextView
+            style="@style/ButtonMainMenu"
+            android:layout_gravity="center_vertical|end"
+            android:gravity="center_vertical|end"
+            android:paddingEnd="104dp"
+            android:text="차량요청" />
 
-    <Button
+        <TextView
+            android:id="@+id/menuBtn0IconTxt"
+            style="@style/TextViewMainMenuIcon"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="35.3dp"
+            android:text="접수" />
+
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/menuBtn1"
-        style="@style/ButtonMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:stateListAnimator="@null"
         android:background="@drawable/selector_button_alloc_car"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn0"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView style="@style/ButtonMainMenu" />
+
+        <TextView
+            android:id="@+id/menuBtn1IconTxt"
+            style="@style/TextViewMainMenuIcon"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="35.3dp"
+            android:text="배차" />
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/menuBtnDivider0"
@@ -70,14 +94,6 @@
         app:layout_constraintEnd_toEndOf="@id/menuBtn1"
         app:layout_constraintTop_toTopOf="@id/menuBtn1"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn1" />
-
-    <TextView
-        android:id="@+id/menuBtn1IconTxt"
-        style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="35.3dp"
-        android:text="배차"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn1"
-        app:layout_constraintStart_toStartOf="@id/menuBtn1" />
 
     <TextView
         android:id="@+id/menuBtn1SubTitle0"
@@ -170,45 +186,63 @@
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn1"
         app:layout_constraintEnd_toEndOf="@id/menuBtn1" />
 
-    <Button
+    <FrameLayout
         android:id="@+id/menuBtn2"
-        style="@style/ButtonMainMenu"
-        android:paddingEnd="94.3dp"
-        android:text="팔레트 요청"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/selector_button_main_menu_pallets"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:stateListAnimator="@null"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn1"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/menuBtn2IconTxt"
-        style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="35.3dp"
-        android:text="접수"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn2"
-        app:layout_constraintStart_toStartOf="@id/menuBtn2" />
+        <TextView
+            style="@style/ButtonMainMenu"
+            android:layout_gravity="center_vertical|end"
+            android:paddingEnd="94.3dp"
+            android:text="팔레트 요청" />
 
-    <Button
+        <TextView
+            android:id="@+id/menuBtn2IconTxt"
+            style="@style/TextViewMainMenuIcon"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="35.3dp"
+            android:text="접수" />
+
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/menuBtn3"
-        style="@style/ButtonMainMenu"
-        android:paddingEnd="102.7dp"
-        android:text="공지사항"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/selector_button_main_menu_notice"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:stateListAnimator="@null"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2"
         app:layout_constraintBottom_toTopOf="@+id/bottomCenterInfoView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/menuBtn3IconTxt"
-        style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="24dp"
-        android:text="공지사항"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn3"
-        app:layout_constraintStart_toStartOf="@id/menuBtn3" />
+        <TextView
+            style="@style/ButtonMainMenu"
+            android:layout_gravity="center_vertical|end"
+            android:paddingEnd="102.7dp"
+            android:text="공지사항" />
+
+        <TextView
+            android:id="@+id/menuBtn3IconTxt"
+            style="@style/TextViewMainMenuIcon"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="24dp"
+            android:text="공지사항" />
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/noticeBadgeCntTxt"

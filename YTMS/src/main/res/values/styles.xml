@@ -144,8 +144,8 @@
         <item name="android:textColor">@color/selector_button_main_menu_text</item>
         <item name="android:textSize">13.2sp</item>
         <item name="fontFamily">@font/my_noto_sans_kr_regular_hestia</item>
-        <item name="android:onClick">onClick</item>
-        <item name="android:stateListAnimator">@null</item>
+        <!--<item name="android:onClick">onClick</item>-->
+        <!--<item name="android:stateListAnimator">@null</item>-->
         <!-- CAUTION stateListAnimator는 View를 최상단에 그리는 기능이 있어서 버튼 위에 공지 개수를 배치해도, 하위로 그려짐 -->
     </style>
 

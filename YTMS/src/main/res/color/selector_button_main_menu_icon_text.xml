@@ -9,6 +9,6 @@
     <!-- normal -->
     <item android:state_focused="false"
         android:state_pressed="false"
-        android:color="#ffffff" />
+        android:color="#ffffffff" />
 
 </selector>
