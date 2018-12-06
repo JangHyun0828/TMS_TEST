@@ -159,6 +159,20 @@ public class PalletsRequestActivity extends BasicActivity {
 
             final String requestDt = Key.SDF_PAYLOAD.format(curCal.getTime());
 
+            //String PALLET_CNT = palletsNewCntTxt.getText().toString();
+            //if (PALLET_CNT.equals("0")) {
+            //    showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
+            //    return;
+            //}
+            //
+            //String palletCnt = palletsNewCntTxt.getText().toString();
+            //if (palletCnt.equals("0")) {
+            //    showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
+            //    return;
+            //}
+
+            final String palletCnt = "1";
+
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
                     onReq = true;
@@ -172,6 +186,7 @@ public class PalletsRequestActivity extends BasicActivity {
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
                         payloadJson.put("custCd", Key.getUserInfo().getString("CLIENT_CD"));
                         payloadJson.put("requestDt", requestDt);
+                        payloadJson.put("palletCnt", palletCnt);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

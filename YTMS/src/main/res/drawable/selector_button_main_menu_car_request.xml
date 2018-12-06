@@ -10,12 +10,12 @@
                     android:src="@drawable/bg_m_4_left_on" />
             </item>
             <item android:top="23.7dp"
-                android:left="32.3dp">
+                android:left="36.7dp">
                 <bitmap android:gravity="top|left"
-                    android:src="@drawable/menu_palette_box" />
+                    android:src="@drawable/menu_palette_box_on" />
             </item>
-            <item android:left="72.7dp">
-                <bitmap android:gravity="right"
+            <item android:left="76.7dp">
+                <bitmap android:gravity="right|top"
                     android:src="@drawable/bg_m_4_right" />
             </item>
         </layer-list>
@@ -30,12 +30,12 @@
                     android:src="@drawable/bg_m_4_left_off" />
             </item>
             <item android:top="23.7dp"
-                android:left="32.3dp">
+                android:left="36.7dp">
                 <bitmap android:gravity="top|left"
-                    android:src="@drawable/menu_palette_box" />
+                    android:src="@drawable/menu_palette_box_off" />
             </item>
-            <item android:left="72.7dp">
-                <bitmap android:gravity="right"
+            <item android:left="76.7dp">
+                <bitmap android:gravity="right|top"
                     android:src="@drawable/bg_m_4_right" />
             </item>
         </layer-list>

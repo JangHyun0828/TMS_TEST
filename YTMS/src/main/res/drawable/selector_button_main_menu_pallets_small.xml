@@ -5,17 +5,18 @@
     <!-- pressed -->
     <item android:state_pressed="true">
         <layer-list>
-            <item android:gravity="left">
+            <item android:gravity="left"
+                android:left="4dp">
                 <bitmap android:gravity="left"
                     android:src="@drawable/bg_center_m_5_left_on" />
             </item>
             <item android:top="25dp"
-                android:left="23dp">
+                android:left="27dp">
                 <bitmap android:gravity="top|left"
-                    android:src="@drawable/menu_palette" />
+                    android:src="@drawable/menu_palette_on" />
             </item>
             <item android:left="67.3dp">
-                <bitmap android:gravity="right"
+                <bitmap android:gravity="right|top"
                     android:src="@drawable/bg_center_m_5_right" />
             </item>
         </layer-list>
@@ -27,15 +28,15 @@
         <layer-list>
             <item android:gravity="left">
                 <bitmap android:gravity="left"
-                    android:src="@drawable/bg_center_m_5_left_off" />
+                    android:src="@drawable/bg_m_5_left_off" />
             </item>
             <item android:top="25dp"
-                android:left="23dp">
+                android:left="27dp">
                 <bitmap android:gravity="top|left"
-                    android:src="@drawable/menu_palette" />
+                    android:src="@drawable/menu_palette_off" />
             </item>
             <item android:left="67.3dp">
-                <bitmap android:gravity="right"
+                <bitmap android:gravity="right|top"
                     android:src="@drawable/bg_center_m_5_right" />
             </item>
         </layer-list>

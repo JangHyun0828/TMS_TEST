@@ -27,6 +27,7 @@ import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.carowner.account.CarOwnerAccountActivity;
 import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
+import com.neognp.ytms.carowner.car_alloc.ForkLiftCheckActivity;
 import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
 import com.neognp.ytms.carowner.receipt.ReceiptDispatchCheckActivity;
 import com.neognp.ytms.gps.GpsTrackingService;
@@ -191,8 +192,19 @@ public class CarOwnerMainActivity extends BasicActivity {
             case R.id.menuBtn2:
                 startActivity(new Intent(this, FreightChargeHistoryActivity.class), options.toBundle());
                 break;
+            // 하차대기
+            case R.id.menuBtn3: {
+                if (Key.getUserInfo() == null)
+                    return;
+                Intent intent = new Intent(this, ForkLiftCheckActivity.class);
+                Bundle args = new Bundle();
+                args.putString("CAR_CD", Key.getUserInfo().getString("USER_CD"));
+                intent.putExtras(args);
+                startActivity(intent, options.toBundle());
+            }
+            break;
             // 공지사항
-            case R.id.menuBtn3:
+            case R.id.menuBtn4:
                 startActivity(new Intent(this, NoticeListActivity.class), options.toBundle());
                 break;
             case R.id.bottomCenterInfoView:

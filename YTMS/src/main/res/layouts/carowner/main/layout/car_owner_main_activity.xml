@@ -33,7 +33,7 @@
     <TextView
         android:id="@+id/menuBtn0IconTxt"
         style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="33.3dp"
+        android:layout_marginStart="35.3dp"
         android:text="배차"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn0"
         app:layout_constraintStart_toStartOf="@id/menuBtn0" />
@@ -78,8 +78,8 @@
     <TextView
         android:id="@+id/menuBtn0CntUnit0"
         style="@style/TextViewMainMenuSub"
-        android:text="건"
         android:layout_marginStart="4dp"
+        android:text="건"
         app:layout_constraintStart_toEndOf="@id/menuBtn0CntTxt0"
         app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn0CntTxt0" />
 
@@ -102,10 +102,10 @@
     <TextView
         android:id="@+id/menuBtn0CntUnit1"
         style="@style/TextViewMainMenuSub"
-        android:text="건"
         android:layout_marginStart="4dp"
+        android:text="건"
         app:layout_constraintStart_toEndOf="@id/menuBtn0CntTxt1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn0CntTxt1"/>
+        app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn0CntTxt1" />
 
     <TextView
         android:id="@+id/menuBtn0SubTitle2"
@@ -126,8 +126,8 @@
     <TextView
         android:id="@+id/menuBtn0CntUnit2"
         style="@style/TextViewMainMenuSub"
-        android:text="건"
         android:layout_marginStart="4dp"
+        android:text="건"
         app:layout_constraintStart_toEndOf="@id/menuBtn0CntTxt2"
         app:layout_constraintBaseline_toBaselineOf="@+id/menuBtn0CntTxt2" />
 
@@ -135,8 +135,8 @@
         android:id="@+id/carAllocBadgeCntTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76.1dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="81dp"
+        android:layout_marginEnd="24.3dp"
         android:minWidth="23dp"
         android:minHeight="23dp"
         android:gravity="center"
@@ -145,9 +145,9 @@
         android:background="@drawable/bg_badge"
         android:text="N"
         android:fontFamily="@font/my_nanum_square_r"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn0"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn0"
-        android:visibility="invisible"/>
+        app:layout_constraintEnd_toEndOf="@id/menuBtn0" />
 
     <Button
         android:id="@+id/menuBtn1"
@@ -165,7 +165,7 @@
     <TextView
         android:id="@+id/menuBtn1IconTxt"
         style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="30dp"
         android:text="인수증"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn1"
         app:layout_constraintStart_toStartOf="@id/menuBtn1" />
@@ -185,48 +185,75 @@
     <TextView
         android:id="@+id/menuBtn2IconTxt"
         style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="33dp"
+        android:layout_marginStart="35dp"
         android:text="정산"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn2"
         app:layout_constraintStart_toStartOf="@id/menuBtn2" />
 
     <Button
         android:id="@+id/menuBtn3"
-        style="@style/ButtonMainMenu"
-        android:paddingEnd="102.7dp"
-        android:text="공지사항"
-        android:background="@drawable/selector_button_main_menu_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical|start"
+        android:drawablePadding="8.3dp"
+        android:drawableStart="@drawable/selector_icon_main_menu_fork_lift_standby"
+        android:paddingStart="48dp"
+        android:paddingBottom="6dp"
+        android:textColor="@color/selector_button_main_menu_icon_text"
+        android:textSize="13.2dp"
+        android:text="하차대기"
+        android:background="@drawable/selector_button_main_menu_small"
+        android:stateListAnimator="@null"
+        android:onClick="onClick"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn2"
         app:layout_constraintBottom_toTopOf="@+id/bottomCenterInfoView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/menuBtn0"
+        app:layout_constraintEnd_toStartOf="@id/menuBtn4" />
 
-    <TextView
-        android:id="@+id/menuBtn3IconTxt"
-        style="@style/TextViewMainMenuIcon"
-        android:layout_marginStart="20.7dp"
+    <Button
+        android:id="@+id/menuBtn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center_vertical|start"
+        android:drawablePadding="8.3dp"
+        android:drawableStart="@drawable/selector_icon_main_menu_notice"
+        android:paddingStart="48.7dp"
+        android:paddingBottom="6dp"
+        android:textColor="@color/selector_button_main_menu_icon_text"
+        android:textSize="13.2dp"
         android:text="공지사항"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn3"
-        app:layout_constraintStart_toStartOf="@id/menuBtn3" />
+        android:background="@drawable/selector_button_main_menu_small"
+        android:stateListAnimator="@null"
+        android:onClick="onClick"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintTop_toTopOf="@+id/menuBtn3"
+        app:layout_constraintStart_toEndOf="@id/menuBtn3"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn0" />
 
     <TextView
         android:id="@+id/noticeBadgeCntTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76.1dp"
-        android:layout_marginEnd="21dp"
-        android:minWidth="23dp"
-        android:minHeight="23dp"
+        android:layout_marginBottom="57.5dp"
+        android:layout_marginEnd="19.3dp"
+        android:paddingEnd="1dp"
+        android:minWidth="18.3dp"
+        android:minHeight="18.3dp"
         android:gravity="center"
         android:textSize="12sp"
         android:textColor="@color/white"
         android:background="@drawable/bg_badge"
         android:text="0"
         android:fontFamily="@font/my_nanum_square_r"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn3"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn3"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/menuBtn4"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn4" />
 
     <include
         android:id="@+id/bottomCenterInfoView"
