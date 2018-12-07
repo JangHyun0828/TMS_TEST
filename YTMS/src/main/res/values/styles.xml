@@ -121,12 +121,12 @@
         <item name="android:onClick">onClick</item>
     </style>
 
-    <style name="ButtonMainMenuFullRound">
+    <style name="ButtonSubMenuFullRound">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical|start</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:textColor">@color/selector_button_main_menu_text</item>
+        <item name="android:textColor">@color/selector_button_sub_menu_text</item>
         <item name="android:textSize">13.3sp</item>
         <item name="android:background">@drawable/selector_button_main_menu</item>
         <item name="fontFamily">@font/my_noto_sans_kr_regular_hestia</item>

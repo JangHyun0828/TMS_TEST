@@ -165,7 +165,6 @@ public class CarOwnerMainActivity extends BasicActivity {
         }
     }
 
-    // TODO 아이콘 위치에서 Activity가 커지는 material animation 적용
     public void onClick(View v) {
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mgr.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
@@ -184,16 +183,8 @@ public class CarOwnerMainActivity extends BasicActivity {
             case R.id.menuBtn0:
                 startActivity(new Intent(this, CarAllocHistoryActivity.class), options.toBundle());
                 break;
-            // 인수증
-            case R.id.menuBtn1:
-                startActivity(new Intent(this, ReceiptDispatchCheckActivity.class), options.toBundle());
-                break;
-            // 정산
-            case R.id.menuBtn2:
-                startActivity(new Intent(this, FreightChargeHistoryActivity.class), options.toBundle());
-                break;
             // 하차대기
-            case R.id.menuBtn3: {
+            case R.id.menuBtn1: {
                 if (Key.getUserInfo() == null)
                     return;
                 Intent intent = new Intent(this, ForkLiftCheckActivity.class);
@@ -203,8 +194,12 @@ public class CarOwnerMainActivity extends BasicActivity {
                 startActivity(intent, options.toBundle());
             }
             break;
+            // 정산
+            case R.id.menuBtn2:
+                startActivity(new Intent(this, FreightChargeHistoryActivity.class), options.toBundle());
+                break;
             // 공지사항
-            case R.id.menuBtn4:
+            case R.id.menuBtn3:
                 startActivity(new Intent(this, NoticeListActivity.class), options.toBundle());
                 break;
             case R.id.bottomCenterInfoView:
@@ -212,6 +207,55 @@ public class CarOwnerMainActivity extends BasicActivity {
                 break;
         }
     }
+
+    // TODO 2018.03 오픈 예정
+    // TODO 아이콘 위치에서 Activity가 커지는 material animation 적용
+    //public void onClick(View v) {
+    //    InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    //    mgr.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
+    //
+    //    ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.slide_in_from_right, R.anim.fade_out);
+    //
+    //    switch (v.getId()) {
+    //        case R.id.titleLeftBtn0:
+    //            break;
+    //        case R.id.titleRightBtn1:
+    //            break;
+    //        case R.id.userNameTxt:
+    //            startActivity(new Intent(this, CarOwnerAccountActivity.class), options.toBundle());
+    //            break;
+    //        // 배차
+    //        case R.id.menuBtn0:
+    //            startActivity(new Intent(this, CarAllocHistoryActivity.class), options.toBundle());
+    //            break;
+    //        // 인수증
+    //        case R.id.menuBtn1:
+    //            startActivity(new Intent(this, ReceiptDispatchCheckActivity.class), options.toBundle());
+    //            break;
+    //        // 정산
+    //        case R.id.menuBtn2:
+    //            startActivity(new Intent(this, FreightChargeHistoryActivity.class), options.toBundle());
+    //            break;
+    //        // 하차대기
+    //        case R.id.menuBtn3: {
+    //            if (Key.getUserInfo() == null)
+    //                return;
+    //            Intent intent = new Intent(this, ForkLiftCheckActivity.class);
+    //            Bundle args = new Bundle();
+    //            args.putString("CAR_CD", Key.getUserInfo().getString("USER_CD"));
+    //            intent.putExtras(args);
+    //            startActivity(intent, options.toBundle());
+    //        }
+    //        break;
+    //        // 공지사항
+    //        case R.id.menuBtn4:
+    //            startActivity(new Intent(this, NoticeListActivity.class), options.toBundle());
+    //            break;
+    //        case R.id.bottomCenterInfoView:
+    //            AppUtil.runCallApp(getString(R.string.customer_call_center_phone_no), true);
+    //            break;
+    //    }
+    //}
 
     private boolean onReqCarAllocCnt;
 

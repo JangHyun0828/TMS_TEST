@@ -488,10 +488,14 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
 
             public void onBindViewData(Bundle item) {
                 try {
+                    ImageView checkImg = itemView.findViewById(R.id.checkImg);
+                    if (item.getBoolean("checked"))
+                        checkImg.setImageResource(R.drawable.date_check_box_on);
+                    else
+                        checkImg.setImageResource(R.drawable.date_check_box_off);
+
                     // 연번
                     ((TextView) itemView.findViewById(R.id.dataTxt0)).setText(item.getString("NO"));
-
-                    ImageView checkImg = itemView.findViewById(R.id.checkImg);
 
                     // 화주명
                     ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("CUST_NM"));
@@ -500,28 +504,43 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                     String REQUEST_DT = Key.SDF_CAL_DEFAULT.format(Key.SDF_PAYLOAD.parse(item.getString("REQUEST_DT", "")));
                     ((TextView) itemView.findViewById(R.id.dataTxt2)).setText(REQUEST_DT);
 
+                    //  TODO 수량
+                    //((TextView) itemView.findViewById(R.id.dataTxt3)).setText(item.getString(""));
+
                     // 처리
-                    TextView dataTxt3 = itemView.findViewById(R.id.dataTxt3);
-                    TextView dataBtn3 = itemView.findViewById(R.id.dataBtn3);
+                    TextView receiptBtn = itemView.findViewById(R.id.receiptBtn);
+                    TextView dispatchBtn = itemView.findViewById(R.id.dispatchBtn);
+                    TextView completionBtn = itemView.findViewById(R.id.completionBtn);
 
                     String STATUS = item.getString("STATUS", "N");
+                    // TODO 접수
                     if (STATUS.equalsIgnoreCase("Y")) {
-                        checkImg.setVisibility(View.INVISIBLE);
-
-                        dataTxt3.setVisibility(View.VISIBLE);
-                        dataBtn3.setVisibility(View.INVISIBLE);
-                    } else {
                         checkImg.setVisibility(View.VISIBLE);
-                        if (item.getBoolean("checked"))
-                            checkImg.setImageResource(R.drawable.date_check_box_on);
-                        else
-                            checkImg.setImageResource(R.drawable.date_check_box_off);
-
-                        dataTxt3.setVisibility(View.INVISIBLE);
-                        dataBtn3.setVisibility(View.VISIBLE);
+                        receiptBtn.setVisibility(View.VISIBLE);
+                        dispatchBtn.setVisibility(View.INVISIBLE);
+                        completionBtn.setVisibility(View.INVISIBLE);
+                    }
+                    // TODO 발송
+                    else {
+                        checkImg.setVisibility(View.VISIBLE);
+                        receiptBtn.setVisibility(View.INVISIBLE);
+                        dispatchBtn.setVisibility(View.VISIBLE);
+                        completionBtn.setVisibility(View.INVISIBLE);
+                    }
+                    // TODO 완료
+                    {
+                        checkImg.setVisibility(View.VISIBLE);
+                        receiptBtn.setVisibility(View.INVISIBLE);
+                        dispatchBtn.setVisibility(View.INVISIBLE);
+                        completionBtn.setVisibility(View.VISIBLE);
                     }
 
-                    dataBtn3.setOnClickListener(new View.OnClickListener() {
+                    receiptBtn.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                        }
+                    });
+
+                    dispatchBtn.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             showPalletsCountEditDialog(item);
                         }

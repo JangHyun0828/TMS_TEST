@@ -14,26 +14,25 @@
         android:id="@+id/dataTxt0"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="37.3dp"
+        android:paddingStart="27.3dp"
         android:gravity="center_vertical|start"
         android:textSize="13.3sp"
         android:textColor="#4d4c4c"
-        android:text="연번"
+        android:text="000"
         app:layout_constraintTop_toTopOf="@id/dataTxt1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/dataTxt1"
-        app:layout_constraintHorizontal_weight="20"
+        app:layout_constraintHorizontal_weight="15"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <ImageView
         android:id="@+id/checkImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
         android:src="@drawable/date_check_box_off"
         app:layout_constraintStart_toStartOf="@id/dataTxt0"
-        app:layout_constraintTop_toTopOf="@id/dataTxt0"
-        app:layout_constraintBottom_toBottomOf="@+id/dataTxt0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/dataTxt1"
@@ -61,7 +60,7 @@
         app:layout_constraintTop_toTopOf="@id/dataTxt1"
         app:layout_constraintStart_toEndOf="@id/dataTxt1"
         app:layout_constraintEnd_toStartOf="@id/dataTxt3"
-        app:layout_constraintHorizontal_weight="25"
+        app:layout_constraintHorizontal_weight="20"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
@@ -70,28 +69,63 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="13.3sp"
-        android:textColor="#253e66"
-        android:text="발송"
+        android:textColor="#4d4c4c"
+        android:text="000"
         app:layout_constraintTop_toTopOf="@id/dataTxt1"
         app:layout_constraintStart_toEndOf="@id/dataTxt2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="25"
+        app:layout_constraintEnd_toStartOf="@id/receiptBtn"
+        app:layout_constraintHorizontal_weight="15"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <Button
-        android:id="@+id/dataBtn3"
-        android:layout_width="59.7dp"
-        android:layout_height="23.3dp"
+        android:id="@+id/receiptBtn"
+        android:layout_width="47.7dp"
+        android:layout_height="23dp"
         android:gravity="center"
         android:textSize="13.3sp"
         android:textColor="@color/white"
         android:text="접수"
-        android:background="@drawable/selector_button_round_rect_small_main_theme"
+        android:background="@drawable/selector_button_rect_round_sky_small"
         android:stateListAnimator="@null"
-        app:layout_constraintTop_toTopOf="@id/dataTxt1"
-        app:layout_constraintStart_toStartOf="@id/dataTxt3"
-        app:layout_constraintEnd_toEndOf="@id/dataTxt3"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dataTxt3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/dispatchBtn"
+        android:layout_width="47.7dp"
+        android:layout_height="23dp"
+        android:gravity="center"
+        android:textSize="13.3sp"
+        android:textColor="@color/white"
+        android:text="발송"
+        android:background="@drawable/selector_button_rect_round_navy_small"
+        android:stateListAnimator="@null"
+        android:visibility="invisible"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintTop_toTopOf="@id/receiptBtn"
+        app:layout_constraintBottom_toBottomOf="@id/receiptBtn"
+        app:layout_constraintStart_toStartOf="@id/receiptBtn"
+        app:layout_constraintEnd_toEndOf="@id/receiptBtn" />
+
+    <Button
+        android:id="@+id/completionBtn"
+        android:layout_width="47.7dp"
+        android:layout_height="23dp"
+        android:gravity="center"
+        android:textSize="13.3sp"
+        android:textColor="#a6a5a5"
+        android:text="완료"
+        android:background="@drawable/selector_button_rect_round_white_stroke_gray_small"
+        android:stateListAnimator="@null"
+        android:visibility="invisible"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintTop_toTopOf="@id/receiptBtn"
+        app:layout_constraintBottom_toBottomOf="@id/receiptBtn"
+        app:layout_constraintStart_toStartOf="@id/receiptBtn"
+        app:layout_constraintEnd_toEndOf="@id/receiptBtn" />
 
     <View
         android:id="@+id/divider"

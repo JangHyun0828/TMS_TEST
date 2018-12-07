@@ -47,7 +47,7 @@
     <Button
         android:id="@+id/bottomBtn1"
         style="@style/ButtonRoundMain"
-        android:text="모름"
+        android:text="아니오"
         app:layout_constraintStart_toEndOf="@id/bottomBtn0"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintBottom_toBottomOf="@+id/bottomBtn0" />

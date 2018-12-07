@@ -25,8 +25,8 @@
 
     <Button
         android:id="@+id/carIncreaseBtn"
-        style="@style/ButtonMainMenuFullRound"
-        android:layout_marginTop="16.7dp"
+        style="@style/ButtonSubMenuFullRound"
+        android:layout_marginTop="15.3dp"
         android:paddingStart="112.7dp"
         android:text="배차 추가, 감차"
         android:drawableStart="@drawable/selector_icon_truck"
@@ -48,7 +48,7 @@
         android:id="@+id/carIncreaseGuideTxt0"
         style="@style/TextViewGuide"
         android:layout_marginStart="7.7dp"
-        android:layout_marginTop="13.3dp"
+        android:layout_marginTop="6.7dp"
         android:text="@string/car_alloc_increase_decrease_0"
         app:layout_constraintTop_toBottomOf="@+id/carIncreaseBtn"
         app:layout_constraintStart_toEndOf="@id/carIncreaseGuideArw0"
@@ -66,7 +66,7 @@
     <TextView
         android:id="@+id/carIncreaseGuideTxt1"
         style="@style/TextViewGuide"
-        android:layout_marginTop="16.7dp"
+        android:layout_marginTop="14.7dp"
         android:text="@string/car_alloc_increase_decrease_1"
         app:layout_constraintTop_toBottomOf="@+id/carIncreaseGuideTxt0"
         app:layout_constraintStart_toStartOf="@id/carIncreaseGuideTxt0"
@@ -74,8 +74,8 @@
 
     <Button
         android:id="@+id/carCountFixBtn"
-        style="@style/ButtonMainMenuFullRound"
-        android:layout_marginTop="40dp"
+        style="@style/ButtonSubMenuFullRound"
+        android:layout_marginTop="38.7dp"
         android:paddingStart="112.7dp"
         android:text="고정 대수 설정"
         android:drawableStart="@drawable/selector_icon_pin"
@@ -96,7 +96,7 @@
     <TextView
         android:id="@+id/carCountFixGuideTxt"
         style="@style/TextViewGuide"
-        android:layout_marginTop="16.7dp"
+        android:layout_marginTop="9.7dp"
         android:text="@string/car_count_fix_setting"
         app:layout_constraintTop_toBottomOf="@+id/carCountFixBtn"
         app:layout_constraintStart_toStartOf="@id/carIncreaseGuideTxt0"
