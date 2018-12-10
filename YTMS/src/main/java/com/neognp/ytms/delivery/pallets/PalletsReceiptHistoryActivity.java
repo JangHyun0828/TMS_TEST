@@ -24,8 +24,10 @@ import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.neognp.ytms.login.LoginActivity;
 import com.neognp.ytms.popup.CountEditDialog;
 import com.trevor.library.template.BasicActivity;
+import com.trevor.library.util.DeviceUtil;
 
 import org.json.JSONObject;
 
@@ -152,6 +154,17 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
             search();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void onBackPressed() {
+        // TEST
+        if (DeviceUtil.getUuid().endsWith("810d") && Key.getUserInfo() != null && Key.getUserInfo().getString("AUTH_CD").equals("MST")) {
+            // 앱 새로 실행 | 모든 Activity 삭제
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 
@@ -504,8 +517,8 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                     String REQUEST_DT = Key.SDF_CAL_DEFAULT.format(Key.SDF_PAYLOAD.parse(item.getString("REQUEST_DT", "")));
                     ((TextView) itemView.findViewById(R.id.dataTxt2)).setText(REQUEST_DT);
 
-                    //  TODO 수량
-                    //((TextView) itemView.findViewById(R.id.dataTxt3)).setText(item.getString(""));
+                    // 수량
+                    ((TextView) itemView.findViewById(R.id.dataTxt3)).setText(item.getString("REQ_PALLET_CNT", "0"));
 
                     // 처리
                     TextView receiptBtn = itemView.findViewById(R.id.receiptBtn);
@@ -513,22 +526,22 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                     TextView completionBtn = itemView.findViewById(R.id.completionBtn);
 
                     String STATUS = item.getString("STATUS", "N");
-                    // TODO 접수
-                    if (STATUS.equalsIgnoreCase("Y")) {
+                    // 접수
+                    if (STATUS.equalsIgnoreCase("N")) {
                         checkImg.setVisibility(View.VISIBLE);
                         receiptBtn.setVisibility(View.VISIBLE);
                         dispatchBtn.setVisibility(View.INVISIBLE);
                         completionBtn.setVisibility(View.INVISIBLE);
                     }
-                    // TODO 발송
-                    else {
+                    // 발송
+                    else if (STATUS.equalsIgnoreCase("Y")) {
                         checkImg.setVisibility(View.VISIBLE);
                         receiptBtn.setVisibility(View.INVISIBLE);
                         dispatchBtn.setVisibility(View.VISIBLE);
                         completionBtn.setVisibility(View.INVISIBLE);
                     }
-                    // TODO 완료
-                    {
+                    // 완료
+                    else if (STATUS.equalsIgnoreCase("F")) {
                         checkImg.setVisibility(View.VISIBLE);
                         receiptBtn.setVisibility(View.INVISIBLE);
                         dispatchBtn.setVisibility(View.INVISIBLE);

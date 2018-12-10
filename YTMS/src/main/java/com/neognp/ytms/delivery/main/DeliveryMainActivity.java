@@ -25,6 +25,7 @@ import com.neognp.ytms.notice.NoticeListActivity;
 import com.neognp.ytms.thirdparty.account.ThirdPartyAccountActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.DeviceUtil;
 
 import org.json.JSONObject;
 
@@ -79,6 +80,17 @@ public class DeliveryMainActivity extends BasicActivity {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void onBackPressed() {
+        // TEST
+        if (DeviceUtil.getUuid().endsWith("810d")) {
+            // 앱 새로 실행 | 모든 Activity 삭제
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 

@@ -14,6 +14,7 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.GravityCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -32,9 +33,11 @@ import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
 import com.neognp.ytms.carowner.receipt.ReceiptDispatchCheckActivity;
 import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.neognp.ytms.login.LoginActivity;
 import com.neognp.ytms.notice.NoticeListActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.DeviceUtil;
 
 import org.json.JSONObject;
 
@@ -162,6 +165,17 @@ public class CarOwnerMainActivity extends BasicActivity {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void onBackPressed() {
+        // TEST
+        if (DeviceUtil.getUuid().endsWith("810d")) {
+            // 앱 새로 실행 | 모든 Activity 삭제
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 

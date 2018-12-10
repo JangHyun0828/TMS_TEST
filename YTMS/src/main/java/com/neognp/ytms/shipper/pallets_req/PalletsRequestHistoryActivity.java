@@ -23,8 +23,10 @@ import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.neognp.ytms.login.LoginActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.DeviceUtil;
 
 import org.json.JSONObject;
 
@@ -69,7 +71,7 @@ public class PalletsRequestHistoryActivity extends BasicActivity {
         toDateBtn = (Button) findViewById(R.id.toDateBtn);
         toDateBtn.setText(Key.SDF_CAL_DEFAULT.format(toCal.getTime()));
 
-        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
