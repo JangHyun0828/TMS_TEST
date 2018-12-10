@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.neognp.ytms.R;
@@ -38,7 +39,7 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
     private Button curDateBtn;
 
     private TextView palletsFixedCntTxt, carsFixedCntTxt;
-    private TextView palletsNewCntTxt, carsNewCntTxt;
+    private EditText palletsNewCntEdit, carsNewCntEdit;
 
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -71,14 +72,14 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
         palletsFixedCntTxt = contentView.findViewById(R.id.palletsFixedCntTxt);
 
         View palletsInputView = contentView.findViewById(R.id.palletsInputView);
-        palletsNewCntTxt = palletsInputView.findViewById(R.id.itemsCntTxt);
+        palletsNewCntEdit = palletsInputView.findViewById(R.id.itemsCntEdit);
         palletsInputView.findViewById(R.id.minusBtn).setOnClickListener(palletsInputListener);
         palletsInputView.findViewById(R.id.plusBtn).setOnClickListener(palletsInputListener);
 
         carsFixedCntTxt = contentView.findViewById(R.id.carsFixedCntTxt);
 
         View carsInputView = contentView.findViewById(R.id.carsInputView);
-        carsNewCntTxt = carsInputView.findViewById(R.id.itemsCntTxt);
+        carsNewCntEdit = carsInputView.findViewById(R.id.itemsCntEdit);
         carsInputView.findViewById(R.id.minusBtn).setOnClickListener(carsInputListener);
         carsInputView.findViewById(R.id.plusBtn).setOnClickListener(carsInputListener);
 
@@ -137,12 +138,12 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                 case R.id.minusBtn:
                     if (palletsCnt - 1 >= 0) {
                         palletsCnt--;
-                        palletsNewCntTxt.setText("" + palletsCnt);
+                        palletsNewCntEdit.setText("" + palletsCnt);
                     }
                     break;
                 case R.id.plusBtn:
                     palletsCnt++;
-                    palletsNewCntTxt.setText("" + palletsCnt);
+                    palletsNewCntEdit.setText("" + palletsCnt);
                     break;
             }
         }
@@ -157,12 +158,12 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                 case R.id.minusBtn:
                     if (carsCnt - 1 >= 0) {
                         carsCnt--;
-                        carsNewCntTxt.setText("" + carsCnt);
+                        carsNewCntEdit.setText("" + carsCnt);
                     }
                     break;
                 case R.id.plusBtn:
                     carsCnt++;
-                    carsNewCntTxt.setText("" + carsCnt);
+                    carsNewCntEdit.setText("" + carsCnt);
                     break;
             }
         }
@@ -279,11 +280,11 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
         try {
             palletsFixedCntTxt.setText(data.getString("PALLET_CNT", "0"));
             palletsCnt = Integer.parseInt(data.getString("C_PALLET_CNT", "0"));
-            palletsNewCntTxt.setText("" + palletsCnt);
+            palletsNewCntEdit.setText("" + palletsCnt);
 
             carsFixedCntTxt.setText(data.getString("CAR_CNT", "0"));
             carsCnt = Integer.parseInt(data.getString("C_PALLET_CNT", "0"));
-            carsNewCntTxt.setText("" + carsCnt);
+            carsNewCntEdit.setText("" + carsCnt);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -300,20 +301,20 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
 
             final String requestDt = Key.SDF_PAYLOAD.format(curCal.getTime());
 
-            String PALLET_CNT = palletsNewCntTxt.getText().toString();
-            if (PALLET_CNT.equals("0")) {
+            String PALLET_CNT = palletsNewCntEdit.getText().toString();
+            if (PALLET_CNT.isEmpty() || PALLET_CNT.equals("0") || PALLET_CNT.equals("-")) {
                 showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
                 return;
             }
 
-            String palletCnt = palletsNewCntTxt.getText().toString();
+            String palletCnt = palletsNewCntEdit.getText().toString();
             if (palletCnt.equals("0")) {
                 showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
                 return;
             }
 
-            //String carCnt = carsNewCntTxt.getText().toString();
-            //if (carCnt.equals("0")) {
+            //String carCnt = carsNewCntEdit.getText().toString();
+            //if (carCnt.isEmpty() || carCnt.equals("0") || carCnt.equals("-")) {
             //    showToast("차량 대수를 1대 이상 입력해 주십시요.", true);
             //    return;
             //}

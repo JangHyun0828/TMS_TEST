@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -499,8 +500,8 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                     });
 
                     // 팔레트수
-                    TextView itemsCntTxt = (TextView) itemView.findViewById(R.id.itemsCntTxt);
-                    itemsCntTxt.setText(item.getString("PALLET_CNT", "0"));
+                    EditText itemsCntEdit = itemView.findViewById(R.id.itemsCntEdit);
+                    itemsCntEdit.setText(item.getString("PALLET_CNT", "0"));
 
                     // 비고
                     TextView remarkTxt = (TextView) itemView.findViewById(R.id.remarkTxt);
@@ -532,10 +533,13 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                     minusBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            int itemsCnt = Integer.parseInt(((TextView) itemView.findViewById(R.id.itemsCntTxt)).getText().toString());
+                           String cnt = ((EditText)itemView.findViewById(R.id.itemsCntEdit)).getText().toString();
+                           if(cnt.isEmpty() || cnt.equals("-"))
+                               return;
+                            int itemsCnt = Integer.parseInt(cnt);
                             if (itemsCnt - 1 >= 0) {
                                 itemsCnt--;
-                                itemsCntTxt.setText("" + itemsCnt);
+                                itemsCntEdit.setText("" + itemsCnt);
                                 try
                                 {
                                     obj.put("PALLET_CNT", itemsCnt);
@@ -553,9 +557,12 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                     plusBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            int itemsCnt = Integer.parseInt(((TextView) itemView.findViewById(R.id.itemsCntTxt)).getText().toString());
+                            String cnt = ((EditText)itemView.findViewById(R.id.itemsCntEdit)).getText().toString();
+                            if(cnt.isEmpty() || cnt.equals("-"))
+                                return;
+                            int itemsCnt = Integer.parseInt(cnt);
                             itemsCnt++;
-                            itemsCntTxt.setText("" + itemsCnt);
+                            itemsCntEdit.setText("" + itemsCnt);
                             try
                             {
                                 obj.put("PALLET_CNT", itemsCnt);

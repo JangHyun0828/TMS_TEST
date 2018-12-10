@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.neognp.ytms.R;
@@ -26,7 +27,7 @@ public class PalletsInputActivity extends BasicActivity {
 
     private int palletsCnt;
 
-    private TextView palletsCntTxt;
+    private EditText palletsCntEdit;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class PalletsInputActivity extends BasicActivity {
 
         setTitleBar("상차 팔레트 수 입력", R.drawable.selector_button_back, 0, 0);
 
-        palletsCntTxt = findViewById(R.id.itemsCntTxt);
+        palletsCntEdit = findViewById(R.id.itemsCntEdit);
 
         init();
     }
@@ -54,7 +55,7 @@ public class PalletsInputActivity extends BasicActivity {
                 return;
 
             palletsCnt = Integer.parseInt(args.getString("PALLET_CNT", "0"));
-            palletsCntTxt.setText("" + palletsCnt);
+            palletsCntEdit.setText("" + palletsCnt);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,12 +72,12 @@ public class PalletsInputActivity extends BasicActivity {
             case R.id.minusBtn:
                 if (palletsCnt - 1 >= 0) {
                     palletsCnt--;
-                    palletsCntTxt.setText("" + palletsCnt);
+                    palletsCntEdit.setText("" + palletsCnt);
                 }
                 break;
             case R.id.plusBtn:
                 palletsCnt++;
-                palletsCntTxt.setText("" + palletsCnt);
+                palletsCntEdit.setText("" + palletsCnt);
                 break;
             case R.id.bottomBtn0:
                 requestPalletsInput();
@@ -102,8 +103,8 @@ public class PalletsInputActivity extends BasicActivity {
             if (Key.getUserInfo() == null)
                 return;
 
-            String palletCnt = palletsCntTxt.getText().toString();
-            if (palletCnt.equals("0")) {
+            String palletCnt = palletsCntEdit.getText().toString();
+            if (palletCnt.isEmpty() || palletCnt.equals("0") || palletCnt.equals("-")) {
                 showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
                 return;
             }

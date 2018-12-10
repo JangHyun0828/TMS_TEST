@@ -29,14 +29,17 @@
         android:onClick="onClick"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/itemImg"
-        app:layout_constraintEnd_toStartOf="@id/itemsCntTxt" />
+        app:layout_constraintEnd_toStartOf="@id/itemsCntEdit" />
 
-    <TextView
-        android:id="@+id/itemsCntTxt"
+    <EditText
+        android:id="@+id/itemsCntEdit"
         android:layout_width="81.3dp"
         android:layout_height="41.3dp"
         android:layout_marginStart="20dp"
         android:gravity="center"
+        android:maxLines="1"
+        android:maxLength="5"
+        android:inputType="numberSigned"
         android:textSize="16.7sp"
         android:textColor="#4e4d4d"
         android:background="@drawable/bg_input_rect_round_white_stroke_gray"
@@ -56,7 +59,7 @@
         android:background="@null"
         android:onClick="onClick"
         app:layout_constraintTop_toTopOf="@id/minusBtn"
-        app:layout_constraintStart_toEndOf="@id/itemsCntTxt"
+        app:layout_constraintStart_toEndOf="@id/itemsCntEdit"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
