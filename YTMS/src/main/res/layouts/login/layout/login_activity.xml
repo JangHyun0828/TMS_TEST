@@ -174,6 +174,19 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@id/testAccountTxt0"
         app:layout_constraintTop_toBottomOf="@+id/testAccountTxt2"
+        app:layout_constraintBottom_toTopOf="@+id/testAccountTxt4"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+
+    <TextView
+        android:id="@+id/testAccountTxt4"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="end|center_vertical"
+        android:text="관리자(MST): 01000000000 / 1"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@id/testAccountTxt0"
+        app:layout_constraintTop_toBottomOf="@+id/testAccountTxt3"
         app:layout_constraintBottom_toTopOf="@+id/bottomCenterInfoView"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 

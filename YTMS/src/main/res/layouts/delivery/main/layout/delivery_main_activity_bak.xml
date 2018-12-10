@@ -29,7 +29,6 @@
         android:id="@+id/menuBtn0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6.1dp"
         android:background="@drawable/selector_button_main_menu_delivery"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/topUserInfoView"
@@ -326,7 +325,7 @@
         android:id="@+id/menuBtn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/selector_button_main_menu_direct_delivery_query"
+        android:background="@drawable/selector_button_main_menu_pallets_small"
         android:clickable="true"
         android:onClick="onClick"
         android:stateListAnimator="@null"
@@ -339,10 +338,10 @@
         <TextView
             style="@style/ButtonMainMenu"
             android:layout_gravity="center_vertical|end"
-            android:paddingEnd="102.7dp"
+            android:paddingEnd="111dp"
             android:paddingBottom="0.6dp"
             android:textSize="13.2dp"
-            android:text="직송 조회" />
+            android:text="팔레트 접수" />
 
         <TextView
             android:id="@+id/menuBtn3IconTxt"
@@ -350,48 +349,62 @@
             android:layout_gravity="start|bottom"
             android:layout_marginStart="27.3dp"
             android:paddingBottom="20dp"
-            android:text="조회" />
+            android:text="접수" />
 
     </FrameLayout>
 
-    <FrameLayout
+    <Button
         android:id="@+id/menuBtn4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/selector_button_main_menu_notice_small"
-        android:clickable="true"
-        android:onClick="onClick"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical|start"
+        android:drawablePadding="8.3dp"
+        android:drawableStart="@drawable/selector_icon_main_menu_direct_delivery_query"
+        android:paddingStart="48dp"
+        android:paddingBottom="6dp"
+        android:textColor="@color/selector_button_main_menu_icon_text"
+        android:textSize="13.2dp"
+        android:text="직송조회"
+        android:background="@drawable/selector_button_main_menu_small"
         android:stateListAnimator="@null"
+        android:onClick="onClick"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn3"
         app:layout_constraintBottom_toTopOf="@+id/bottomCenterInfoView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintStart_toStartOf="@id/menuBtn0"
+        app:layout_constraintEnd_toStartOf="@id/menuBtn5" />
 
-        <TextView
-            style="@style/ButtonMainMenu"
-            android:layout_gravity="center_vertical|end"
-            android:paddingEnd="102.7dp"
-            android:paddingBottom="0.6dp"
-            android:textSize="13.2dp"
-            android:text="공지사항" />
-
-        <TextView
-            android:id="@+id/menuBtn4IconTxt"
-            style="@style/TextViewMainMenuIconSmall"
-            android:layout_gravity="start|bottom"
-            android:layout_marginStart="14dp"
-            android:paddingBottom="20dp"
-            android:text="공지사항" />
-
-    </FrameLayout>
+    <Button
+        android:id="@+id/menuBtn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center_vertical|start"
+        android:drawablePadding="8.3dp"
+        android:drawableStart="@drawable/selector_icon_main_menu_notice"
+        android:paddingStart="48.7dp"
+        android:paddingBottom="6dp"
+        android:textColor="@color/selector_button_main_menu_icon_text"
+        android:textSize="13.2dp"
+        android:text="공지사항"
+        android:background="@drawable/selector_button_main_menu_small"
+        android:stateListAnimator="@null"
+        android:onClick="onClick"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintTop_toTopOf="@+id/menuBtn4"
+        app:layout_constraintStart_toEndOf="@id/menuBtn4"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn0" />
 
     <TextView
         android:id="@+id/noticeBadgeCntTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="69dp"
-        android:layout_marginEnd="15.3dp"
+        android:layout_marginBottom="57.5dp"
+        android:layout_marginEnd="19.3dp"
         android:paddingEnd="1dp"
         android:minWidth="18.3dp"
         android:minHeight="18.3dp"
@@ -401,9 +414,9 @@
         android:background="@drawable/bg_badge"
         android:text="0"
         android:fontFamily="@font/my_nanum_square_r"
-        app:layout_constraintBottom_toBottomOf="@+id/menuBtn4"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn4"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/menuBtn5"
+        app:layout_constraintEnd_toEndOf="@id/menuBtn5" />
 
     <include
         android:id="@+id/bottomCenterInfoView"

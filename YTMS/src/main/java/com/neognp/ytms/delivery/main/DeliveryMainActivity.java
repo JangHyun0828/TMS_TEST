@@ -107,16 +107,12 @@ public class DeliveryMainActivity extends BasicActivity {
             // 반품
             case R.id.menuBtn2:
                 break;
-                // 접수
-            case R.id.menuBtn3:
-                startActivity(new Intent(this, PalletsReceiptHistoryActivity.class), options.toBundle());
-                break;
             // 직송조회
-            case R.id.menuBtn4:
+            case R.id.menuBtn3:
                 startActivity(new Intent(this, DirectDeliveryActivity.class), options.toBundle());
                 break;
             // 공지사항
-            case R.id.menuBtn5:
+            case R.id.menuBtn4:
                 startActivity(new Intent(this, NoticeListActivity.class), options.toBundle());
                 break;
             case R.id.bottomCenterInfoView:
@@ -124,6 +120,49 @@ public class DeliveryMainActivity extends BasicActivity {
                 break;
         }
     }
+
+    // TODO 아이콘 위치에서 Activity 가 커지는 material animation 적용
+    //public void onClick(View v) {
+    //    InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    //    mgr.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
+    //
+    //    ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.slide_in_from_right, R.anim.fade_out);
+    //
+    //    switch (v.getId()) {
+    //        case R.id.titleLeftBtn0:
+    //            break;
+    //        case R.id.titleRightBtn1:
+    //            requestLoginActivity();
+    //            break;
+    //        case R.id.userNameTxt:
+    //            break;
+    //        // 수송
+    //        case R.id.menuBtn0:
+    //            break;
+    //        // 상태
+    //        case R.id.menuBtn1:
+    //            startActivity(new Intent(this, DeliveryCarAllocInfoActivity.class), options.toBundle());
+    //            break;
+    //        // 반품
+    //        case R.id.menuBtn2:
+    //            break;
+    //            // 접수
+    //        case R.id.menuBtn3:
+    //            startActivity(new Intent(this, PalletsReceiptHistoryActivity.class), options.toBundle());
+    //            break;
+    //        // 직송조회
+    //        case R.id.menuBtn4:
+    //            startActivity(new Intent(this, DirectDeliveryActivity.class), options.toBundle());
+    //            break;
+    //        // 공지사항
+    //        case R.id.menuBtn5:
+    //            startActivity(new Intent(this, NoticeListActivity.class), options.toBundle());
+    //            break;
+    //        case R.id.bottomCenterInfoView:
+    //            AppUtil.runCallApp(getString(R.string.customer_call_center_phone_no), true);
+    //            break;
+    //    }
+    //}
 
     private void requestLoginActivity() {
         finish();

@@ -23,6 +23,7 @@ import com.neognp.ytms.app.Key;
 import com.neognp.ytms.app.MyApp;
 import com.neognp.ytms.carowner.main.CarOwnerMainActivity;
 import com.neognp.ytms.delivery.main.DeliveryMainActivity;
+import com.neognp.ytms.delivery.pallets.PalletsReceiptHistoryActivity;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.shipper.main.ShipperMainActivity;
 import com.neognp.ytms.thirdparty.main.ThirdPartyMainActivity;
@@ -65,9 +66,6 @@ public class LoginActivity extends BasicActivity {
         ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.customer_call_center_phone_no));
 
         idEdit.setText(TextUtil.formatPhoneNumber(DeviceUtil.getPhoneNumber()));
-
-        // TEST
-        //idEdit.setText(TextUtil.formatPhoneNumber("01012345678"));
 
         if (MyApp.onTest) {
             findViewById(R.id.testAccountGroup).setVisibility(View.VISIBLE);
@@ -116,6 +114,18 @@ public class LoginActivity extends BasicActivity {
             testAccountTxt3.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     idEdit.setText(TextUtil.formatPhoneNumber("01088888888"));
+                    pwdEdit.setText("1");
+                }
+            });
+
+            TextView testAccountTxt4 = ((TextView) findViewById(R.id.testAccountTxt4));
+            testAccountTxt4.setVisibility(View.VISIBLE);
+            content = new SpannableString(testAccountTxt4.getText());
+            content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+            testAccountTxt4.setText(content);
+            testAccountTxt4.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    idEdit.setText(TextUtil.formatPhoneNumber("01000000000"));
                     pwdEdit.setText("1");
                 }
             });
@@ -222,7 +232,6 @@ public class LoginActivity extends BasicActivity {
                                 showMainActivity();
                             }
                         } else {
-                            //showToast(result_msg + "(result_code:" + result_code + ")", true);
                             showToast("ID 또는 비밀번호를 다시 확인하세요.\n등록되지 않은 ID이거나, ID 또는 비밀번호를 잘못 입력하였습니다.", true);
                         }
                     } catch (Exception e) {
@@ -244,14 +253,25 @@ public class LoginActivity extends BasicActivity {
 
         ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.slide_in_from_right, R.anim.fade_out);
         Intent intent = null;
+        // 화주
         if (AUTH_CD.equals("CST")) {
             intent = new Intent(getContext(), ShipperMainActivity.class);
-        } else if (AUTH_CD.equals("CAR")) {
+        }
+        // 차주
+        else if (AUTH_CD.equals("CAR")) {
             intent = new Intent(getContext(), CarOwnerMainActivity.class);
-        } else if (AUTH_CD.equals("DC")) {
+        }
+        // 배송센터
+        else if (AUTH_CD.equals("DC")) {
             intent = new Intent(getContext(), DeliveryMainActivity.class);
-        } else if (AUTH_CD.equals("TPL")) {
+        }
+        // 보관센터
+        else if (AUTH_CD.equals("TPL")) {
             intent = new Intent(getContext(), ThirdPartyMainActivity.class);
+        }
+        // 관리자: 배송센터>팔레트 요청 접수내역 이동
+        else if (AUTH_CD.equals("MST")) {
+            intent = new Intent(getContext(), PalletsReceiptHistoryActivity.class);
         }
 
         // 앱 새로 실행 | 모든 Activity 삭제
