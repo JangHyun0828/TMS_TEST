@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.neognp.ytms.R;
@@ -29,8 +30,12 @@ public class PalletsRequestActivity extends BasicActivity {
     private boolean onReq;
 
     private Calendar curCal;
+    private int palletsCnt;
 
     private Button curDateBtn;
+
+    private TextView palletsFixedCntTxt;
+    private EditText palletsNewCntEdit;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,13 @@ public class PalletsRequestActivity extends BasicActivity {
 
         curDateBtn = findViewById(R.id.curDateBtn);
         curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
+
+        palletsFixedCntTxt = findViewById(R.id.palletsFixedCntTxt);
+
+        View palletsInputView = findViewById(R.id.palletsInputView);
+        palletsNewCntEdit = palletsInputView.findViewById(R.id.itemsCntEdit);
+        palletsInputView.findViewById(R.id.minusBtn).setOnClickListener(palletsInputListener);
+        palletsInputView.findViewById(R.id.plusBtn).setOnClickListener(palletsInputListener);
 
         ((TextView) findViewById(R.id.callCenterTxt)).setText("팔레트 담당자 연결");
         ((TextView) findViewById(R.id.callCenterPhoneNoTxt)).setText(getString(R.string.pallets_call_center_phone_no));
@@ -99,6 +111,28 @@ public class PalletsRequestActivity extends BasicActivity {
                 break;
         }
     }
+
+    private View.OnClickListener palletsInputListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            mgr.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
+
+            switch (v.getId()) {
+                case R.id.minusBtn:
+                    if (palletsCnt - 1 >= 0) {
+                        palletsCnt--;
+                        palletsNewCntEdit.setText("" + palletsCnt);
+                    }
+                    break;
+                case R.id.plusBtn:
+                    palletsCnt++;
+                    palletsNewCntEdit.setText("" + palletsCnt);
+                    break;
+            }
+
+            palletsNewCntEdit.setSelection(palletsNewCntEdit.getText().length());
+        }
+    };
 
     private void showCalendar() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
@@ -159,20 +193,6 @@ public class PalletsRequestActivity extends BasicActivity {
 
             final String requestDt = Key.SDF_PAYLOAD.format(curCal.getTime());
 
-            //String PALLET_CNT = palletsNewCntTxt.getText().toString();
-            //if (PALLET_CNT.equals("0")) {
-            //    showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
-            //    return;
-            //}
-            //
-            //String palletCnt = palletsNewCntTxt.getText().toString();
-            //if (palletCnt.equals("0")) {
-            //    showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
-            //    return;
-            //}
-
-            final String palletCnt = "1";
-
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
                     onReq = true;
@@ -186,7 +206,6 @@ public class PalletsRequestActivity extends BasicActivity {
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
                         payloadJson.put("custCd", Key.getUserInfo().getString("CLIENT_CD"));
                         payloadJson.put("requestDt", requestDt);
-                        payloadJson.put("palletCnt", palletCnt);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -225,10 +244,10 @@ public class PalletsRequestActivity extends BasicActivity {
 
         try {
             String REQUEST_YN = data.getString("REQUEST_YN", "");
-            if (REQUEST_YN.equalsIgnoreCase("Y"))
-                ((TextView) findViewById(R.id.contentTxt)).setText("요청");
-            else
-                ((TextView) findViewById(R.id.contentTxt)).setText("미요청");
+            //if (REQUEST_YN.equalsIgnoreCase("Y"))
+            //    ((TextView) findViewById(R.id.contentTxt)).setText("요청");
+            //else
+            //    ((TextView) findViewById(R.id.contentTxt)).setText("미요청");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -245,6 +264,12 @@ public class PalletsRequestActivity extends BasicActivity {
 
             final String requestDt = Key.SDF_PAYLOAD.format(curCal.getTime());
 
+            final String palletCnt = palletsNewCntEdit.getText().toString();
+            if (palletCnt.isEmpty() || palletCnt.equals("0") || palletCnt.equals("-")) {
+                showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
+                return;
+            }
+
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
                     onReq = true;
@@ -258,6 +283,7 @@ public class PalletsRequestActivity extends BasicActivity {
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
                         payloadJson.put("custCd", Key.getUserInfo().getString("CLIENT_CD"));
                         payloadJson.put("requestDt", requestDt);
+                        payloadJson.put("palletCnt", palletCnt);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -290,15 +316,6 @@ public class PalletsRequestActivity extends BasicActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void showActivity(Bundle args) {
-        if (args == null)
-            return;
-
-        // Intent intent = new Intent(this, Activity.class);
-        // intent.putExtra(LibKey.args, args);
-        // startActivityForResult(intent, REQUEST_);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

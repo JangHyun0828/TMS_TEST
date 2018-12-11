@@ -37,7 +37,7 @@
     <TextView
         android:id="@+id/columnTxt0"
         android:layout_width="0dp"
-        android:layout_height="34.3dp"
+        android:layout_height="36.7dp"
         android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/main_theme"
@@ -102,9 +102,9 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingTop="35.6dp"
+        android:layout_marginTop="38dp"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
-        app:layout_constraintBottom_toTopOf="@+id/btmDivider"
+        app:layout_constraintBottom_toTopOf="@+id/bottomSumView"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -118,39 +118,11 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <View
-        android:id="@+id/btmDivider"
-        android:layout_width="0dp"
-        android:layout_height="1.3dp"
-        android:background="@color/main_theme"
-        app:layout_constraintStart_toEndOf="@id/startGuideline"
-        app:layout_constraintEnd_toStartOf="@id/endGuideline"
-        app:layout_constraintBottom_toTopOf="@+id/totalTitle" />
-
-    <TextView
-        android:id="@+id/totalTitle"
-        android:layout_width="0dp"
-        android:layout_height="35.6dp"
-        android:layout_marginEnd="30dp"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:textColor="@color/main_theme"
-        android:text="합계"
-        app:layout_constraintEnd_toStartOf="@id/totalTxt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:fontFamily="@font/nanum_square_r" />
-
-    <TextView
-        android:id="@+id/totalTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:textColor="@color/main_theme"
-        android:text="00 건"
-        app:layout_constraintTop_toTopOf="@+id/totalTitle"
-        app:layout_constraintBottom_toBottomOf="@+id/totalTitle"
-        app:layout_constraintEnd_toEndOf="@id/btmDivider"
-        app:fontFamily="@font/nanum_square_r" />
+    <include
+        android:id="@+id/bottomSumView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/bottom_sum_view"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

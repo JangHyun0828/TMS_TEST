@@ -33,82 +33,78 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="10dp" />
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/contentScroll"
-        style="@style/Scrollbar"
-        android:layout_width="0dp"
+    <!-- 팔레트 수-->
+
+    <View
+        android:id="@+id/palletsCntBar"
+        android:layout_width="4.3dp"
+        android:layout_height="14dp"
+        android:background="#bfd7f1"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@+id/palletsCntTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/palletsCntTitle" />
+
+    <TextView
+        android:id="@+id/palletsCntTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8.3dp"
-        android:clipToPadding="false"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/dateView"
-        app:layout_constraintBottom_toTopOf="@+id/bottomBtn0"
-        app:layout_constraintStart_toEndOf="@id/startGuideline"
-        app:layout_constraintEnd_toStartOf="@id/endGuideline">
+        android:layout_marginStart="7dp"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text="팔레트 수 : "
+        app:layout_constraintStart_toEndOf="@id/palletsCntBar"
+        app:layout_constraintTop_toBottomOf="@+id/dateView"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_round_stroke_gray">
+    <TextView
+        android:id="@+id/palletsFixedCntTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#3668a5"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@id/palletsCntTitle"
+        app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
-            <TextView
-                android:id="@+id/contentTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
-                android:gravity="center_vertical|end"
-                android:textSize="16sp"
-                android:textColor="#4d4c4c"
-                android:text="요청여부: "
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/contentTxt"
-                app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+    <TextView
+        android:id="@+id/palletsCntSuffix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#4d4c4c"
+        android:text=" 팔레트"
+        app:layout_constraintStart_toEndOf="@id/palletsFixedCntTxt"
+        app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
-            <TextView
-                android:id="@+id/contentTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:minHeight="100dp"
-                android:gravity="center_vertical|start"
-                android:textSize="19sp"
-                android:textColor="@color/main_theme"
-                app:layout_constraintStart_toEndOf="@id/contentTitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+    <include
+        android:id="@+id/palletsInputView"
+        layout="@layout/pallets_input_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/palletsCntTitle" />
 
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v4.widget.NestedScrollView>
+    <!-- 저장 / 요청내역 확인 -->
 
     <Button
         android:id="@+id/bottomBtn0"
         style="@style/ButtonRoundMain"
-        android:layout_marginTop="8.3dp"
-        android:text="요청"
-        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8.3dp"
+        android:text="저장"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintEnd_toStartOf="@id/bottomBtn1"
-        app:layout_constraintTop_toBottomOf="@+id/contentScroll"
-        app:layout_constraintBottom_toTopOf="@id/bottomSpace" />
+        app:layout_constraintBottom_toTopOf="@id/callCenterBtn" />
 
     <Button
         android:id="@+id/bottomBtn1"
         style="@style/ButtonRoundMain"
-        android:layout_marginStart="10dp"
         android:text="요청내역 확인"
-        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/bottomBtn0"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintBottom_toBottomOf="@+id/bottomBtn0" />
-
-    <Space
-        android:id="@+id/bottomSpace"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:minHeight="8.3dp"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/bottomBtn0"
-        app:layout_constraintBottom_toTopOf="@id/callCenterBtn" />
 
     <include
         android:id="@+id/callCenterBtn"

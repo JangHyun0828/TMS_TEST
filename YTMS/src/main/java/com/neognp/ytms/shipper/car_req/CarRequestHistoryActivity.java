@@ -61,7 +61,7 @@ public class CarRequestHistoryActivity extends BasicActivity {
         fromCal.setTimeInMillis(toCal.getTimeInMillis());
         fromCal.add(Calendar.DAY_OF_MONTH, -31); // TEST
 
-        setTitleBar("차량요청 내역조회", 0, 0, R.drawable.selector_button_close);
+        setTitleBar("차량요청 내역조회", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
         fromDateBtn = (Button) findViewById(R.id.fromDateBtn);
         fromDateBtn.setText(Key.SDF_CAL_DEFAULT.format(fromCal.getTime()));
@@ -69,7 +69,7 @@ public class CarRequestHistoryActivity extends BasicActivity {
         toDateBtn = (Button) findViewById(R.id.toDateBtn);
         toDateBtn.setText(Key.SDF_CAL_DEFAULT.format(toCal.getTime()));
 
-        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getIntArray(R.array.SwipeRefreshLayout_ColorScheme));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             public void onRefresh() {
@@ -163,9 +163,10 @@ public class CarRequestHistoryActivity extends BasicActivity {
 
         switch (v.getId()) {
             case R.id.titleLeftBtn0:
+                finish();
                 break;
             case R.id.titleRightBtn1:
-                finish();
+                search();
                 break;
             case R.id.prevDateBtn:
                 setPrevDate();
@@ -213,6 +214,8 @@ public class CarRequestHistoryActivity extends BasicActivity {
                     fromDateBtn.setText(Key.SDF_CAL_DEFAULT.format(cal.getTime()));
                 else if (cal == toCal)
                     toDateBtn.setText(Key.SDF_CAL_DEFAULT.format(cal.getTime()));
+
+                search();
             }
         }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 

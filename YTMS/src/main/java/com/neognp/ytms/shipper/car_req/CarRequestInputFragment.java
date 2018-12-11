@@ -32,7 +32,6 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
     private boolean onReq;
 
     private Calendar curCal;
-
     private int palletsCnt, carsCnt;
 
     private View contentView;
@@ -70,14 +69,12 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
         contentView.findViewById(R.id.nextDateBtn).setOnClickListener(this);
 
         palletsFixedCntTxt = contentView.findViewById(R.id.palletsFixedCntTxt);
-
         View palletsInputView = contentView.findViewById(R.id.palletsInputView);
         palletsNewCntEdit = palletsInputView.findViewById(R.id.itemsCntEdit);
         palletsInputView.findViewById(R.id.minusBtn).setOnClickListener(palletsInputListener);
         palletsInputView.findViewById(R.id.plusBtn).setOnClickListener(palletsInputListener);
 
         carsFixedCntTxt = contentView.findViewById(R.id.carsFixedCntTxt);
-
         View carsInputView = contentView.findViewById(R.id.carsInputView);
         carsNewCntEdit = carsInputView.findViewById(R.id.itemsCntEdit);
         carsInputView.findViewById(R.id.minusBtn).setOnClickListener(carsInputListener);
@@ -146,6 +143,8 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                     palletsNewCntEdit.setText("" + palletsCnt);
                     break;
             }
+
+            palletsNewCntEdit.setSelection(palletsNewCntEdit.getText().length());
         }
     };
 
@@ -166,20 +165,10 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                     carsNewCntEdit.setText("" + carsCnt);
                     break;
             }
+
+            carsNewCntEdit.setSelection(carsNewCntEdit.getText().length());
         }
     };
-
-    private void setPrevDate() {
-        curCal.add(Calendar.DAY_OF_YEAR, -1);
-        curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
-        search();
-    }
-
-    private void setNextDate() {
-        curCal.add(Calendar.DAY_OF_YEAR, 1);
-        curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
-        search();
-    }
 
     private void showCalendar() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
@@ -196,6 +185,18 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
         }, curCal.get(Calendar.YEAR), curCal.get(Calendar.MONTH), curCal.get(Calendar.DAY_OF_MONTH));
 
         datePickerDialog.show();
+    }
+
+    private void setPrevDate() {
+        curCal.add(Calendar.DAY_OF_YEAR, -1);
+        curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
+        search();
+    }
+
+    private void setNextDate() {
+        curCal.add(Calendar.DAY_OF_YEAR, 1);
+        curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
+        search();
     }
 
     private void search() {
@@ -281,10 +282,12 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
             palletsFixedCntTxt.setText(data.getString("PALLET_CNT", "0"));
             palletsCnt = Integer.parseInt(data.getString("C_PALLET_CNT", "0"));
             palletsNewCntEdit.setText("" + palletsCnt);
+            palletsNewCntEdit.setSelection(palletsNewCntEdit.getText().length());
 
             carsFixedCntTxt.setText(data.getString("CAR_CNT", "0"));
             carsCnt = Integer.parseInt(data.getString("C_PALLET_CNT", "0"));
             carsNewCntEdit.setText("" + carsCnt);
+            carsNewCntEdit.setSelection(carsNewCntEdit.getText().length());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -301,14 +304,8 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
 
             final String requestDt = Key.SDF_PAYLOAD.format(curCal.getTime());
 
-            String PALLET_CNT = palletsNewCntEdit.getText().toString();
-            if (PALLET_CNT.isEmpty() || PALLET_CNT.equals("0") || PALLET_CNT.equals("-")) {
-                showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
-                return;
-            }
-
             String palletCnt = palletsNewCntEdit.getText().toString();
-            if (palletCnt.equals("0")) {
+            if (palletCnt.isEmpty() || palletCnt.equals("0") || palletCnt.equals("-")) {
                 showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
                 return;
             }

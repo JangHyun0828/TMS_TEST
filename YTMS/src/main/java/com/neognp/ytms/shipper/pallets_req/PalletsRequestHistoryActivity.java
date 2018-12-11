@@ -63,7 +63,7 @@ public class PalletsRequestHistoryActivity extends BasicActivity {
         fromCal.setTimeInMillis(toCal.getTimeInMillis());
         fromCal.add(Calendar.DAY_OF_MONTH, -31); // TEST
 
-        setTitleBar("팔레트요청 내역조회", 0, 0, R.drawable.selector_button_close);
+        setTitleBar("팔레트요청 내역조회", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
         fromDateBtn = (Button) findViewById(R.id.fromDateBtn);
         fromDateBtn.setText(Key.SDF_CAL_DEFAULT.format(fromCal.getTime()));
@@ -162,9 +162,10 @@ public class PalletsRequestHistoryActivity extends BasicActivity {
 
         switch (v.getId()) {
             case R.id.titleLeftBtn0:
+                finish();
                 break;
             case R.id.titleRightBtn1:
-                finish();
+                search();
                 break;
             case R.id.prevDateBtn:
                 setPrevDate();
@@ -209,6 +210,8 @@ public class PalletsRequestHistoryActivity extends BasicActivity {
                     fromDateBtn.setText(Key.SDF_CAL_DEFAULT.format(cal.getTime()));
                 else if (cal == toCal)
                     toDateBtn.setText(Key.SDF_CAL_DEFAULT.format(cal.getTime()));
+
+                search();
             }
         }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
@@ -282,6 +285,9 @@ public class PalletsRequestHistoryActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
+                            // 발송 팔레트 총 개수
+                            ((TextView) findViewById(R.id.totalTxt)).setText("" + resBody.getInt("res_cnt", 0));
+
                             ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
                             addListItems(data);
                         } else {
@@ -354,24 +360,18 @@ public class PalletsRequestHistoryActivity extends BasicActivity {
 
             public void onBindViewData(Bundle item) {
                 try {
-                    // 요청일자
+                    // 요청일자: 화주사가 요청한 일자
                     String REQUEST_DT = Key.SDF_CAL_DEFAULT.format(Key.SDF_PAYLOAD.parse(item.getString("REQUEST_DT", "")));
                     ((TextView) itemView.findViewById(R.id.dataTxt0)).setText(REQUEST_DT);
 
-                    String STATUS = item.getString("STATUS", "");
-                    String PALLET_CNT = item.getString("PALLET_CNT", "");
+                    // 신청: 화주사가 신청한 팔레트 개수
+                    ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(item.getString("REQ_PALLET_CNT", ""));
 
-                    // 요청
-                    if (STATUS.isEmpty())
-                        ((TextView) itemView.findViewById(R.id.dataTxt1)).setText(null);
-                    else
-                        ((TextView) itemView.findViewById(R.id.dataTxt1)).setText("요청");
-
-                    // 상태
+                    // 확인: 센터에서 접수 버튼을 클릭하면 상태값 'Y"로 표시
                     ((TextView) itemView.findViewById(R.id.dataTxt2)).setText(item.getString("STATUS", ""));
 
-                    // 수량
-                    ((TextView) itemView.findViewById(R.id.dataTxt3)).setText(PALLET_CNT);
+                    // 접수: 센터에서 입력한 팔레트 수
+                    ((TextView) itemView.findViewById(R.id.dataTxt3)).setText(item.getString("RES_PALLET_CNT", ""));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
