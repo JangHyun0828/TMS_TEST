@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
 import com.neognp.ytms.R;
 import com.trevor.library.template.BasicDialog;
@@ -28,8 +29,9 @@ import com.trevor.library.widget.NoCursorMenuEditText;
 @SuppressLint ("ValidFragment")
 public class CountEditDialog extends BasicDialog {
 
-    private String hint;
+    private String title;
     private int maxLength;
+    private String initCount;
 
     private View contentView;
     private TextInputLayout nameEditLayout;
@@ -37,10 +39,18 @@ public class CountEditDialog extends BasicDialog {
 
     private DialogListener listener;
 
-    public CountEditDialog(String hint, int maxCount, DialogListener listener) {
+    public CountEditDialog(String title, int maxLength, DialogListener listener) {
         setCancelable(true);
-        this.hint = hint;
-        this.maxLength = maxCount;
+        this.title = title;
+        this.maxLength = maxLength;
+        this.listener = listener;
+    }
+
+    public CountEditDialog(String title, int maxLength, String initCount, DialogListener listener) {
+        setCancelable(true);
+        this.title = title;
+        this.maxLength = maxLength;
+        this.initCount = initCount;
         this.listener = listener;
     }
 
@@ -51,6 +61,8 @@ public class CountEditDialog extends BasicDialog {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         contentView = inflater.inflate(R.layout.count_edit_dialog, null, false);
+
+        ((TextView) contentView.findViewById(R.id.titleTxt)).setText(title);
 
         nameEditLayout = contentView.findViewById(R.id.countEditLayout);
         nameEditLayout.setHintEnabled(false);
@@ -78,7 +90,11 @@ public class CountEditDialog extends BasicDialog {
             }
         });
 
-        countEdit.setHint(hint);
+        // 초기값이 0이면 초기값 미표시
+        if (initCount != null && !initCount.equals("0")) {
+            countEdit.setText(initCount);
+            countEdit.setSelection(countEdit.getText().length());
+        }
 
         contentView.findViewById(R.id.btmBtn0).setOnClickListener(btnListener);
         contentView.findViewById(R.id.btmBtn1).setOnClickListener(btnListener);
@@ -127,8 +143,13 @@ public class CountEditDialog extends BasicDialog {
         super.onDismiss(dialog);
     }
 
-    public static CountEditDialog show(Activity activity, String hint, int maxCount,  DialogListener listener) {
-        CountEditDialog dialog = new CountEditDialog(hint, maxCount, listener);
+    public static CountEditDialog show(Activity activity, String title, int maxLength, DialogListener listener) {
+        CountEditDialog dialog = new CountEditDialog(title, maxLength, listener);
+        return (CountEditDialog) dialog.show((AppCompatActivity) activity);
+    }
+
+    public static CountEditDialog show(Activity activity, String title, int maxLength, String initCount, DialogListener listener) {
+        CountEditDialog dialog = new CountEditDialog(title, maxLength, initCount, listener);
         return (CountEditDialog) dialog.show((AppCompatActivity) activity);
     }
 

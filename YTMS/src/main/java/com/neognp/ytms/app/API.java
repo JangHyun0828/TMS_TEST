@@ -47,6 +47,7 @@ public class API {
     public static final String URL_DELIVERY_DIRECT_ALLOC_LIST = "/dc/dispatch/center";
     public static final String URL_DELIVERY_PALLETS_RECEIPT_HISTORY = "/dc/list/request";
     public static final String URL_DELIVERY_PALLETS_RECEIPT_DELETE = "/dc/delete/request";
+    public static final String URL_DELIVERY_PALLETS_RECEIPT = "/dc/read/pallet";
     public static final String URL_DELIVERY_PALLETS_DISPATCH = "/dc/send/pallet";
     public static final String URL_DELIVERY_PALLETS_DISPATCH_HISTORY = "/dc/list/send";
 

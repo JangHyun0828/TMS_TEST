@@ -193,7 +193,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                 break;
             // 삭제
             case R.id.bottomBtn0:
-                requestPalletsReceiptDelete();
+                requestPalletsDelete();
                 break;
             // 발송내역
             case R.id.bottomBtn1: {
@@ -258,7 +258,7 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestPalletsReceiptDelete() {
+    private synchronized void requestPalletsDelete() {
         if (onReq)
             return;
 
@@ -321,7 +321,63 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestPalletsReceiptDispatch(Bundle item, int palletCnt) {
+    private synchronized void requestPalletsReceipt(Bundle item) {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            if (item == null)
+                return;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    showLoadingDialog(null, false);
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                        payloadJson.put("seq", item.getString("SEQ"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_DELIVERY_PALLETS_RECEIPT, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            item.putString("STATUS", "Y"); // "Y": 발송
+                            listAdapter.notifyItemChanged(listItems.indexOf(item));
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestPalletsDispatch(Bundle item, String palletCnt) {
         if (onReq)
             return;
 
@@ -361,7 +417,8 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-                            item.putString("STATUS", "Y");
+                            item.putString("STATUS", "F"); // "F": 완료
+                            item.putString("RES_PALLET_CNT", palletCnt);
                             listAdapter.notifyItemChanged(listItems.indexOf(item));
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
@@ -501,6 +558,8 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
 
             public void onBindViewData(Bundle item) {
                 try {
+                    String STATUS = item.getString("STATUS", "N");
+
                     ImageView checkImg = itemView.findViewById(R.id.checkImg);
                     if (item.getBoolean("checked"))
                         checkImg.setImageResource(R.drawable.date_check_box_on);
@@ -525,37 +584,48 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
                     TextView dispatchBtn = itemView.findViewById(R.id.dispatchBtn);
                     TextView completionBtn = itemView.findViewById(R.id.completionBtn);
 
-                    String STATUS = item.getString("STATUS", "N");
-                    // 접수
+                    // 상태: 접수
                     if (STATUS.equalsIgnoreCase("N")) {
                         checkImg.setVisibility(View.VISIBLE);
                         receiptBtn.setVisibility(View.VISIBLE);
                         dispatchBtn.setVisibility(View.INVISIBLE);
                         completionBtn.setVisibility(View.INVISIBLE);
                     }
-                    // 발송
+                    // 상태: 발송
                     else if (STATUS.equalsIgnoreCase("Y")) {
-                        checkImg.setVisibility(View.VISIBLE);
+                        checkImg.setVisibility(View.INVISIBLE);
+                        item.putBoolean("checked", false);
                         receiptBtn.setVisibility(View.INVISIBLE);
                         dispatchBtn.setVisibility(View.VISIBLE);
                         completionBtn.setVisibility(View.INVISIBLE);
                     }
-                    // 완료
+                    // 상태: 완료
                     else if (STATUS.equalsIgnoreCase("F")) {
-                        checkImg.setVisibility(View.VISIBLE);
+                        checkImg.setVisibility(View.INVISIBLE);
+                        item.putBoolean("checked", false);
                         receiptBtn.setVisibility(View.INVISIBLE);
                         dispatchBtn.setVisibility(View.INVISIBLE);
                         completionBtn.setVisibility(View.VISIBLE);
                     }
 
+                    // 팔레트 접수: 발송 상태로 변경
                     receiptBtn.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
+                            requestPalletsReceipt(item);
                         }
                     });
 
+                    // 팔레트 발송: 발송할 팔레트 수량 입력
                     dispatchBtn.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
-                            showPalletsCountEditDialog(item);
+                            showPalletsCountEditDialog(item, "팔레트 수량 입력");
+                        }
+                    });
+
+                    //  팔레트 완료: 팔레트 수량 수정
+                    completionBtn.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            showPalletsCountEditDialog(item, "팔레트 수량 수정");
                         }
                     });
 
@@ -576,17 +646,17 @@ public class PalletsReceiptHistoryActivity extends BasicActivity {
 
     }
 
-    private void showPalletsCountEditDialog(final Bundle item) {
+    private void showPalletsCountEditDialog(final Bundle item, String title) {
         if (item == null)
             return;
 
-        CountEditDialog.show(this, "팔레트 수량 입력", 4, new CountEditDialog.DialogListener() {
+        CountEditDialog.show(this, title, 4, item.getString("RES_PALLET_CNT", "0"), new CountEditDialog.DialogListener() {
             public void onCancel() {
             }
 
             public void onConfirm(String count) {
                 try {
-                    requestPalletsReceiptDispatch(item, Integer.parseInt(count));
+                    requestPalletsDispatch(item, count);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
