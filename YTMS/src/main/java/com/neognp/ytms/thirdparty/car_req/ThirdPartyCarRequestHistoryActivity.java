@@ -179,9 +179,6 @@ public class ThirdPartyCarRequestHistoryActivity extends BasicActivity {
             case R.id.nextDateBtn:
                 setNextDate();
                 break;
-            case R.id.moveBtn:
-                startActivity(new Intent(this, ThirdPartyCarRequestActivity.class), options.toBundle());
-                break;
             case R.id.closeBtn:
                 finish();
                 break;

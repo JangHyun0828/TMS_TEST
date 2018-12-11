@@ -140,24 +140,16 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <!-- 저장 / 요청내역 확인 -->
-    <Button
-        android:id="@+id/moveBtn"
-        style="@style/ButtonRoundMain"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="8.3dp"
-        android:text="배차수정"
-        app:layout_constraintStart_toEndOf="@id/startGuideline"
-        app:layout_constraintEnd_toStartOf="@id/closeBtn"
-        app:layout_constraintBottom_toTopOf="@+id/callCenterBtn" />
-
+    <!-- 닫기 -->
     <Button
         android:id="@+id/closeBtn"
         style="@style/ButtonRoundMain"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8.3dp"
         android:text="닫기"
-        app:layout_constraintStart_toEndOf="@id/moveBtn"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
-        app:layout_constraintBottom_toBottomOf="@+id/moveBtn" />
+        app:layout_constraintBottom_toTopOf="@+id/callCenterBtn" />
 
     <include
         android:id="@+id/callCenterBtn"

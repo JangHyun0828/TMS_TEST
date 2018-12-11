@@ -67,7 +67,7 @@
     <Button
         android:id="@+id/saveBtn"
         style="@style/ButtonRoundMain"
-        android:text="수정"
+        android:text="저장"
         app:layout_constraintStart_toEndOf="@id/newBtn"
         app:layout_constraintEnd_toStartOf="@id/endGuideline"
         app:layout_constraintBottom_toBottomOf="@+id/newBtn" />
