@@ -45,7 +45,7 @@
                 android:gravity="center_vertical|start"
                 android:text="물류센터"
                 android:textColor="#3668a5"
-                android:drawableEnd="@drawable/selector_button_find"
+                android:drawableEnd="@drawable/selector_icon_search_blue"
                 android:drawablePadding="7dp"/>
 
             <TextView

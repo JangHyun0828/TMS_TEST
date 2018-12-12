@@ -18,7 +18,7 @@
                 android:left="26.7dp">
                 <bitmap android:gravity="top|left"
                     android:src="@drawable/menu_car_x" />
-            </item>
+            </item>center_m_5_sub_4_1_search
             <item android:left="67.3dp">
                 <bitmap android:gravity="right|top"
                     android:src="@drawable/bg_center_m_5_right" />

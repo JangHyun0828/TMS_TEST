@@ -5,6 +5,8 @@ public class API {
     public static final String DEFAULT_IP = "128.134.178.76";
     public static final int DEFAULT_PORT = 8000;
 
+    /* 공통 */
+
     public static final String URL_ = "";
     public static final String URL_LOGIN = "/common/login";
     public static final String URL_GPS_SEND = "/common/gps";
@@ -15,7 +17,8 @@ public class API {
     public static final String URL_PERSONAL_DAY_ADD = "/common/insert/holiday";
     public static final String URL_PERSONAL_DAY_DELETE = "/common/delete/holiday";
     public static final String URL_LOCATION = "/common/location";
-    public static final String URL_WEB_FORK_LIFT_CHECK = "/view/fork_lift_check.html";
+
+    /* 화주 */
 
     public static final String URL_SHIPPER_PWD_CHANGE = "/cust/update/pwd";
     public static final String URL_SHIPPER_ALLOC_CNT = "/cust/dispatch/count";
@@ -26,6 +29,8 @@ public class API {
     public static final String URL_SHIPPER_PALLETS_REQUESTED = "/cust/select/pallet";
     public static final String URL_SHIPPER_PALLETS_REQUEST = "/cust/request/pallet";
     public static final String URL_SHIPPER_PALLETS_REQUEST_HISTORY = "/cust/list/pallet";
+
+    /* 차주 */
 
     public static final String URL_CAR_ACCOUNT_INFO = "/car/select/info";
     public static final String URL_CAR_ACCOUNT_INFO_SAVE = "/car/update/info";
@@ -38,6 +43,9 @@ public class API {
     public static final String URL_CAR_FORK_LIFT_ORDER = "/car/select/arrive";
     public static final String URL_CAR_RECEIPT_DISPATCH_HISTORY = "/car/receipt/list";
     public static final String URL_CAR_FREIGHT_CHARGE_HISTORY = "/car/payment/list";
+    public static final String URL_WEB_FORK_LIFT_CHECK = "/view/fork_lift_check.html";
+
+    /* 배송센터 */
 
     public static final String URL_DELIVERY_ALLOC_CNT = "/dc/dispatch/count";
     public static final String URL_DELIVERY_ALLOC_LIST = "/dc/dispatch/list";
@@ -51,6 +59,8 @@ public class API {
     public static final String URL_DELIVERY_PALLETS_DISPATCH = "/dc/send/pallet";
     public static final String URL_DELIVERY_PALLETS_DISPATCH_HISTORY = "/dc/list/send";
 
+    /* 보관센터 */
+
     public static final String URL_THIRDPARTY_USER_INFO = "/tpl/select/info";
     public static final String URL_THIRDPARTY_USER_INFO_TPL = "/tpl/select/tpl";
     public static final String URL_THIRDPARTY_USER_INFO_SAVE = "/tpl/update/tpl";
@@ -61,4 +71,5 @@ public class API {
     public static final String URL_THIRDPARTY_CAR_REQUEST_HISTORY = "/tpl/list/car";
     public static final String URL_THIRDPARTY_CAR_REQUEST_CUST = "/tpl/cust/list";
     public static final String URL_THIRDPARTY_CAR_REQUEST_CENTER = "/tpl/center/list";
+
 }

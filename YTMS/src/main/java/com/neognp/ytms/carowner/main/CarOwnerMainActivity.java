@@ -144,7 +144,6 @@ public class CarOwnerMainActivity extends BasicActivity {
                     return;
 
                 Bundle args = intent.getBundleExtra("args");
-
                 ((TextView) findViewById(R.id.addressTxt0)).setText(args.getString("userAddress0"));
                 ((TextView) findViewById(R.id.addressTxt1)).setText(args.getString("userAddress1"));
 
