@@ -36,7 +36,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/btmBtn1"
-            app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+            app:fontFamily="@font/noto_sans_kr_regular_hestia" />
 
         <Button
             android:id="@+id/btmBtn0"
@@ -47,7 +47,7 @@
             android:text="다시 보지 않기"
             android:textColor="@color/colorPrimary"
             android:background="@null"
-            app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+            app:fontFamily="@font/noto_sans_kr_regular_hestia"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintEnd_toStartOf="@id/btmBtn1"
             app:layout_constraintBottom_toBottomOf="parent" />
@@ -61,7 +61,7 @@
             android:text="확인"
             android:textColor="@color/colorPrimary"
             android:background="@null"
-            app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+            app:fontFamily="@font/noto_sans_kr_regular_hestia"
             app:layout_constraintTop_toBottomOf="@id/msgTxt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />

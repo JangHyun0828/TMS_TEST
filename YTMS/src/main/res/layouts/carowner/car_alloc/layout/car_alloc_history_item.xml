@@ -11,30 +11,36 @@
     android:paddingEnd="6dp"
     android:background="@color/white">
 
-    <View
-        android:id="@+id/leftBar"
-        android:layout_width="4.3dp"
-        android:layout_height="0dp"
+    <Button
+        android:id="@+id/departBtn"
+        android:layout_width="26dp"
+        android:layout_height="123dp"
         android:layout_marginTop="8.3dp"
-        android:layout_marginBottom="2dp"
-        android:background="#bfd7f1"
+        android:gravity="center"
+        android:textSize="13.3sp"
+        android:textColor="#4d4c4c"
+        android:lineSpacingExtra="13.3sp"
+        android:background="@drawable/selector_button_round_rect_depart"
+        android:stateListAnimator="@null"
+        android:onClick="onClick"
+        android:text="출\n발"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/dataTxt4" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/dataTxt0"
         android:layout_width="0dp"
         android:layout_height="23.3dp"
         android:layout_marginTop="3.3dp"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="6.3dp"
         android:gravity="start|center_vertical"
         android:includeFontPadding="false"
         android:textSize="16sp"
         android:textColor="#4d4c4c"
         android:text="일자: 0000.00.00 (일)"
-        app:layout_constraintStart_toEndOf="@id/leftBar"
-        app:layout_constraintEnd_toStartOf="@id/palletsBtn"
+        app:layout_constraintStart_toEndOf="@id/departBtn"
+        app:layout_constraintEnd_toStartOf="@id/palletsInputBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/dataTxt1"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
@@ -143,14 +149,14 @@
         android:textSize="13.3sp"
         android:textColor="#ffffff"
         android:text="인수증 촬영"
-        android:background="@drawable/selector_button_round_rect_navy"
+        android:background="@drawable/selector_button_round_rect_jean"
         android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:stateListAnimator="@null"
-        app:layout_constraintTop_toTopOf="@id/leftBar"
+        app:layout_constraintTop_toTopOf="@id/departBtn"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/palletsBtn"
+        android:id="@+id/palletsInputBtn"
         android:layout_width="81dp"
         android:layout_height="51.7dp"
         android:lineSpacingExtra="-4dp"
@@ -162,7 +168,7 @@
         android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/leftBar" />
+        app:layout_constraintTop_toTopOf="@id/departBtn" />
 
     <Button
         android:id="@+id/chargeBtn"
@@ -174,7 +180,24 @@
         android:textColor="#ffffff"
         android:text="상차완료\n운임받기"
         android:gravity="center"
-        android:background="@drawable/selector_button_round_rect_navy"
+        android:background="@drawable/selector_button_round_rect_main_theme"
+        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        android:stateListAnimator="@null"
+        app:layout_goneMarginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cameraBtn" />
+
+    <Button
+        android:id="@+id/palletsCntBtn"
+        android:layout_width="81dp"
+        android:layout_height="51.7dp"
+        android:layout_marginTop="9.7dp"
+        android:lineSpacingExtra="-4dp"
+        android:textSize="13.3sp"
+        android:textColor="#ffffff"
+        android:text="팔레트 수\n0"
+        android:gravity="center"
+        android:background="@drawable/selector_button_round_rect_main_theme"
         android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:stateListAnimator="@null"
         app:layout_goneMarginTop="0dp"

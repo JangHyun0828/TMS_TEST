@@ -14,7 +14,6 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.view.GravityCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -30,7 +29,6 @@ import com.neognp.ytms.carowner.account.CarOwnerAccountActivity;
 import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
 import com.neognp.ytms.carowner.car_alloc.ForkLiftCheckActivity;
 import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
-import com.neognp.ytms.carowner.receipt.ReceiptDispatchCheckActivity;
 import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
@@ -59,11 +57,11 @@ public class CarOwnerMainActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.car_owner_main_activity);
 
-        IntentFilter workActionFilter = new IntentFilter();
-        workActionFilter.addAction(Key.ACTION_LOCATION_UPDATED);
-        LocalBroadcastManager.getInstance(this).registerReceiver(gpsUpdateReceiver, workActionFilter);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Key.ACTION_GPS_SERVICE_LOCATION_UPDATED);
+        LocalBroadcastManager.getInstance(this).registerReceiver(locationUpdateReceiver, filter);
 
-        Intent serviceIntent = new Intent(this, GpsTrackingService.class);
+        //Intent serviceIntent = new Intent(this, GpsTrackingService.class);
 
         /** 홈 화면>모든 앱 종료시 Service 유지 **/
         //if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
@@ -75,7 +73,7 @@ public class CarOwnerMainActivity extends BasicActivity {
         //}
 
         /** 홈 화면>모든 앱 종료시 Service 종료 **/
-        bindService(serviceIntent, mServiceConnection, BIND_AUTO_CREATE);
+        //bindService(serviceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
         setTitleBar(R.string.app_name, 0, 0, 0);
 
@@ -104,15 +102,16 @@ public class CarOwnerMainActivity extends BasicActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(gpsUpdateReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(locationUpdateReceiver);
 
-        //Intent serviceIntent = new Intent(this, GpsTrackingService.class);
-        //stopService(serviceIntent);
+        Intent serviceIntent = new Intent(this, GpsTrackingService.class);
+        stopService(serviceIntent);
 
-        unbindService(mServiceConnection);
-        mGpsTrackingService = null;
+        //unbindService(mServiceConnection);
+        //mGpsTrackingService = null;
     }
 
+    /* Service 를 시작시킨 Activity 종료 시, Service 도 함께 종료 */
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
         String TAG = ServiceConnection.class.getSimpleName();
 
@@ -135,8 +134,8 @@ public class CarOwnerMainActivity extends BasicActivity {
         }
     };
 
-    private final BroadcastReceiver gpsUpdateReceiver = new BroadcastReceiver() {
-        String TAG = "gpsUpdateReceiver";
+    private final BroadcastReceiver locationUpdateReceiver = new BroadcastReceiver() {
+        String TAG = "locationUpdateReceiver";
 
         public void onReceive(Context context, Intent intent) {
             try {

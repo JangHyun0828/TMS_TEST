@@ -70,7 +70,7 @@
             android:text="취소"
             android:textColor="@color/colorPrimary"
             android:background="@null"
-            app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+            app:fontFamily="@font/noto_sans_kr_regular_hestia"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintEnd_toStartOf="@id/btmBtn1"
             app:layout_constraintBottom_toBottomOf="parent" />
@@ -84,7 +84,7 @@
             android:text="확인"
             android:textColor="@color/colorPrimary"
             android:background="@null"
-            app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+            app:fontFamily="@font/noto_sans_kr_regular_hestia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 

@@ -43,7 +43,7 @@ public class ShipperMainActivity extends BasicActivity {
         setContentView(R.layout.shipper_main_activity);
 
         IntentFilter workActionFilter = new IntentFilter();
-        workActionFilter.addAction(Key.ACTION_LOCATION_UPDATED);
+        workActionFilter.addAction(Key.ACTION_GPS_SERVICE_LOCATION_UPDATED);
         LocalBroadcastManager.getInstance(this).registerReceiver(gpsActionReceiver, workActionFilter);
 
         setTitleBar(R.string.app_name, 0, 0, 0);

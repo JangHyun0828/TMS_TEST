@@ -75,7 +75,8 @@ public class Key {
     // <Action>
     public static final String ACTION_RECEIVED_PUSH = MyApp.get().getPackageName() + ".ACTION_RECEIVED_PUSH";
     public static final String ACTION_START_ACTIVITY = MyApp.get().getPackageName() + ".ACTION_START_ACTIVITY";
-    public static final String ACTION_LOCATION_UPDATED = MyApp.get().getPackageName() + ".ACTION_LOCATION_UPDATED";
+    public static final String ACTION_GPS_SERVICE_STATE = MyApp.get().getPackageName() + ".ACTION_GPS_SERVICE_STATE";
+    public static final String ACTION_GPS_SERVICE_LOCATION_UPDATED = MyApp.get().getPackageName() + ".ACTION_GPS_SERVICE_LOCATION_UPDATED";
 
     // <Directory>
     public static File getDebugStorage() {

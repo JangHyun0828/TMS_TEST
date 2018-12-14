@@ -1,13 +1,18 @@
 package com.neognp.ytms.carowner.car_alloc;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -25,6 +30,7 @@ import android.widget.TextView;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
+import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.popup.LocationInfoDialog;
 import com.trevor.library.template.BasicActivity;
@@ -52,6 +58,10 @@ public class CarAllocHistoryActivity extends BasicActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.car_alloc_history_activity);
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Key.ACTION_GPS_SERVICE_STATE);
+        LocalBroadcastManager.getInstance(this).registerReceiver(serviceStateReceiver, filter);
 
         toCal = Calendar.getInstance();
         toCal.set(Calendar.HOUR_OF_DAY, 0);
@@ -142,10 +152,18 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
     protected void onResume() {
         super.onResume();
+
+        checkGpsTrackingServiceRunning();
     }
 
     protected void onPause() {
         super.onPause();
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(serviceStateReceiver);
     }
 
     private void init() {
@@ -353,6 +371,8 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
+                            checkGpsTrackingServiceRunning();
+
                             ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
                             addListItems(data, reqNextPage);
                         } else {
@@ -481,9 +501,25 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         }
                     });
 
+                    // 집하>출발
+                    Button departBtn = itemView.findViewById(R.id.departBtn);
+                    if (isGpsTrackingServiceRunning) {
+                        departBtn.setText("운\n행");
+                        departBtn.setEnabled(false);
+                    } else {
+                        departBtn.setText("출\n발");
+                        departBtn.setEnabled(true);
+                    }
+                    departBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startGpsTrackingService();
+                        }
+                    });
+
                     // 팔레트 입력
-                    Button palletsBtn = itemView.findViewById(R.id.palletsBtn);
-                    palletsBtn.setOnClickListener(new View.OnClickListener() {
+                    Button palletsInputBtn = itemView.findViewById(R.id.palletsInputBtn);
+                    palletsInputBtn.setOnClickListener(new View.OnClickListener() {
                         @SuppressLint ("RestrictedApi")
                         public void onClick(View v) {
                             Intent intent = new Intent(CarAllocHistoryActivity.this, PalletsInputActivity.class);
@@ -511,78 +547,125 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         }
                     });
 
+                    // 집하>팔레트 수
+                    Button palletsCntBtn = itemView.findViewById(R.id.palletsCntBtn);
+                    palletsCntBtn.setText("팔레트 수\n" + item.getString("PALLET_CNT", "0"));
+                    palletsCntBtn.setOnClickListener(new View.OnClickListener() {
+                        @SuppressLint ("RestrictedApi")
+                        public void onClick(View v) {
+                            Intent intent = new Intent(CarAllocHistoryActivity.this, PalletsInputActivity.class);
+                            intent.putExtras(item);
+                            startActivityForResult(intent, 0, options.toBundle());
+                        }
+                    });
+
                     String RECEIPT_YN = item.getString("RECEIPT_YN", "");
                     String STATUS = item.getString("STATUS", "");
 
                     // 집하
                     if (item.getString("ORDER_TYPE").equals("100")) {
-                        cameraBtn.setVisibility(View.GONE);
-                        // P : 팔레트입력 / 인수증전송 완료
+                        // P : 팔레트입력 완료
                         if (STATUS.equalsIgnoreCase("P")) {
-                            palletsBtn.setVisibility(View.GONE);
-                            chargeBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setEnabled(true);
+                            departBtn.setVisibility(View.VISIBLE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.VISIBLE);
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
-                            palletsBtn.setVisibility(View.GONE);
+                            departBtn.setVisibility(View.GONE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.GONE);
                         } else {
-                            palletsBtn.setVisibility(View.VISIBLE);
+                            departBtn.setVisibility(View.VISIBLE);
+                            palletsInputBtn.setVisibility(View.VISIBLE);
+                            cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
-                            chargeBtn.setEnabled(false);
+                            palletsCntBtn.setVisibility(View.GONE);
                         }
                     }
                     // 일반
                     else if (item.getString("ORDER_TYPE").equals("200")) {
-                        palletsBtn.setVisibility(View.GONE);
-                        cameraBtn.setVisibility(View.VISIBLE);
-                        chargeBtn.setVisibility(View.VISIBLE);
-                        // P : 팔레트입력 / 인수증전송 완료
+                        // P : 인수증전송 완료
                         if (STATUS.equalsIgnoreCase("P")) {
+                            departBtn.setVisibility(View.VISIBLE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.VISIBLE);
+                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
                             chargeBtn.setEnabled(true);
+                            palletsCntBtn.setVisibility(View.GONE);
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
-                            palletsBtn.setVisibility(View.GONE);
+                            departBtn.setVisibility(View.GONE);
+                            palletsInputBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.GONE);
                         } else {
+                            departBtn.setVisibility(View.VISIBLE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.VISIBLE);
+                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
                             chargeBtn.setEnabled(false);
+                            palletsCntBtn.setVisibility(View.GONE);
                         }
                     }
                     // 간선
                     else if (item.getString("ORDER_TYPE").equals("300")) {
-                        palletsBtn.setVisibility(View.GONE);
-                        cameraBtn.setVisibility(View.VISIBLE);
-                        chargeBtn.setVisibility(View.VISIBLE);
-                        // P : 팔레트입력 / 인수증전송 완료
+                        // P : 인수증전송 완료
                         if (STATUS.equalsIgnoreCase("P")) {
+                            departBtn.setVisibility(View.VISIBLE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.VISIBLE);
+                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
                             chargeBtn.setEnabled(true);
+                            palletsCntBtn.setVisibility(View.GONE);
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
-                            palletsBtn.setVisibility(View.GONE);
+                            departBtn.setVisibility(View.GONE);
+                            palletsInputBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.GONE);
                         } else {
+                            departBtn.setVisibility(View.VISIBLE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.VISIBLE);
+                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
                             chargeBtn.setEnabled(false);
+                            palletsCntBtn.setVisibility(View.GONE);
                         }
                     }
                     // 직송
                     else if (item.getString("ORDER_TYPE").equals("400")) {
-                        palletsBtn.setVisibility(View.GONE);
-                        cameraBtn.setVisibility(View.VISIBLE);
-                        chargeBtn.setVisibility(View.VISIBLE);
-                        // P : 팔레트입력 / 인수증전송 완료
+                        // P : 인수증전송 완료
                         if (STATUS.equalsIgnoreCase("P")) {
+                            departBtn.setVisibility(View.VISIBLE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.VISIBLE);
+                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
                             chargeBtn.setEnabled(true);
+                            palletsCntBtn.setVisibility(View.GONE);
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
+                            departBtn.setVisibility(View.GONE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.GONE);
                         } else {
+                            departBtn.setVisibility(View.VISIBLE);
+                            palletsInputBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.VISIBLE);
+                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
                             chargeBtn.setEnabled(false);
+                            palletsCntBtn.setVisibility(View.GONE);
                         }
                     }
                 } catch (Exception e) {
@@ -593,6 +676,49 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
     }
 
+    private void startGpsTrackingService() {
+        Intent serviceIntent = new Intent(this, GpsTrackingService.class);
+
+        /** 홈 화면>모든 앱 종료시 Service 유지 **/
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            startService(serviceIntent);
+        }
+        // Oreo
+        else {
+            startForegroundService(serviceIntent);
+        }
+    }
+
+    private boolean isGpsTrackingServiceRunning = false;
+
+    private boolean checkGpsTrackingServiceRunning() {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (GpsTrackingService.class.getName().equals(service.service.getClassName())) {
+                Log.e(TAG, "+ checkGpsTrackingServiceRunning(): YEAH~");
+                isGpsTrackingServiceRunning = true;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private final BroadcastReceiver serviceStateReceiver = new BroadcastReceiver() {
+        String TAG = "serviceStateReceiver";
+
+        public void onReceive(Context context, Intent intent) {
+            try {
+                if (intent == null)
+                    return;
+
+                checkGpsTrackingServiceRunning();
+                listAdapter.notifyDataSetChanged();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -602,17 +728,16 @@ public class CarAllocHistoryActivity extends BasicActivity {
                 if (data == null)
                     return;
 
-                //Bundle item = data.getExtras();
-                //listAdapter.notifyItemChanged(listItems.indexOf(item));
                 search();
+
+                //Bundle item = data.getExtras();
+                //requestFreightCharge(item); // 집하>팔레트 수 입력완료시 자동 운임받기
             }
             // 인수증 저장 완료
             else if (resultCode == ReceiptCameraActivity.RESULT_SAVED_RECEIPT) {
                 if (data == null)
                     return;
 
-                //Bundle item = data.getExtras();
-                //listAdapter.notifyItemChanged(listItems.indexOf(item));
                 search();
             }
         } catch (Exception e) {

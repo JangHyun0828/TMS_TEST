@@ -73,11 +73,13 @@ public class PalletsInputActivity extends BasicActivity {
                 if (palletsCnt - 1 >= 0) {
                     palletsCnt--;
                     palletsCntEdit.setText("" + palletsCnt);
+                    palletsCntEdit.setSelection(palletsCntEdit.getText().length());
                 }
                 break;
             case R.id.plusBtn:
                 palletsCnt++;
                 palletsCntEdit.setText("" + palletsCnt);
+                palletsCntEdit.setSelection(palletsCntEdit.getText().length());
                 break;
             case R.id.bottomBtn0:
                 requestPalletsInput();

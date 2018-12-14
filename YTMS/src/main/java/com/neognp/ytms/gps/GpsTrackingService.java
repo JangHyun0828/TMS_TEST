@@ -208,12 +208,15 @@ public class GpsTrackingService extends Service {
         }
 
         locationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+
+        broadcastStatusUpdate(true);
     }
 
     public void stopTracking() {
         msgHandler.removeCallbacksAndMessages(null);
-
         locationClient.removeLocationUpdates(locationCallback);
+
+        broadcastStatusUpdate(false);
     }
 
     private SimpleDateFormat timeStampSdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
@@ -315,11 +318,16 @@ public class GpsTrackingService extends Service {
                     }
                 }
             }.execute();
+
         } catch (Exception e) {
         }
     }
 
-    private Bundle targetAddress;
+    private synchronized void broadcastStatusUpdate(boolean isRunning) {
+        Intent intent = new Intent(Key.ACTION_GPS_SERVICE_STATE);
+        intent.putExtra("isRunning", isRunning);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+    }
 
     private synchronized void broadcastLocationUpdate(int reqSeqId, Bundle targetAddress, Bundle userAddress) {
         int curSeqId = addrReqSeq.get();
@@ -330,8 +338,6 @@ public class GpsTrackingService extends Service {
 
         if (targetAddress == null || userAddress == null)
             return;
-
-        this.targetAddress = targetAddress;
 
         try {
             Bundle args = new Bundle();
@@ -366,7 +372,7 @@ public class GpsTrackingService extends Service {
 
             Log.e(TAG, "+ broadcastLocationUpdate(): arg=\n" + TextUtil.formatBundleToString(args));
 
-            Intent intent = new Intent(Key.ACTION_LOCATION_UPDATED);
+            Intent intent = new Intent(Key.ACTION_GPS_SERVICE_LOCATION_UPDATED);
             intent.putExtra("args", args);
             LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         } catch (Exception e) {
