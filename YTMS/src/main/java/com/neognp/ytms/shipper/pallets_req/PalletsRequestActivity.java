@@ -34,7 +34,7 @@ public class PalletsRequestActivity extends BasicActivity {
 
     private Button curDateBtn;
 
-    private TextView palletsFixedCntTxt;
+    private TextView palletsFixedCntTxt, palletsCntSuffix;
     private EditText palletsNewCntEdit;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class PalletsRequestActivity extends BasicActivity {
         curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
 
         palletsFixedCntTxt = findViewById(R.id.palletsFixedCntTxt);
+        palletsCntSuffix = findViewById(R.id.palletsCntSuffix);
 
         View palletsInputView = findViewById(R.id.palletsInputView);
         palletsNewCntEdit = palletsInputView.findViewById(R.id.itemsCntEdit);
@@ -244,10 +245,18 @@ public class PalletsRequestActivity extends BasicActivity {
 
         try {
             String REQUEST_YN = data.getString("REQUEST_YN", "");
-            //if (REQUEST_YN.equalsIgnoreCase("Y"))
-            //    ((TextView) findViewById(R.id.contentTxt)).setText("요청");
-            //else
-            //    ((TextView) findViewById(R.id.contentTxt)).setText("미요청");
+            palletsCnt = Integer.parseInt(data.getString("PALLET_CNT", "0"));
+
+            if (REQUEST_YN.equalsIgnoreCase("Y")) {
+                palletsFixedCntTxt.setText("" + palletsCnt);
+                palletsCntSuffix.setVisibility(View.VISIBLE);
+            } else {
+                palletsFixedCntTxt.setText("미요청");
+                palletsCntSuffix.setVisibility(View.GONE);
+            }
+
+            palletsNewCntEdit.setText("" + palletsCnt);
+            palletsNewCntEdit.setSelection(palletsNewCntEdit.getText().length());
         } catch (Exception e) {
             e.printStackTrace();
         }
