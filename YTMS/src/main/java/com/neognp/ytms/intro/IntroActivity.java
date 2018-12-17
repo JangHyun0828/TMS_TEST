@@ -40,14 +40,14 @@ public class IntroActivity extends BasicActivity {
         if (delay) {
             new Handler().postDelayed(new Runnable() {
                 public void run() {
-                    if (!Setting.getBoolean("autoLogin"))
+                    if (!Setting.getBoolean(Key.allowAutoLogin))
                         showLoginActivity();
                     else
                         showMainActivity();
                 }
             }, DELAY_MILLIS);
         } else {
-            if (!Setting.getBoolean("autoLogin"))
+            if (!Setting.getBoolean(Key.allowAutoLogin))
                 showLoginActivity();
             else
                 showMainActivity();

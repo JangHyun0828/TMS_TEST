@@ -9,6 +9,7 @@ public class API {
 
     public static final String URL_ = "";
     public static final String URL_LOGIN = "/common/login";
+    public static final String URL_PUSH_REG= "/common/fcm/register";
     public static final String URL_GPS_SEND = "/common/gps";
     public static final String URL_NOTICE_NEW_COUNT = "/common/notice/count";
     public static final String URL_NOTICE = "/common/notice/list";
@@ -36,6 +37,7 @@ public class API {
     public static final String URL_CAR_ACCOUNT_INFO_SAVE = "/car/update/info";
     public static final String URL_CAR_ALLOC_CNT = "/car/dispatch/count";
     public static final String URL_CAR_ALLOC_LIST = "/car/dispatch/list";
+    public static final String URL_CAR_REPORT_DEPARTURE= "/car/start/delivery";
     public static final String URL_CAR_PALLETS_INPUT = "/car/input/pallet";
     public static final String URL_CAR_RECEIPT_SAVE = "/car/send/receipt";
     public static final String URL_CAR_FREIGHT_CHARGE_REQUEST = "/car/finish/delivery";

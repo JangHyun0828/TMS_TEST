@@ -81,13 +81,17 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // 라이브러리 프로젝트 연동 방식
-//    implementation project(':Library')
-    implementation(name: 'Library-debug', ext: 'aar')
+    implementation project(':Library')
+//    implementation(name: 'Library-debug', ext: 'aar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:multidex:1.0.3'
     // CAUTION com.google.android.gms 모듈별 버전: https://developers.google.com/android/guides/setup#split
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
+    // CAUTION Firebase 모듈별 버전: https://firebase.google.com/support/release-notes/android
+    // CAUTION root>build.gradle: maven { url 'https://maven.google.com' } 선언되어야 함
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
@@ -96,6 +100,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     implementation 'com.github.bumptech.glide:annotations:4.8.0'
-    // image crop> https://github.com/ArthurHub/Android-Image-Cropper
-//    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
 }
+
+apply plugin: 'com.google.gms.google-services' // CAUTION 맨 밑에 선언해야 버전 에러 발생 안함

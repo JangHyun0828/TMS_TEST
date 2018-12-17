@@ -28,7 +28,7 @@
         android:text="제목"
         android:textColor="#323332"
         android:textSize="15sp"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/msgTxt"
@@ -42,6 +42,18 @@
         android:text="내용"
         android:textColor="#323332"
         android:textSize="15sp"
-        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+
+    <TextView
+        android:id="@+id/dateTxt"
+        style="@style/TextAppearance.Compat.Notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/titleTxt"
+        android:layout_alignParentEnd="true"
+        android:textColor="#232a36"
+        android:textSize="12sp"
+        android:text="000.00.00 00:00:00"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
 </RelativeLayout>

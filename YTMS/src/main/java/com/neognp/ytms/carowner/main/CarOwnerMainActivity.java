@@ -22,6 +22,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
@@ -29,6 +31,7 @@ import com.neognp.ytms.carowner.account.CarOwnerAccountActivity;
 import com.neognp.ytms.carowner.car_alloc.CarAllocHistoryActivity;
 import com.neognp.ytms.carowner.car_alloc.ForkLiftCheckActivity;
 import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
+import com.neognp.ytms.fcm.MyFirebaseMessagingService;
 import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
@@ -56,6 +59,15 @@ public class CarOwnerMainActivity extends BasicActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.car_owner_main_activity);
+
+        // GoogleHandler Play 서비스 호환 여부 체크
+        GoogleApiAvailability.getInstance().makeGooglePlayServicesAvailable(this);
+
+        // 서버 콘솔에 YTMS 토픽이 없을 경우, 이 메서드 호출로 서버 콘솔에 자동으로 토픽 생성(생성하는데 몇 시간 걸림)
+        FirebaseMessaging.getInstance().subscribeToTopic(getString(R.string.notification_channel_id));
+
+        // FCM Token 서버에 전달
+        MyFirebaseMessagingService.sendRegistrationToServer(this);
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(Key.ACTION_GPS_SERVICE_LOCATION_UPDATED);

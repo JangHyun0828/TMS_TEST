@@ -28,8 +28,10 @@ public class MyApp extends LibApp {
                 Setting.putString("ip", API.DEFAULT_IP);
             if (!Setting.contains("port"))
                 Setting.putInt("port", API.DEFAULT_PORT);
-            if (!Setting.contains("autoLogin"))
-                Setting.putBoolean("autoLogin", false);
+            if (!Setting.contains(Key.allowPush))
+                Setting.putBoolean(Key.allowPush, true);
+            if (!Setting.contains(Key.allowAutoLogin))
+                Setting.putBoolean(Key.allowAutoLogin, false);
         } catch (Exception e) {
             e.printStackTrace();
         }

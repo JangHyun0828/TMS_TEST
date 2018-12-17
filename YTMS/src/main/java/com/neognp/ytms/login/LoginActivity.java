@@ -227,7 +227,7 @@ public class LoginActivity extends BasicActivity {
                                 data.remove("USER_PW"); // 비밀번호 삭제
                                 Key.saveUserInfo(data);
 
-                                Setting.putBoolean("autoLogin", autoLoginCheck.isChecked());
+                                Setting.putBoolean(Key.allowAutoLogin, autoLoginCheck.isChecked());
 
                                 showMainActivity();
                             }

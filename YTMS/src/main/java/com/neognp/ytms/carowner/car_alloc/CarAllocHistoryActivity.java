@@ -268,6 +268,61 @@ public class CarAllocHistoryActivity extends BasicActivity {
     }
 
     @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestReportDeparture(Bundle item) {
+        if (onReq)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            if (item == null)
+                return;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReq = true;
+                    showLoadingDialog(null, false);
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("orderNo", item.getString("ORDER_NO"));
+                        payloadJson.put("dispatchNo", item.getString("DISPATCH_NO"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_CAR_REPORT_DEPARTURE, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReq = false;
+                    dismissLoadingDialog();
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            startGpsTrackingService();
+                        } else {
+                            showToast(result_msg + "(result_code:" + result_msg + ")", true);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        showToast(e.getMessage(), false);
+                    }
+                }
+            }.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint ("StaticFieldLeak")
     private synchronized void requestFreightCharge(Bundle item) {
         if (onReq)
             return;
@@ -283,7 +338,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
                 protected void onPreExecute() {
                     onReq = true;
                     showLoadingDialog(null, false);
-
                 }
 
                 protected Bundle doInBackground(Void... arg0) {
@@ -301,7 +355,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
                 protected void onPostExecute(Bundle response) {
                     onReq = false;
                     dismissLoadingDialog();
-
 
                     try {
                         Bundle resBody = response.getBundle(Key.resBody);
@@ -513,7 +566,8 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     departBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startGpsTrackingService();
+                            //startGpsTrackingService();
+                            requestReportDeparture(item);
                         }
                     });
 

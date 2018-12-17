@@ -21,6 +21,8 @@
     <string name="enable_gps">위치정보 기능이 꺼져 있습니다.\n위치정보 사용을 설정하시겠습니까?</string>
     <string name="unavailable_camera">카메라 기능을 사용할 수 없습니다.</string>
 
+    <string name="notification_channel_id">YTMS</string>
+
     <!-- TEST -->
     <string name="picture">Picture</string>
     <string name="description_info">Info</string>
