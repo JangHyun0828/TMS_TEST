@@ -270,7 +270,7 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
             // 파일 로딩
             FileInputStream fin = new FileInputStream(filePath);
             int uploadFileSize = fin.available();
-            Log.e(TAG, "+ uploading file: " + fileName + " / " + uploadFileSize + "(" + TextUtil.formatFileSize(uploadFileSize) + ")");
+            Log.e(TAG, "+ sendFile(): uploading: " + fileName + " / " + uploadFileSize + "(" + TextUtil.formatFileSize(uploadFileSize) + ")");
 
             int maxBufferSize = 1024;
             int bufferSize = Math.min(uploadFileSize, maxBufferSize);
@@ -297,7 +297,7 @@ public class YTMSFileUploadTask extends AsyncTask<Void, Void, Bundle> {
             os.write("\r\n".getBytes());
             os.flush();
             fin.close();
-
+            Log.e(TAG, "+ sendFile(): uploaded: " +  fileName);
         } catch (Exception e) {
             e.printStackTrace();
         }

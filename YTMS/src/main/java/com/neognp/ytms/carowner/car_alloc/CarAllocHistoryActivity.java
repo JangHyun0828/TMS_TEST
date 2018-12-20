@@ -308,6 +308,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
                         if (result_code.equals("200")) {
                             startGpsTrackingService();
+                            requestList(false);
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
@@ -556,13 +557,16 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
                     // 집하>출발
                     Button departBtn = itemView.findViewById(R.id.departBtn);
-                    if (isGpsTrackingServiceRunning) {
+                    String DELIVERY_YN = item.getString("DELIVERY_YN", "N");
+                    //if (isGpsTrackingServiceRunning) {
+                    if (DELIVERY_YN.equalsIgnoreCase("Y")) {
                         departBtn.setText("운\n행");
                         departBtn.setEnabled(false);
                     } else {
                         departBtn.setText("출\n발");
                         departBtn.setEnabled(true);
                     }
+
                     departBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

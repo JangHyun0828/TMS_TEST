@@ -125,8 +125,8 @@ public class IntroActivity extends BasicActivity {
     //@formatter:on
 
     private boolean hasPermissions() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            return true;
+        //if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+        //    return true;
 
         for (String permission : permissions) {
             if (ActivityCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {

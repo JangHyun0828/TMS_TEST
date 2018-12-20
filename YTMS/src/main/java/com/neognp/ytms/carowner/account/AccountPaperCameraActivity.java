@@ -300,6 +300,9 @@ public class AccountPaperCameraActivity extends BasicActivity {
         public void surfaceCreated(SurfaceHolder holder) {
             Log.e(TAG, "+ surfaceCreated(): ");
 
+            if (mCamera == null)
+                return;
+
             // The Surface has been created, now tell the camera where to draw the preview.
             try {
                 mCamera.setPreviewDisplay(holder);
@@ -312,12 +315,18 @@ public class AccountPaperCameraActivity extends BasicActivity {
         public void surfaceDestroyed(SurfaceHolder holder) {
             Log.e(TAG, "+ surfaceDestroyed(): ");
 
+            if (mCamera == null)
+                return;
+
             // empty. Take care of releasing the Camera preview in your activity.
             mCamera.stopPreview();
         }
 
         public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
             Log.e(TAG, "+ surfaceChanged(): WxH=" + w + "x" + h);
+
+            if (mCamera == null)
+                return;
 
             // If your preview can change or rotate, take care of those events here.
             // Make sure to stop the preview before resizing or reformatting it.
@@ -583,15 +592,24 @@ public class AccountPaperCameraActivity extends BasicActivity {
 
     private void dispatchPicImageIntent() {
         try {
-            Intent pickPicIntent = new Intent();
-            pickPicIntent.setType("image/*");
-            pickPicIntent.setAction(Intent.ACTION_GET_CONTENT);
-            if (pickPicIntent.resolveActivity(getPackageManager()) != null)
-                startActivityForResult(Intent.createChooser(pickPicIntent, "이미지 선택"), REQ_PICK_IMAGE);
+            Intent pickPicIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(pickPicIntent, REQ_PICK_IMAGE);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    //private void dispatchPicImageIntent() {
+    //    try {
+    //        Intent pickPicIntent = new Intent();
+    //        pickPicIntent.setType("image/*");
+    //        pickPicIntent.setAction(Intent.ACTION_GET_CONTENT);
+    //        if (pickPicIntent.resolveActivity(getPackageManager()) != null)
+    //            startActivityForResult(Intent.createChooser(pickPicIntent, "이미지 선택"), REQ_PICK_IMAGE);
+    //    } catch (Exception e) {
+    //        e.printStackTrace();
+    //    }
+    //}
 
     private void setPreviewPhoto(final String photoPath) {
         try {
