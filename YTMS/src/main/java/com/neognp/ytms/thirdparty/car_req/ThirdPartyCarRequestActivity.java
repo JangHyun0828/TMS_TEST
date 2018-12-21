@@ -238,11 +238,13 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
 
     @SuppressLint ("StaticFieldLeak")
     private synchronized void insertData() {
+        final String fromDt = Key.SDF_PAYLOAD.format(curCal.getTime());
+
         try {
             int idx = dataList.length();
             JSONObject jObj = new JSONObject();
             jObj.put("SEQ", "");
-            jObj.put("REQUEST_DT", "");
+            jObj.put("REQUEST_DT", fromDt);
             jObj.put("CUST_CD", "");
             jObj.put("CUST_NM", "선택");
             jObj.put("TO_CENTER_CD", "");
@@ -253,7 +255,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
 
             Bundle bObj = new Bundle();
             bObj.putString("SEQ", "");
-            bObj.putString("REQUEST_DT", "");
+            bObj.putString("REQUEST_DT", fromDt);
             bObj.putString("CUST_CD", "");
             bObj.putString("CUST_NM", "선택");
             bObj.putString("TO_CENTER_CD", "");
@@ -305,7 +307,6 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                     try {
                         payloadJson = YTMSRestRequestor.buildPayload();
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                        payloadJson.put("requestDt", fromDt);
                         payloadJson.put("dataList", dataList);
                     } catch (Exception e) {
                         e.printStackTrace();

@@ -61,7 +61,7 @@ public class ThirdPartyCarRequestHistoryActivity extends BasicActivity {
         curCal.set(Calendar.SECOND, 0);
         curCal.set(Calendar.MILLISECOND, 0);
 
-        setTitleBar("배차내역 조회", 0, 0, R.drawable.selector_button_close);
+        setTitleBar("배차내역 조회", R.drawable.selector_button_back, 0, R.drawable.selector_button_refresh);
 
         curDateBtn = (Button) findViewById(R.id.curDateBtn);
         curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
@@ -161,8 +161,6 @@ public class ThirdPartyCarRequestHistoryActivity extends BasicActivity {
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mgr.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
 
-        ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.slide_in_from_right, R.anim.fade_out);
-
         switch (v.getId()) {
             case R.id.titleLeftBtn0:
                 finish();
@@ -178,9 +176,6 @@ public class ThirdPartyCarRequestHistoryActivity extends BasicActivity {
                 break;
             case R.id.nextDateBtn:
                 setNextDate();
-                break;
-            case R.id.closeBtn:
-                finish();
                 break;
             case R.id.callCenterBtn:
                 AppUtil.runCallApp(getString(R.string.delivery_call_center_phone_no), true);
