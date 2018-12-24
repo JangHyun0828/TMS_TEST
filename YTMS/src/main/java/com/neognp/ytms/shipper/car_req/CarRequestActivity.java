@@ -1,30 +1,19 @@
 package com.neognp.ytms.shipper.car_req;
 
-import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.neognp.ytms.R;
-import com.neognp.ytms.app.API;
-import com.neognp.ytms.app.Key;
-import com.neognp.ytms.http.YTMSRestRequestor;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
 
-import org.json.JSONObject;
-
-import java.util.Calendar;
 import java.util.List;
 
 public class CarRequestActivity extends BasicActivity {
@@ -32,7 +21,8 @@ public class CarRequestActivity extends BasicActivity {
     private boolean onReq;
 
     private CarRequestMenuFragment menuFragment = new CarRequestMenuFragment();
-    private CarRequestInputFragment inputFragment = new CarRequestInputFragment();
+    private CarRequestFlexibleInputFragment flexibleInputFragment = new CarRequestFlexibleInputFragment();
+    private CarRequestFixedInputFragment fixedInputFragment = new CarRequestFixedInputFragment();
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +43,7 @@ public class CarRequestActivity extends BasicActivity {
             addMenuFragment();
 
             // TEST
-            //addInputFragment();
+            //addFlexibleInputFragment();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -132,10 +122,18 @@ public class CarRequestActivity extends BasicActivity {
                 commitAllowingStateLoss();
     }
 
-    void addInputFragment() {
+    void addFlexibleInputFragment() {
         getSupportFragmentManager().
                 beginTransaction().
-                add(R.id.fragmentContainer, inputFragment, CarRequestInputFragment.class.getSimpleName()).
+                add(R.id.fragmentContainer, flexibleInputFragment, CarRequestFixedInputFragment.class.getSimpleName()).
+                addToBackStack(null).
+                commitAllowingStateLoss();
+    }
+
+    void addFixedInputFragment() {
+        getSupportFragmentManager().
+                beginTransaction().
+                add(R.id.fragmentContainer, fixedInputFragment, CarRequestFixedInputFragment.class.getSimpleName()).
                 addToBackStack(null).
                 commitAllowingStateLoss();
     }

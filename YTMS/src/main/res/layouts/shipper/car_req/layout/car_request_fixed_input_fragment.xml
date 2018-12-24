@@ -13,7 +13,8 @@
         android:id="@+id/dateView"
         layout="@layout/date_selector"
         android:layout_width="match_parent"
-        android:layout_height="39.7dp" />
+        android:layout_height="39.7dp"
+        android:visibility="gone" />
 
     <android.support.constraint.Guideline
         android:id="@+id/startGuideline"
@@ -32,47 +33,25 @@
     <!-- 팔레트 수-->
 
     <View
-        android:id="@+id/palletsCntBar"
+        android:id="@+id/palletCntBar"
         android:layout_width="4.3dp"
         android:layout_height="14dp"
         android:background="#bfd7f1"
         app:layout_constraintStart_toEndOf="@id/startGuideline"
-        app:layout_constraintTop_toTopOf="@+id/palletsCntTitle"
-        app:layout_constraintBottom_toBottomOf="@+id/palletsCntTitle" />
+        app:layout_constraintTop_toTopOf="@+id/palletCntTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/palletCntTitle" />
 
     <TextView
-        android:id="@+id/palletsCntTitle"
+        android:id="@+id/palletCntTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8.3dp"
         android:layout_marginStart="7dp"
         android:textSize="16sp"
         android:textColor="#4d4c4c"
-        android:text="팔레트 수 : "
-        app:layout_constraintStart_toEndOf="@id/palletsCntBar"
+        android:text="팔레트 수"
+        app:layout_constraintStart_toEndOf="@id/palletCntBar"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
-
-    <TextView
-        android:id="@+id/palletsFixedCntTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#3668a5"
-        android:text="0"
-        app:layout_constraintStart_toEndOf="@id/palletsCntTitle"
-        app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
-
-    <TextView
-        android:id="@+id/palletsCntSuffix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#4d4c4c"
-        android:text=" 팔레트"
-        app:layout_constraintStart_toEndOf="@id/palletsFixedCntTxt"
-        app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <include
@@ -80,7 +59,7 @@
         layout="@layout/pallets_input_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/palletsCntTitle" />
+        app:layout_constraintTop_toBottomOf="@id/palletCntTitle" />
 
     <!-- 차량 대수(임시로 감춤) -->
 
@@ -89,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="carCntBar, carCntTitle, carsFixedCntTxt, carCntSuffix, carsInputView, carCountInputGuideArw, carCountInputGuideTxt" />
+        app:constraint_referenced_ids="carCntBar, carCntTitle, carTotalCntTxt, carCntSuffix, carsInputView, carCountInputGuideArw, carCountInputGuideTxt" />
 
     <View
         android:id="@+id/carCntBar"
@@ -108,31 +87,9 @@
         android:layout_marginStart="7dp"
         android:textSize="16sp"
         android:textColor="#4d4c4c"
-        android:text="차량 대수 : "
+        android:text="차량 대수"
         app:layout_constraintStart_toEndOf="@id/carCntBar"
         app:layout_constraintTop_toBottomOf="@+id/palletsInputView"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
-
-    <TextView
-        android:id="@+id/carsFixedCntTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#3668a5"
-        android:text="0"
-        app:layout_constraintStart_toEndOf="@id/carCntTitle"
-        app:layout_constraintBaseline_toBaselineOf="@+id/carCntTitle"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
-
-    <TextView
-        android:id="@+id/carCntSuffix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#4d4c4c"
-        android:text=" 대"
-        app:layout_constraintStart_toEndOf="@id/carsFixedCntTxt"
-        app:layout_constraintBaseline_toBaselineOf="@+id/carCntTitle"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <include

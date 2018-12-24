@@ -23,8 +23,10 @@ public class API {
 
     public static final String URL_SHIPPER_PWD_CHANGE = "/cust/update/pwd";
     public static final String URL_SHIPPER_ALLOC_CNT = "/cust/dispatch/count";
-    public static final String URL_SHIPPER_CAR_REQUEST_CNT = "/cust/select/car";
-    public static final String URL_SHIPPER_CAR_REQUEST_CNT_SAVE = "/cust/request/car";
+    public static final String URL_SHIPPER_CAR_REQUEST_FLEXIBLE_CNT = "/cust/select/car";
+    public static final String URL_SHIPPER_CAR_REQUEST_FLEXIBLE_CNT_SAVE = "/cust/request/car";
+    public static final String URL_SHIPPER_CAR_REQUEST_FIXED_CNT = "/cust/select/fixed";
+    public static final String URL_SHIPPER_CAR_REQUEST_FIXED_CNT_SAVE = "/cust/request/fixed";
     public static final String URL_SHIPPER_CAR_REQUEST_HISTORY = "/cust/list/car";
     public static final String URL_SHIPPER_ALLOC_LIST = "/cust/dispatch/list";
     public static final String URL_SHIPPER_PALLETS_REQUESTED = "/cust/select/pallet";

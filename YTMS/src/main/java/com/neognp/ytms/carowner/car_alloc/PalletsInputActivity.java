@@ -56,6 +56,14 @@ public class PalletsInputActivity extends BasicActivity {
 
             palletsCnt = Integer.parseInt(args.getString("PALLET_CNT", "0"));
             palletsCntEdit.setText("" + palletsCnt);
+
+            if (palletsCnt > 0) {
+                findViewById(R.id.bottomBtn0).setVisibility(View.INVISIBLE); // 저장
+                findViewById(R.id.bottomBtn1).setVisibility(View.VISIBLE); // 수정
+            } else {
+                findViewById(R.id.bottomBtn0).setVisibility(View.VISIBLE); // 저장
+                findViewById(R.id.bottomBtn1).setVisibility(View.INVISIBLE); // 수정
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

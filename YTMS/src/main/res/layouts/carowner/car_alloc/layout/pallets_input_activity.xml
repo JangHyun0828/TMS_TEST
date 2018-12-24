@@ -45,30 +45,33 @@
     <Button
         android:id="@+id/bottomBtn0"
         style="@style/ButtonRoundMain"
-        android:layout_marginTop="39.7dp"
         android:layout_marginStart="10dp"
+        android:layout_marginEnd="7.3dp"
         android:text="저장"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/bottomBtn1"
-        app:layout_constraintTop_toBottomOf="@+id/palletsInputView" />
+        app:layout_constraintEnd_toStartOf="@id/bottomBtn2"
+        app:layout_constraintTop_toTopOf="@id/bottomBtn2" />
 
     <Button
         android:id="@+id/bottomBtn1"
         style="@style/ButtonRoundMain"
-        android:layout_marginStart="7.3dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="7.3dp"
         android:text="수정"
-        app:layout_constraintStart_toEndOf="@id/bottomBtn0"
-        app:layout_constraintTop_toTopOf="@+id/bottomBtn0"
-        app:layout_constraintEnd_toStartOf="@id/bottomBtn2" />
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bottomBtn2"
+        app:layout_constraintTop_toTopOf="@id/bottomBtn2" />
 
     <Button
         android:id="@+id/bottomBtn2"
         style="@style/ButtonRoundMain"
-        android:layout_marginStart="7.3dp"
+        android:layout_width="0dp"
+        android:layout_marginTop="39.7dp"
         android:layout_marginEnd="10dp"
         android:text="닫기"
-        app:layout_constraintStart_toEndOf="@id/bottomBtn1"
-        app:layout_constraintTop_toTopOf="@+id/bottomBtn0"
+        app:layout_constraintTop_toBottomOf="@+id/palletsInputView"
+        app:layout_constraintStart_toEndOf="@id/bottomBtn0"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

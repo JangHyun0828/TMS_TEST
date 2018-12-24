@@ -515,7 +515,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     ((TextView) itemView.findViewById(R.id.dataTxt1)).setText("고객사: " + item.getString("CUST_NM", ""));
 
                     // 상차지
-                    TextView dataTxt2 = ((TextView) itemView.findViewById(R.id.dataTxt2));
+                    TextView dataTxt2 = itemView.findViewById(R.id.dataTxt2);
                     String FROM_CENTER_NM = "상차지: " + item.getString("FROM_CENTER_NM", "");
                     SpannableString content = new SpannableString(FROM_CENTER_NM);
                     content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
@@ -527,7 +527,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     });
 
                     // 하차지
-                    TextView dataTxt3 = ((TextView) itemView.findViewById(R.id.dataTxt3));
+                    TextView dataTxt3 = itemView.findViewById(R.id.dataTxt3);
                     String TO_CENTER_NM = "하차지: " + item.getString("TO_CENTER_NM", "");
                     content = new SpannableString(TO_CENTER_NM);
                     content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
@@ -542,7 +542,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     ((TextView) itemView.findViewById(R.id.dataTxt4)).setText(item.getString("REMARK", ""));
 
                     // 하차순서 확인
-                    TextView dataTxt5 = ((TextView) itemView.findViewById(R.id.dataTxt5));
+                    TextView dataTxt5 = itemView.findViewById(R.id.dataTxt5);
                     content = new SpannableString(dataTxt5.getText());
                     content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
                     dataTxt5.setText(content);

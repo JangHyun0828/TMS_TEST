@@ -27,18 +27,20 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 
-public class CarRequestInputFragment extends BasicFragment implements View.OnClickListener {
+public class CarRequestFlexibleInputFragment extends BasicFragment implements View.OnClickListener {
+
 
     private boolean onReq;
 
     private Calendar curCal;
-    private int palletsCnt, carsCnt;
+    private int palletTotalCnt, carTotalCnt;
 
     private View contentView;
     private Button curDateBtn;
 
-    private TextView palletsFixedCntTxt, carsFixedCntTxt;
-    private EditText palletsNewCntEdit, carsNewCntEdit;
+    private TextView palletTotalCntTxt;
+    private TextView carTotalCntTxt;
+    private EditText palletCntEdit, carCntEdit;
 
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -53,7 +55,7 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        contentView = inflater.inflate(R.layout.car_request_input_fragment, container, false);
+        contentView = inflater.inflate(R.layout.car_request_flexible_input_fragment, container, false);
 
         curCal = Calendar.getInstance();
         curCal.set(Calendar.HOUR_OF_DAY, 0);
@@ -68,15 +70,15 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
         contentView.findViewById(R.id.prevDateBtn).setOnClickListener(this);
         contentView.findViewById(R.id.nextDateBtn).setOnClickListener(this);
 
-        palletsFixedCntTxt = contentView.findViewById(R.id.palletsFixedCntTxt);
+        palletTotalCntTxt = contentView.findViewById(R.id.palletTotalCntTxt);
         View palletsInputView = contentView.findViewById(R.id.palletsInputView);
-        palletsNewCntEdit = palletsInputView.findViewById(R.id.itemsCntEdit);
+        palletCntEdit = palletsInputView.findViewById(R.id.itemsCntEdit);
         palletsInputView.findViewById(R.id.minusBtn).setOnClickListener(palletsInputListener);
         palletsInputView.findViewById(R.id.plusBtn).setOnClickListener(palletsInputListener);
 
-        carsFixedCntTxt = contentView.findViewById(R.id.carsFixedCntTxt);
+        carTotalCntTxt = contentView.findViewById(R.id.carTotalCntTxt);
         View carsInputView = contentView.findViewById(R.id.carsInputView);
-        carsNewCntEdit = carsInputView.findViewById(R.id.itemsCntEdit);
+        carCntEdit = carsInputView.findViewById(R.id.itemsCntEdit);
         carsInputView.findViewById(R.id.minusBtn).setOnClickListener(carsInputListener);
         carsInputView.findViewById(R.id.plusBtn).setOnClickListener(carsInputListener);
 
@@ -97,7 +99,7 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
 
     private void init() {
         try {
-            search();
+            requestCount(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -133,18 +135,20 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
 
             switch (v.getId()) {
                 case R.id.minusBtn:
-                    if (palletsCnt - 1 >= 0) {
-                        palletsCnt--;
-                        palletsNewCntEdit.setText("" + palletsCnt);
+                    if (palletTotalCnt - 1 >= 0) {
+                        palletTotalCnt--;
+                        palletTotalCntTxt.setText("" + palletTotalCnt);
+                        palletCntEdit.setText("" + (Integer.parseInt(palletCntEdit.getText().toString()) - 1));
                     }
                     break;
                 case R.id.plusBtn:
-                    palletsCnt++;
-                    palletsNewCntEdit.setText("" + palletsCnt);
+                    palletTotalCnt++;
+                    palletTotalCntTxt.setText("" + palletTotalCnt);
+                    palletCntEdit.setText("" + (Integer.parseInt(palletCntEdit.getText().toString()) + 1));
                     break;
             }
 
-            palletsNewCntEdit.setSelection(palletsNewCntEdit.getText().length());
+            palletCntEdit.setSelection(palletCntEdit.getText().length());
         }
     };
 
@@ -155,18 +159,20 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
 
             switch (v.getId()) {
                 case R.id.minusBtn:
-                    if (carsCnt - 1 >= 0) {
-                        carsCnt--;
-                        carsNewCntEdit.setText("" + carsCnt);
+                    if (carTotalCnt - 1 >= 0) {
+                        carTotalCnt--;
+                        carTotalCntTxt.setText("" + carTotalCnt);
+                        carCntEdit.setText("" + (Integer.parseInt(carCntEdit.getText().toString()) - 1));
                     }
                     break;
                 case R.id.plusBtn:
-                    carsCnt++;
-                    carsNewCntEdit.setText("" + carsCnt);
+                    carTotalCnt++;
+                    carTotalCntTxt.setText("" + carTotalCnt);
+                    carCntEdit.setText("" + (Integer.parseInt(carCntEdit.getText().toString()) + 1));
                     break;
             }
 
-            carsNewCntEdit.setSelection(carsNewCntEdit.getText().length());
+            carCntEdit.setSelection(carCntEdit.getText().length());
         }
     };
 
@@ -180,7 +186,7 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                 curCal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
 
-                search();
+                requestCount(true);
             }
         }, curCal.get(Calendar.YEAR), curCal.get(Calendar.MONTH), curCal.get(Calendar.DAY_OF_MONTH));
 
@@ -190,36 +196,17 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
     private void setPrevDate() {
         curCal.add(Calendar.DAY_OF_YEAR, -1);
         curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
-        search();
+        requestCount(true);
     }
 
     private void setNextDate() {
         curCal.add(Calendar.DAY_OF_YEAR, 1);
         curDateBtn.setText(Key.SDF_CAL_WEEKDAY.format(curCal.getTime()));
-        search();
-    }
-
-    private void search() {
-        try {
-            // 오늘 날짜 이후로 설정 금지
-            //Calendar todayCal = Calendar.getInstance();
-            //todayCal.set(Calendar.HOUR_OF_DAY, 0);
-            //todayCal.set(Calendar.MINUTE, 0);
-            //todayCal.set(Calendar.SECOND, 0);
-            //todayCal.set(Calendar.MILLISECOND, 0);
-            //if (curCal.after(todayCal)) {
-            //    showSnackbar(R.drawable.ic_insert_invitation_black_24dp, "조회 종료일은 오늘 날짜 이후로 지정할 수 없습니다.");
-            //    return;
-            //}
-
-            requestCount();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        requestCount(true);
     }
 
     @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestCount() {
+    private synchronized void requestCount(boolean showProgress) {
         if (onReq)
             return;
 
@@ -232,7 +219,8 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
                     onReq = true;
-                    showLoadingDialog(null, false);
+                    if (showProgress)
+                        showLoadingDialog(null, false);
                 }
 
                 protected Bundle doInBackground(Void... arg0) {
@@ -245,7 +233,7 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_SHIPPER_CAR_REQUEST_CNT, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_SHIPPER_CAR_REQUEST_FLEXIBLE_CNT, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
@@ -279,15 +267,15 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
             return;
 
         try {
-            palletsFixedCntTxt.setText(data.getString("PALLET_CNT", "0"));
-            palletsCnt = Integer.parseInt(data.getString("C_PALLET_CNT", "0"));
-            palletsNewCntEdit.setText("" + palletsCnt);
-            palletsNewCntEdit.setSelection(palletsNewCntEdit.getText().length());
+            palletTotalCnt = Integer.parseInt(data.getString("PALLET_CNT", "0"));
+            palletTotalCntTxt.setText("" + palletTotalCnt);
+            palletCntEdit.setText("0");
+            palletCntEdit.setSelection(palletCntEdit.getText().length());
 
-            carsFixedCntTxt.setText(data.getString("CAR_CNT", "0"));
-            carsCnt = Integer.parseInt(data.getString("C_PALLET_CNT", "0"));
-            carsNewCntEdit.setText("" + carsCnt);
-            carsNewCntEdit.setSelection(carsNewCntEdit.getText().length());
+            carTotalCnt = Integer.parseInt(data.getString("CAR_CNT", "0"));
+            carTotalCntTxt.setText("" + carTotalCnt);
+            carCntEdit.setText("0");
+            carCntEdit.setSelection(carCntEdit.getText().length());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -304,15 +292,15 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
 
             final String requestDt = Key.SDF_PAYLOAD.format(curCal.getTime());
 
-            String palletCnt = palletsNewCntEdit.getText().toString();
+            String palletCnt = palletCntEdit.getText().toString();
             if (palletCnt.isEmpty() || palletCnt.equals("0") || palletCnt.equals("-")) {
-                showToast("팔레트 수를 1개 이상 입력해 주십시요.", true);
+                showToast("팔레트 수를 입력해 주십시요.", true);
                 return;
             }
 
-            //String carCnt = carsNewCntEdit.getText().toString();
+            //String carCnt = carCntEdit.getText().toString();
             //if (carCnt.isEmpty() || carCnt.equals("0") || carCnt.equals("-")) {
-            //    showToast("차량 대수를 1대 이상 입력해 주십시요.", true);
+            //    showToast("차량 대수를 입력해 주십시요.", true);
             //    return;
             //}
             // 임시
@@ -331,17 +319,17 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
                         payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
                         payloadJson.put("custCd", Key.getUserInfo().getString("CLIENT_CD"));
                         payloadJson.put("requestDt", requestDt);
-                        payloadJson.put("palletCnt", palletCnt);
-                        payloadJson.put("carCnt", carCnt);
+                        payloadJson.put("palletCnt", "" + palletCnt);
+                        payloadJson.put("carCnt", "" + carCnt);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return YTMSRestRequestor.requestPost(API.URL_SHIPPER_CAR_REQUEST_CNT_SAVE, false, payloadJson, true, false);
+                    return YTMSRestRequestor.requestPost(API.URL_SHIPPER_CAR_REQUEST_FLEXIBLE_CNT_SAVE, false, payloadJson, true, false);
                 }
 
                 protected void onPostExecute(Bundle response) {
                     onReq = false;
-                    dismissLoadingDialog();
+                    //dismissLoadingDialog();
 
                     try {
                         Bundle resBody = response.getBundle(Key.resBody);
@@ -350,10 +338,13 @@ public class CarRequestInputFragment extends BasicFragment implements View.OnCli
 
                         if (result_code.equals("200")) {
                             showToast("차량 요청이 저장되었습니다.", true);
+                            requestCount(false);
                         } else {
+                            dismissLoadingDialog();
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
                     } catch (Exception e) {
+                        dismissLoadingDialog();
                         e.printStackTrace();
                         showToast(e.getMessage(), false);
                     }
