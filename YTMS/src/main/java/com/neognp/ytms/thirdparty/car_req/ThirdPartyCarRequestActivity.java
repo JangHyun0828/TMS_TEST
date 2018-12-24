@@ -265,6 +265,7 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
 
             listItems.add(bObj);
             listAdapter.notifyDataSetChanged();
+            list.scrollToPosition(listItems.size() - 1);
         }
         catch(Exception e)
         {
@@ -599,21 +600,23 @@ public class ThirdPartyCarRequestActivity extends BasicActivity {
                     JSONObject obj = dataList.getJSONObject(idx);
 
                     if (requestCode == 100) {
-                        TextView custTxt = list.getChildAt(idx).findViewById(R.id.custTxt);
-                        custTxt.setText("화주사 : " + searchNm);
+                        //TextView custTxt = list.getChildAt(idx).findViewById(R.id.custTxt);
+                        //custTxt.setText("화주사 : " + searchNm);
                         obj.put("CUST_CD", searchCd);
                         obj.put("CUST_NM", searchNm);
                         listItems.get(idx).putString("CUST_CD", searchCd);
                         listItems.get(idx).putString("CUST_NM", searchNm);
                     }
                     if (requestCode == 200) {
-                        TextView centerTxt = list.getChildAt(idx).findViewById(R.id.centerTxt);
-                        centerTxt.setText("하차지 : " + searchNm);
+                        //TextView centerTxt = list.getChildAt(idx).findViewById(R.id.centerTxt);
+                        //centerTxt.setText("하차지 : " + searchNm);
                         obj.put("TO_CENTER_CD", searchCd);
                         obj.put("TO_CENTER_NM", searchNm);
                         listItems.get(idx).putString("TO_CENTER_CD", searchCd);
                         listItems.get(idx).putString("TO_CENTER_NM", searchNm);
                     }
+
+                    listAdapter.notifyItemChanged(idx);
                 }
                 catch(Exception e)
                 {
