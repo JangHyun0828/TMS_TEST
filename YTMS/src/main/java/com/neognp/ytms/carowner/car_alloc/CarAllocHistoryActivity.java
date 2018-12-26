@@ -626,23 +626,23 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         if (STATUS.equalsIgnoreCase("P")) {
                             departBtn.setVisibility(View.VISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.VISIBLE);
                             cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
-                            palletsCntBtn.setVisibility(View.VISIBLE);
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
                             departBtn.setVisibility(View.GONE);
                             palletsInputBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
-                            palletsCntBtn.setVisibility(View.GONE);
                         } else {
                             departBtn.setVisibility(View.VISIBLE);
                             palletsInputBtn.setVisibility(View.VISIBLE);
+                            palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
-                            palletsCntBtn.setVisibility(View.GONE);
                         }
                     }
                     // 일반
@@ -651,25 +651,23 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         if (STATUS.equalsIgnoreCase("P")) {
                             departBtn.setVisibility(View.VISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
-                            cameraBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setEnabled(true);
                             palletsCntBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.GONE);
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
                             departBtn.setVisibility(View.GONE);
                             palletsInputBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
-                            palletsCntBtn.setVisibility(View.GONE);
                         } else {
                             departBtn.setVisibility(View.VISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
-                            cameraBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setEnabled(false);
                             palletsCntBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.VISIBLE);
                         }
                     }
                     // 간선
@@ -678,25 +676,23 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         if (STATUS.equalsIgnoreCase("P")) {
                             departBtn.setVisibility(View.VISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
-                            cameraBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setEnabled(true);
                             palletsCntBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.GONE);
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
                             departBtn.setVisibility(View.GONE);
                             palletsInputBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
-                            palletsCntBtn.setVisibility(View.GONE);
                         } else {
                             departBtn.setVisibility(View.VISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
-                            cameraBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setEnabled(false);
                             palletsCntBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.VISIBLE);
                         }
                     }
                     // 직송
@@ -705,25 +701,23 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         if (STATUS.equalsIgnoreCase("P")) {
                             departBtn.setVisibility(View.VISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
-                            cameraBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setEnabled(true);
                             palletsCntBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.GONE);
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
                             departBtn.setVisibility(View.GONE);
                             palletsInputBtn.setVisibility(View.GONE);
+                            palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
                             chargeBtn.setVisibility(View.GONE);
-                            palletsCntBtn.setVisibility(View.GONE);
                         } else {
                             departBtn.setVisibility(View.VISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
-                            cameraBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setVisibility(View.GONE); // TODO 2018.03 오픈 chargeBtn.setVisibility(View.VISIBLE);
-                            chargeBtn.setEnabled(false);
                             palletsCntBtn.setVisibility(View.GONE);
+                            cameraBtn.setVisibility(View.GONE);
+                            chargeBtn.setVisibility(View.VISIBLE);
                         }
                     }
                 } catch (Exception e) {
