@@ -8,52 +8,52 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iconImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:src="@drawable/ic_launcher" />
-
-    <TextView
-        android:id="@+id/titleTxt"
-        style="@style/TextAppearance.Compat.Notification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/iconImg"
-        android:layout_marginStart="13.3dp"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:text="제목"
-        android:textColor="#323332"
-        android:textSize="15sp"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
-
-    <TextView
-        android:id="@+id/msgTxt"
-        style="@style/TextAppearance.Compat.Notification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/titleTxt"
-        android:layout_below="@+id/titleTxt"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:text="내용"
-        android:textColor="#323332"
-        android:textSize="15sp"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
-
     <TextView
         android:id="@+id/dateTxt"
         style="@style/TextAppearance.Compat.Notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/titleTxt"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:textColor="#232a36"
         android:textSize="12sp"
+        android:textColor="#6b6b6b"
         android:text="000.00.00 00:00:00"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+
+    <ImageView
+        android:id="@+id/iconImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dateTxt"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/customer_menu_4_sub_1_2" />
+
+    <TextView
+        android:id="@+id/titleTxt"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iconImg"
+        android:layout_toEndOf="@+id/iconImg"
+        android:layout_marginStart="5dp"
+        android:gravity="center_vertical"
+        android:text="제목"
+        android:textColor="#3668a5"
+        android:textSize="16sp"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:background="#bfd7f1"/>
+
+    <TextView
+        android:id="@+id/textTxt"
+        style="@style/TextAppearance.Compat.Notification.Line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/iconImg"
+        android:layout_below="@+id/iconImg"
+        android:layout_marginTop="11.3dp"
+        android:text="내용"
+        android:textColor="#4e4d4d"
+        android:textSize="13.3sp"
         app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
 </RelativeLayout>

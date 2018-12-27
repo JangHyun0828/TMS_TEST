@@ -26,6 +26,7 @@ import com.neognp.ytms.thirdparty.account.ThirdPartyAccountActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
 import com.trevor.library.util.DeviceUtil;
+import com.trevor.library.util.Setting;
 
 import org.json.JSONObject;
 
@@ -177,6 +178,8 @@ public class DeliveryMainActivity extends BasicActivity {
     //}
 
     private void requestLoginActivity() {
+        Setting.putBoolean(Key.allowAutoLogin, false);
+
         finish();
         Intent intent = new Intent(getContext(), LoginActivity.class);
         // 앱 새로 실행 | 모든 Activity 삭제

@@ -141,7 +141,7 @@ public class CarOwnerAccountActivity extends BasicActivity implements YTMSFileUp
     }
 
     private void requestLoginActivity() {
-        Setting.putBoolean("autoLogin", false);
+        Setting.putBoolean(Key.allowAutoLogin, false);
 
         finish();
         Intent intent = new Intent(getContext(), LoginActivity.class);

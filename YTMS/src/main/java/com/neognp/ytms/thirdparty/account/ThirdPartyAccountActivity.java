@@ -19,6 +19,7 @@ import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.Setting;
 
 import org.json.JSONObject;
 
@@ -72,6 +73,8 @@ public class ThirdPartyAccountActivity extends BasicActivity {
     }
 
     private void requestLoginActivity() {
+        Setting.putBoolean(Key.allowAutoLogin, false);
+
         finish();
         Intent intent = new Intent(getContext(), LoginActivity.class);
         // 앱 새로 실행 | 모든 Activity 삭제

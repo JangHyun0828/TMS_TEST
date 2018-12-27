@@ -82,7 +82,6 @@ public class GpsTrackingService extends Service {
         Log.e(TAG, "+ onCreate(): ");
 
         Notification notification = null;
-        String channelId = "YTMSCarOwner";
 
         /* custom notification */
         RemoteViews notificationLayout = new RemoteViews(getPackageName(), R.layout.notification_small);
@@ -93,11 +92,11 @@ public class GpsTrackingService extends Service {
         // Oreo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            NotificationChannel channel = new NotificationChannel(channelId, "운송화주", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channel = new NotificationChannel(Key.CHANNEL_ID, "운송화주", NotificationManager.IMPORTANCE_DEFAULT);
             notificationManager.createNotificationChannel(channel);
 
             // @formatter:off
-            notification = new Notification.Builder(getApplicationContext(), channelId).
+            notification = new Notification.Builder(getApplicationContext(), Key.CHANNEL_ID).
             //setTicker(getString(R.string.app_name)). // 자동 슬라이드 다운되도록 설정
             setSmallIcon(R.drawable.notificaion_icon).
             setContentTitle("운송화주").

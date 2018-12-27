@@ -19,13 +19,13 @@ import com.neognp.ytms.app.MyApp;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.notification.YTMSNotification;
 import com.trevor.library.util.Setting;
+import com.trevor.library.util.TextUtil;
 
 import org.json.JSONObject;
 
 import java.util.Map;
 
 // https://firebase.google.com/docs/cloud-messaging/android/receive?hl=ko
-// TODO 앱이 백그라운드 상태인 경우, 푸시가 작업표시줄에 자동으로 표시되며, 푸시 클릭시 별도로 앱이 새로 시작됨
 public class MyFirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
 
     static String TAG = MyFirebaseMessagingService.class.getSimpleName();
@@ -108,16 +108,16 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
             // Check if message contains a notification payload.
             if (remoteMessage.getNotification() != null) {
-                Log.e(TAG, "+ onMessageReceived(): Title=" + remoteMessage.getNotification().getTitle());
-                Log.e(TAG, "+ onMessageReceived(): Body=" + remoteMessage.getNotification().getBody());
+                //Log.e(TAG, "+ onMessageReceived(): Title=" + remoteMessage.getNotification().getTitle());
+                //Log.e(TAG, "+ onMessageReceived(): Body=" + remoteMessage.getNotification().getBody());
 
+                // Firebase Console>Clould Messaging>추가옵션>맞춤 데이타: 키/값 입력란에 입력된 값
                 Bundle args = new Bundle();
-                //args.putString(Key.title, remoteMessage.getNotification().getTitle());
-                //args.putString(Key.message, remoteMessage.getNotification().getBody());
                 args.putString(Key.title, data.get(Key.title));
-                args.putString(Key.message, data.get(Key.message));
+                args.putString(Key.text, data.get(Key.text));
                 args.putString(Key.date, data.get(Key.date));
-                YTMSNotification.show(getApplicationContext(), args);
+                Log.e(TAG, "+ onMessageReceived(): args=\n" + TextUtil.formatBundleToString(args));
+                YTMSNotification.show(args);
             }
         } catch (Exception e) {
             e.printStackTrace();
