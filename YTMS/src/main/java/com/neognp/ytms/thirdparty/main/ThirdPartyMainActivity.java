@@ -17,20 +17,21 @@ import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.neognp.ytms.login.LoginActivity;
 import com.neognp.ytms.notice.NoticeListActivity;
+import com.neognp.ytms.popup.ConfirmCancelDialog;
+import com.neognp.ytms.shipper.main.ShipperMainActivity;
 import com.neognp.ytms.thirdparty.account.ThirdPartyAccountActivity;
 import com.trevor.library.template.BasicActivity;
 import com.neognp.ytms.thirdparty.car_alloc.ThirdPartyCarAllocInfoActivity;
 import com.neognp.ytms.thirdparty.car_req.ThirdPartyCarRequestActivity;
 import com.neognp.ytms.thirdparty.car_req.ThirdPartyCarRequestHistoryActivity;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.DeviceUtil;
 
 import org.json.JSONObject;
 
 public class ThirdPartyMainActivity extends BasicActivity {
-
-    private boolean onReq;
-    private Bundle args;
 
     private boolean onNewIntent;
 
@@ -71,13 +72,37 @@ public class ThirdPartyMainActivity extends BasicActivity {
 
     private void init() {
         try {
-            args = getIntent().getExtras();
-            if (args == null)
-                return;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void onBackPressed() {
+        ConfirmCancelDialog.show(this, "앱을 종료하시겠습니까?", "취소", "확인", true, new ConfirmCancelDialog.DialogListener() {
+            public void onCancel() {
+            }
+
+            public void onConfirm() {
+                // TEST
+                if (DeviceUtil.getUuid().endsWith("810d")) {
+                    // 앱 새로 실행 | 모든 Activity 삭제
+                    Intent intent = new Intent(ThirdPartyMainActivity.this, LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+
+                finishApp();
+            }
+        });
+    }
+
+    private void finishApp() {
+        finish();
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     // TODO 아이콘 위치에서 Activity 가 커지는 material animation 적용

@@ -36,6 +36,7 @@ import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
 import com.neognp.ytms.notice.NoticeListActivity;
+import com.neognp.ytms.popup.ConfirmCancelDialog;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
 import com.trevor.library.util.DeviceUtil;
@@ -43,9 +44,6 @@ import com.trevor.library.util.DeviceUtil;
 import org.json.JSONObject;
 
 public class CarOwnerMainActivity extends BasicActivity {
-
-    private boolean onReq;
-    private Bundle args;
 
     private boolean onNewIntent;
 
@@ -59,15 +57,6 @@ public class CarOwnerMainActivity extends BasicActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.car_owner_main_activity);
-
-        // GoogleHandler Play 서비스 호환 여부 체크
-        GoogleApiAvailability.getInstance().makeGooglePlayServicesAvailable(this);
-
-        // 서버 콘솔에 YTMS 토픽이 없을 경우, 이 메서드 호출로 서버 콘솔에 자동으로 토픽 생성(생성하는데 몇 시간 걸림)
-        FirebaseMessaging.getInstance().subscribeToTopic(getString(R.string.notification_channel_id));
-
-        // FCM Token 서버에 전달
-        MyFirebaseMessagingService.sendRegistrationToServer(this);
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(Key.ACTION_GPS_SERVICE_LOCATION_UPDATED);
@@ -169,24 +158,46 @@ public class CarOwnerMainActivity extends BasicActivity {
 
     private void init() {
         try {
-            args = getIntent().getExtras();
-            if (args == null)
-                return;
+            // GoogleHandler Play 서비스 호환 여부 체크
+            GoogleApiAvailability.getInstance().makeGooglePlayServicesAvailable(this);
 
+            // 서버 콘솔에 YTMS 토픽이 없을 경우, 이 메서드 호출로 서버 콘솔에 자동으로 토픽 생성(생성하는데 몇 시간 걸림)
+            FirebaseMessaging.getInstance().subscribeToTopic(Key.CHANNEL_ID);
+
+            // FCM Token 서버에 전달
+            MyFirebaseMessagingService.sendRegistrationToServer(this);
+
+            requestGpsTransmitCheck();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void onBackPressed() {
-        // TEST
-        if (DeviceUtil.getUuid().endsWith("810d")) {
-            // 앱 새로 실행 | 모든 Activity 삭제
-            Intent intent = new Intent(this, LoginActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            finish();
-        }
+        ConfirmCancelDialog.show(this, "앱을 종료하시겠습니까?", "취소", "확인", true, new ConfirmCancelDialog.DialogListener() {
+            public void onCancel() {
+            }
+
+            public void onConfirm() {
+                // TEST
+                if (DeviceUtil.getUuid().endsWith("810d")) {
+                    // 앱 새로 실행 | 모든 Activity 삭제
+                    Intent intent = new Intent(CarOwnerMainActivity.this, LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+
+                finishApp();
+            }
+        });
+    }
+
+    private void finishApp() {
+        finish();
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     public void onClick(View v) {
@@ -233,7 +244,7 @@ public class CarOwnerMainActivity extends BasicActivity {
     }
 
     // TODO 2018.03 오픈 예정
-    // TODO 아이콘 위치에서 Activity가 커지는 material animation 적용
+    // TODO 아이콘 위치에서 Activity 가 커지는 material animation 적용
     //public void onClick(View v) {
     //    InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
     //    mgr.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
@@ -280,6 +291,57 @@ public class CarOwnerMainActivity extends BasicActivity {
     //            break;
     //    }
     //}
+
+    private boolean onReqGpsTransmitCheck;
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestGpsTransmitCheck() {
+        if (onReqGpsTransmitCheck)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReqGpsTransmitCheck = true;
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_CAR_GPS_TRANSMIT_CHECK, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReqGpsTransmitCheck = false;
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            Bundle data = resBody.getBundle(Key.data);
+                            if(data.getString("CHECK_YN").equalsIgnoreCase("Y")) {
+
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private boolean onReqCarAllocCnt;
 

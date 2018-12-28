@@ -35,6 +35,7 @@ public class API {
 
     /* 차주 */
 
+    public static final String URL_CAR_GPS_TRANSMIT_CHECK = "/car/check/gps";
     public static final String URL_CAR_ACCOUNT_INFO = "/car/select/info";
     public static final String URL_CAR_ACCOUNT_INFO_SAVE = "/car/update/info";
     public static final String URL_CAR_ALLOC_CNT = "/car/dispatch/count";
