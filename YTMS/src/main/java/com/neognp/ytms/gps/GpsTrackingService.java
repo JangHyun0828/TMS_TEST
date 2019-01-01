@@ -29,6 +29,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
@@ -92,11 +93,11 @@ public class GpsTrackingService extends Service {
         // Oreo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            NotificationChannel channel = new NotificationChannel(Key.CHANNEL_ID, "운송화주", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channel = new NotificationChannel(Key.CHANNEL_CAR_OWNER, "운송화주", NotificationManager.IMPORTANCE_DEFAULT);
             notificationManager.createNotificationChannel(channel);
 
             // @formatter:off
-            notification = new Notification.Builder(getApplicationContext(), Key.CHANNEL_ID).
+            notification = new Notification.Builder(getApplicationContext(), Key.CHANNEL_CAR_OWNER).
             //setTicker(getString(R.string.app_name)). // 자동 슬라이드 다운되도록 설정
             setSmallIcon(R.drawable.notificaion_icon).
             setContentTitle("운송화주").
@@ -109,7 +110,7 @@ public class GpsTrackingService extends Service {
             // @formatter:on
         } else {
             // @formatter:off
-            notification = new NotificationCompat.Builder(this, "CarOwner").
+            notification = new NotificationCompat.Builder(this, Key.CHANNEL_CAR_OWNER).
             setPriority(NotificationCompat.PRIORITY_DEFAULT).
             //setTicker(getString(R.string.app_name)). // 자동 슬라이드 다운되도록 설정
             setSmallIcon(R.drawable.notificaion_icon).
@@ -248,6 +249,13 @@ public class GpsTrackingService extends Service {
 
             if (userLocation == null)
                 return;
+
+            // TEST
+            if (DeviceUtil.getUuid().endsWith("810d")) {
+                userLocation = new Location("testLocation");
+                userLocation.setLatitude(Key.DEFAULT_LAT);
+                userLocation.setLongitude(Key.DEFAULT_LON);
+            }
 
             double userLat = userLocation.getLatitude();
             double userLon = userLocation.getLongitude();

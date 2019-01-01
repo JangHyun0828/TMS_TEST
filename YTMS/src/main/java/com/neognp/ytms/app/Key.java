@@ -75,6 +75,8 @@ public class Key {
     // <Action>
     public static final String ACTION_RECEIVED_PUSH = MyApp.get().getPackageName() + ".ACTION_RECEIVED_PUSH";
     public static final String ACTION_START_ACTIVITY = MyApp.get().getPackageName() + ".ACTION_START_ACTIVITY";
+    public static final String ACTION_GPS_SERVICE_START = MyApp.get().getPackageName() + ".ACTION_GPS_SERVICE_START";
+    public static final String ACTION_GPS_SERVICE_STOP = MyApp.get().getPackageName() + ".ACTION_GPS_SERVICE_STOP";
     public static final String ACTION_GPS_SERVICE_STATE = MyApp.get().getPackageName() + ".ACTION_GPS_SERVICE_STATE";
     public static final String ACTION_GPS_SERVICE_LOCATION_UPDATED = MyApp.get().getPackageName() + ".ACTION_GPS_SERVICE_LOCATION_UPDATED";
 
@@ -99,7 +101,8 @@ public class Key {
     public static final String FONT_BOLD = "fonts/noto_sans_kr_bold_hestia.otf";
 
     // <Key>
-    public static final String CHANNEL_ID = "YTMS";
+    public static final String CHANNEL_COMMON = "YTMS";
+    public static final String CHANNEL_CAR_OWNER = "YTMS_CAR_OWNER";
     public static final String allowPush = "allowPush";
     public static final String allowAutoLogin = "allowAutoLogin";
     public static final String args = "args";

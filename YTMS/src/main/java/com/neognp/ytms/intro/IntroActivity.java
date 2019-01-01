@@ -54,15 +54,6 @@ public class IntroActivity extends BasicActivity {
         }
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            finishApp();
-            return true;
-        }
-
-        return super.onKeyDown(keyCode, event);
-    }
-
     private void showLoginActivity() {
         finish();
         ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.fade_in, R.anim.fade_out);
@@ -102,12 +93,6 @@ public class IntroActivity extends BasicActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent, options.toBundle());
         finish();
-    }
-
-    private void finishApp() {
-        finish();
-        moveTaskToBack(true);
-        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     public static final int REQ_PERMISSION_ALL = 1000;
@@ -169,7 +154,6 @@ public class IntroActivity extends BasicActivity {
 
         ConfirmCancelDialog.show(this, msg, "종료", "권한 설정", false, new ConfirmCancelDialog.DialogListener() {
             public void onCancel() {
-                finishApp();
             }
 
             public void onConfirm() {

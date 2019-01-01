@@ -95,7 +95,7 @@ public class YTMSNotification {
             // Oreo
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 // @formatter:off
-                notification = new Notification.Builder(MyApp.get(), Key.CHANNEL_ID).
+                notification = new Notification.Builder(MyApp.get(), Key.CHANNEL_COMMON).
                 setTicker(MyApp.get().getString(R.string.app_name)). // 자동 슬라이드 다운되도록 설정
                 setContentTitle(title).
                 setContentText(text).
@@ -109,7 +109,7 @@ public class YTMSNotification {
                 // @formatter:on
 
                 NotificationManager notificationManager = MyApp.get().getSystemService(NotificationManager.class);
-                NotificationChannel channel = new NotificationChannel(Key.CHANNEL_ID, "용마로지스", NotificationManager.IMPORTANCE_HIGH);
+                NotificationChannel channel = new NotificationChannel(Key.CHANNEL_COMMON, "용마로지스", NotificationManager.IMPORTANCE_HIGH);
                 notificationManager.createNotificationChannel(channel);
                 channel.setSound(null, null);
                 channel.enableLights(true);
@@ -119,7 +119,7 @@ public class YTMSNotification {
                 notificationManager.notify(notificationId, notification);
             } else {
                 // @formatter:off
-                notification = new NotificationCompat.Builder(MyApp.get(), Key.CHANNEL_ID).
+                notification = new NotificationCompat.Builder(MyApp.get(), Key.CHANNEL_COMMON).
                 setPriority(NotificationCompat.PRIORITY_HIGH).
                 setTicker(MyApp.get().getString(R.string.app_name)). // 자동 슬라이드 다운되도록 설정
                 setContentTitle(title).

@@ -1,6 +1,7 @@
 package com.neognp.ytms.carowner.main;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.app.ActivityOptions;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
@@ -34,12 +36,11 @@ import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
 import com.neognp.ytms.fcm.MyFirebaseMessagingService;
 import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSRestRequestor;
-import com.neognp.ytms.login.LoginActivity;
 import com.neognp.ytms.notice.NoticeListActivity;
 import com.neognp.ytms.popup.ConfirmCancelDialog;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
-import com.trevor.library.util.DeviceUtil;
+import com.trevor.library.util.Setting;
 
 import org.json.JSONObject;
 
@@ -59,8 +60,11 @@ public class CarOwnerMainActivity extends BasicActivity {
         setContentView(R.layout.car_owner_main_activity);
 
         IntentFilter filter = new IntentFilter();
+        filter.addAction(Key.ACTION_GPS_SERVICE_START);
+        filter.addAction(Key.ACTION_GPS_SERVICE_STOP);
+        filter.addAction(Key.ACTION_GPS_SERVICE_STATE);
         filter.addAction(Key.ACTION_GPS_SERVICE_LOCATION_UPDATED);
-        LocalBroadcastManager.getInstance(this).registerReceiver(locationUpdateReceiver, filter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(gpsServiceReceiver, filter);
 
         //Intent serviceIntent = new Intent(this, GpsTrackingService.class);
 
@@ -103,13 +107,16 @@ public class CarOwnerMainActivity extends BasicActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(locationUpdateReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(gpsServiceReceiver);
 
-        Intent serviceIntent = new Intent(this, GpsTrackingService.class);
-        stopService(serviceIntent);
+        /* 자동로그인이 아닌 경우, GPS 서비스 종료 */
+        if (!Setting.getBoolean(Key.allowAutoLogin)) {
+            //Intent serviceIntent = new Intent(CarOwnerMainActivity.this, GpsTrackingService.class);
+            //stopService(serviceIntent);
 
-        //unbindService(mServiceConnection);
-        //mGpsTrackingService = null;
+            //unbindService(mServiceConnection);
+            //mGpsTrackingService = null;
+        }
     }
 
     /* Service 를 시작시킨 Activity 종료 시, Service 도 함께 종료 */
@@ -135,22 +142,36 @@ public class CarOwnerMainActivity extends BasicActivity {
         }
     };
 
-    private final BroadcastReceiver locationUpdateReceiver = new BroadcastReceiver() {
-        String TAG = "locationUpdateReceiver";
+    private final BroadcastReceiver gpsServiceReceiver = new BroadcastReceiver() {
+        String TAG = "gpsServiceReceiver";
 
         public void onReceive(Context context, Intent intent) {
             try {
                 if (intent == null)
                     return;
 
-                Bundle args = intent.getBundleExtra("args");
-                ((TextView) findViewById(R.id.addressTxt0)).setText(args.getString("userAddress0"));
-                ((TextView) findViewById(R.id.addressTxt1)).setText(args.getString("userAddress1"));
+                String action = intent.getAction();
 
-                Animation anim = new AlphaAnimation(0.0f, 1.0f);
-                anim.setDuration(500);
-                locationImg.startAnimation(anim);
-            } catch (Exception e) {
+                if (action.equalsIgnoreCase(Key.ACTION_GPS_SERVICE_START)) {
+                    Intent serviceIntent = new Intent(CarOwnerMainActivity.this, GpsTrackingService.class);
+                    startService(serviceIntent);
+                } else if (action.equalsIgnoreCase(Key.ACTION_GPS_SERVICE_STOP)) {
+                    Intent serviceIntent = new Intent(CarOwnerMainActivity.this, GpsTrackingService.class);
+                    stopService(serviceIntent);
+                } else if (action.equalsIgnoreCase(Key.ACTION_GPS_SERVICE_STATE)) {
+
+                } else if (action.equalsIgnoreCase(Key.ACTION_GPS_SERVICE_LOCATION_UPDATED)) {
+                    Bundle args = intent.getBundleExtra("args");
+                    ((TextView) findViewById(R.id.addressTxt0)).setText(args.getString("userAddress0"));
+                    ((TextView) findViewById(R.id.addressTxt1)).setText(args.getString("userAddress1"));
+
+                    Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                    anim.setDuration(500);
+                    locationImg.startAnimation(anim);
+                }
+            } catch (Exception e)
+
+            {
                 e.printStackTrace();
             }
         }
@@ -162,7 +183,7 @@ public class CarOwnerMainActivity extends BasicActivity {
             GoogleApiAvailability.getInstance().makeGooglePlayServicesAvailable(this);
 
             // 서버 콘솔에 YTMS 토픽이 없을 경우, 이 메서드 호출로 서버 콘솔에 자동으로 토픽 생성(생성하는데 몇 시간 걸림)
-            FirebaseMessaging.getInstance().subscribeToTopic(Key.CHANNEL_ID);
+            FirebaseMessaging.getInstance().subscribeToTopic(Key.CHANNEL_COMMON);
 
             // FCM Token 서버에 전달
             MyFirebaseMessagingService.sendRegistrationToServer(this);
@@ -180,16 +201,17 @@ public class CarOwnerMainActivity extends BasicActivity {
 
             public void onConfirm() {
                 // TEST
-                if (DeviceUtil.getUuid().endsWith("810d")) {
-                    // 앱 새로 실행 | 모든 Activity 삭제
-                    Intent intent = new Intent(CarOwnerMainActivity.this, LoginActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                    return;
-                }
+                //if (DeviceUtil.getUuid().endsWith("810d")) {
+                //    // 앱 새로 실행 | 모든 Activity 삭제
+                //    Intent intent = new Intent(CarOwnerMainActivity.this, LoginActivity.class);
+                //    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //    startActivity(intent);
+                //    finish();
+                //    return;
+                //}
 
-                finishApp();
+                finish();
+                //finishApp(); // CAUTION 사용시 Service 도 같이 종료
             }
         });
     }
@@ -291,57 +313,6 @@ public class CarOwnerMainActivity extends BasicActivity {
     //            break;
     //    }
     //}
-
-    private boolean onReqGpsTransmitCheck;
-
-    @SuppressLint ("StaticFieldLeak")
-    private synchronized void requestGpsTransmitCheck() {
-        if (onReqGpsTransmitCheck)
-            return;
-
-        try {
-            if (Key.getUserInfo() == null)
-                return;
-
-            new AsyncTask<Void, Void, Bundle>() {
-                protected void onPreExecute() {
-                    onReqGpsTransmitCheck = true;
-                }
-
-                protected Bundle doInBackground(Void... arg0) {
-                    JSONObject payloadJson = null;
-                    try {
-                        payloadJson = YTMSRestRequestor.buildPayload();
-                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return YTMSRestRequestor.requestPost(API.URL_CAR_GPS_TRANSMIT_CHECK, false, payloadJson, true, false);
-                }
-
-                protected void onPostExecute(Bundle response) {
-                    onReqGpsTransmitCheck = false;
-
-                    try {
-                        Bundle resBody = response.getBundle(Key.resBody);
-                        String result_code = resBody.getString(Key.result_code);
-                        String result_msg = resBody.getString(Key.result_msg);
-
-                        if (result_code.equals("200")) {
-                            Bundle data = resBody.getBundle(Key.data);
-                            if(data.getString("CHECK_YN").equalsIgnoreCase("Y")) {
-
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private boolean onReqCarAllocCnt;
 
@@ -459,6 +430,59 @@ public class CarOwnerMainActivity extends BasicActivity {
         }
     }
 
+    private boolean onReqGpsTransmitCheck;
+
+    @SuppressLint ("StaticFieldLeak")
+    private synchronized void requestGpsTransmitCheck() {
+        if (onReqGpsTransmitCheck)
+            return;
+
+        try {
+            if (Key.getUserInfo() == null)
+                return;
+
+            new AsyncTask<Void, Void, Bundle>() {
+                protected void onPreExecute() {
+                    onReqGpsTransmitCheck = true;
+                }
+
+                protected Bundle doInBackground(Void... arg0) {
+                    JSONObject payloadJson = null;
+                    try {
+                        payloadJson = YTMSRestRequestor.buildPayload();
+                        payloadJson.put("userCd", Key.getUserInfo().getString("USER_CD"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return YTMSRestRequestor.requestPost(API.URL_CAR_GPS_TRANSMIT_CHECK, false, payloadJson, true, false);
+                }
+
+                protected void onPostExecute(Bundle response) {
+                    onReqGpsTransmitCheck = false;
+
+                    try {
+                        Bundle resBody = response.getBundle(Key.resBody);
+                        String result_code = resBody.getString(Key.result_code);
+                        String result_msg = resBody.getString(Key.result_msg);
+
+                        if (result_code.equals("200")) {
+                            Bundle data = resBody.getBundle(Key.data);
+                            if (data.getString("CHECK_YN").equalsIgnoreCase("Y")) {
+                                startGpsTrackingService();
+                            } else {
+                                stopGpsTrackingService();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void showGpsSnackbar() {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "", Snackbar.LENGTH_SHORT);
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
@@ -477,6 +501,38 @@ public class CarOwnerMainActivity extends BasicActivity {
         layout.addView(snackbarV, 0);
 
         snackbar.show();
+    }
+
+    private void startGpsTrackingService() {
+        Intent serviceIntent = new Intent(this, GpsTrackingService.class);
+
+        /** 홈 화면>모든 앱 종료시 Service 유지 **/
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            startService(serviceIntent);
+        }
+        // Oreo
+        else {
+            startForegroundService(serviceIntent);
+        }
+    }
+
+    private void stopGpsTrackingService() {
+        Intent serviceIntent = new Intent(this, GpsTrackingService.class);
+        stopService(serviceIntent);
+    }
+
+    private boolean isGpsTrackingServiceRunning = false;
+
+    private boolean checkGpsTrackingServiceRunning() {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (GpsTrackingService.class.getName().equals(service.service.getClassName())) {
+                Log.e(TAG, "+ checkGpsTrackingServiceRunning(): YEAH~");
+                isGpsTrackingServiceRunning = true;
+                return true;
+            }
+        }
+        return false;
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

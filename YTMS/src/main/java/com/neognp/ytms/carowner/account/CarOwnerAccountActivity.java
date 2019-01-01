@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.neognp.ytms.R;
 import com.neognp.ytms.app.API;
 import com.neognp.ytms.app.Key;
+import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSFileUploadTask;
 import com.neognp.ytms.http.YTMSRestRequestor;
 import com.neognp.ytms.login.LoginActivity;
@@ -143,12 +145,20 @@ public class CarOwnerAccountActivity extends BasicActivity implements YTMSFileUp
     private void requestLoginActivity() {
         Setting.putBoolean(Key.allowAutoLogin, false);
 
+        /* 로그아웃 시, GPS 서비스 종료 */
+        requestGpsServiceStop();
+
         finish();
         Intent intent = new Intent(getContext(), LoginActivity.class);
         // 앱 새로 실행 | 모든 Activity 삭제
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         ActivityOptions options = ActivityOptions.makeCustomAnimation(this, R.anim.fade_in, R.anim.fade_out);
         startActivity(intent, options.toBundle());
+    }
+
+    private synchronized void requestGpsServiceStop() {
+        Intent intent = new Intent(Key.ACTION_GPS_SERVICE_STOP);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     @SuppressLint ("StaticFieldLeak")

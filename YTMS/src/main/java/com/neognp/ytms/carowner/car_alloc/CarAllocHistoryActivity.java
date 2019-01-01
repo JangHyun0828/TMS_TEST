@@ -59,10 +59,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.car_alloc_history_activity);
 
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Key.ACTION_GPS_SERVICE_STATE);
-        LocalBroadcastManager.getInstance(this).registerReceiver(serviceStateReceiver, filter);
-
         toCal = Calendar.getInstance();
         toCal.set(Calendar.HOUR_OF_DAY, 0);
         toCal.set(Calendar.MINUTE, 0);
@@ -152,8 +148,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
     protected void onResume() {
         super.onResume();
-
-        checkGpsTrackingServiceRunning();
     }
 
     protected void onPause() {
@@ -162,8 +156,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(serviceStateReceiver);
     }
 
     private void init() {
@@ -307,7 +299,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-                            startGpsTrackingService();
+                            requestGpsServiceStart();
                             requestList(false);
                         } else {
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
@@ -321,6 +313,11 @@ public class CarAllocHistoryActivity extends BasicActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private synchronized void requestGpsServiceStart() {
+        Intent intent = new Intent(Key.ACTION_GPS_SERVICE_START);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     @SuppressLint ("StaticFieldLeak")
@@ -425,8 +422,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         String result_msg = resBody.getString(Key.result_msg);
 
                         if (result_code.equals("200")) {
-                            checkGpsTrackingServiceRunning();
-
                             ArrayList<Bundle> data = resBody.getParcelableArrayList("data");
                             addListItems(data, reqNextPage);
                         } else {
@@ -558,7 +553,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     // 집하>출발
                     Button departBtn = itemView.findViewById(R.id.departBtn);
                     String DELIVERY_YN = item.getString("DELIVERY_YN", "N");
-                    //if (isGpsTrackingServiceRunning) {
                     if (DELIVERY_YN.equalsIgnoreCase("Y")) {
                         departBtn.setText("운\n행");
                         departBtn.setEnabled(false);
@@ -570,7 +564,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     departBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            //startGpsTrackingService();
                             requestReportDeparture(item);
                         }
                     });
@@ -727,49 +720,6 @@ public class CarAllocHistoryActivity extends BasicActivity {
         }
 
     }
-
-    private void startGpsTrackingService() {
-        Intent serviceIntent = new Intent(this, GpsTrackingService.class);
-
-        /** 홈 화면>모든 앱 종료시 Service 유지 **/
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            startService(serviceIntent);
-        }
-        // Oreo
-        else {
-            startForegroundService(serviceIntent);
-        }
-    }
-
-    private boolean isGpsTrackingServiceRunning = false;
-
-    private boolean checkGpsTrackingServiceRunning() {
-        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (GpsTrackingService.class.getName().equals(service.service.getClassName())) {
-                Log.e(TAG, "+ checkGpsTrackingServiceRunning(): YEAH~");
-                isGpsTrackingServiceRunning = true;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private final BroadcastReceiver serviceStateReceiver = new BroadcastReceiver() {
-        String TAG = "serviceStateReceiver";
-
-        public void onReceive(Context context, Intent intent) {
-            try {
-                if (intent == null)
-                    return;
-
-                checkGpsTrackingServiceRunning();
-                listAdapter.notifyDataSetChanged();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    };
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
