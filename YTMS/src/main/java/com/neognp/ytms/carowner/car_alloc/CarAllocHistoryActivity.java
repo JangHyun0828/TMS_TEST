@@ -554,10 +554,12 @@ public class CarAllocHistoryActivity extends BasicActivity {
                     Button departBtn = itemView.findViewById(R.id.departBtn);
                     String DELIVERY_YN = item.getString("DELIVERY_YN", "N");
                     if (DELIVERY_YN.equalsIgnoreCase("Y")) {
-                        departBtn.setText("운\n행");
+                        departBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.date_check_box_on, 0, 0);
+                        departBtn.setText("운행");
                         departBtn.setEnabled(false);
                     } else {
-                        departBtn.setText("출\n발");
+                        departBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.date_check_box_off, 0, 0);
+                        departBtn.setText("출발");
                         departBtn.setEnabled(true);
                     }
 
@@ -625,7 +627,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
-                            departBtn.setVisibility(View.GONE);
+                            departBtn.setVisibility(View.INVISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
                             palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
@@ -650,7 +652,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
-                            departBtn.setVisibility(View.GONE);
+                            departBtn.setVisibility(View.INVISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
                             palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
@@ -675,7 +677,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
-                            departBtn.setVisibility(View.GONE);
+                            departBtn.setVisibility(View.INVISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
                             palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
@@ -700,7 +702,7 @@ public class CarAllocHistoryActivity extends BasicActivity {
                         }
                         // Y : 배송완료(상차완료)
                         else if (STATUS.equalsIgnoreCase("Y")) {
-                            departBtn.setVisibility(View.GONE);
+                            departBtn.setVisibility(View.INVISIBLE);
                             palletsInputBtn.setVisibility(View.GONE);
                             palletsCntBtn.setVisibility(View.GONE);
                             cameraBtn.setVisibility(View.GONE);
