@@ -30,7 +30,7 @@
         android:textSize="16sp"
         android:textColor="#323332"
         android:text="초점이 맞춰지도록 놓아주세요"
-        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         app:layout_constraintStart_toStartOf="@id/guideBg"
         app:layout_constraintEnd_toEndOf="@id/guideBg"
         app:layout_constraintTop_toTopOf="@+id/guideBg"

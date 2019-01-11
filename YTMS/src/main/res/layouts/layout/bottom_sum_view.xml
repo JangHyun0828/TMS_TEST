@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/totalTxt"
-        app:fontFamily="@font/nanum_square_r" />
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
 
     <TextView
         android:id="@+id/totalTxt"

@@ -109,7 +109,7 @@
         android:text="차주연결"
         android:gravity="top|center_horizontal"
         android:background="@drawable/selector_button_round_rect_blue"
-        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:stateListAnimator="@null"
         app:layout_constraintTop_toTopOf="@id/leftBar"
         app:layout_constraintEnd_toEndOf="parent" />

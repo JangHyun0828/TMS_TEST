@@ -41,7 +41,7 @@ public class ForkLiftCheckActivity extends BasicActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forklift_check_activity);
 
-        setTitleBar("지게차 하차 여부 체크", 0, 0, R.drawable.selector_button_close);
+        setTitleBar("지게차 하차 여부 체크", R.drawable.selector_button_back, 0, 0);
 
         contentWeb = (WebView) findViewById(R.id.contentWeb);
         contentWeb.setWebViewClient(new MyWebViewClient(this)); // 앱에서 url 직접 처리
@@ -118,8 +118,6 @@ public class ForkLiftCheckActivity extends BasicActivity {
 
         switch (v.getId()) {
             case R.id.titleLeftBtn0:
-                break;
-            case R.id.titleRightBtn1:
                 finish();
                 break;
             case R.id.bottomBtn0:

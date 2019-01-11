@@ -87,14 +87,14 @@ public class DeliveryMainActivity extends BasicActivity {
 
             public void onConfirm() {
                 // TEST
-                //if (DeviceUtil.getUuid().endsWith("810d")) {
-                //    // 앱 새로 실행 | 모든 Activity 삭제
-                //    Intent intent = new Intent(DeliveryMainActivity.this, LoginActivity.class);
-                //    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                //    startActivity(intent);
-                //    finish();
-                //    return;
-                //}
+                if (DeviceUtil.getUuid().endsWith("810d")) {
+                    // 앱 새로 실행 | 모든 Activity 삭제
+                    Intent intent = new Intent(DeliveryMainActivity.this, LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
 
                 finish();
             }

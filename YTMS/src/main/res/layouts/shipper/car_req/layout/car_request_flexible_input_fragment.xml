@@ -62,7 +62,7 @@
         android:text="0"
         app:layout_constraintStart_toEndOf="@id/palletCntTitle"
         app:layout_constraintBaseline_toBaselineOf="@+id/palletCntTitle"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+        app:fontFamily="@font/my_nanum_square_r" />
 
     <TextView
         android:id="@+id/palletCntSuffix"

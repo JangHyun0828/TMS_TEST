@@ -64,9 +64,9 @@
         android:textSize="16sp"
         android:textColor="#3668a5"
         android:text="0"
+        app:fontFamily="@font/my_nanum_square_r"
         app:layout_constraintStart_toEndOf="@id/palletsCntTitle"
-        app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/palletsCntTitle" />
 
     <TextView
         android:id="@+id/palletsCntSuffix"

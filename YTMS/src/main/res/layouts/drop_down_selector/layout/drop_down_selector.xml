@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
-    android:id="@+id/buttonView"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buttonView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minHeight="@dimen/DropDownSelector_minHeight"
@@ -18,7 +20,7 @@
         android:textColor="#4e4d4d"
         android:textSize="14.8sp"
         android:text="mainTitle"
-        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"/>
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"/>
 
     <TextView
         android:id="@+id/subTitleTxt"
@@ -30,7 +32,7 @@
         android:textColor="#4e4d4d"
         android:textSize="14.8sp"
         android:text="subTitle"
-        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"/>
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"/>
 
     <TextView
         android:id="@+id/hintTxt"
@@ -42,7 +44,7 @@
         android:textColor="#ffc9caca"
         android:textSize="14.8sp"
         android:text="hint"
-        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:visibility="invisible" />
 
     <ImageView

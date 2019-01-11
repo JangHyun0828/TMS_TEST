@@ -68,7 +68,8 @@
                 android:id="@+id/phoneNoText"
                 style="@style/TextViewTableItem"
                 android:gravity="center_vertical|start"
-                android:text="010-0000-0000"/>
+                android:text="010-0000-0000"
+                app:fontFamily="@font/nanum_square_r"/>
 
             <TextView
                 style="@style/TextViewTableItem"

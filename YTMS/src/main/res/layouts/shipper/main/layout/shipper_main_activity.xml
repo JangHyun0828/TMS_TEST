@@ -182,8 +182,8 @@
         android:textColor="@color/white"
         android:background="@drawable/bg_badge"
         android:text="N"
-        android:fontFamily="@font/my_nanum_square_r"
         android:visibility="invisible"
+        app:fontFamily="@font/my_nanum_square_r"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn1"
         app:layout_constraintEnd_toEndOf="@id/menuBtn1" />
 
@@ -259,8 +259,8 @@
         android:textColor="@color/white"
         android:background="@drawable/bg_badge"
         android:text="0"
-        android:fontFamily="@font/my_nanum_square_r"
         android:visibility="invisible"
+        app:fontFamily="@font/my_nanum_square_r"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn3"
         app:layout_constraintEnd_toEndOf="@id/menuBtn3" />
 

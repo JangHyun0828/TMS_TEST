@@ -40,6 +40,7 @@
         android:hint="아이디"
         android:letterSpacing="0.2"
         android:enabled="false"
+        app:fontFamily="@font/my_nanum_square_r"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appNameTxt"

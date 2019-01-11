@@ -44,7 +44,7 @@
         android:drawableEnd="@drawable/selector_button_calendar"
         android:drawablePadding="6.7dp"
         android:background="@null"
-        android:fontFamily="@font/my_noto_sans_kr_regular_hestia"
+        app:fontFamily="@font/my_noto_sans_kr_regular_hestia"
         android:onClick="onClick"
         app:layout_constraintTop_toTopOf="@+id/dateTitleBg"
         app:layout_constraintBottom_toBottomOf="@+id/dateTitleBg"

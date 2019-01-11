@@ -57,6 +57,7 @@
             <EditText
                 android:id="@+id/mobile_no_edit"
                 style="@style/EditTextTableItem"
+                app:fontFamily="@font/my_nanum_square_r"
                 android:inputType="phone"
                 android:enabled="false" />
 

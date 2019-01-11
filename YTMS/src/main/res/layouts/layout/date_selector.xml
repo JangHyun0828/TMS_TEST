@@ -32,7 +32,7 @@
         android:drawablePadding="6.7dp"
         android:drawableEnd="@drawable/selector_button_calendar"
         android:background="@null"
-        android:fontFamily="@font/my_nanum_square_r"
+        app:fontFamily="@font/my_nanum_square_r"
         android:onClick="onClick"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

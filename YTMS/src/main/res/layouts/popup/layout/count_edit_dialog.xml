@@ -57,7 +57,8 @@
                 android:paddingEnd="3dp"
                 android:inputType="numberDecimal"
                 android:imeOptions="actionDone"
-                android:maxLines="1" />
+                android:maxLines="1"
+                app:fontFamily="@font/my_nanum_square_r"/>
 
         </android.support.design.widget.TextInputLayout>
 

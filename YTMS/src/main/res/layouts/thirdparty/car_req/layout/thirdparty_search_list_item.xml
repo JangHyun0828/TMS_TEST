@@ -18,7 +18,7 @@
         android:textSize="16sp"
         android:textColor="#4d4c4c"
         android:text="ABCD"
-        android:fontFamily="@font/my_nanum_square_r"
+        app:fontFamily="@font/my_nanum_square_r"
         android:background="@drawable/selector_list_item" />
 
     <View

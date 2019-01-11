@@ -228,7 +228,7 @@ public class CarLocationActivity extends BasicActivity implements
             new AsyncTask<Void, Void, Bundle>() {
                 protected void onPreExecute() {
                     onReq = true;
-                    showLoadingDialog(null, false);
+                    showLoadingDialog(null, true);
                 }
 
                 protected Bundle doInBackground(Void... arg0) {
@@ -254,13 +254,22 @@ public class CarLocationActivity extends BasicActivity implements
 
                         if (result_code.equals("200")) {
                             Bundle data = resBody.getBundle("data");
+
+                            if (data == null) {
+                                dismissLoadingDialog();
+                                showToast("차량 위치를 확인할 수 없습니다.", true);
+                                return;
+                            }
+
                             addMarker(data);
                             requestMarkerAddress(data);
                         } else {
+                            dismissLoadingDialog();
                             showToast(result_msg + "(result_code:" + result_msg + ")", true);
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
+                        dismissLoadingDialog();
                         showToast(e.getMessage(), false);
                     }
 

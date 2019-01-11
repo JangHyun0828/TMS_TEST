@@ -43,7 +43,7 @@
         android:textSize="16.7sp"
         android:textColor="#4e4d4d"
         android:background="@drawable/bg_input_rect_round_white_stroke_gray"
-        android:fontFamily="@font/my_nanum_square_r"
+        app:fontFamily="@font/my_nanum_square_r"
         android:text="0"
         app:layout_constraintTop_toTopOf="@id/minusBtn"
         app:layout_constraintStart_toEndOf="@id/minusBtn"

@@ -36,10 +36,12 @@ import com.neognp.ytms.carowner.charge.FreightChargeHistoryActivity;
 import com.neognp.ytms.fcm.MyFirebaseMessagingService;
 import com.neognp.ytms.gps.GpsTrackingService;
 import com.neognp.ytms.http.YTMSRestRequestor;
+import com.neognp.ytms.login.LoginActivity;
 import com.neognp.ytms.notice.NoticeListActivity;
 import com.neognp.ytms.popup.ConfirmCancelDialog;
 import com.trevor.library.template.BasicActivity;
 import com.trevor.library.util.AppUtil;
+import com.trevor.library.util.DeviceUtil;
 import com.trevor.library.util.Setting;
 
 import org.json.JSONObject;
@@ -201,14 +203,14 @@ public class CarOwnerMainActivity extends BasicActivity {
 
             public void onConfirm() {
                 // TEST
-                //if (DeviceUtil.getUuid().endsWith("810d")) {
-                //    // 앱 새로 실행 | 모든 Activity 삭제
-                //    Intent intent = new Intent(CarOwnerMainActivity.this, LoginActivity.class);
-                //    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                //    startActivity(intent);
-                //    finish();
-                //    return;
-                //}
+                if (DeviceUtil.getUuid().endsWith("810d")) {
+                    // 앱 새로 실행 | 모든 Activity 삭제
+                    Intent intent = new Intent(CarOwnerMainActivity.this, LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
 
                 finish();
                 //finishApp(); // CAUTION 사용시 Service 도 같이 종료

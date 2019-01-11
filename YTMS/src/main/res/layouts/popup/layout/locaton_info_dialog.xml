@@ -93,7 +93,7 @@
             app:layout_constraintEnd_toEndOf="@+id/addressTxt"
             app:layout_constraintTop_toBottomOf="@+id/nameTxt"
             app:layout_constraintBaseline_toBaselineOf="@id/phoneNoTitle"
-            app:fontFamily="@font/noto_sans_kr_regular_hestia" />
+            app:fontFamily="@font/my_nanum_square_r"/>
 
         <Button
             android:id="@+id/btmBtn0"

@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/dataTxt0"
         app:layout_constraintEnd_toStartOf="@id/dataTxt2"
-        app:fontFamily="@font/my_nanum_square_b" />
+        app:fontFamily="@font/nanum_square_r" />
 
     <TextView
         android:id="@+id/dataTxt2"

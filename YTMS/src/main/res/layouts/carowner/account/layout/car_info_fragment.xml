@@ -50,15 +50,6 @@
                 android:text="차량구분"
                 app:layout_gravity="fill" />
 
-            <!--<com.trevor.library.widget.DropDownSelector-->
-            <!--android:id="@+id/car_gbSelector"-->
-            <!--android:layout_width="210dp"-->
-            <!--android:layout_height="43dp"-->
-            <!--app:layout_gravity="center_vertical"-->
-            <!--app:entries="@array/carSortList"-->
-            <!--app:hint="차량구분 선택"-->
-            <!--app:drawBorder="true" />-->
-
             <EditText
                 android:id="@+id/car_gbEdit"
                 style="@style/EditTextTableItem"
@@ -93,18 +84,10 @@
                 android:text="적재함길이"
                 app:layout_gravity="fill" />
 
-            <!--<com.trevor.library.widget.DropDownSelector-->
-            <!--android:id="@+id/load_typeSelector"-->
-            <!--android:layout_width="210dp"-->
-            <!--android:layout_height="43dp"-->
-            <!--app:layout_gravity="center_vertical"-->
-            <!--app:entries="@array/cargoBoxLengthList"-->
-            <!--app:hint="적재함길이 선택"-->
-            <!--app:drawBorder="true" />-->
-
             <EditText
                 android:id="@+id/load_typeEdit"
                 style="@style/EditTextTableItem"
+                app:fontFamily="@font/my_nanum_square_r"
                 app:layout_gravity="center_vertical" />
 
         </android.support.v7.widget.GridLayout>

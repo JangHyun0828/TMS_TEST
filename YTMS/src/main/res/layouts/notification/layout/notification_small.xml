@@ -18,7 +18,7 @@
         android:textSize="12sp"
         android:textColor="#6b6b6b"
         android:text="000.00.00 00:00:00"
-        app:fontFamily="@font/my_noto_sans_kr_regular_hestia" />
+        app:fontFamily="@font/my_nanum_square_r"/>
 
     <ImageView
         android:id="@+id/iconImg"
