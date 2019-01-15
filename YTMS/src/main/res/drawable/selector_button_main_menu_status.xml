@@ -11,7 +11,7 @@
                     android:src="@drawable/bg_center_m_5_left_on" />
             </item>
             <item android:top="16.7dp"
-                android:left="29.3dp">
+                android:left="31dp">
                 <bitmap android:gravity="top|left"
                     android:src="@drawable/menucheck_list_on" />
             </item>
@@ -31,7 +31,7 @@
                     android:src="@drawable/bg_m_5_left_off" />
             </item>
             <item android:top="16.7dp"
-                android:left="29.3dp">
+                android:left="31dp">
                 <bitmap android:gravity="top|left"
                     android:src="@drawable/menu_check_list_off" />
             </item>

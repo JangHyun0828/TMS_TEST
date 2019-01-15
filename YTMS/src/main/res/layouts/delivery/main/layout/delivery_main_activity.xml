@@ -8,11 +8,6 @@
     android:layout_height="match_parent"
     android:background="@color/bg_white">
 
-    <!--<include-->
-    <!--android:id="@+id/appbar"-->
-    <!--layout="@layout/appbar"-->
-    <!--app:layout_constraintTop_toTopOf="parent" />-->
-
     <include
         android:id="@+id/appbar"
         layout="@layout/appbar_account"
@@ -29,20 +24,13 @@
         android:id="@+id/menuBtn0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6.1dp"
+        android:layout_marginTop="6.3dp"
         android:background="@drawable/selector_button_main_menu_delivery"
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@+id/topUserInfoView"
         app:layout_constraintBottom_toTopOf="@+id/menuBtn1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            style="@style/ButtonMainMenu"
-            android:layout_gravity="center_vertical|end"
-            android:paddingEnd="99dp"
-            android:paddingBottom="0.6dp"
-            android:textSize="14.3dp" />
 
         <TextView
             android:id="@+id/menuBtn0IconTxt"
@@ -95,10 +83,6 @@
         app:layout_constraintBottom_toTopOf="@+id/menuBtn2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            style="@style/ButtonMainMenu"
-            android:layout_gravity="center_vertical|end" />
 
         <TextView
             android:id="@+id/menuBtn1IconTxt"
@@ -216,8 +200,6 @@
         app:layout_constraintBottom_toTopOf="@+id/menuBtn3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView style="@style/ButtonMainMenu" />
 
         <TextView
             android:id="@+id/menuBtn2IconTxt"
@@ -400,10 +382,10 @@
         android:textColor="@color/white"
         android:background="@drawable/bg_badge"
         android:text="0"
+        android:visibility="invisible"
         app:fontFamily="@font/my_nanum_square_r"
         app:layout_constraintBottom_toBottomOf="@+id/menuBtn4"
-        app:layout_constraintEnd_toEndOf="@id/menuBtn4"
-        android:visibility="invisible"/>
+        app:layout_constraintEnd_toEndOf="@id/menuBtn4" />
 
     <include
         android:id="@+id/bottomCenterInfoView"

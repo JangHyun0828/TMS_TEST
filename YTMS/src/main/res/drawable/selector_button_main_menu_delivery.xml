@@ -6,19 +6,15 @@
     <item android:state_focused="false"
         android:state_pressed="false">
         <layer-list>
-            <item android:gravity="left"
-                android:width="78dp"
-                android:height="78dp"
-                android:left="4dp">
+            <item android:gravity="left">
                 <bitmap android:gravity="left|top"
-                    android:src="@drawable/bg_center_m_5_left_on" />
+                    android:src="@drawable/bg_m_5_left_off" />
             </item>
-            <item
-                android:top="20.3dp"
+            <item android:top="20.3dp"
                 android:left="26.7dp">
                 <bitmap android:gravity="top|left"
                     android:src="@drawable/menu_car_x" />
-            </item>center_m_5_sub_4_1_search
+            </item>
             <item android:left="67.3dp">
                 <bitmap android:gravity="right|top"
                     android:src="@drawable/bg_center_m_5_right" />
