@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="AppTheme"
+        parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/main_theme</item>
+        <!--API 23(6.0): Status Bar 색상 -->
+        <item name="colorPrimaryDark">@color/main_theme</item>
+        <!--API 23(6.0): Status Bar 글자 검은색으로 변경 -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="colorAccent">@color/main_theme</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+    </style>
+
+</resources>

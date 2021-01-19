@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <integer-array name="SwipeRefreshLayout_ColorScheme">
+        <item>@color/main_theme</item>
+        <item>@color/white</item>
+        <item>@color/bg_gray</item>
+    </integer-array>
+
+    <string-array name="DeliveryGb">
+        <item>주간</item>
+        <item>야간</item>
+        <item>새벽</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/layout_full"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/layout_car_dispatch_top"
+			app:layout_constraintVertical_weight="0.8"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:background="@color/main_theme"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toTopOf="@+id/layout_car_dispatch_middle">
+
+			<TextView
+				android:id="@+id/txt_nav_logo"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="DAEYANG"
+				android:textSize="24dp"
+				android:textColor="#FFFFFF"
+				android:textStyle="bold"
+				android:fontFamily="@font/my_nanum_square_eb"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"/>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/layout_car_dispatch_middle"
+			app:layout_constraintVertical_weight="1"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/layout_car_dispatch_top"
+			app:layout_constraintBottom_toTopOf="@+id/layout_car_dispatch_list">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/layout_search"
+				app:layout_constraintVertical_weight="1"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:id="@+id/dateBarLayout"
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent">
+
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="1dp"
+						android:background="@color/main_theme"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintTop_toTopOf="parent"/>
+
+					<ImageButton
+						android:id="@+id/prevDateBtn"
+						android:layout_width="0dp"
+						android:layout_height="0dp"
+						android:src="@drawable/selector_button_calendar_prev"
+						android:background="@null"
+						android:shadowRadius="0"
+						android:stateListAnimator="@null"
+						android:onClick="onClick"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintEnd_toStartOf="@+id/btnDate"
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintBottom_toBottomOf="parent"/>
+
+					<Button
+						android:id="@+id/btnDate"
+						android:layout_width="300dp"
+						android:layout_height="50dp"
+						android:text="0000년 00월 00일 (월)"
+						android:background="@color/bg_white"
+						android:shadowRadius="0"
+						android:stateListAnimator="@null"
+						app:layout_constraintStart_toEndOf="@+id/prevDateBtn"
+						app:layout_constraintEnd_toStartOf="@+id/nextDateBtn"
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintBottom_toBottomOf="parent" />
+
+					<ImageButton
+						android:id="@+id/nextDateBtn"
+						android:layout_width="0dp"
+						android:layout_height="0dp"
+						android:padding="10dp"
+						android:src="@drawable/selector_button_calendar_next"
+						android:background="@null"
+						android:onClick="onClick"
+						app:layout_constraintStart_toEndOf="@+id/btnDate"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintBottom_toBottomOf="parent" />
+
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="0.7dp"
+						android:background="@color/main_theme"
+						android:shadowRadius="0"
+						android:stateListAnimator="@null"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintBottom_toBottomOf="parent"/>
+
+				</androidx.constraintlayout.widget.ConstraintLayout>
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/layout_car_dispatch_list"
+			app:layout_constraintVertical_weight="7"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/layout_car_dispatch_middle"
+			app:layout_constraintBottom_toTopOf="@+id/layout_car_dispatch_bottom">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/listViewLayout"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:background="@drawable/border1_white"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+
+				<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+					android:id="@+id/swipeRefreshLayout"
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent">
+
+					<androidx.recyclerview.widget.RecyclerView
+						android:id="@+id/list"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:clipToPadding="false" />
+
+				</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/layout_car_dispatch_bottom"
+			app:layout_constraintVertical_weight="1"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/layout_car_dispatch_list"
+			app:layout_constraintBottom_toBottomOf="parent">
+
+			<TextView
+				android:id="@+id/txt_title_tot_amt"
+				android:layout_marginEnd="5dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="운송비 합계 : "
+				android:textColor="#000000"
+				android:textSize="18dp"
+				android:letterSpacing="0.1"
+				app:layout_constraintEnd_toStartOf="@+id/txt_tot_amt"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"/>
+
+			<TextView
+				android:id="@+id/txt_tot_amt"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="16dp"
+				android:letterSpacing="0.1"
+				android:text="000,000"
+				android:textColor="#F15F5F"
+				android:textSize="16dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintVertical_bias="0.49" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

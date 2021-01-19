@@ -1,0 +1,35 @@
+<resources>
+
+    <!--v19 부터 아래 코드 적용 가능-->
+    <!-- http://stackoverflow.com/questions/27856603/lollipop-draw-behind-statusbar-with-its-color-set-to-transparent -->
+    <style name="AppTheme"
+        parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/main_theme</item>
+        <!--API 21(5.0): Status Bar 색상 -->
+        <item name="colorPrimaryDark">@color/main_theme</item>
+        <item name="colorAccent">@color/main_theme</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+    </style>
+
+    <style name="AppTheme.MainActivity"
+        parent="AppTheme">
+        <!--<item name="colorPrimary">@android:color/transparent</item> &lt;!&ndash; Toolbar 투명 처리 &ndash;&gt;-->
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>--> <!-- 이 기능 사용 시, statusbar가  완전 투명이 아닌 반투명 (tint color)처리만 됨 -->
+        <!--<item name="android:navigationBarColor">@null</item> &lt;!&ndash; 하단 navigation bar 색상 처리&ndash;&gt;-->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+</resources>

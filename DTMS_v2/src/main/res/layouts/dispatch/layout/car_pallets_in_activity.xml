@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_full"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_pallet_top"
+                app:layout_constraintVertical_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/main_theme"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/layout_pallet_middle">
+
+                <TextView
+                    android:id="@+id/txt_nav_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DAEYANG"
+                    android:textSize="24dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/my_nanum_square_eb"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_pallet_middle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintVertical_weight="8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_pallet_top"
+                app:layout_constraintBottom_toBottomOf="@+id/layout_pallet_bottom">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col1"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_col2">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col1_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col1_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col1_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="사업장"
+                            android:textSize="22dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col1_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col1_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col1_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="대영포장(주)"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col2"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_col1"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_col3">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col2_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col2_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col2_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="차량"
+                            android:textSize="22dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col2_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col2_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col2_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="네오12가1234"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col3"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_col2"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_col4">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col3_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col3_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col3_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="납품처"
+                            android:textSize="22dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col3_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col3_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <Button
+                            android:id="@+id/btn_client"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_list"
+                            android:onClick="onClick"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col4"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_col3"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_col5">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col4_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col4_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col4_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="입출일자"
+                            android:textSize="22dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col4_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col4_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <Button
+                            android:id="@+id/btn_pallet_date"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_list"
+                            android:onClick="onClick"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col5"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_col4"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_col6">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col5_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col5_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col5_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="팔레트종류"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col5_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col5_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <Button
+                            android:id="@+id/btn_pallet"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_list"
+                            android:onClick="onClick"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col6"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_col5"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_col7">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col6_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col6_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col6_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="입출형식"
+                            android:textSize="22dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col6_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col6_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <Button
+                            android:id="@+id/btn_in"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="입고"
+                            android:textColor="@color/main_theme"
+                            android:background="@drawable/btn_pressed"
+                            android:onClick="onClick"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col7"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_col6"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_col8">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col7_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col7_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col7_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="수량"
+                            android:textSize="22dp"
+                           android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col7_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col7_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <ImageButton
+                            android:id="@+id/btn_minus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:src="@drawable/minus"
+                            android:background="@null"
+                            android:onClick="onClick"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/edit_pallets_cnt"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <EditText
+                            android:id="@+id/edit_pallets_cnt"
+                            android:layout_width="81.3dp"
+                            android:layout_height="41.3dp"
+                            android:layout_marginStart="15dp"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:maxLength="5"
+                            android:inputType="numberSigned"
+                            android:textSize="16sp"
+                            android:textColor="#4e4d4d"
+                            android:background="@drawable/bg_input_rect_round_white_stroke_gray"
+                            app:fontFamily="@font/my_nanum_square_r"
+                            android:text="0"
+                            app:layout_constraintTop_toTopOf="@id/btn_minus"
+                            app:layout_constraintStart_toEndOf="@id/btn_minus"
+                            app:layout_constraintEnd_toStartOf="@id/btn_plus" />
+
+                        <ImageButton
+                            android:id="@+id/btn_plus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/plus"
+                            android:background="@null"
+                            android:onClick="onClick"
+                            app:layout_constraintStart_toEndOf="@id/edit_pallets_cnt"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col8"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_col7"
+                    app:layout_constraintBottom_toTopOf="@+id/layout_col9">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col8_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col8_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col8_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="비고"
+                            android:textSize="22dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col8_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col8_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <EditText
+                            android:id="@+id/edt_remark"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:letterSpacing="0.2"
+                            android:background="@drawable/border_list"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_col9"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_col8"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col9_left"
+                        app:layout_constraintHorizontal_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/layout_col9_right"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/txt_col9_left"
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:text="팔레트사진"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical|end"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layout_col9_right"
+                        app:layout_constraintHorizontal_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintStart_toEndOf="@+id/layout_col9_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_cert1"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_textview"
+                            android:onClick="onClick"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/layout_cert2"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:id="@+id/img_cert1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/txt_cert1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="사진1"
+                                app:layout_constraintStart_toStartOf="@+id/img_cert1"
+                                app:layout_constraintEnd_toEndOf="@+id/img_cert1"
+                                app:layout_constraintTop_toTopOf="@+id/img_cert1"
+                                app:layout_constraintBottom_toBottomOf="@+id/img_cert1"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_cert2"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_textview"
+                            android:onClick="onClick"
+                            app:layout_constraintStart_toEndOf="@+id/layout_cert1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:id="@+id/img_cert2"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/txt_cert2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="사진2"
+                                app:layout_constraintStart_toStartOf="@+id/img_cert2"
+                                app:layout_constraintEnd_toEndOf="@+id/img_cert2"
+                                app:layout_constraintTop_toTopOf="@+id/img_cert2"
+                                app:layout_constraintBottom_toBottomOf="@+id/img_cert2"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_pallet_bottom"
+                app:layout_constraintVertical_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_pallet_middle"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="등록"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:letterSpacing="0.5"
+                    android:stateListAnimator="@null"
+                    android:onClick="onClick"
+                    android:background="@drawable/selector_button_round_navy"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_cancel"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="취소"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:letterSpacing="0.5"
+                    android:stateListAnimator="@null"
+                    android:onClick="onClick"
+                    android:background="@drawable/selector_button_round_navy"
+                    app:layout_constraintStart_toEndOf="@+id/btn_save"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

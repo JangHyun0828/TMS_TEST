@@ -1,8 +1,0 @@
-<resources>
-
-    <string name="car_alloc_increase_decrease_0">매일같이 물량이 변동되어 차량 대수나 팔레트 수를 <font color='#0096eb'>매일 매일 요청</font>하실 화주</string>
-    <string name="car_alloc_increase_decrease_1">고정해 놓은 대수에서 <font color='#0096eb'>추가 배차</font>하거나, <font color='#0096eb'>차량 감차</font>하는 경우</string>
-    <string name="car_count_fix_setting">차량 대수 또는 팔레트 수를 고정하여 놓으면 그 수량에 맞게 자동으로 매일 같이 배차가 됩니다.</string>
-    <string name="car_count_change_setting">11톤 16팔레트 기준이며, 팔레트 수나 차량 대수 중 한가지를 조정하시면 나머지 수량은 자동으로 변경됩니다.</string>
-
-</resources>

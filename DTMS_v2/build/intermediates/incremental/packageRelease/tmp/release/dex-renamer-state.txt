@@ -1,0 +1,4 @@
+#Tue Jan 12 15:58:24 KST 2021
+base.0=D\:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <color name="colorPrimary">@color/main_theme</color>
+    <color name="colorPrimaryDark">@color/main_theme</color>
+    <color name="colorAccent">@color/main_theme</color>
+    <color name="windowBackground">@color/bg_white</color>
+    <color name="main_theme">#003A79</color>
+    <color name="bg_main">#F4F4F4</color>
+    <color name="bg_gray">#BDBDBD</color>
+    <color name="bg_white">#FFFFFF</color>
+    <color name="bg_darkgray">#9FA1A0</color>
+    <color name="scrollbarThumb">#6B6B6B</color>
+    <color name="listItemSelected">#99253E66</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dragndrop_background">#E0103010</color>
+
+    <!-- TEST -->
+
+    <color name="control_background">#CC4285F4</color>
+
+</resources>

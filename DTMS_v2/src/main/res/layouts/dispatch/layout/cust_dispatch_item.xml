@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="98.7dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="6dp"
+    android:paddingBottom="15dp"
+    android:background="@drawable/border1_white">
+
+    <View
+        android:id="@+id/leftBar"
+        android:layout_width="4.3dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="2dp"
+        android:background="#bfd7f1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dataTitle0"
+        app:layout_constraintBottom_toBottomOf="@+id/dataTitle7" />
+
+    <TextView
+        android:id="@+id/dataTitle0"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="납품요청일자 : "
+        app:layout_constraintStart_toEndOf="@id/leftBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt1"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt0"
+        android:layout_width="0dp"
+        android:layout_height="23.3dp"
+        android:layout_marginTop="3.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="0000.00.00"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle0"
+        app:layout_constraintStart_toEndOf="@id/dataTitle0"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/dataTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="거래처 : "
+        app:layout_constraintStart_toStartOf="@id/dataTitle0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt0"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt2"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt1"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="대영포장(주)진주출장소"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle1"
+        app:layout_constraintStart_toEndOf="@id/dataTitle1"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="납품처: "
+        app:layout_constraintStart_toStartOf="@id/dataTitle0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt1"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt3"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt2"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="성주농협"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle2"
+        app:layout_constraintStart_toEndOf="@id/dataTitle2"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="제품명 : "
+        app:layout_constraintStart_toStartOf="@id/dataTitle0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt2"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt4"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt3"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="우체국네오-3(완제품)"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle3"
+        app:layout_constraintStart_toEndOf="@id/dataTitle3"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTitle4"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="장폭 : "
+        app:layout_constraintStart_toStartOf="@id/dataTitle0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt3"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt5"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt4"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="475*310*250"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle4"
+        app:layout_constraintStart_toEndOf="@id/dataTitle4"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTitle5"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="골조합 : "
+        app:layout_constraintStart_toStartOf="@id/dataTitle0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt4"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt6"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt5"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:drawablePadding="7dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="BB"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle5"
+        app:layout_constraintStart_toEndOf="@id/dataTitle5"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTitle6"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="출하매수 : "
+        app:layout_constraintStart_toStartOf="@id/dataTitle0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt5"
+        app:layout_constraintBottom_toTopOf="@+id/dataTxt7"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt6"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="1440"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle6"
+        app:layout_constraintStart_toEndOf="@id/dataTitle6"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTitle7"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="비고1 : "
+        app:layout_constraintStart_toStartOf="@id/dataTitle0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt6"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt7"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="비고1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle7"
+        app:layout_constraintStart_toEndOf="@id/dataTitle7"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTitle8"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#4d4c4c"
+        android:text="비고2 : "
+        app:layout_constraintStart_toStartOf="@id/dataTitle0"
+        app:layout_constraintTop_toBottomOf="@+id/dataTxt7"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <TextView
+        android:id="@+id/dataTxt8"
+        android:layout_width="wrap_content"
+        android:layout_height="23.3dp"
+        android:gravity="start|center_vertical"
+        android:includeFontPadding="false"
+        android:textSize="16dp"
+        android:textColor="#3668a5"
+        android:text="비고2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dataTitle8"
+        app:layout_constraintStart_toEndOf="@id/dataTitle8"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia" />
+
+    <Button
+        android:id="@+id/btn_call"
+        android:layout_width="81dp"
+        android:layout_height="60dp"
+        android:paddingTop="7dp"
+        android:drawableTop="@drawable/img_s_1_phon_1"
+        android:drawablePadding="7dp"
+        android:textSize="13.3sp"
+        android:textColor="#ffffff"
+        android:text="차주연결"
+        android:gravity="top|center_horizontal"
+        android:background="@drawable/selector_button_round_rect_blue"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/leftBar"
+        app:layout_constraintBottom_toTopOf="@+id/btn_location"/>
+
+    <Button
+        android:id="@+id/btn_location"
+        android:layout_width="81dp"
+        android:layout_height="60dp"
+        android:paddingTop="7dp"
+        android:drawableTop="@drawable/selector_icon_map_pin"
+        android:drawablePadding="7dp"
+        android:textSize="13.3sp"
+        android:textColor="#ffffff"
+        android:text="차량위치"
+        android:gravity="top|center_horizontal"
+        android:background="@drawable/selector_button_round_rect_blue"
+        app:fontFamily="@font/my_noto_sans_kr_medium_hestia"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_call"
+        app:layout_constraintBottom_toBottomOf="@+id/leftBar"/>
+
+    <Space
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toBottomOf="@id/dataTxt6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

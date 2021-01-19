@@ -1,29 +1,29 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.71'
+    ext.kotlin_version = '1.4.21'
     repositories {
-        google()
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:4.1.1'
+        //noinspection DifferentKotlinGradleVersion
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.2.0' // google-services plugin
-        // NOTE: Do not place your application dependencies here; they belong
+        classpath 'com.google.gms:google-services:4.3.4' // google-services plugin
         // in the individual module build.gradle files
     }
 }
 
 allprojects {
     repositories {
-        // aar 라이브러리 폴더 등록
+        // aar 라이브러리 폴더 등록 implementation 'com.google.android.gms:play-services-vision-image-label:18.0.4'
         flatDir {
             dirs 'libs'
         }
 
-        google()
         jcenter()
+        google()
         maven {
             url 'https://maven.google.com'
             name 'Google'

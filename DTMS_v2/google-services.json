@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "299356331549",
+    "firebase_url": "https://dtmsapp.firebaseio.com",
+    "project_id": "dtmsapp",
+    "storage_bucket": "dtmsapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299356331549:android:0e4f63e0048c979b7470f4",
+        "android_client_info": {
+          "package_name": "com.neognp.dtmsapp_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299356331549-pn6lgks12f2avjg6bsqnabpegrm5dj87.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neognp.dtmsapp_v1",
+            "certificate_hash": "55ba61c212b610819b8e78aafc70723e95670013"
+          }
+        },
+        {
+          "client_id": "299356331549-n21lin7bd84f1gflu4glbfvndn8v0kfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwyINO2qma6Yla9V-zqM8adDjgBCm9cpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299356331549-n21lin7bd84f1gflu4glbfvndn8v0kfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

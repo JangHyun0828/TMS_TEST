@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout_main"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/layout_top"
+		android:layout_width="0dp"
+		android:layout_height="70dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintBottom_toTopOf="@+id/View">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/layout_img"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent">
+
+			<View
+				android:id="@+id/notice_top_bg"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:background="#0097D8"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"/>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/notice_top_left"
+				app:layout_constraintHorizontal_weight="5.7"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toStartOf="@+id/notice_top_right"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+
+				<View
+					android:id="@+id/notice_text_line_top"
+					android:layout_marginTop="5dp"
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:background="#FFFFFF"
+					app:layout_constraintStart_toStartOf="@+id/notice_top_text_notice"
+					app:layout_constraintEnd_toEndOf="@+id/notice_top_text_notice"
+					app:layout_constraintBottom_toTopOf="@+id/notice_top_text_notice"/>
+
+				<TextView
+					android:id="@+id/notice_top_text_notice"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="NOTICE"
+					android:textAlignment="textStart"
+					android:textStyle="bold"
+					android:textColor="#FFFFFF"
+					android:letterSpacing="1"
+					app:layout_constraintStart_toStartOf="@+id/notice_top_text"
+					app:layout_constraintTop_toBottomOf="@+id/notice_text_line_top"/>
+
+				<View
+					android:id="@+id/notice_text_line_bottom"
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:background="#FFFFFF"
+					app:layout_constraintStart_toStartOf="@+id/notice_top_text_notice"
+					app:layout_constraintEnd_toEndOf="@+id/notice_top_text_notice"
+					app:layout_constraintTop_toBottomOf="@+id/notice_top_text_notice"
+					app:layout_constraintBottom_toTopOf="@+id/notice_top_text"/>
+
+				<TextView
+					android:id="@+id/notice_top_text"
+					android:layout_marginStart="15dp"
+					android:layout_marginBottom="8dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="공지사항 안내입니다.\n항상 노력하는 대양그룹이 되겠습니다."
+					android:textSize="12dp"
+					android:textColor="#FFFFFF"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/notice_text_line_bottom"
+					app:layout_constraintBottom_toBottomOf="parent"/>
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/notice_top_right"
+				app:layout_constraintHorizontal_weight="1"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:layout_marginEnd="5dp"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layout_constraintStart_toEndOf="@+id/notice_top_left"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+
+				<ImageView
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_margin="7dp"
+					android:background="@drawable/img_notice_icon"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"/>
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/View"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/layout_top"
+		app:layout_constraintBottom_toBottomOf="parent">
+
+		<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/swipeRefreshLayout"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent">
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/list"
+				style="@style/Scrollbar"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:clipToPadding="false"
+				android:clipChildren="false"/>
+
+		</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

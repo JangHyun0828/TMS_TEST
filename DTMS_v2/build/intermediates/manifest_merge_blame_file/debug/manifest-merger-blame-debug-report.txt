@@ -1,0 +1,966 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.neognp.dtmsapp_v1"
+4    android:versionCode="105"
+5    android:versionName="1.0.5" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml
+10
+11    <uses-feature
+11-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:6:5-8:35
+12        android:name="android.hardware.camera"
+12-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:7:9-47
+13        android:required="true" />
+13-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:8:9-32
+14    <uses-feature android:name="android.hardware.camera2.full" />
+14-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:9:5-66
+14-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:9:19-63
+15    <uses-feature android:name="android.hardware.camera.autofocus" />
+15-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:10:5-70
+15-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:10:19-67
+16
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:12:5-67
+17-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:12:22-64
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:13:5-79
+18-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:13:22-76
+19    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+19-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:14:5-75
+19-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:14:22-72
+20    <uses-permission android:name="android.permission.CALL_PHONE" />
+20-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:15:5-69
+20-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:15:22-66
+21    <uses-permission android:name="android.permission.DIAL_PHONE" />
+21-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:16:5-69
+21-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:16:22-66
+22    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+22-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:17:5-80
+22-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:17:22-77
+23    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+23-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:18:5-81
+23-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:18:22-78
+24    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+24-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:19:5-79
+24-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:19:22-76
+25    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+25-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:20:5-81
+25-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:20:22-78
+26    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+26-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:21:5-85
+26-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:21:22-82
+27    <uses-permission android:name="android.permission.VIBRATE" />
+27-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:22:5-66
+27-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:22:22-63
+28    <uses-permission android:name="android.permission.CAMERA" />
+28-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:23:5-64
+28-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:23:22-62
+29    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+29-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:24:5-70
+29-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:24:22-68
+30    <uses-permission android:name="android.permission.WAKE_LOCK" />
+30-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:25:5-68
+30-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:25:22-65
+31    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+31-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:26:5-77
+31-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:26:22-74
+32
+33    <uses-feature
+33-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4ef1d41b8372c49a5651c8fd48bae511\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+34        android:glEsVersion="0x00020000"
+34-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4ef1d41b8372c49a5651c8fd48bae511\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+35        android:required="true" />
+35-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4ef1d41b8372c49a5651c8fd48bae511\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+36    <uses-feature
+36-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:28:5-30:36
+37        android:name="android.hardware.camera.front"
+37-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:29:9-53
+38        android:required="false" />
+38-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:30:9-33
+39    <uses-feature
+39-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:36:5-38:36
+40        android:name="android.hardware.camera.flash"
+40-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:37:9-53
+41        android:required="false" />
+41-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:38:9-33
+42    <uses-feature
+42-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:39:5-41:36
+43        android:name="android.hardware.screen.landscape"
+43-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:40:9-57
+44        android:required="false" />
+44-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:41:9-33
+45    <uses-feature
+45-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:42:5-44:36
+46        android:name="android.hardware.wifi"
+46-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:43:9-45
+47        android:required="false" />
+47-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:44:9-33
+48    <uses-feature
+48-->[com.otaliastudios:cameraview:2.0.0-rc1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9bd3815169b0cb5f8e87e1a4f46a5f5\jetified-cameraview-2.0.0-rc1\AndroidManifest.xml:28:5-30:36
+49        android:name="android.hardware.microphone"
+49-->[com.otaliastudios:cameraview:2.0.0-rc1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9bd3815169b0cb5f8e87e1a4f46a5f5\jetified-cameraview-2.0.0-rc1\AndroidManifest.xml:29:9-51
+50        android:required="false" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+50-->[com.otaliastudios:cameraview:2.0.0-rc1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9bd3815169b0cb5f8e87e1a4f46a5f5\jetified-cameraview-2.0.0-rc1\AndroidManifest.xml:30:9-33
+51    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+51-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:26:5-82
+51-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:26:22-79
+52    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+52-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:26:5-110
+52-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:26:22-107
+53
+54    <application
+54-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:28:5-364:19
+55        android:name="com.neognp.dtmsapp_v1.app.MyApp"
+55-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:29:9-55
+56        android:allowBackup="true"
+56-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:32:9-35
+57        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+57-->[androidx.core:core:1.3.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ae02922172e7f394bc2443a1d9724e61\core-1.3.1\AndroidManifest.xml:24:18-86
+58        android:debuggable="true"
+59        android:hardwareAccelerated="true"
+59-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:33:9-43
+60        android:icon="@drawable/img_logo"
+60-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:31:9-42
+61        android:label="@string/app_name"
+61-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:30:9-41
+62        android:largeHeap="true"
+62-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:35:9-33
+63        android:requestLegacyExternalStorage="true"
+63-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:36:9-52
+64        android:supportsRtl="true"
+64-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:34:9-35
+65        android:testOnly="true"
+66        android:theme="@style/AppTheme"
+66-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:37:9-40
+67        android:usesCleartextTraffic="true" >
+67-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:38:9-44
+68        <uses-library
+68-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:42:9-44:40
+69            android:name="org.apache.http.legacy"
+69-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:43:13-50
+70            android:required="false" />
+70-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:44:13-37
+71
+72        <!-- to support larger/other screen sizes like for Galaxy s8+ or s9+ -->
+73        <meta-data
+73-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:47:9-49:35
+74            android:name="android.max_aspect"
+74-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:48:13-46
+75            android:value="2.1" />
+75-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:49:13-32
+76        <meta-data
+76-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:50:9-52:55
+77            android:name="com.google.android.geo.API_KEY"
+77-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:51:13-58
+78            android:value="@string/google_maps_key" />
+78-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:52:13-52
+79        <!--
+80             Set custom default icon. This is used when no icon is set for incoming notification messages.
+81                See README(https://goo.gl/l4GJaQ) for more.
+82        -->
+83        <meta-data
+83-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:55:9-57:53
+84            android:name="com.google.firebase.messaging.default_notification_icon"
+84-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:56:13-83
+85            android:resource="@drawable/img_logo" />
+85-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:57:13-50
+86        <!--
+87             Set color used with incoming notification messages. This is used when no color is set for the incoming
+88                  notification message. See README(https://goo.gl/6BKBk7) for more.
+89        -->
+90        <meta-data
+90-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:60:9-62:53
+91            android:name="com.google.firebase.messaging.default_notification_color"
+91-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:61:13-84
+92            android:resource="@color/colorAccent" />
+92-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:62:13-50
+93        <meta-data
+93-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:63:9-65:63
+94            android:name="com.google.firebase.messaging.default_notification_channel_id"
+94-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:64:13-89
+95            android:value="@string/notification_channel_id" />
+95-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:65:13-60
+96
+97        <!-- Barcode -->
+98        <meta-data
+98-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:68:9-70:38
+99            android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+99-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:69:13-70
+100            android:value="barcode" />
+100-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:70:13-36
+101
+102        <service android:name="com.neognp.dtmsapp_v1.fcm.MyFirebaseMessagingService" >
+102-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:72:9-76:19
+102-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:72:18-85
+103            <intent-filter>
+103-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:73:13-75:29
+104                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+104-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:74:17-78
+104-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:74:25-75
+105            </intent-filter>
+106        </service>
+107        <service
+107-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:78:9-80:38
+108            android:name="com.neognp.dtmsapp_v1.gps.GpsTrackingService"
+108-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:79:13-72
+109            android:enabled="true" />
+109-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:80:13-35
+110
+111        <!-- 사진 파일 접근 경로 지정 -->
+112        <provider
+113            android:name="androidx.core.content.FileProvider"
+113-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:84:13-62
+114            android:authorities="com.neognp.dtmsapp_v1.provider"
+114-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:85:13-60
+115            android:exported="false"
+115-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:86:13-37
+116            android:grantUriPermissions="true" >
+116-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:87:13-47
+117            <meta-data
+117-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:88:13-90:58
+118                android:name="android.support.FILE_PROVIDER_PATHS"
+118-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:89:17-67
+119                android:resource="@xml/provider_paths" />
+119-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:90:17-55
+120        </provider>
+121
+122        <activity
+122-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:93:9-103:20
+123            android:name="com.neognp.dtmsapp_v1.intro.IntroActivity"
+123-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:94:13-69
+124            android:configChanges="orientation|keyboardHidden|screenSize"
+124-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:95:13-74
+125            android:screenOrientation="portrait" >
+125-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:96:13-49
+126            <intent-filter>
+126-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:97:13-102:29
+127                <action android:name="android.intent.action.VIEW" />
+127-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:98:17-69
+127-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:98:25-66
+128                <action android:name="android.intent.action.MAIN" />
+128-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+128-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+129
+130                <category android:name="android.intent.category.LAUNCHER" />
+130-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:101:17-77
+130-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:101:27-74
+131            </intent-filter>
+132        </activity>
+133        <activity
+133-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:104:9-113:20
+134            android:name="com.neognp.dtmsapp_v1.login.LoginActivity"
+134-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:105:13-69
+135            android:configChanges="orientation|keyboardHidden|screenSize"
+135-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:106:13-74
+136            android:exported="true"
+136-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:109:13-36
+137            android:screenOrientation="portrait"
+137-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:107:13-49
+138            android:windowSoftInputMode="adjustPan" >
+138-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:108:13-52
+139            <intent-filter>
+139-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+140                <action android:name="android.intent.action.MAIN" />
+140-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+140-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+141            </intent-filter>
+142        </activity>
+143
+144        <!-- Car -->
+145        <activity
+145-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:116:9-123:20
+146            android:name="com.neognp.dtmsapp_v1.car.MainActivity"
+146-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:117:13-66
+147            android:configChanges="orientation|keyboardHidden|screenSize"
+147-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:118:13-74
+148            android:screenOrientation="portrait" >
+148-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:119:13-49
+149            <intent-filter>
+149-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+150                <action android:name="android.intent.action.MAIN" />
+150-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+150-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+151            </intent-filter>
+152        </activity>
+153        <activity
+153-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:124:9-131:20
+154            android:name="com.neognp.dtmsapp_v1.car.DispatchRequestActivity"
+154-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:125:13-77
+155            android:configChanges="orientation|keyboardHidden|screenSize"
+155-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:126:13-74
+156            android:screenOrientation="portrait" >
+156-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:127:13-49
+157            <intent-filter>
+157-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+158                <action android:name="android.intent.action.MAIN" />
+158-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+158-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+159            </intent-filter>
+160        </activity>
+161        <activity
+161-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:132:9-139:20
+162            android:name="com.neognp.dtmsapp_v1.car.DispatchListActivity"
+162-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:133:13-74
+163            android:configChanges="orientation|keyboardHidden|screenSize"
+163-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:134:13-74
+164            android:screenOrientation="portrait" >
+164-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:135:13-49
+165            <intent-filter>
+165-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+166                <action android:name="android.intent.action.MAIN" />
+166-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+166-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+167            </intent-filter>
+168        </activity>
+169        <activity
+169-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:140:9-148:20
+170            android:name="com.neognp.dtmsapp_v1.car.PalletOutActivity"
+170-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:141:13-71
+171            android:configChanges="orientation|keyboardHidden|screenSize"
+171-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:142:13-74
+172            android:screenOrientation="portrait"
+172-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:143:13-49
+173            android:windowSoftInputMode="adjustPan" >
+173-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:144:13-52
+174            <intent-filter>
+174-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+175                <action android:name="android.intent.action.MAIN" />
+175-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+175-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+176            </intent-filter>
+177        </activity>
+178        <activity
+178-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:149:9-156:20
+179            android:name="com.neognp.dtmsapp_v1.car.LoadListActivity"
+179-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:150:13-70
+180            android:configChanges="orientation|keyboardHidden|screenSize"
+180-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:151:13-74
+181            android:screenOrientation="portrait" >
+181-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:152:13-49
+182            <intent-filter>
+182-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+183                <action android:name="android.intent.action.MAIN" />
+183-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+183-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+184            </intent-filter>
+185        </activity>
+186        <activity
+186-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:157:9-164:20
+187            android:name="com.neognp.dtmsapp_v1.car.PalletActivity"
+187-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:158:13-68
+188            android:configChanges="orientation|keyboardHidden|screenSize"
+188-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:159:13-74
+189            android:screenOrientation="portrait" >
+189-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:160:13-49
+190            <intent-filter>
+190-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+191                <action android:name="android.intent.action.MAIN" />
+191-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+191-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+192            </intent-filter>
+193        </activity>
+194        <activity
+194-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:165:9-173:20
+195            android:name="com.neognp.dtmsapp_v1.car.PalletInActivity"
+195-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:166:13-70
+196            android:configChanges="orientation|keyboardHidden|screenSize"
+196-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:167:13-74
+197            android:screenOrientation="portrait"
+197-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:168:13-49
+198            android:windowSoftInputMode="adjustPan" >
+198-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:169:13-52
+199            <intent-filter>
+199-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+200                <action android:name="android.intent.action.MAIN" />
+200-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+200-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+201            </intent-filter>
+202        </activity>
+203        <activity
+203-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:174:9-181:20
+204            android:name="com.neognp.dtmsapp_v1.car.PalletCameraActivity"
+204-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:175:13-74
+205            android:configChanges="orientation|keyboardHidden|screenSize"
+205-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:176:13-74
+206            android:screenOrientation="portrait" >
+206-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:177:13-49
+207            <intent-filter>
+207-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+208                <action android:name="android.intent.action.MAIN" />
+208-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+208-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+209            </intent-filter>
+210        </activity>
+211        <activity
+211-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:182:9-189:20
+212            android:name="com.neognp.dtmsapp_v1.car.ReceiptCameraActivity"
+212-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:183:13-75
+213            android:configChanges="orientation|keyboardHidden|screenSize"
+213-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:184:13-74
+214            android:screenOrientation="portrait" >
+214-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:185:13-49
+215            <intent-filter>
+215-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+216                <action android:name="android.intent.action.MAIN" />
+216-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+216-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+217            </intent-filter>
+218        </activity>
+219        <activity
+219-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:190:9-197:20
+220            android:name="com.neognp.dtmsapp_v1.car.RecordListActivity"
+220-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:191:13-72
+221            android:configChanges="orientation|keyboardHidden|screenSize"
+221-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:192:13-74
+222            android:screenOrientation="portrait" >
+222-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:193:13-49
+223            <intent-filter>
+223-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+224                <action android:name="android.intent.action.MAIN" />
+224-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+224-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+225            </intent-filter>
+226        </activity>
+227        <activity
+227-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:198:9-205:20
+228            android:name="com.neognp.dtmsapp_v1.car.RecordDetailActivity"
+228-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:199:13-74
+229            android:configChanges="orientation|keyboardHidden|screenSize"
+229-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:200:13-74
+230            android:screenOrientation="portrait" >
+230-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:201:13-49
+231            <intent-filter>
+231-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+232                <action android:name="android.intent.action.MAIN" />
+232-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+232-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+233            </intent-filter>
+234        </activity>
+235        <activity
+235-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:206:9-213:20
+236            android:name="com.neognp.dtmsapp_v1.car.LocationActivity"
+236-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:207:13-70
+237            android:configChanges="orientation|keyboardHidden|screenSize"
+237-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:208:13-74
+238            android:screenOrientation="portrait" >
+238-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:209:13-49
+239            <intent-filter>
+239-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+240                <action android:name="android.intent.action.MAIN" />
+240-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+240-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+241            </intent-filter>
+242        </activity>
+243        <activity
+243-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:214:9-221:20
+244            android:name="com.neognp.dtmsapp_v1.car.NoticeListActivity"
+244-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:215:13-72
+245            android:configChanges="orientation|keyboardHidden|screenSize"
+245-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:216:13-74
+246            android:screenOrientation="portrait" >
+246-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:217:13-49
+247            <intent-filter>
+247-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+248                <action android:name="android.intent.action.MAIN" />
+248-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+248-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+249            </intent-filter>
+250        </activity>
+251        <activity
+251-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:222:9-229:20
+252            android:name="com.neognp.dtmsapp_v1.car.NoticeDetailActivity"
+252-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:223:13-74
+253            android:configChanges="orientation|keyboardHidden|screenSize"
+253-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:224:13-74
+254            android:screenOrientation="portrait" >
+254-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:225:13-49
+255            <intent-filter>
+255-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+256                <action android:name="android.intent.action.MAIN" />
+256-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+256-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+257            </intent-filter>
+258        </activity>
+259
+260        <!-- Cust -->
+261        <activity
+261-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:232:9-239:20
+262            android:name="com.neognp.dtmsapp_v1.cust.MainActivity"
+262-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:233:13-67
+263            android:configChanges="orientation|keyboardHidden|screenSize"
+263-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:234:13-74
+264            android:screenOrientation="portrait" >
+264-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:235:13-49
+265            <intent-filter>
+265-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+266                <action android:name="android.intent.action.MAIN" />
+266-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+266-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+267            </intent-filter>
+268        </activity>
+269        <activity
+269-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:240:9-247:20
+270            android:name="com.neognp.dtmsapp_v1.cust.DispatchListActivity"
+270-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:241:13-75
+271            android:configChanges="orientation|keyboardHidden|screenSize"
+271-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:242:13-74
+272            android:screenOrientation="portrait" >
+272-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:243:13-49
+273            <intent-filter>
+273-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+274                <action android:name="android.intent.action.MAIN" />
+274-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+274-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+275            </intent-filter>
+276        </activity>
+277        <activity
+277-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:248:9-255:20
+278            android:name="com.neognp.dtmsapp_v1.cust.OrderActivity"
+278-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:249:13-68
+279            android:configChanges="orientation|keyboardHidden|screenSize"
+279-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:250:13-74
+280            android:screenOrientation="portrait" >
+280-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:251:13-49
+281            <intent-filter>
+281-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+282                <action android:name="android.intent.action.MAIN" />
+282-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+282-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+283            </intent-filter>
+284        </activity>
+285        <activity
+285-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:256:9-264:20
+286            android:name="com.neognp.dtmsapp_v1.cust.OrderNewActivity"
+286-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:257:13-71
+287            android:configChanges="orientation|keyboardHidden|screenSize"
+287-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:258:13-74
+288            android:screenOrientation="portrait"
+288-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:259:13-49
+289            android:windowSoftInputMode="adjustPan" >
+289-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:260:13-52
+290            <intent-filter>
+290-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+291                <action android:name="android.intent.action.MAIN" />
+291-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+291-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+292            </intent-filter>
+293        </activity>
+294        <activity
+294-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:265:9-272:20
+295            android:name="com.neognp.dtmsapp_v1.cust.NoticeListActivity"
+295-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:266:13-73
+296            android:configChanges="orientation|keyboardHidden|screenSize"
+296-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:267:13-74
+297            android:screenOrientation="portrait" >
+297-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:268:13-49
+298            <intent-filter>
+298-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+299                <action android:name="android.intent.action.MAIN" />
+299-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+299-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+300            </intent-filter>
+301        </activity>
+302        <activity
+302-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:273:9-280:20
+303            android:name="com.neognp.dtmsapp_v1.cust.NoticeDetailActivity"
+303-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:274:13-75
+304            android:configChanges="orientation|keyboardHidden|screenSize"
+304-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:275:13-74
+305            android:screenOrientation="portrait" >
+305-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:276:13-49
+306            <intent-filter>
+306-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+307                <action android:name="android.intent.action.MAIN" />
+307-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+307-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+308            </intent-filter>
+309        </activity>
+310        <activity
+310-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:281:9-288:20
+311            android:name="com.neognp.dtmsapp_v1.cust.LocationActivity"
+311-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:282:13-71
+312            android:configChanges="orientation|keyboardHidden|screenSize"
+312-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:283:13-74
+313            android:screenOrientation="portrait" >
+313-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:284:13-49
+314            <intent-filter>
+314-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+315                <action android:name="android.intent.action.MAIN" />
+315-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+315-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+316            </intent-filter>
+317        </activity>
+318
+319        <!-- Admin -->
+320        <activity
+320-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:291:9-298:20
+321            android:name="com.neognp.dtmsapp_v1.admin.MainActivity"
+321-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:292:13-68
+322            android:configChanges="orientation|keyboardHidden|screenSize"
+322-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:293:13-74
+323            android:screenOrientation="portrait" >
+323-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:294:13-49
+324            <intent-filter>
+324-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+325                <action android:name="android.intent.action.MAIN" />
+325-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+325-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+326            </intent-filter>
+327        </activity>
+328        <activity
+328-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:299:9-306:20
+329            android:name="com.neognp.dtmsapp_v1.admin.DispatchListActivity"
+329-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:300:13-76
+330            android:configChanges="orientation|keyboardHidden|screenSize"
+330-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:301:13-74
+331            android:screenOrientation="portrait" >
+331-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:302:13-49
+332            <intent-filter>
+332-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+333                <action android:name="android.intent.action.MAIN" />
+333-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+333-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+334            </intent-filter>
+335        </activity>
+336        <activity
+336-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:307:9-314:20
+337            android:name="com.neognp.dtmsapp_v1.admin.LocationActivity"
+337-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:308:13-72
+338            android:configChanges="orientation|keyboardHidden|screenSize"
+338-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:309:13-74
+339            android:screenOrientation="portrait" >
+339-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:310:13-49
+340            <intent-filter>
+340-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+341                <action android:name="android.intent.action.MAIN" />
+341-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+341-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+342            </intent-filter>
+343        </activity>
+344
+345        <!-- Popup -->
+346        <activity
+346-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:317:9-325:20
+347            android:name="com.neognp.dtmsapp_v1.popup.PopClient"
+347-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:318:13-65
+348            android:configChanges="orientation|keyboardHidden|screenSize"
+348-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:319:13-74
+349            android:screenOrientation="portrait"
+349-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:320:13-49
+350            android:windowSoftInputMode="adjustNothing" >
+350-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:321:13-56
+351            <intent-filter>
+351-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+352                <action android:name="android.intent.action.MAIN" />
+352-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+352-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+353            </intent-filter>
+354        </activity>
+355        <activity
+355-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:326:9-334:20
+356            android:name="com.neognp.dtmsapp_v1.popup.PopPallet"
+356-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:327:13-65
+357            android:configChanges="orientation|keyboardHidden|screenSize"
+357-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:328:13-74
+358            android:screenOrientation="portrait"
+358-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:329:13-49
+359            android:windowSoftInputMode="adjustNothing" >
+359-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:330:13-56
+360            <intent-filter>
+360-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+361                <action android:name="android.intent.action.MAIN" />
+361-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+361-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+362            </intent-filter>
+363        </activity>
+364        <activity
+364-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:335:9-343:20
+365            android:name="com.neognp.dtmsapp_v1.popup.PopDept"
+365-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:336:13-63
+366            android:configChanges="orientation|keyboardHidden|screenSize"
+366-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:337:13-74
+367            android:screenOrientation="portrait"
+367-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:338:13-49
+368            android:windowSoftInputMode="adjustNothing" >
+368-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:339:13-56
+369            <intent-filter>
+369-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+370                <action android:name="android.intent.action.MAIN" />
+370-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+370-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+371            </intent-filter>
+372        </activity>
+373        <activity
+373-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:344:9-352:20
+374            android:name="com.neognp.dtmsapp_v1.popup.PopItem"
+374-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:345:13-63
+375            android:configChanges="orientation|keyboardHidden|screenSize"
+375-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:346:13-74
+376            android:screenOrientation="portrait"
+376-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:347:13-49
+377            android:windowSoftInputMode="adjustNothing" >
+377-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:348:13-56
+378            <intent-filter>
+378-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+379                <action android:name="android.intent.action.MAIN" />
+379-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+379-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+380            </intent-filter>
+381        </activity>
+382
+383        <!-- YCar -->
+384        <activity
+384-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:355:9-362:20
+385            android:name="com.neognp.dtmsapp_v1.car.YDispatchListActivity"
+385-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:356:13-75
+386            android:configChanges="orientation|keyboardHidden|screenSize"
+386-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:357:13-74
+387            android:screenOrientation="portrait" >
+387-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:358:13-49
+388            <intent-filter>
+388-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:110:13-112:29
+389                <action android:name="android.intent.action.MAIN" />
+389-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:17-69
+389-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:99:25-66
+390            </intent-filter>
+391        </activity>
+392
+393        <!--
+394             FirebaseMessagingService performs security checks at runtime,
+395             but set to not exported to explicitly avoid allowing another app to call it.
+396        -->
+397        <service
+397-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:28:9-35:19
+398            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+398-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:29:13-82
+399            android:directBootAware="true"
+399-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:30:13-43
+400            android:exported="false" >
+400-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:31:13-37
+401            <intent-filter android:priority="-500" >
+401-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:73:13-75:29
+402                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+402-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:74:17-78
+402-->D:\Android_Project\workspace\DTMS_App2\DTMS_v2\src\main\AndroidManifest.xml:74:25-75
+403            </intent-filter>
+404        </service>
+405        <service
+405-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:36:9-42:19
+406            android:name="com.google.firebase.components.ComponentDiscoveryService"
+406-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:37:13-84
+407            android:directBootAware="true"
+407-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:35:13-43
+408            android:exported="false" >
+408-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:38:13-37
+409            <meta-data
+409-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:39:13-41:85
+410                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+410-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:40:17-119
+411                android:value="com.google.firebase.components.ComponentRegistrar" />
+411-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e8f77954f32bef5c9ac023116cfc3808\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:41:17-82
+412            <meta-data
+412-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:32:13-34:85
+413                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+413-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:33:17-96
+414                android:value="com.google.firebase.components.ComponentRegistrar" />
+414-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:34:17-82
+415            <meta-data
+415-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e53dc49bbf0b3e9e3fb19365a698899f\jetified-firebase-datatransport-17.0.10\AndroidManifest.xml:28:13-30:85
+416                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+416-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e53dc49bbf0b3e9e3fb19365a698899f\jetified-firebase-datatransport-17.0.10\AndroidManifest.xml:29:17-115
+417                android:value="com.google.firebase.components.ComponentRegistrar" />
+417-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e53dc49bbf0b3e9e3fb19365a698899f\jetified-firebase-datatransport-17.0.10\AndroidManifest.xml:30:17-82
+418            <meta-data
+418-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb7b00c327d692b3c8ba5b2488f064aa\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:30:13-32:85
+419                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+419-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb7b00c327d692b3c8ba5b2488f064aa\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:31:17-139
+420                android:value="com.google.firebase.components.ComponentRegistrar" />
+420-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb7b00c327d692b3c8ba5b2488f064aa\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:32:17-82
+421            <meta-data
+421-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f082ed2a0d51df946dc088afef727b92\jetified-firebase-installations-16.3.5\AndroidManifest.xml:18:13-20:85
+422                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+422-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f082ed2a0d51df946dc088afef727b92\jetified-firebase-installations-16.3.5\AndroidManifest.xml:19:17-127
+423                android:value="com.google.firebase.components.ComponentRegistrar" />
+423-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f082ed2a0d51df946dc088afef727b92\jetified-firebase-installations-16.3.5\AndroidManifest.xml:20:17-82
+424            <!--
+425                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+426                clients to use it as well, by defining this registrar in their own core/common library.
+427            -->
+428            <meta-data
+428-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:43:13-45:85
+429                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+429-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:44:17-121
+430                android:value="com.google.firebase.components.ComponentRegistrar" />
+430-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:45:17-82
+431        </service>
+432
+433        <activity
+433-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
+434            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+434-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:48:13-74
+435            android:clearTaskOnLaunch="true"
+435-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:49:13-45
+436            android:screenOrientation="sensorLandscape"
+436-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:50:13-56
+437            android:stateNotNeeded="true"
+437-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:51:13-42
+438            android:theme="@style/zxing_CaptureTheme"
+438-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:52:13-54
+439            android:windowSoftInputMode="stateAlwaysHidden" />
+439-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\61a8e1974b7731431a2b66f81127d425\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:53:13-60
+440        <activity
+440-->[com.karumi:dexter:6.2.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\43ef80f8e474d30492cb3b3be1e126b9\jetified-dexter-6.2.1\AndroidManifest.xml:27:9-29:72
+441            android:name="com.karumi.dexter.DexterActivity"
+441-->[com.karumi:dexter:6.2.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\43ef80f8e474d30492cb3b3be1e126b9\jetified-dexter-6.2.1\AndroidManifest.xml:28:13-60
+442            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+442-->[com.karumi:dexter:6.2.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\43ef80f8e474d30492cb3b3be1e126b9\jetified-dexter-6.2.1\AndroidManifest.xml:29:13-69
+443
+444        <service
+444-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\284b034bd7c06295f17b62bfe1694a38\jetified-play-services-mlkit-barcode-scanning-16.1.3\AndroidManifest.xml:9:9-15:19
+445            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+445-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\284b034bd7c06295f17b62bfe1694a38\jetified-play-services-mlkit-barcode-scanning-16.1.3\AndroidManifest.xml:10:13-91
+446            android:directBootAware="true"
+446-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:17:13-43
+447            android:exported="false" >
+447-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\284b034bd7c06295f17b62bfe1694a38\jetified-play-services-mlkit-barcode-scanning-16.1.3\AndroidManifest.xml:11:13-37
+448            <meta-data
+448-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\284b034bd7c06295f17b62bfe1694a38\jetified-play-services-mlkit-barcode-scanning-16.1.3\AndroidManifest.xml:12:13-14:85
+449                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+449-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\284b034bd7c06295f17b62bfe1694a38\jetified-play-services-mlkit-barcode-scanning-16.1.3\AndroidManifest.xml:13:17-120
+450                android:value="com.google.firebase.components.ComponentRegistrar" />
+450-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\284b034bd7c06295f17b62bfe1694a38\jetified-play-services-mlkit-barcode-scanning-16.1.3\AndroidManifest.xml:14:17-82
+451            <meta-data
+451-->[com.google.mlkit:vision-common:16.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\7e5522cc1da7bd5c59d60f0c6d36c676\jetified-vision-common-16.2.0\AndroidManifest.xml:12:13-14:85
+452                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+452-->[com.google.mlkit:vision-common:16.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\7e5522cc1da7bd5c59d60f0c6d36c676\jetified-vision-common-16.2.0\AndroidManifest.xml:13:17-124
+453                android:value="com.google.firebase.components.ComponentRegistrar" />
+453-->[com.google.mlkit:vision-common:16.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\7e5522cc1da7bd5c59d60f0c6d36c676\jetified-vision-common-16.2.0\AndroidManifest.xml:14:17-82
+454            <meta-data
+454-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:20:13-22:85
+455                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+455-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:21:17-120
+456                android:value="com.google.firebase.components.ComponentRegistrar" />
+456-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:22:17-82
+457        </service>
+458
+459        <provider
+459-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:9:9-13:38
+460            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+460-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:10:13-78
+461            android:authorities="com.neognp.dtmsapp_v1.mlkitinitprovider"
+461-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:11:13-69
+462            android:exported="false"
+462-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:12:13-37
+463            android:initOrder="99" />
+463-->[com.google.mlkit:common:17.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4a0acf1790e34a71931de6af43c906c1\jetified-common-17.1.0\AndroidManifest.xml:13:13-35
+464
+465        <receiver
+465-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:37:9-44:20
+466            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+466-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:38:13-78
+467            android:exported="true"
+467-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:39:13-36
+468            android:permission="com.google.android.c2dm.permission.SEND" >
+468-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:40:13-73
+469            <intent-filter>
+469-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:41:13-43:29
+470                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+470-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:42:17-81
+470-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2410ebdc1b06648bc8b83dbb9f00a030\jetified-firebase-iid-21.0.1\AndroidManifest.xml:42:25-78
+471            </intent-filter>
+472        </receiver>
+473
+474        <activity
+474-->[com.google.android.gms:play-services-base:17.4.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\da06390d70b2bff65741c61450d4b1c0\jetified-play-services-base-17.4.0\AndroidManifest.xml:23:9-26:75
+475            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+475-->[com.google.android.gms:play-services-base:17.4.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\da06390d70b2bff65741c61450d4b1c0\jetified-play-services-base-17.4.0\AndroidManifest.xml:24:13-79
+476            android:exported="false"
+476-->[com.google.android.gms:play-services-base:17.4.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\da06390d70b2bff65741c61450d4b1c0\jetified-play-services-base-17.4.0\AndroidManifest.xml:25:13-37
+477            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+477-->[com.google.android.gms:play-services-base:17.4.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\da06390d70b2bff65741c61450d4b1c0\jetified-play-services-base-17.4.0\AndroidManifest.xml:26:13-72
+478
+479        <receiver
+479-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:29:9-33:20
+480            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+480-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:30:13-85
+481            android:enabled="true"
+481-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:31:13-35
+482            android:exported="false" >
+482-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:32:13-37
+483        </receiver>
+484
+485        <service
+485-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:35:9-38:40
+486            android:name="com.google.android.gms.measurement.AppMeasurementService"
+486-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:36:13-84
+487            android:enabled="true"
+487-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:37:13-35
+488            android:exported="false" />
+488-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:38:13-37
+489        <service
+489-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:39:9-43:72
+490            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+490-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:40:13-87
+491            android:enabled="true"
+491-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:41:13-35
+492            android:exported="false"
+492-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:42:13-37
+493            android:permission="android.permission.BIND_JOB_SERVICE" />
+493-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\33ea633291b32997ea3f4d9543115aa4\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:43:13-69
+494
+495        <provider
+495-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:26:9-31:39
+496            android:name="com.google.firebase.provider.FirebaseInitProvider"
+496-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:27:13-77
+497            android:authorities="com.neognp.dtmsapp_v1.firebaseinitprovider"
+497-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:28:13-72
+498            android:directBootAware="true"
+498-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:29:13-43
+499            android:exported="false"
+499-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:30:13-37
+500            android:initOrder="100" />
+500-->[com.google.firebase:firebase-common:19.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2798f072a4796436c552c8c929e22e83\jetified-firebase-common-19.5.0\AndroidManifest.xml:31:13-36
+501
+502        <meta-data
+502-->[com.google.android.gms:play-services-basement:17.4.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e6656e7ee595835778f13dded72a03c7\jetified-play-services-basement-17.4.0\AndroidManifest.xml:23:9-25:69
+503            android:name="com.google.android.gms.version"
+503-->[com.google.android.gms:play-services-basement:17.4.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e6656e7ee595835778f13dded72a03c7\jetified-play-services-basement-17.4.0\AndroidManifest.xml:24:13-58
+504            android:value="@integer/google_play_services_version" />
+504-->[com.google.android.gms:play-services-basement:17.4.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e6656e7ee595835778f13dded72a03c7\jetified-play-services-basement-17.4.0\AndroidManifest.xml:25:13-66
+505
+506        <service
+506-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ba49f239d60f4ad34f66caff5b65c509\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+507            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+507-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ba49f239d60f4ad34f66caff5b65c509\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+508            android:exported="false" >
+508-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ba49f239d60f4ad34f66caff5b65c509\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+509            <meta-data
+509-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ba49f239d60f4ad34f66caff5b65c509\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+510                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+510-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ba49f239d60f4ad34f66caff5b65c509\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+511                android:value="cct" />
+511-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ba49f239d60f4ad34f66caff5b65c509\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+512        </service>
+513        <service
+513-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c59216d1a4589ed8c47592b2535be367\jetified-transport-runtime-2.2.5\AndroidManifest.xml:26:9-30:19
+514            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+514-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c59216d1a4589ed8c47592b2535be367\jetified-transport-runtime-2.2.5\AndroidManifest.xml:27:13-117
+515            android:exported="false"
+515-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c59216d1a4589ed8c47592b2535be367\jetified-transport-runtime-2.2.5\AndroidManifest.xml:28:13-37
+516            android:permission="android.permission.BIND_JOB_SERVICE" >
+516-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c59216d1a4589ed8c47592b2535be367\jetified-transport-runtime-2.2.5\AndroidManifest.xml:29:13-69
+517        </service>
+518
+519        <receiver
+519-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c59216d1a4589ed8c47592b2535be367\jetified-transport-runtime-2.2.5\AndroidManifest.xml:32:9-34:40
+520            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+520-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c59216d1a4589ed8c47592b2535be367\jetified-transport-runtime-2.2.5\AndroidManifest.xml:33:13-132
+521            android:exported="false" />
+521-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c59216d1a4589ed8c47592b2535be367\jetified-transport-runtime-2.2.5\AndroidManifest.xml:34:13-37
+522    </application>
+523
+524</manifest>

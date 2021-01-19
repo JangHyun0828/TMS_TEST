@@ -1,4 +1,1 @@
-include ':YTMS'
-
-include ':Library'
-project(':Library').projectDir = new File('/../MyAndroidApp/Library')
+include ':DTMS_v2'

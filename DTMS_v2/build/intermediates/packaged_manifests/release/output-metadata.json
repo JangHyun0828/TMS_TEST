@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "PACKAGED_MANIFESTS",
+    "kind": "Directory"
+  },
+  "applicationId": "com.neognp.dtmsapp_v1",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "versionCode": 105,
+      "versionName": "1.0.5",
+      "outputFile": "AndroidManifest.xml"
+    }
+  ]
+}

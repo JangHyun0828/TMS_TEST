@@ -1,0 +1,39 @@
+<resources>
+
+    <string name="app_name">DTMS</string>
+    <string name="copyright">Copyright DYgroup. All rights reserved.</string>
+
+    <string name="confirm">확인</string>
+    <string name="yes">네</string>
+    <string name="no">아니오</string>
+    <string name="cancel">취소</string>
+    <string name="save">저장</string>
+    <string name="exit">종료</string>
+    <string name="select_deliverygb">배송구분</string>
+    <string name="wait_while">잠시만 기다려 주십시요.</string>
+    <string name="exit_app">프로그램을 종료하시겠습니까?</string>
+    <string name="error_network">네트워크 오류</string>
+    <string name="error_response">응답 오류</string>
+    <string name="enable_gps">위치정보 기능이 꺼져 있습니다.\n위치정보 사용을 설정하시겠습니까?</string>
+    <string name="unavailable_camera">카메라 기능을 사용할 수 없습니다.</string>
+
+    <string name="notification_channel_id">DYgroup</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="camera_error">Camera2 API를 지원하지 않는 기기입니다.</string>
+
+</resources>

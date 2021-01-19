@@ -1,0 +1,1906 @@
+[
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_plus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\plus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_re_titl_reset_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\re_titl_reset_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_pin_side.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_pin_side.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border2_white.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border2_white.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu4_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu4_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu3_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu3_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_s_1_phon_1.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_s_1_phon_1.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_plus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\plus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_check.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_check.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_menu_notice.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_menu_notice.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_my_noto_sans_kr_medium_hestia.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\my_noto_sans_kr_medium_hestia.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_noticeup_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_noticeup_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_ptp.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_ptp.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_login.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_login.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_recordlist_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\car_recordlist_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_mypage_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_mypage_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_nanum_square_r.otf.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\nanum_square_r.otf"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_noticedown_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_noticedown_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_pwdchange.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_pwdchange.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_main_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\main_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border_main_call.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border_main_call.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_edit_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_edit_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_calendar_prev.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_calendar_prev.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_pop_up_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_pop_up_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_title_back_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_title_back_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border_light_gray.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border_light_gray.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_date_range_selector.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\date_range_selector.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\anim_slide_in_from_right.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\anim\\slide_in_from_right.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_dispatchlist_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\car_dispatchlist_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_icon_camera.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_icon_camera.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_s_1_phon_1.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_s_1_phon_1.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_noticedown_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_noticedown_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_confirm_cancel_dialog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\confirm_cancel_dialog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_title_back_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_title_back_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu2_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu2_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu4_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu4_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_main_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\main_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_calendar_right_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_calendar_right_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_pop_up_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_pop_up_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_img_noticeup.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_img_noticeup.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_date_check_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\date_check_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_pop_up_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_pop_up_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_noticedown_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_noticedown_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_confirm_cancel_dialog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\confirm_cancel_dialog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_cursor_gray.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\cursor_gray.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_dropdown.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_dropdown.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_title_back_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_title_back_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border1_grey.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border1_grey.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_calendar_right_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_calendar_right_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_menu_manual.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_menu_manual.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_calendar_right_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_calendar_right_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_pop_up_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_pop_up_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_dayoff_circle_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\dayoff_circle_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_menu_close_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_menu_close_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border2_grey.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border2_grey.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu5_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu5_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_s_1_phon_1.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_s_1_phon_1.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_return.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_return.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_pallets_out_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_pallets_out_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_menu_close_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_menu_close_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_calendar_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_calendar_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_noticeup_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_noticeup_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\anim_fade_in.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\anim\\fade_in.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_list_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_list_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_ic_menu_gallery.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_noto_sans_kr_bold_hestia.otf.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\noto_sans_kr_bold_hestia.otf"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_round_gray.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_round_gray.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_pwd_change_dailog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\pwd_change_dailog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_pwd_change_dailog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\pwd_change_dailog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_main_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\main_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_menu_my.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_menu_my.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_title_back_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_title_back_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_save_id_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_save_id_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_login_id_save_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\login_id_save_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_main_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\main_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_dropdown_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\dropdown_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_re_titl_reset_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\re_titl_reset_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_noticedown_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_noticedown_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_date_check_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\date_check_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_title_home_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\title_home_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_menu_my.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_menu_my.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_pwd_change_dailog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\pwd_change_dailog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_menu_manual.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_menu_manual.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_pressed_off.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_pressed_off.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_tmap.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_tmap.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_calendar_right_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_calendar_right_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_dialog.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_dialog.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_cust_main_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\cust_main_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_calendar.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_calendar.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_login_id_save_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\login_id_save_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_refresh_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_refresh_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_title_back_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_title_back_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_dropdown.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_dropdown.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_noticedown_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_noticedown_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_checkbox_black.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_checkbox_black.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_login_id_save_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\login_id_save_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_menu_notice.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_menu_notice.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_pop_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\pop_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_step.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_step.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_cursor_darkgray.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\cursor_darkgray.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_dropdown_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\dropdown_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_dayoff_circle_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\dayoff_circle_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_dropdown_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\dropdown_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_calendar_next.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_calendar_next.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_circle.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_circle.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_my_noto_sans_kr_bold_hestia.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\my_noto_sans_kr_bold_hestia.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_plus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\plus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_location_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\trans\\layout\\location_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_bg_hello_bar.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\bg_hello_bar.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_bg_notice.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\bg_notice.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_dropdown_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\dropdown_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_pop_up_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_pop_up_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_center_m_5_sub_2_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\center_m_5_sub_2_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_notice_list_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\trans\\layout\\notice_list_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_img_intro.jpg.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\img_intro.jpg"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_save_id_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_save_id_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_confirm_cancel_dialog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\confirm_cancel_dialog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_menu_user.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_menu_user.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_calendar_left_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_calendar_left_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_calendar_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_calendar_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_round_navy.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_round_navy.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\color_selector_button_titlebar_text.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\color\\selector_button_titlebar_text.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_pin_side.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_pin_side.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_menu_trans.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_menu_trans.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_ic_menu_camera.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_login_id_save_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\login_id_save_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_mypage_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_mypage_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_back.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_back.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_calendar_left_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_calendar_left_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_dispatch_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_dispatch_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_camera2_fragment.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\trans\\layout\\camera2_fragment.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_tmap.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_tmap.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_pop_up_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_pop_up_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_pressed.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_pressed.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_mypage_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_mypage_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_refresh_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_refresh_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu7_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu7_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border_menu_blue.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border_menu_blue.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_home.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_home.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_ic_menu_slideshow.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_title_back_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_title_back_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu6_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu6_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_selector_confirmtext.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_selector_confirmtext.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_minus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\minus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_calendar_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_calendar_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_pin_side.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_pin_side.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_bg_round_white.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\bg_round_white.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_dropdown.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_dropdown.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_title_home_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\title_home_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_admin_main_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\admin_main_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_title_back_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_title_back_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_main_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\main_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_sharp_gps_off_black_36.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\sharp_gps_off_black_36.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\color_selector_button_main_menu_text.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\color\\selector_button_main_menu_text.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_close.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_close.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_re_titl_reset_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\re_titl_reset_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_menu_manual.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_menu_manual.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_calendar_right_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_calendar_right_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_re_titl_reset_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\re_titl_reset_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_title_home_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\title_home_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu2.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu2.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_ptp.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_ptp.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_title_menu_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\title_menu_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_calendar_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_calendar_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_noticeup_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_noticeup_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_sharp_gps_off_black_36.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\sharp_gps_off_black_36.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_menu_manual.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_menu_manual.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_number_2_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_number_2_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_menu_open.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\popup\\layout\\menu_open.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_plus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\plus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_img_main_profile.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\img_main_profile.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_dropdown_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\dropdown_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu1.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu1.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_my_noto_sans_kr_regular_hestia.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\my_noto_sans_kr_regular_hestia.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_main_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\main_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_number_2_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_number_2_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_step_off.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_step_off.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_position.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_position.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_title_menu_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\title_menu_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_title_home_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\title_home_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_pop_up_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_pop_up_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_notice_list_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\trans\\layout\\notice_list_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_dropdown_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\dropdown_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_login_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_login_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_number_2_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_number_2_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_s_1_phon_1.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_s_1_phon_1.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_menu_notice.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_menu_notice.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_return.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_return.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_pop_client_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\pop_client_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_ptp.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_ptp.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_noticeup_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_noticeup_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_tmap.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_tmap.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_noto_sans_kr_regular_hestia.otf.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\noto_sans_kr_regular_hestia.otf"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_cust_dispatchlist_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\cust_dispatchlist_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_dropdown_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\dropdown_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_noticedown_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_noticedown_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_menu_close_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_menu_close_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_my_nanum_square_eb.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\my_nanum_square_eb.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_pop_up_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_pop_up_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_round_rect_blue.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_round_rect_blue.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_noticedown_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_noticedown_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_pallets_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_pallets_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_list_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_list_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_list_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_list_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_menu_trans.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_menu_trans.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_calendar_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_calendar_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_cursor_white.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\cursor_white.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_menu_user.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_menu_user.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_date_check_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\date_check_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_cust_dispatch_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\cust_dispatch_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_main_menu.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_main_menu.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_center_m_5_sub_2_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\center_m_5_sub_2_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_noticeup_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_noticeup_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_load_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_load_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\anim_slide_out_to_left.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\anim\\slide_out_to_left.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_admin_dispatch_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\admin_dispatch_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_center_m_5_sub_2_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\center_m_5_sub_2_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_confirm_cancel_dialog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\confirm_cancel_dialog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_date_check_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\date_check_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_mypage_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_mypage_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_center_m_5_sub_2_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\center_m_5_sub_2_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_title_menu_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\title_menu_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_dayoff_circle_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\dayoff_circle_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_noticedown_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_noticedown_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_tmap.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_tmap.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_edit_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_edit_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_refresh_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_refresh_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_dropdown.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_dropdown.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_pin_side.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_pin_side.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\xml_provider_paths.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\xml\\provider_paths.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_refresh_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_refresh_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_pwd_change_dailog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\pwd_change_dailog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_icon_camera_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\icon_camera_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_title_back_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_title_back_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_login_id_save_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\login_id_save_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_location_info_dialog.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\location_info_dialog.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_admin_dispatchlist_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\admin_dispatchlist_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_menu_my.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_menu_my.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_menu_user.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_menu_user.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_calendar_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_calendar_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_date_check_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\date_check_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_title_home_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\title_home_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_calendar_left_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_calendar_left_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\color_selector_button_login.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\color\\selector_button_login.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_icon_pallet.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\icon_pallet.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_title_menu_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\title_menu_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_dayoff_circle_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\dayoff_circle_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_noticeup_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_noticeup_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_icon_pallet.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_icon_pallet.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_title_menu_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\title_menu_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_login_id_save_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\login_id_save_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_menu_close_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_menu_close_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_bg_input_rect_round_white_stroke_gray.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\bg_input_rect_round_white_stroke_gray.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_calendar_left_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_calendar_left_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_refresh_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_refresh_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_icon_map_pin.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_icon_map_pin.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_refresh_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_refresh_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_menu_manual.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_menu_manual.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_popup_dept.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\popup_dept.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_number_2_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_number_2_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_dropdown_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\dropdown_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_bg_main_car.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\bg_main_car.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_my_nanum_square_b.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\my_nanum_square_b.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_cust_order_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\cust_order_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_login_id_save_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\login_id_save_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_camera.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_camera.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_center_m_5_sub_2_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\center_m_5_sub_2_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_mypage_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_mypage_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_title_menu_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\title_menu_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_sharp_gps_off_black_36.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\sharp_gps_off_black_36.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border_edit.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border_edit.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_login_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\login\\layout\\login_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_position.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_position.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_pwd_change_dailog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\pwd_change_dailog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_pop_pallet_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\pop_pallet_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_record_detail_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\car_record_detail_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_ic_menu_share.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\ic_menu_share.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_popup_pallet.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\popup_pallet.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_dayoff_circle_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\dayoff_circle_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_img_car.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\img_car.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_pallets_out_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_pallets_out_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_calendar_left_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_calendar_left_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_sharp_gps_off_black_36.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\sharp_gps_off_black_36.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_title_back_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_title_back_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_record_detail_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_record_detail_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_camera.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_camera.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_number_2_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_number_2_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu8.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu8.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_list.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_list.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_calendar_left_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_calendar_left_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_re_titl_reset_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\re_titl_reset_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_check.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_check.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_img_notice_text.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\img_notice_text.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_number_2_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_number_2_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_calendar_left_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_calendar_left_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_main_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\main_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_check.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_check.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_info_dialog.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_info_dialog.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_menu_my.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_menu_my.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_menu_trans.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_menu_trans.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_title_menu_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\title_menu_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_menu_close_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_menu_close_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_minus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\minus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_position.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_position.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_login_id_save_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\login_id_save_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_title_home_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\title_home_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_login_id_save_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\login_id_save_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_selector_text.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_selector_text.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\anim_slide_out_right_anim.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\anim\\slide_out_right_anim.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_calendar_left_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_calendar_left_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_undercontent.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_undercontent.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_check.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_check.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu8_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu8_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_record_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_record_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_calendar_left_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_calendar_left_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_refresh_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_refresh_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_edit_round_normal.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_edit_round_normal.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu3.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu3.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_main_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\main_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_ptp.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_ptp.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_dropdown_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\dropdown_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_re_titl_reset_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\re_titl_reset_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_calendar_right_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_calendar_right_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_center_m_5_sub_2_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\center_m_5_sub_2_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_pressed_on.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_pressed_on.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_menu_notice.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_menu_notice.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_minus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\minus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_date_check_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\date_check_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_noticeup_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_noticeup_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_cust_order_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\cust_order_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_calendar_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_calendar_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_center_m_5_sub_2_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\center_m_5_sub_2_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_noticeup_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_noticeup_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_main_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\car_main_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_popup_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\popup_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_re_titl_reset_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\re_titl_reset_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_step_on.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_step_on.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_number_2_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_number_2_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\color_selector_button_main_menu_icon_text.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\color\\selector_button_main_menu_icon_text.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_img_notice_icon.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\img_notice_icon.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_edit_round_main.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_edit_round_main.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_mypage_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_mypage_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_dayoff_circle_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\dayoff_circle_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\anim_fade_out.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\anim\\fade_out.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_title_menu_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\title_menu_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_dropdown_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\dropdown_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_camera.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_camera.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_cust_order_new_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\cust_order_new_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_refresh_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_refresh_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_calendar_right_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_calendar_right_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_title_home_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\title_home_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_calendar_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_calendar_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_calendar_left_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_calendar_left_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_date_check_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\date_check_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_noto_sans_kr_medium_hestia.otf.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\noto_sans_kr_medium_hestia.otf"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_menu_close_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_menu_close_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_notice_detail_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\trans\\layout\\notice_detail_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_location_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\trans\\layout\\car_location_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_pallet_camera_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\trans\\layout\\pallet_camera_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu5.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu5.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_center_m_5_sub_2_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\center_m_5_sub_2_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_dispatch_request_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\car_dispatch_request_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_ic_menu_manage.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\ic_menu_manage.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_main_arrow_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\main_arrow_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\color_selector_button_sub_menu_text.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\color\\selector_button_sub_menu_text.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_edit_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_edit_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_edit_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_edit_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_title_home_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\title_home_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_saveid.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_saveid.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_title_back_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_title_back_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_mypage_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_mypage_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_pallets_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_pallets_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu4.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu4.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_receipt_camera_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\trans\\layout\\receipt_camera_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu7_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu7_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_menu_close_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_menu_close_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_selector_radio.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\selector_radio.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_title_menu_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\title_menu_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_number_2_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_number_2_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_edit_line_gray.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_edit_line_gray.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_calendar_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_calendar_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_list_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_list_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_menu_user.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_menu_user.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_img_out.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\img_out.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_re_titl_reset_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\re_titl_reset_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu2_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu2_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_pop_dept_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\pop_dept_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_menu_close_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_menu_close_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_nanum_square_eb.otf.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\nanum_square_eb.otf"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_list_item.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_list_item.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_calendar_right_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_calendar_right_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_return.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_return.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_icon_pin.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\icon_pin.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border_list.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border_list.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_menu_close_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_menu_close_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_center_m_5_sub_2_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\center_m_5_sub_2_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_menu_close_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_menu_close_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_pallets_in_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\car_pallets_in_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_check.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_check.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_list_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_list_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_tmap.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_tmap.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_mypage_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_mypage_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_menu_trans.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_menu_trans.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_date_check_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\date_check_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_calendar_right_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_calendar_right_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_minus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\minus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_edit_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_edit_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_s_1_phon_1.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_s_1_phon_1.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border_textview.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border_textview.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_mypage_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_mypage_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_my_nanum_square_r.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\my_nanum_square_r.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_minus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\minus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_noticedown_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_noticedown_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_noticeup_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_noticeup_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_pop_up_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_pop_up_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_noticedown_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_noticedown_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_title_home_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\title_home_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_img_logo.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\img_logo.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_mypage_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_mypage_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_title_menu_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\title_menu_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_sharp_gps_off_black_36.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\sharp_gps_off_black_36.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_title_home_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\title_home_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_login_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_login_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu3_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu3_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_re_titl_reset_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\re_titl_reset_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_confirm_cancel_dialog.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\confirm_cancel_dialog.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu8_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu8_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_car_loadlist_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\car_loadlist_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_dayoff_circle_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\dayoff_circle_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_refresh.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_refresh.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_calendar_1_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_calendar_1_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_calendar_right_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_calendar_right_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu7.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu7.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_re_titl_reset_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\re_titl_reset_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_img_noticedown.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_img_noticedown.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\font_nanum_square_b.otf.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\font\\nanum_square_b.otf"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_img_menu_trans.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\img_menu_trans.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_date_check_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\date_check_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_intro_activity.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\intro\\layout\\intro_activity.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_img_position.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\img_position.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_btn_refresh_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\btn_refresh_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_dayoff_circle_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\dayoff_circle_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_camera.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_camera.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_login_id_save_box_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\login_id_save_box_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_bg_login.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\bg_login.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_return.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_return.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_btn_number_2_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\btn_number_2_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_password_change_dialog.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\popup\\layout\\password_change_dialog.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_pin_side.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_pin_side.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_icon_camera_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\icon_camera_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_return.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_return.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_camera.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_camera.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_menu_user.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_menu_user.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_date_check_box_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\date_check_box_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_refresh_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_refresh_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_center_m_5_sub_2_1_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\center_m_5_sub_2_1_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_plus.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxxhdpi\\plus.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_menu_notice.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_menu_notice.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_main_arrow_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\main_arrow_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu6_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu6_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_ptp.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_ptp.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\layout_popup_client.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\layouts\\dispatch\\layout\\popup_client.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_btn_pop_up_on.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\btn_pop_up_on.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_img_noticeup_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xhdpi\\img_noticeup_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_btn_number_2_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\btn_number_2_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu6.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu6.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_img_menu_my.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-xxhdpi\\img_menu_my.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_selector_button_menu.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\selector_button_menu.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_btn_dropdown.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-hdpi\\btn_dropdown.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_img_position.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable-mdpi\\img_position.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_ic_menu_send.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\ic_menu_send.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_btn_menu5_off.png.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\btn_menu5_off.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\build\\intermediates\\res\\merged\\release\\drawable_border1_white.xml.flat",
+        "source": "D:\\Android_Project\\workspace\\DTMS_App2\\DTMS_v2\\src\\main\\res\\drawable\\border1_white.xml"
+    }
+]

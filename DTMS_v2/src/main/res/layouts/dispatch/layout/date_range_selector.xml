@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#FFFFFF">
+
+    <ImageButton
+        android:id="@+id/prevDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:src="@drawable/selector_button_calendar_prev"
+        android:background="@null"
+        android:onClick="onClick"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/fromDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingTop="1dp"
+        android:textSize="16sp"
+        android:textColor="#323332"
+        android:text="0000.00.00"
+        android:background="@null"
+        android:onClick="onClick"
+        app:fontFamily="@font/my_nanum_square_r"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fromCalIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/fromCalIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6.7dp"
+        android:layout_marginBottom="2dp"
+        android:src="@drawable/selector_button_calendar"
+        app:layout_constraintStart_toEndOf="@id/fromDateBtn"
+        app:layout_constraintEnd_toStartOf="@id/dateDividerTxt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/dateDividerTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="7.7dp"
+        android:textSize="16sp"
+        android:textColor="#323332"
+        android:text="~"
+        app:fontFamily="@font/my_nanum_square_r"
+        app:layout_constraintStart_toEndOf="@id/fromCalIcon"
+        app:layout_constraintEnd_toStartOf="@id/toDateBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/toDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingTop="1dp"
+        android:textSize="16sp"
+        android:textColor="#323332"
+        android:text="0000.00.00"
+        android:background="@null"
+        android:onClick="onClick"
+        app:fontFamily="@font/my_nanum_square_r"
+        app:layout_constraintStart_toEndOf="@id/dateDividerTxt"
+        app:layout_constraintEnd_toStartOf="@id/toCalIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/toCalIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6.7dp"
+        android:layout_marginBottom="2dp"
+        android:src="@drawable/selector_button_calendar"
+        app:layout_constraintStart_toEndOf="@id/toDateBtn"
+      app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageButton
+        android:id="@+id/nextDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:src="@drawable/selector_button_calendar_next"
+        android:background="@null"
+        android:onClick="onClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

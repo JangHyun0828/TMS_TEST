@@ -1,0 +1,126 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android
+{
+//    compileSdkVersion 29 // Oreo 8.1
+    compileSdkVersion 30 // R 11.0
+
+//    buildToolsVersion '29.0.3'
+    buildToolsVersion "30.0.0"
+
+    defaultConfig
+    {
+        applicationId "com.neognp.dtmsapp_v1"
+        minSdkVersion 21 // Lollipop 5.0
+        //noinspection OldTargetApi
+//        targetSdkVersion 29 // Oreo 8.1
+        targetSdkVersion 30 // R 11.0
+        versionCode 105
+        versionName "1.0.5"
+        multiDexEnabled true
+    }
+
+    buildTypes
+    {
+        debug
+        {
+            minifyEnabled false
+
+            // 개발시 주석 해제
+            debuggable true
+
+            // 배포시 주석 해제
+//            debuggable false // 배포시 반드시 false 변경: 디버그 메시지 노출되지 않게 설정
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release
+        {
+            minifyEnabled true
+            debuggable false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.config
+        }
+    }
+
+    lintOptions
+    {
+        abortOnError false // 에러 발생해도 빌드 계속
+        checkReleaseBuilds false // 에러 로그 미표시
+    }
+
+    sourceSets
+    {
+        main
+        {
+            res.srcDirs =
+            [
+                'src/main/res',
+                'src/main/res/layouts',
+                'src/main/res/layouts/popup',
+                'src/main/res/layouts/intro',
+                'src/main/res/layouts/login',
+                'src/main/res/layouts/dispatch',
+                'src/main/res/layouts/trans'
+            ]
+        }
+    }
+    compileOptions
+    {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies
+{
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // 라이브러리 프로젝트 연동 방식
+    // implementation project(':Library')
+    implementation(name: 'Library-debug', ext: 'aar')
+    //noinspection GradleDependency
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // CAUTION com.google.android.gms 모듈별 버전: https://developers.google.com/android/guides/setup#split
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
+    // CAUTION Firebase 모듈별 버전: https://firebase.google.com/support/release-notes/android
+    // CAUTION root>build.gradle: maven { url 'https://maven.google.com' } 선언되어야 함
+    implementation 'com.google.firebase:firebase-core:18.0.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+
+    // For Barcode
+    //implementation 'com.google.firebase:firebase-ml-vision:24.1.0'
+    //implementation 'com.google.firebase:firebase-ml-vision-barcode-model:16.1.2'
+    implementation 'com.google.mlkit:barcode-scanning:16.1.0'
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+    implementation 'com.google.zxing:core:3.4.0'
+    implementation 'com.karumi:dexter:6.2.1'
+    implementation 'com.otaliastudios:cameraview:2.0.0-rc1'
+
+    //noinspection GradleCompatible
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation 'com.ssomai:android.scalablelayout:2.1.6'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation files('libs/com.skt.Tmap_1.60.jar')
+
+    // https://github.com/bumptech/glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.camera:camera-camera2:1.0.0-rc01'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.bumptech.glide:annotations:4.11.0'
+}
+
+apply plugin: 'com.google.gms.google-services' // CAUTION 맨 밑에 선언해야 버전 에러 발생 안함
+
